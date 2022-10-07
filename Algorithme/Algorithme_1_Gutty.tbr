@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!DOCTYPE Tabula_Rasa>
+<Algorithme>
+  <nom>Algorithme</nom>
+  <date_creation>7/10/2022 14:19</date_creation>
+  <Elements>
+    <Action>
+      <Position>618;12</Position>
+      <StyleLien>2</StyleLien>
+      <PreAssertion>listeIngredients</PreAssertion>
+      <PostAssertion>listeRecettePrecise,
+listeRecetteSuggestion</PostAssertion>
+      <Titre>Recherche de recette</Titre>
+      <DetailsVisible>1</DetailsVisible>
+      <DetailsVideVisible>1</DetailsVideVisible>
+      <Enfants>
+        <Action>
+          <Position>182;196</Position>
+          <StyleLien>2</StyleLien>
+          <PreAssertion>listeIngredients</PreAssertion>
+          <PostAssertion>listeRecettePrecise</PostAssertion>
+          <Titre>Chercher recette précise</Titre>
+          <DetailsVisible>1</DetailsVisible>
+          <DetailsVideVisible>1</DetailsVideVisible>
+          <Enfants>
+            <Action>
+              <Position>9;490</Position>
+              <StyleLien>1</StyleLien>
+              <PreAssertion>listeIngredient</PreAssertion>
+              <PostAssertion>resultatRequete</PostAssertion>
+              <Titre>chercher dans BDD recette avec listeIngredient</Titre>
+              <DetailsVisible>1</DetailsVisible>
+              <DetailsVideVisible>1</DetailsVideVisible>
+              <Enfants/>
+            </Action>
+            <Action>
+              <Position>797;492</Position>
+              <StyleLien>1</StyleLien>
+              <PreAssertion>?</PreAssertion>
+              <PostAssertion>listeRecettePrecise</PostAssertion>
+              <Titre>Mettre resultat dans listeRecettePrecise</Titre>
+              <DetailsVisible>1</DetailsVisible>
+              <DetailsVideVisible>0</DetailsVideVisible>
+              <Enfants/>
+            </Action>
+          </Enfants>
+        </Action>
+        <Action>
+          <Position>1089;261</Position>
+          <StyleLien>1</StyleLien>
+          <PreAssertion>listeIngredients</PreAssertion>
+          <PostAssertion>listeRecetteSuggestion</PostAssertion>
+          <Titre>Generer les suggestions</Titre>
+          <DetailsVisible>1</DetailsVisible>
+          <DetailsVideVisible>1</DetailsVideVisible>
+          <Enfants/>
+        </Action>
+      </Enfants>
+    </Action>
+  </Elements>
+  <Dictionary/>
+</Algorithme>
