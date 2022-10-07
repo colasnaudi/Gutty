@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!DOCTYPE Tabula_Rasa>
+<Algorithme>
+  <nom>Algorithme_2_suggestion_Gutty</nom>
+  <date_creation>7/10/2022 14:36</date_creation>
+  <Elements>
+    <Action>
+      <Position>474;32</Position>
+      <StyleLien>2</StyleLien>
+      <PreAssertion>listeIngredients</PreAssertion>
+      <PostAssertion>listeRecetteSuggestion</PostAssertion>
+      <Titre>Generer les suggestions</Titre>
+      <DetailsVisible>1</DetailsVisible>
+      <DetailsVideVisible>1</DetailsVideVisible>
+      <Enfants>
+        <Action>
+          <Position>251;213</Position>
+          <StyleLien>2</StyleLien>
+          <PreAssertion>listeIngredients</PreAssertion>
+          <PostAssertion>listeRecetteSuggestion</PostAssertion>
+          <Titre>Suggestion simple</Titre>
+          <DetailsVisible>1</DetailsVisible>
+          <DetailsVideVisible>1</DetailsVideVisible>
+          <Enfants>
+            <Action>
+              <Position>48;415</Position>
+              <StyleLien>1</StyleLien>
+              <PreAssertion>listeIngredient</PreAssertion>
+              <PostAssertion>listeDesCombinaisons</PostAssertion>
+              <Titre>Faire les combinaisons possibles</Titre>
+              <DetailsVisible>1</DetailsVisible>
+              <DetailsVideVisible>1</DetailsVideVisible>
+              <Enfants/>
+            </Action>
+            <Action>
+              <Position>789;415</Position>
+              <StyleLien>1</StyleLien>
+              <PreAssertion>?</PreAssertion>
+              <PostAssertion>dicoCombinaisons</PostAssertion>
+              <Titre>Création du dico</Titre>
+              <DetailsVisible>1</DetailsVisible>
+              <DetailsVideVisible>0</DetailsVideVisible>
+              <Enfants/>
+            </Action>
+            <Action>
+              <Position>1173;414</Position>
+              <StyleLien>1</StyleLien>
+              <PreAssertion>?</PreAssertion>
+              <PostAssertion>listeRecetteSuggestion</PostAssertion>
+              <Titre>Trier par combinaison</Titre>
+              <DetailsVisible>1</DetailsVisible>
+              <DetailsVideVisible>0</DetailsVideVisible>
+              <Enfants/>
+            </Action>
+          </Enfants>
+        </Action>
+        <Action>
+          <Position>1039;209</Position>
+          <StyleLien>1</StyleLien>
+          <PreAssertion>∅</PreAssertion>
+          <PostAssertion>∅</PostAssertion>
+          <Titre>Suggestion complexes</Titre>
+          <DetailsVisible>0</DetailsVisible>
+          <DetailsVideVisible>1</DetailsVideVisible>
+          <Enfants/>
+        </Action>
+      </Enfants>
+    </Action>
+  </Elements>
+  <Dictionary/>
+</Algorithme>
