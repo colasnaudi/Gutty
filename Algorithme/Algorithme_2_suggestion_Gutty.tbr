@@ -2,52 +2,54 @@
 <!DOCTYPE Tabula_Rasa>
 <Algorithme>
   <nom>Algorithme_2_suggestion_Gutty</nom>
-  <date_creation>7/10/2022 14:36</date_creation>
+  <date_creation>7/11/2022 16:40</date_creation>
   <Elements>
     <Action>
-      <Position>474;32</Position>
+      <Position>1377;17</Position>
       <StyleLien>2</StyleLien>
       <PreAssertion>listeIngredients</PreAssertion>
-      <PostAssertion>listeRecetteSuggestion</PostAssertion>
+      <PostAssertion>listeSuggestionSimple,
+listeSuggestionComplexe</PostAssertion>
       <Titre>Generer les suggestions</Titre>
       <DetailsVisible>1</DetailsVisible>
       <DetailsVideVisible>1</DetailsVideVisible>
       <Enfants>
         <Action>
-          <Position>251;213</Position>
+          <Position>599;213</Position>
           <StyleLien>2</StyleLien>
           <PreAssertion>listeIngredients</PreAssertion>
-          <PostAssertion>listeRecetteSuggestion</PostAssertion>
+          <PostAssertion>listeSuggestionSimple,
+listeCombinaison</PostAssertion>
           <Titre>Suggestion simple</Titre>
           <DetailsVisible>1</DetailsVisible>
           <DetailsVideVisible>1</DetailsVideVisible>
           <Enfants>
             <Action>
-              <Position>48;415</Position>
+              <Position>4;364</Position>
               <StyleLien>1</StyleLien>
               <PreAssertion>listeIngredient</PreAssertion>
-              <PostAssertion>listeDesCombinaisons</PostAssertion>
+              <PostAssertion>listeCombinaisons</PostAssertion>
               <Titre>Faire les combinaisons possibles</Titre>
               <DetailsVisible>1</DetailsVisible>
               <DetailsVideVisible>1</DetailsVideVisible>
               <Enfants/>
             </Action>
             <Action>
-              <Position>789;415</Position>
+              <Position>1164;364</Position>
               <StyleLien>1</StyleLien>
               <PreAssertion>?</PreAssertion>
-              <PostAssertion>dicoCombinaisons</PostAssertion>
-              <Titre>Création du dico</Titre>
+              <PostAssertion>listeSuggestionSimple</PostAssertion>
+              <Titre>Trier par combinaison</Titre>
               <DetailsVisible>1</DetailsVisible>
               <DetailsVideVisible>0</DetailsVideVisible>
               <Enfants/>
             </Action>
             <Action>
-              <Position>1173;414</Position>
+              <Position>616;366</Position>
               <StyleLien>1</StyleLien>
               <PreAssertion>?</PreAssertion>
-              <PostAssertion>listeRecetteSuggestion</PostAssertion>
-              <Titre>Trier par combinaison</Titre>
+              <PostAssertion>dicoCombinaisons</PostAssertion>
+              <Titre>Création du dico nbRecette par combinaison</Titre>
               <DetailsVisible>1</DetailsVisible>
               <DetailsVideVisible>0</DetailsVideVisible>
               <Enfants/>
@@ -55,14 +57,233 @@
           </Enfants>
         </Action>
         <Action>
-          <Position>1039;209</Position>
-          <StyleLien>1</StyleLien>
-          <PreAssertion>∅</PreAssertion>
-          <PostAssertion>∅</PostAssertion>
+          <Position>2100;214</Position>
+          <StyleLien>2</StyleLien>
+          <PreAssertion>listeCombinaison</PreAssertion>
+          <PostAssertion>listeSuggestionComplexe</PostAssertion>
           <Titre>Suggestion complexes</Titre>
-          <DetailsVisible>0</DetailsVisible>
+          <DetailsVisible>1</DetailsVisible>
           <DetailsVideVisible>1</DetailsVideVisible>
-          <Enfants/>
+          <Enfants>
+            <Action>
+              <Position>1632;374</Position>
+              <StyleLien>2</StyleLien>
+              <PreAssertion>?</PreAssertion>
+              <PostAssertion>prixOK</PostAssertion>
+              <Titre>Initialisation des variables</Titre>
+              <DetailsVisible>1</DetailsVisible>
+              <DetailsVideVisible>0</DetailsVideVisible>
+              <Enfants>
+                <Action>
+                  <Position>1417;519</Position>
+                  <StyleLien>1</StyleLien>
+                  <PreAssertion>∅</PreAssertion>
+                  <PostAssertion>∅</PostAssertion>
+                  <Titre>prixOk ← True</Titre>
+                  <DetailsVisible>0</DetailsVisible>
+                  <DetailsVideVisible>1</DetailsVideVisible>
+                  <Enfants/>
+                </Action>
+                <Action>
+                  <Position>1599;525</Position>
+                  <StyleLien>1</StyleLien>
+                  <PreAssertion>∅</PreAssertion>
+                  <PostAssertion>∅</PostAssertion>
+                  <Titre>nbCombinaison ← len(listeCombinaison) - 1</Titre>
+                  <DetailsVisible>0</DetailsVisible>
+                  <DetailsVideVisible>0</DetailsVideVisible>
+                  <Enfants/>
+                </Action>
+                <Action>
+                  <Position>1988;522</Position>
+                  <StyleLien>1</StyleLien>
+                  <PreAssertion>∅</PreAssertion>
+                  <PostAssertion>∅</PostAssertion>
+                  <Titre>listeSuggestionComplexe ← []</Titre>
+                  <DetailsVisible>0</DetailsVisible>
+                  <DetailsVideVisible>1</DetailsVideVisible>
+                  <Enfants/>
+                </Action>
+              </Enfants>
+            </Action>
+            <Action>
+              <Position>2580;454</Position>
+              <StyleLien>2</StyleLien>
+              <PreAssertion>listeSuggestionComplexe</PreAssertion>
+              <PostAssertion>listeSuggestionComplexe</PostAssertion>
+              <Titre>Creation des suggestions complexe</Titre>
+              <DetailsVisible>1</DetailsVisible>
+              <DetailsVideVisible>0</DetailsVideVisible>
+              <Enfants>
+                <Iteration>
+                  <Position>2932.5;610.5</Position>
+                  <StyleLien>1</StyleLien>
+                  <Titre>Pour i allant de 0 à nbCombinaison</Titre>
+                  <IterationFixe>1</IterationFixe>
+                  <Enfants>
+                    <Action>
+                      <Position>2809;726</Position>
+                      <StyleLien>2</StyleLien>
+                      <PreAssertion>∅</PreAssertion>
+                      <PostAssertion>∅</PostAssertion>
+                      <Titre>Ajout d'ingredient à la combinaison</Titre>
+                      <DetailsVisible>0</DetailsVisible>
+                      <DetailsVideVisible>1</DetailsVideVisible>
+                      <Enfants>
+                        <Iteration>
+                          <Position>2934.5;848.5</Position>
+                          <StyleLien>1</StyleLien>
+                          <Titre>?</Titre>
+                          <IterationFixe>1</IterationFixe>
+                          <Enfants>
+                            <Action>
+                              <Position>2261;944</Position>
+                              <StyleLien>2</StyleLien>
+                              <PreAssertion>listeCombinaison,
+listeSuggestionComplexe,
+prixOk
+</PreAssertion>
+                              <PostAssertion>listeSuggestionComplexe</PostAssertion>
+                              <Titre>Ajout d'ingredient dans la combinaison actuelle</Titre>
+                              <DetailsVisible>1</DetailsVisible>
+                              <DetailsVideVisible>1</DetailsVideVisible>
+                              <Enfants>
+                                <Iteration>
+                                  <Position>2664.5;1108.5</Position>
+                                  <StyleLien>1</StyleLien>
+                                  <Titre>Pour j allant de 0 à nbIngredient - 1</Titre>
+                                  <IterationFixe>1</IterationFixe>
+                                  <Enfants>
+                                    <Condition>
+                                      <Position>2532.5;1212</Position>
+                                      <StyleLien>1</StyleLien>
+                                      <estUnique>1</estUnique>
+                                      <operationsLogiques>
+                                        <operation>
+                                          <Titre>ingredient[j] not in listeIngredient</Titre>
+                                          <Enfants>
+                                            <Action>
+                                              <Position>2024;1391</Position>
+                                              <StyleLien>1</StyleLien>
+                                              <PreAssertion>listeCombinaison</PreAssertion>
+                                              <PostAssertion>listeCombinaison</PostAssertion>
+                                              <Titre>Ajouter listeCombinaison[i]+ingredient[j] à listeCombinaison</Titre>
+                                              <DetailsVisible>1</DetailsVisible>
+                                              <DetailsVideVisible>1</DetailsVideVisible>
+                                              <Enfants/>
+                                            </Action>
+                                            <Condition>
+                                              <Position>2836.5;1395</Position>
+                                              <StyleLien>1</StyleLien>
+                                              <estUnique>1</estUnique>
+                                              <operationsLogiques>
+                                                <operation>
+                                                  <Titre>Si recette existe et prix &lt; 10</Titre>
+                                                  <Enfants>
+                                                    <Action>
+                                                      <Position>2671;1571</Position>
+                                                      <StyleLien>1</StyleLien>
+                                                      <PreAssertion>?</PreAssertion>
+                                                      <PostAssertion>?</PostAssertion>
+                                                      <Titre>Ajouter dans listeSuggestionComplexe</Titre>
+                                                      <DetailsVisible>0</DetailsVisible>
+                                                      <DetailsVideVisible>1</DetailsVideVisible>
+                                                      <Enfants/>
+                                                    </Action>
+                                                    <Action>
+                                                      <Position>3025;1574</Position>
+                                                      <StyleLien>1</StyleLien>
+                                                      <PreAssertion>∅</PreAssertion>
+                                                      <PostAssertion>∅</PostAssertion>
+                                                      <Titre>prixOK ← True</Titre>
+                                                      <DetailsVisible>0</DetailsVisible>
+                                                      <DetailsVideVisible>1</DetailsVideVisible>
+                                                      <Enfants/>
+                                                    </Action>
+                                                  </Enfants>
+                                                </operation>
+                                                <operation>
+                                                  <Titre>Sinon</Titre>
+                                                  <Enfants/>
+                                                </operation>
+                                              </operationsLogiques>
+                                            </Condition>
+                                          </Enfants>
+                                        </operation>
+                                        <operation>
+                                          <Titre>Sinon</Titre>
+                                          <Enfants/>
+                                        </operation>
+                                      </operationsLogiques>
+                                    </Condition>
+                                  </Enfants>
+                                </Iteration>
+                              </Enfants>
+                            </Action>
+                            <Condition>
+                              <Position>3182.5;957</Position>
+                              <StyleLien>1</StyleLien>
+                              <estUnique>1</estUnique>
+                              <operationsLogiques>
+                                <operation>
+                                  <Titre>prixOk = False</Titre>
+                                  <Enfants>
+                                    <Sortie>
+                                      <Position>3245;1108</Position>
+                                    </Sortie>
+                                  </Enfants>
+                                </operation>
+                                <operation>
+                                  <Titre>Sinon</Titre>
+                                  <Enfants/>
+                                </operation>
+                              </operationsLogiques>
+                            </Condition>
+                            <Action>
+                              <Position>3393;946</Position>
+                              <StyleLien>1</StyleLien>
+                              <PreAssertion>∅</PreAssertion>
+                              <PostAssertion>∅</PostAssertion>
+                              <Titre>prixOk ← False</Titre>
+                              <DetailsVisible>0</DetailsVisible>
+                              <DetailsVideVisible>1</DetailsVideVisible>
+                              <Enfants/>
+                            </Action>
+                          </Enfants>
+                        </Iteration>
+                      </Enfants>
+                    </Action>
+                  </Enfants>
+                </Iteration>
+              </Enfants>
+            </Action>
+            <Action>
+              <Position>3679;442</Position>
+              <StyleLien>2</StyleLien>
+              <PreAssertion>∅</PreAssertion>
+              <PostAssertion>∅</PostAssertion>
+              <Titre>Trier liste</Titre>
+              <DetailsVisible>0</DetailsVisible>
+              <DetailsVideVisible>0</DetailsVideVisible>
+              <Enfants>
+                <Condition>
+                  <Position>3349.5;585</Position>
+                  <StyleLien>1</StyleLien>
+                  <estUnique>0</estUnique>
+                  <operationsLogiques>
+                    <operation>
+                      <Titre>Trier par nb ingredient demander puis par prix</Titre>
+                      <Enfants/>
+                    </operation>
+                    <operation>
+                      <Titre>Trier par nb ingredient et prix en meme temps</Titre>
+                      <Enfants/>
+                    </operation>
+                  </operationsLogiques>
+                </Condition>
+              </Enfants>
+            </Action>
+          </Enfants>
         </Action>
       </Enfants>
     </Action>
