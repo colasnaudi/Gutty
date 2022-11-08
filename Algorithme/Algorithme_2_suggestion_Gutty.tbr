@@ -2,7 +2,7 @@
 <!DOCTYPE Tabula_Rasa>
 <Algorithme>
   <nom>Algorithme_2_suggestion_Gutty</nom>
-  <date_creation>7/11/2022 16:40</date_creation>
+  <date_creation>8/11/2022 10:07</date_creation>
   <Elements>
     <Action>
       <Position>1377;17</Position>
@@ -69,7 +69,9 @@ listeCombinaison</PostAssertion>
               <Position>1632;374</Position>
               <StyleLien>2</StyleLien>
               <PreAssertion>?</PreAssertion>
-              <PostAssertion>prixOK</PostAssertion>
+              <PostAssertion>prixOK,
+nbCombinaison,
+listeSuggestionComplexe</PostAssertion>
               <Titre>Initialisation des variables</Titre>
               <DetailsVisible>1</DetailsVisible>
               <DetailsVideVisible>0</DetailsVideVisible>
@@ -109,7 +111,10 @@ listeCombinaison</PostAssertion>
             <Action>
               <Position>2580;454</Position>
               <StyleLien>2</StyleLien>
-              <PreAssertion>listeSuggestionComplexe</PreAssertion>
+              <PreAssertion>listeSuggestionComplexe,
+listeCombinaison,
+nbCombinaison,
+prixOk</PreAssertion>
               <PostAssertion>listeSuggestionComplexe</PostAssertion>
               <Titre>Creation des suggestions complexe</Titre>
               <DetailsVisible>1</DetailsVisible>
@@ -191,7 +196,7 @@ prixOk
                                                       <Enfants/>
                                                     </Action>
                                                     <Action>
-                                                      <Position>3025;1574</Position>
+                                                      <Position>3063;1571</Position>
                                                       <StyleLien>1</StyleLien>
                                                       <PreAssertion>∅</PreAssertion>
                                                       <PostAssertion>∅</PostAssertion>
@@ -240,7 +245,7 @@ prixOk
                               </operationsLogiques>
                             </Condition>
                             <Action>
-                              <Position>3393;946</Position>
+                              <Position>2072;944</Position>
                               <StyleLien>1</StyleLien>
                               <PreAssertion>∅</PreAssertion>
                               <PostAssertion>∅</PostAssertion>
@@ -258,7 +263,7 @@ prixOk
               </Enfants>
             </Action>
             <Action>
-              <Position>3679;442</Position>
+              <Position>3699;442</Position>
               <StyleLien>2</StyleLien>
               <PreAssertion>∅</PreAssertion>
               <PostAssertion>∅</PostAssertion>
