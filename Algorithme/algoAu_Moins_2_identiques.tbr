@@ -1,0 +1,220 @@
+<?xml version="1.0"?>
+<!DOCTYPE Tabula_Rasa>
+<Algorithme>
+  <nom>Algorithme</nom>
+  <date_creation>9/11/2022 12:04</date_creation>
+  <Elements>
+    <Action>
+      <Position>589;36</Position>
+      <StyleLien>2</StyleLien>
+      <PreAssertion>listeRecette
+listeIngredientRecette
+listeSaisit</PreAssertion>
+      <PostAssertion>∅</PostAssertion>
+      <Titre>suggestion recette</Titre>
+      <DetailsVisible>1</DetailsVisible>
+      <DetailsVideVisible>1</DetailsVideVisible>
+      <Enfants>
+        <Iteration>
+          <Position>1927.5;195.5</Position>
+          <StyleLien>1</StyleLien>
+          <Titre>pour i de 0 a len listeRecette-1</Titre>
+          <IterationFixe>1</IterationFixe>
+          <Enfants>
+            <Action>
+              <Position>1780;271</Position>
+              <StyleLien>2</StyleLien>
+              <PreAssertion>∅</PreAssertion>
+              <PostAssertion>∅</PostAssertion>
+              <Titre>créer listes de recettes</Titre>
+              <DetailsVisible>1</DetailsVisible>
+              <DetailsVideVisible>1</DetailsVideVisible>
+              <Enfants>
+                <Condition>
+                  <Position>1854;381</Position>
+                  <StyleLien>1</StyleLien>
+                  <estUnique>1</estUnique>
+                  <operationsLogiques>
+                    <operation>
+                      <Titre>deux identiques</Titre>
+                      <Enfants>
+                        <ConditionMultiple>
+                          <Position>1681;487</Position>
+                          <StyleLien>0</StyleLien>
+                          <Titre>tailleListeIngredientRecette</Titre>
+                          <operationsLogiques>
+                            <operation>
+                              <Titre>&lt;tailleListeSaisit</Titre>
+                              <Enfants>
+                                <Action>
+                                  <Position>611;698</Position>
+                                  <StyleLien>2</StyleLien>
+                                  <PreAssertion>listeIngredientRecette
+listeSaisit
+listeRecette</PreAssertion>
+                                  <PostAssertion>listeSuggestionComplexe
+listeSuggestionSimple</PostAssertion>
+                                  <Titre>Comparer les elements</Titre>
+                                  <DetailsVisible>1</DetailsVisible>
+                                  <DetailsVideVisible>1</DetailsVideVisible>
+                                  <Enfants>
+                                    <Condition>
+                                      <Position>740;815</Position>
+                                      <StyleLien>0</StyleLien>
+                                      <estUnique>0</estUnique>
+                                      <operationsLogiques>
+                                        <operation>
+                                          <Titre>listeIngredientRecette dans listeSaisit</Titre>
+                                          <Enfants>
+                                            <Action>
+                                              <Position>264;964</Position>
+                                              <StyleLien>1</StyleLien>
+                                              <PreAssertion>listeRecette</PreAssertion>
+                                              <PostAssertion>listeSuggestionSimple</PostAssertion>
+                                              <Titre>ajouter dans listeSuggestionSimple</Titre>
+                                              <DetailsVisible>1</DetailsVisible>
+                                              <DetailsVideVisible>1</DetailsVideVisible>
+                                              <Enfants/>
+                                            </Action>
+                                          </Enfants>
+                                        </operation>
+                                        <operation>
+                                          <Titre>Sinon</Titre>
+                                          <Enfants>
+                                            <Action>
+                                              <Position>805;1071</Position>
+                                              <StyleLien>1</StyleLien>
+                                              <PreAssertion>listeRecette</PreAssertion>
+                                              <PostAssertion>listeSuggestionComplexe</PostAssertion>
+                                              <Titre>ajouter dans liste suggestions complexe</Titre>
+                                              <DetailsVisible>1</DetailsVisible>
+                                              <DetailsVideVisible>1</DetailsVideVisible>
+                                              <Enfants/>
+                                            </Action>
+                                          </Enfants>
+                                        </operation>
+                                      </operationsLogiques>
+                                    </Condition>
+                                  </Enfants>
+                                </Action>
+                              </Enfants>
+                            </operation>
+                            <operation>
+                              <Titre>=tailleListeSaisit</Titre>
+                              <Enfants>
+                                <Action>
+                                  <Position>1758;724</Position>
+                                  <StyleLien>2</StyleLien>
+                                  <PreAssertion>∅</PreAssertion>
+                                  <PostAssertion>∅</PostAssertion>
+                                  <Titre>comparer les elements</Titre>
+                                  <DetailsVisible>1</DetailsVisible>
+                                  <DetailsVideVisible>1</DetailsVideVisible>
+                                  <Enfants>
+                                    <Condition>
+                                      <Position>1781;847</Position>
+                                      <StyleLien>0</StyleLien>
+                                      <estUnique>0</estUnique>
+                                      <operationsLogiques>
+                                        <operation>
+                                          <Titre>element identiques</Titre>
+                                          <Enfants>
+                                            <Action>
+                                              <Position>1663;972</Position>
+                                              <StyleLien>1</StyleLien>
+                                              <PreAssertion>∅</PreAssertion>
+                                              <PostAssertion>∅</PostAssertion>
+                                              <Titre>ajouter dans listeRecettePrecise</Titre>
+                                              <DetailsVisible>1</DetailsVisible>
+                                              <DetailsVideVisible>1</DetailsVideVisible>
+                                              <Enfants/>
+                                            </Action>
+                                          </Enfants>
+                                        </operation>
+                                        <operation>
+                                          <Titre>Sinon</Titre>
+                                          <Enfants>
+                                            <Action>
+                                              <Position>2138;975</Position>
+                                              <StyleLien>1</StyleLien>
+                                              <PreAssertion>∅</PreAssertion>
+                                              <PostAssertion>∅</PostAssertion>
+                                              <Titre>ajouter dans listeSuggestionComplexe</Titre>
+                                              <DetailsVisible>1</DetailsVisible>
+                                              <DetailsVideVisible>1</DetailsVideVisible>
+                                              <Enfants/>
+                                            </Action>
+                                          </Enfants>
+                                        </operation>
+                                      </operationsLogiques>
+                                    </Condition>
+                                  </Enfants>
+                                </Action>
+                              </Enfants>
+                            </operation>
+                            <operation>
+                              <Titre>>tailleListeSaisit</Titre>
+                              <Enfants>
+                                <Action>
+                                  <Position>2202;734</Position>
+                                  <StyleLien>1</StyleLien>
+                                  <PreAssertion>∅</PreAssertion>
+                                  <PostAssertion>∅</PostAssertion>
+                                  <Titre>ajouter dans listeSuggestionComplexe</Titre>
+                                  <DetailsVisible>1</DetailsVisible>
+                                  <DetailsVideVisible>1</DetailsVideVisible>
+                                  <Enfants/>
+                                </Action>
+                              </Enfants>
+                            </operation>
+                          </operationsLogiques>
+                        </ConditionMultiple>
+                      </Enfants>
+                    </operation>
+                    <operation>
+                      <Titre>Deux identiques</Titre>
+                      <Enfants/>
+                    </operation>
+                  </operationsLogiques>
+                </Condition>
+              </Enfants>
+            </Action>
+          </Enfants>
+        </Iteration>
+        <Action>
+          <Position>295;210</Position>
+          <StyleLien>2</StyleLien>
+          <PreAssertion>listeSaisit</PreAssertion>
+          <PostAssertion>tailleListeIngredientRecette
+tailleListeSaisit</PostAssertion>
+          <Titre>initialisation des variables</Titre>
+          <DetailsVisible>1</DetailsVisible>
+          <DetailsVideVisible>1</DetailsVideVisible>
+          <Enfants>
+            <Action>
+              <Position>16;384</Position>
+              <StyleLien>1</StyleLien>
+              <PreAssertion>listeSaisit</PreAssertion>
+              <PostAssertion>tailleListeSaisit</PostAssertion>
+              <Titre>tailleListeSaisit = len listeSaisit</Titre>
+              <DetailsVisible>1</DetailsVisible>
+              <DetailsVideVisible>1</DetailsVideVisible>
+              <Enfants/>
+            </Action>
+            <Action>
+              <Position>716;385</Position>
+              <StyleLien>1</StyleLien>
+              <PreAssertion>listeIngredientRecette</PreAssertion>
+              <PostAssertion>tailleListeIngredientRecette</PostAssertion>
+              <Titre>tailleListeIngredientRecette = len listeIngredientRecette</Titre>
+              <DetailsVisible>1</DetailsVisible>
+              <DetailsVideVisible>1</DetailsVideVisible>
+              <Enfants/>
+            </Action>
+          </Enfants>
+        </Action>
+      </Enfants>
+    </Action>
+  </Elements>
+  <Dictionary/>
+</Algorithme>
