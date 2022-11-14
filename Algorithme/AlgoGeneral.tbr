@@ -2,7 +2,7 @@
 <!DOCTYPE Tabula_Rasa>
 <Algorithme>
   <nom>Algorithme</nom>
-  <date_creation>14/11/2022 15:18</date_creation>
+  <date_creation>14/11/2022 15:20</date_creation>
   <Elements>
     <Action>
       <Position>601;10</Position>
@@ -11,9 +11,7 @@
 listeIngredientRecette
 listeSaisit,
 qteSaisit</PreAssertion>
-      <PostAssertion>listeRecettePrecise,
-listeSuggestionSimple,
-listeSuggestionComplexe</PostAssertion>
+      <PostAssertion>listeRechercheRecette</PostAssertion>
       <Titre>Recherche de recette</Titre>
       <DetailsVisible>1</DetailsVisible>
       <DetailsVideVisible>1</DetailsVideVisible>
