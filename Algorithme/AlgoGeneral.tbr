@@ -2,14 +2,15 @@
 <!DOCTYPE Tabula_Rasa>
 <Algorithme>
   <nom>Algorithme</nom>
-  <date_creation>14/11/2022 14:33</date_creation>
+  <date_creation>14/11/2022 15:18</date_creation>
   <Elements>
     <Action>
       <Position>601;10</Position>
       <StyleLien>2</StyleLien>
       <PreAssertion>listeRecette
 listeIngredientRecette
-listeSaisit</PreAssertion>
+listeSaisit,
+qteSaisit</PreAssertion>
       <PostAssertion>listeRecettePrecise,
 listeSuggestionSimple,
 listeSuggestionComplexe</PostAssertion>
@@ -23,19 +24,18 @@ listeSuggestionComplexe</PostAssertion>
           <PreAssertion>listeRecette
 listeIngredientRecette
 listeSaisit</PreAssertion>
-          <PostAssertion>listeRecettePrecise,
-listeSuggestionSimple,
-listeSuggestionComplexe</PostAssertion>
+          <PostAssertion>listeRecetteRecherche</PostAssertion>
           <Titre>Generer les suggestions</Titre>
           <DetailsVisible>1</DetailsVisible>
           <DetailsVideVisible>1</DetailsVideVisible>
           <Enfants/>
         </Action>
         <Action>
-          <Position>1059;229</Position>
+          <Position>943;217</Position>
           <StyleLien>1</StyleLien>
-          <PreAssertion>∅</PreAssertion>
-          <PostAssertion>∅</PostAssertion>
+          <PreAssertion>listeRecetteRecherche,
+qteSaisit, listeIngredientRecette, listeSaisit</PreAssertion>
+          <PostAssertion>listeRechercheRecette</PostAssertion>
           <Titre>Sac a dos</Titre>
           <DetailsVisible>1</DetailsVisible>
           <DetailsVideVisible>1</DetailsVideVisible>
