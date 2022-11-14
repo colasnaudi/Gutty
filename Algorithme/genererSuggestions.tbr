@@ -2,13 +2,12 @@
 <!DOCTYPE Tabula_Rasa>
 <Algorithme>
   <nom>Algorithme</nom>
-  <date_creation>14/11/2022 15:14</date_creation>
+  <date_creation>14/11/2022 16:25</date_creation>
   <Elements>
     <Action>
       <Position>589;36</Position>
       <StyleLien>2</StyleLien>
-      <PreAssertion>listeRecette
-listeIngredientRecette
+      <PreAssertion>livreRecette
 listeSaisit</PreAssertion>
       <PostAssertion>listeRecetteRecherche</PostAssertion>
       <Titre>Generer suggestions</Titre>
@@ -24,7 +23,7 @@ listeSaisit</PreAssertion>
             <Action>
               <Position>789;283</Position>
               <StyleLien>2</StyleLien>
-              <PreAssertion>listeRecette,
+              <PreAssertion>livreRecette,
 listeSaisit</PreAssertion>
               <PostAssertion>listeRecetteRecherche</PostAssertion>
               <Titre>créer listeRecetteRecherche</Titre>
@@ -37,14 +36,14 @@ listeSaisit</PreAssertion>
                   <estUnique>1</estUnique>
                   <operationsLogiques>
                     <operation>
-                      <Titre>au moins deux ingredients identiques entre listeRecette[i] et listeSaisit</Titre>
+                      <Titre>au moins deux ingredients identiques entre livreRecette.listeRecette[i].listeIngredientsRecette  et listeSaisit et verifPrix = True</Titre>
                       <Enfants>
                         <Action>
-                          <Position>821;537</Position>
+                          <Position>936;550</Position>
                           <StyleLien>1</StyleLien>
                           <PreAssertion>∅</PreAssertion>
                           <PostAssertion>∅</PostAssertion>
-                          <Titre>mettre listeRecette[i] dans listeRecetteRecherche</Titre>
+                          <Titre>mettre livreRecette.listeRecette[i] dans listeRecetteRecherche</Titre>
                           <DetailsVisible>0</DetailsVisible>
                           <DetailsVideVisible>0</DetailsVideVisible>
                           <Enfants/>
@@ -64,18 +63,18 @@ listeSaisit</PreAssertion>
         <Action>
           <Position>295;210</Position>
           <StyleLien>2</StyleLien>
-          <PreAssertion>listeRecette</PreAssertion>
+          <PreAssertion>livreRecette</PreAssertion>
           <PostAssertion>nbRecette</PostAssertion>
           <Titre>initialisation des variables</Titre>
           <DetailsVisible>1</DetailsVisible>
           <DetailsVideVisible>1</DetailsVideVisible>
           <Enfants>
             <Action>
-              <Position>398;333</Position>
+              <Position>304;379</Position>
               <StyleLien>1</StyleLien>
               <PreAssertion>listeRecette</PreAssertion>
               <PostAssertion>nbRecette</PostAssertion>
-              <Titre>nbRecette = len(listeRecette) - 1</Titre>
+              <Titre>nbRecette = len(livreRecette.listeRecette) - 1</Titre>
               <DetailsVisible>0</DetailsVisible>
               <DetailsVideVisible>1</DetailsVideVisible>
               <Enfants/>

@@ -2,14 +2,14 @@
 <!DOCTYPE Tabula_Rasa>
 <Algorithme>
   <nom>fonctionCalculerPrixVersion2</nom>
-  <date_creation>9/11/2022 15:03</date_creation>
+  <date_creation>14/11/2022 16:30</date_creation>
   <Elements>
     <Action>
       <Position>587;95</Position>
       <StyleLien>2</StyleLien>
-      <PreAssertion>listeIngRecette,
+      <PreAssertion>Recette,
 listeIngSaisit</PreAssertion>
-      <PostAssertion>∅</PostAssertion>
+      <PostAssertion>prixOk</PostAssertion>
       <Titre>VerifPrix</Titre>
       <DetailsVisible>1</DetailsVisible>
       <DetailsVideVisible>1</DetailsVideVisible>
@@ -19,8 +19,9 @@ listeIngSaisit</PreAssertion>
           <StyleLien>2</StyleLien>
           <PreAssertion>?</PreAssertion>
           <PostAssertion>prixMax, prix,
-nbIngRecette</PostAssertion>
-          <Titre>Init</Titre>
+nbIngRecette,
+numIng</PostAssertion>
+          <Titre>initialisation des variables</Titre>
           <DetailsVisible>1</DetailsVisible>
           <DetailsVideVisible>0</DetailsVideVisible>
           <Enfants>
@@ -49,7 +50,7 @@ nbIngRecette</PostAssertion>
               <StyleLien>1</StyleLien>
               <PreAssertion>∅</PreAssertion>
               <PostAssertion>∅</PostAssertion>
-              <Titre>nbIngRecette ← len(listeIngRecette) -1</Titre>
+              <Titre>nbIngRecette ← len(Recette.listeIngredientsRecette) -1</Titre>
               <DetailsVisible>0</DetailsVisible>
               <DetailsVideVisible>1</DetailsVideVisible>
               <Enfants/>
@@ -79,10 +80,13 @@ nbIngRecette</PostAssertion>
         <Action>
           <Position>1034;253</Position>
           <StyleLien>2</StyleLien>
-          <PreAssertion>prix, nbIngRecette
-listeIngRecette,
+          <PreAssertion>prixMax, prix,
+nbIngRecette,
+numIng,
+Recette,
 listeIngSaisit</PreAssertion>
-          <PostAssertion>prix</PostAssertion>
+          <PostAssertion>prix,
+prixOk</PostAssertion>
           <Titre>CalculerPrix</Titre>
           <DetailsVisible>1</DetailsVisible>
           <DetailsVideVisible>1</DetailsVideVisible>
@@ -94,7 +98,7 @@ listeIngSaisit</PreAssertion>
               <IterationFixe>1</IterationFixe>
               <Enfants>
                 <Condition>
-                  <Position>854.5;535</Position>
+                  <Position>758.5;546</Position>
                   <StyleLien>1</StyleLien>
                   <estUnique>1</estUnique>
                   <operationsLogiques>
@@ -102,7 +106,7 @@ listeIngSaisit</PreAssertion>
                       <Titre>numIng = nbIngRecette</Titre>
                       <Enfants>
                         <Sortie>
-                          <Position>952;646</Position>
+                          <Position>862;693</Position>
                         </Sortie>
                       </Enfants>
                     </operation>
@@ -113,23 +117,23 @@ listeIngSaisit</PreAssertion>
                   </operationsLogiques>
                 </Condition>
                 <Condition>
-                  <Position>1137.5;545</Position>
+                  <Position>1040.5;541</Position>
                   <StyleLien>1</StyleLien>
                   <estUnique>1</estUnique>
                   <operationsLogiques>
                     <operation>
-                      <Titre>listeIngRecette[i] pas dans listeIngSaisit</Titre>
+                      <Titre>Recette.listeIngredientsRecette[numIng] pas dans listeIngSaisit</Titre>
                       <Enfants>
-                        <Action>
-                          <Position>1182;666</Position>
+                        <Procedure>
+                          <Position>1202;689</Position>
                           <StyleLien>1</StyleLien>
                           <PreAssertion>∅</PreAssertion>
                           <PostAssertion>∅</PostAssertion>
-                          <Titre>prix += listeIngRecette[i].prix </Titre>
+                          <Titre>calcul prix</Titre>
                           <DetailsVisible>0</DetailsVisible>
-                          <DetailsVideVisible>1</DetailsVideVisible>
+                          <DetailsVideVisible>0</DetailsVideVisible>
                           <Enfants/>
-                        </Action>
+                        </Procedure>
                       </Enfants>
                     </operation>
                     <operation>
@@ -180,6 +184,26 @@ listeIngSaisit</PreAssertion>
               </Enfants>
             </Iteration>
           </Enfants>
+        </Action>
+        <Action>
+          <Position>1650;254</Position>
+          <StyleLien>1</StyleLien>
+          <PreAssertion>∅</PreAssertion>
+          <PostAssertion>∅</PostAssertion>
+          <Titre>retourne prixOk</Titre>
+          <DetailsVisible>0</DetailsVisible>
+          <DetailsVideVisible>1</DetailsVideVisible>
+          <Enfants/>
+        </Action>
+        <Action>
+          <Position>1432;253</Position>
+          <StyleLien>1</StyleLien>
+          <PreAssertion>∅</PreAssertion>
+          <PostAssertion>∅</PostAssertion>
+          <Titre>Recette.prixAjout = prix</Titre>
+          <DetailsVisible>0</DetailsVisible>
+          <DetailsVideVisible>1</DetailsVideVisible>
+          <Enfants/>
         </Action>
       </Enfants>
     </Action>
