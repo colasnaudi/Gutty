@@ -2,7 +2,7 @@
 <!DOCTYPE Tabula_Rasa>
 <Algorithme>
   <nom>Algorithme</nom>
-  <date_creation>9/11/2022 14:28</date_creation>
+  <date_creation>14/11/2022 14:33</date_creation>
   <Elements>
     <Action>
       <Position>589;36</Position>
@@ -10,36 +10,42 @@
       <PreAssertion>listeRecette
 listeIngredientRecette
 listeSaisit</PreAssertion>
-      <PostAssertion>∅</PostAssertion>
-      <Titre>suggestion recette</Titre>
+      <PostAssertion>listeRecettePrecise,
+listeSuggestionSimple,
+listeSuggestionComplexe</PostAssertion>
+      <Titre>Generer suggestions</Titre>
       <DetailsVisible>1</DetailsVisible>
       <DetailsVideVisible>1</DetailsVideVisible>
       <Enfants>
         <Iteration>
-          <Position>1927.5;195.5</Position>
+          <Position>1911.5;178.5</Position>
           <StyleLien>1</StyleLien>
           <Titre>pour i de 0 a len listeRecette-1</Titre>
           <IterationFixe>1</IterationFixe>
           <Enfants>
             <Action>
-              <Position>1780;271</Position>
+              <Position>1578;261</Position>
               <StyleLien>2</StyleLien>
-              <PreAssertion>∅</PreAssertion>
-              <PostAssertion>∅</PostAssertion>
+              <PreAssertion>tailleListeIngredientRecette,
+tailleListeSaisit,
+listeSaisit, listeRecette</PreAssertion>
+              <PostAssertion>listeRecettePrecise,
+listeSuggestionSimple,
+listeSuggestionComplexe</PostAssertion>
               <Titre>créer listes de recettes</Titre>
               <DetailsVisible>1</DetailsVisible>
               <DetailsVideVisible>1</DetailsVideVisible>
               <Enfants>
                 <Condition>
-                  <Position>1854;381</Position>
+                  <Position>1803;388</Position>
                   <StyleLien>1</StyleLien>
                   <estUnique>1</estUnique>
                   <operationsLogiques>
                     <operation>
-                      <Titre>deux identiques</Titre>
+                      <Titre>deux ingredients identiques</Titre>
                       <Enfants>
                         <ConditionMultiple>
-                          <Position>1681;487</Position>
+                          <Position>1673;513</Position>
                           <StyleLien>0</StyleLien>
                           <Titre>tailleListeIngredientRecette</Titre>
                           <operationsLogiques>
@@ -52,8 +58,8 @@ listeSaisit</PreAssertion>
                                   <PreAssertion>listeIngredientRecette
 listeSaisit
 listeRecette</PreAssertion>
-                                  <PostAssertion>listeSuggestionComplexe
-listeSuggestionSimple</PostAssertion>
+                                  <PostAssertion>[listeSuggestionComplexe],
+[listeSuggestionSimple]</PostAssertion>
                                   <Titre>Comparer les elements</Titre>
                                   <DetailsVisible>1</DetailsVisible>
                                   <DetailsVideVisible>1</DetailsVideVisible>
@@ -67,11 +73,11 @@ listeSuggestionSimple</PostAssertion>
                                           <Titre>listeIngredientRecette dans listeSaisit</Titre>
                                           <Enfants>
                                             <Action>
-                                              <Position>264;964</Position>
+                                              <Position>194;962</Position>
                                               <StyleLien>1</StyleLien>
                                               <PreAssertion>listeRecette</PreAssertion>
                                               <PostAssertion>listeSuggestionSimple</PostAssertion>
-                                              <Titre>ajouter dans listeSuggestionSimple</Titre>
+                                              <Titre>ajouter listeRecette[i] dans listeSuggestionSimple</Titre>
                                               <DetailsVisible>1</DetailsVisible>
                                               <DetailsVideVisible>1</DetailsVideVisible>
                                               <Enfants/>
@@ -82,11 +88,11 @@ listeSuggestionSimple</PostAssertion>
                                           <Titre>Sinon</Titre>
                                           <Enfants>
                                             <Action>
-                                              <Position>805;1071</Position>
+                                              <Position>822;1075</Position>
                                               <StyleLien>1</StyleLien>
                                               <PreAssertion>listeRecette</PreAssertion>
                                               <PostAssertion>listeSuggestionComplexe</PostAssertion>
-                                              <Titre>ajouter dans liste suggestions complexe</Titre>
+                                              <Titre>ajouter listeRecette[i]  dans liste suggestions complexe</Titre>
                                               <DetailsVisible>1</DetailsVisible>
                                               <DetailsVideVisible>1</DetailsVideVisible>
                                               <Enfants/>
@@ -103,28 +109,30 @@ listeSuggestionSimple</PostAssertion>
                               <Titre>=tailleListeSaisit</Titre>
                               <Enfants>
                                 <Action>
-                                  <Position>1758;724</Position>
+                                  <Position>1528;693</Position>
                                   <StyleLien>2</StyleLien>
-                                  <PreAssertion>∅</PreAssertion>
-                                  <PostAssertion>∅</PostAssertion>
+                                  <PreAssertion>listeIngredientRecette,
+listeRecette</PreAssertion>
+                                  <PostAssertion>[listeRecettePrecise],
+[listeSuggestionComplexe]</PostAssertion>
                                   <Titre>comparer les elements</Titre>
                                   <DetailsVisible>1</DetailsVisible>
                                   <DetailsVideVisible>1</DetailsVideVisible>
                                   <Enfants>
                                     <Condition>
-                                      <Position>1781;847</Position>
+                                      <Position>1617;849</Position>
                                       <StyleLien>0</StyleLien>
                                       <estUnique>0</estUnique>
                                       <operationsLogiques>
                                         <operation>
-                                          <Titre>element identiques</Titre>
+                                          <Titre>listeIngredientRecette = listeIngredientSaisit</Titre>
                                           <Enfants>
                                             <Action>
-                                              <Position>1663;972</Position>
+                                              <Position>1372;966</Position>
                                               <StyleLien>1</StyleLien>
-                                              <PreAssertion>∅</PreAssertion>
-                                              <PostAssertion>∅</PostAssertion>
-                                              <Titre>ajouter dans listeRecettePrecise</Titre>
+                                              <PreAssertion>listeRecette</PreAssertion>
+                                              <PostAssertion>listeRecettePrecise</PostAssertion>
+                                              <Titre>ajouter listeRecette[i] dans listeRecettePrecise</Titre>
                                               <DetailsVisible>1</DetailsVisible>
                                               <DetailsVideVisible>1</DetailsVideVisible>
                                               <Enfants/>
@@ -135,11 +143,11 @@ listeSuggestionSimple</PostAssertion>
                                           <Titre>Sinon</Titre>
                                           <Enfants>
                                             <Action>
-                                              <Position>2138;975</Position>
+                                              <Position>2115;980</Position>
                                               <StyleLien>1</StyleLien>
-                                              <PreAssertion>∅</PreAssertion>
-                                              <PostAssertion>∅</PostAssertion>
-                                              <Titre>ajouter dans listeSuggestionComplexe</Titre>
+                                              <PreAssertion>listeRecette</PreAssertion>
+                                              <PostAssertion>listeSuggestionComplexe</PostAssertion>
+                                              <Titre>ajouter listeRecette[i] dans listeSuggestionComplexe</Titre>
                                               <DetailsVisible>1</DetailsVisible>
                                               <DetailsVideVisible>1</DetailsVideVisible>
                                               <Enfants/>
@@ -156,11 +164,11 @@ listeSuggestionSimple</PostAssertion>
                               <Titre>>tailleListeSaisit</Titre>
                               <Enfants>
                                 <Action>
-                                  <Position>2202;734</Position>
+                                  <Position>2310;700</Position>
                                   <StyleLien>1</StyleLien>
-                                  <PreAssertion>∅</PreAssertion>
-                                  <PostAssertion>∅</PostAssertion>
-                                  <Titre>ajouter dans listeSuggestionComplexe</Titre>
+                                  <PreAssertion>listeRecette</PreAssertion>
+                                  <PostAssertion>listeSuggestionComplexe</PostAssertion>
+                                  <Titre>ajouter listeRecette[i]  dans listeSuggestionComplexe</Titre>
                                   <DetailsVisible>1</DetailsVisible>
                                   <DetailsVideVisible>1</DetailsVideVisible>
                                   <Enfants/>

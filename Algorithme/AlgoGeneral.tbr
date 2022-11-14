@@ -2,12 +2,14 @@
 <!DOCTYPE Tabula_Rasa>
 <Algorithme>
   <nom>Algorithme</nom>
-  <date_creation>9/11/2022 14:32</date_creation>
+  <date_creation>14/11/2022 14:33</date_creation>
   <Elements>
     <Action>
-      <Position>618;12</Position>
+      <Position>601;10</Position>
       <StyleLien>2</StyleLien>
-      <PreAssertion>listeIngredients</PreAssertion>
+      <PreAssertion>listeRecette
+listeIngredientRecette
+listeSaisit</PreAssertion>
       <PostAssertion>listeRecettePrecise,
 listeSuggestionSimple,
 listeSuggestionComplexe</PostAssertion>
@@ -16,43 +18,25 @@ listeSuggestionComplexe</PostAssertion>
       <DetailsVideVisible>1</DetailsVideVisible>
       <Enfants>
         <Action>
-          <Position>182;196</Position>
-          <StyleLien>2</StyleLien>
-          <PreAssertion>listeIngredients</PreAssertion>
-          <PostAssertion>listeRecettePrecise</PostAssertion>
-          <Titre>Chercher recette précise</Titre>
-          <DetailsVisible>1</DetailsVisible>
-          <DetailsVideVisible>1</DetailsVideVisible>
-          <Enfants>
-            <Action>
-              <Position>9;490</Position>
-              <StyleLien>1</StyleLien>
-              <PreAssertion>listeIngredient</PreAssertion>
-              <PostAssertion>resultatRequete</PostAssertion>
-              <Titre>chercher dans BDD recette avec listeIngredient</Titre>
-              <DetailsVisible>1</DetailsVisible>
-              <DetailsVideVisible>1</DetailsVideVisible>
-              <Enfants/>
-            </Action>
-            <Action>
-              <Position>797;492</Position>
-              <StyleLien>1</StyleLien>
-              <PreAssertion>?</PreAssertion>
-              <PostAssertion>listeRecettePrecise</PostAssertion>
-              <Titre>Mettre resultat dans listeRecettePrecise</Titre>
-              <DetailsVisible>1</DetailsVisible>
-              <DetailsVideVisible>0</DetailsVideVisible>
-              <Enfants/>
-            </Action>
-          </Enfants>
-        </Action>
-        <Action>
-          <Position>1111;189</Position>
+          <Position>240;219</Position>
           <StyleLien>1</StyleLien>
-          <PreAssertion>listeIngredients</PreAssertion>
-          <PostAssertion>listeSuggestionSimple,
+          <PreAssertion>listeRecette
+listeIngredientRecette
+listeSaisit</PreAssertion>
+          <PostAssertion>listeRecettePrecise,
+listeSuggestionSimple,
 listeSuggestionComplexe</PostAssertion>
           <Titre>Generer les suggestions</Titre>
+          <DetailsVisible>1</DetailsVisible>
+          <DetailsVideVisible>1</DetailsVideVisible>
+          <Enfants/>
+        </Action>
+        <Action>
+          <Position>1059;229</Position>
+          <StyleLien>1</StyleLien>
+          <PreAssertion>∅</PreAssertion>
+          <PostAssertion>∅</PostAssertion>
+          <Titre>Sac a dos</Titre>
           <DetailsVisible>1</DetailsVisible>
           <DetailsVideVisible>1</DetailsVideVisible>
           <Enfants/>
