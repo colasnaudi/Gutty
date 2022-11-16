@@ -2,13 +2,13 @@
 <!DOCTYPE Tabula_Rasa>
 <Algorithme>
   <nom>Algorithme</nom>
-  <date_creation>14/11/2022 16:36</date_creation>
+  <date_creation>14/11/2022 17:00</date_creation>
   <Elements>
     <Action>
       <Position>601;10</Position>
       <StyleLien>2</StyleLien>
-      <PreAssertion>livreRecette
-listeSaisit,
+      <PreAssertion>livreRecette&#xd;
+listeSaisit,&#xd;
 qteSaisit</PreAssertion>
       <PostAssertion>listeRechercheRecette</PostAssertion>
       <Titre>Recherche de recette</Titre>
@@ -18,7 +18,7 @@ qteSaisit</PreAssertion>
         <Action>
           <Position>240;219</Position>
           <StyleLien>1</StyleLien>
-          <PreAssertion>livreRecette,
+          <PreAssertion>livreRecette,&#xd;
 listeSaisit</PreAssertion>
           <PostAssertion>listeRecetteRecherche</PostAssertion>
           <Titre>Generer les suggestions</Titre>
@@ -29,8 +29,9 @@ listeSaisit</PreAssertion>
         <Action>
           <Position>943;217</Position>
           <StyleLien>1</StyleLien>
-          <PreAssertion>listeRecetteRecherche,&#xd;
-qteSaisit, listeIngredientRecette, listeSaisit</PreAssertion>
+          <PreAssertion>listeRecetteRecherche,
+qteSaisit,
+listeSaisit</PreAssertion>
           <PostAssertion>listeRechercheRecette</PostAssertion>
           <Titre>Sac a dos</Titre>
           <DetailsVisible>1</DetailsVisible>
