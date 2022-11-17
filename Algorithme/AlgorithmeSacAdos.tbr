@@ -2,10 +2,10 @@
 <!DOCTYPE Tabula_Rasa>
 <Algorithme>
   <nom>Algorithme</nom>
-  <date_creation>14/11/2022 17:00</date_creation>
+  <date_creation>17/11/2022 10:21</date_creation>
   <Elements>
     <Action>
-      <Position>1627;45</Position>
+      <Position>2483;223</Position>
       <StyleLien>2</StyleLien>
       <PreAssertion>listeRecetteRecherche,
 qteSaisit, 
@@ -16,10 +16,9 @@ listeSaisit</PreAssertion>
       <DetailsVideVisible>1</DetailsVideVisible>
       <Enfants>
         <Action>
-          <Position>747;181</Position>
+          <Position>1603;359</Position>
           <StyleLien>2</StyleLien>
-          <PreAssertion>listeSaisit
-qteSaisit
+          <PreAssertion>recetteSaisit
 prixMax
 nbIngredientSaisit
 prix</PreAssertion>
@@ -29,27 +28,26 @@ prix</PreAssertion>
           <DetailsVideVisible>1</DetailsVideVisible>
           <Enfants>
             <Iteration>
-              <Position>1112.5;366.5</Position>
+              <Position>1968.5;544.5</Position>
               <StyleLien>1</StyleLien>
               <Titre>pour i de 0 a nbIngredientSaisit</Titre>
               <IterationFixe>1</IterationFixe>
               <Enfants>
                 <Action>
-                  <Position>900;463</Position>
+                  <Position>1785;640</Position>
                   <StyleLien>2</StyleLien>
-                  <PreAssertion>qteSaisit
-listeSaisit</PreAssertion>
+                  <PreAssertion>recetteSaisit</PreAssertion>
                   <PostAssertion>prix</PostAssertion>
                   <Titre>calculer prix</Titre>
                   <DetailsVisible>1</DetailsVisible>
                   <DetailsVideVisible>1</DetailsVideVisible>
                   <Enfants>
                     <Action>
-                      <Position>927;575</Position>
+                      <Position>1769;755</Position>
                       <StyleLien>1</StyleLien>
                       <PreAssertion>∅</PreAssertion>
                       <PostAssertion>∅</PostAssertion>
-                      <Titre>prix = qteSaisit[i]*listeSaisit[i].prix</Titre>
+                      <Titre>prix = recetteSaisit.listeIngredientRecette[i].quantite*recetteSaisit.listeIngredientRecette[i].prix</Titre>
                       <DetailsVisible>0</DetailsVisible>
                       <DetailsVideVisible>1</DetailsVideVisible>
                       <Enfants/>
@@ -57,7 +55,7 @@ listeSaisit</PreAssertion>
                   </Enfants>
                 </Action>
                 <Action>
-                  <Position>1350;465</Position>
+                  <Position>2206;643</Position>
                   <StyleLien>2</StyleLien>
                   <PreAssertion>prixMax
 prix</PreAssertion>
@@ -67,7 +65,7 @@ prix</PreAssertion>
                   <DetailsVideVisible>1</DetailsVideVisible>
                   <Enfants>
                     <Action>
-                      <Position>1412;580</Position>
+                      <Position>2268;758</Position>
                       <StyleLien>1</StyleLien>
                       <PreAssertion>∅</PreAssertion>
                       <PostAssertion>∅</PostAssertion>
@@ -79,11 +77,10 @@ prix</PreAssertion>
                   </Enfants>
                 </Action>
                 <Procedure>
-                  <Position>461;463</Position>
+                  <Position>1273;644</Position>
                   <StyleLien>1</StyleLien>
-                  <PreAssertion>qteSaisit
-listeSaisit</PreAssertion>
-                  <PostAssertion>qteSaisit</PostAssertion>
+                  <PreAssertion>recetteSaisit</PreAssertion>
+                  <PostAssertion>recetteSaisit</PostAssertion>
                   <Titre>convertir Qte</Titre>
                   <DetailsVisible>1</DetailsVisible>
                   <DetailsVideVisible>1</DetailsVideVisible>
@@ -94,59 +91,62 @@ listeSaisit</PreAssertion>
           </Enfants>
         </Action>
         <Action>
-          <Position>1859;203</Position>
+          <Position>2717;380</Position>
           <StyleLien>2</StyleLien>
-          <PreAssertion>prixMax
+          <PreAssertion>prix
 listeRecetteRecherche
-nbSuggestion</PreAssertion>
-          <PostAssertion>∅</PostAssertion>
+nbSuggestion
+recetteSaisit</PreAssertion>
+          <PostAssertion>listeRecetteRecherche</PostAssertion>
           <Titre>Calculer Prix des ingredientsSaisit consommé dans recettes</Titre>
           <DetailsVisible>1</DetailsVisible>
           <DetailsVideVisible>1</DetailsVideVisible>
           <Enfants>
             <Iteration>
-              <Position>2290.5;319.5</Position>
+              <Position>3146.5;497.5</Position>
               <StyleLien>1</StyleLien>
               <Titre>pour i de 0 à nbSuggestion</Titre>
               <IterationFixe>1</IterationFixe>
               <Enfants>
                 <Action>
-                  <Position>2077;395</Position>
+                  <Position>2745;572</Position>
                   <StyleLien>2</StyleLien>
-                  <PreAssertion>∅</PreAssertion>
-                  <PostAssertion>∅</PostAssertion>
+                  <PreAssertion>prix
+listeRecetteRecherche
+recetteSaisit</PreAssertion>
+                  <PostAssertion>listeRecetteRecherche</PostAssertion>
                   <Titre>parcours des ingrédients des recettes</Titre>
                   <DetailsVisible>1</DetailsVisible>
                   <DetailsVideVisible>1</DetailsVideVisible>
                   <Enfants>
                     <Iteration>
-                      <Position>2291.5;513.5</Position>
+                      <Position>3145.5;693.5</Position>
                       <StyleLien>1</StyleLien>
-                      <Titre>pour i de 0 à len(listeRecetteRecherche[i].listeIngredientsRecette)-1</Titre>
+                      <Titre>pour j de 0 à len(listeRecetteRecherche[i].listeIngredientsRecette)-1</Titre>
                       <IterationFixe>1</IterationFixe>
                       <Enfants>
                         <Condition>
-                          <Position>1942;596</Position>
+                          <Position>2797;772</Position>
                           <StyleLien>0</StyleLien>
                           <estUnique>0</estUnique>
                           <operationsLogiques>
                             <operation>
-                              <Titre>ingredientRecette dans ingredientSaisit</Titre>
+                              <Titre>listeRecetteRecherche[i].listeIngredients[j] dans recetteSaisit.listeIngredients</Titre>
                               <Enfants>
                                 <Condition>
-                                  <Position>1710;715</Position>
+                                  <Position>2220;917</Position>
                                   <StyleLien>1</StyleLien>
-                                  <estUnique>0</estUnique>
+                                  <estUnique>1</estUnique>
                                   <operationsLogiques>
                                     <operation>
-                                      <Titre>si uniteSaisit == uniteRecette</Titre>
+                                      <Titre>recetteSaisit.listeIngredient[j].unite != listeRecetteRecherche[i].listeIngredient[j].unite</Titre>
                                       <Enfants>
                                         <Procedure>
-                                          <Position>1484;826</Position>
+                                          <Position>2296;1037</Position>
                                           <StyleLien>1</StyleLien>
-                                          <PreAssertion>∅</PreAssertion>
-                                          <PostAssertion>∅</PostAssertion>
-                                          <Titre>verification différence saisit et recette</Titre>
+                                          <PreAssertion>recetteSaisit</PreAssertion>
+                                          <PostAssertion>recetteSaisit</PostAssertion>
+                                          <Titre>convertir uniteSaisit</Titre>
                                           <DetailsVisible>1</DetailsVisible>
                                           <DetailsVideVisible>1</DetailsVideVisible>
                                           <Enfants/>
@@ -155,43 +155,82 @@ nbSuggestion</PreAssertion>
                                     </operation>
                                     <operation>
                                       <Titre>Sinon</Titre>
-                                      <Enfants>
-                                        <Procedure>
-                                          <Position>1979;947</Position>
-                                          <StyleLien>1</StyleLien>
-                                          <PreAssertion>∅</PreAssertion>
-                                          <PostAssertion>∅</PostAssertion>
-                                          <Titre>convertir uniteSaisit</Titre>
-                                          <DetailsVisible>1</DetailsVisible>
-                                          <DetailsVideVisible>1</DetailsVideVisible>
-                                          <Enfants/>
-                                        </Procedure>
-                                        <Procedure>
-                                          <Position>2375;958</Position>
-                                          <StyleLien>1</StyleLien>
-                                          <PreAssertion>∅</PreAssertion>
-                                          <PostAssertion>∅</PostAssertion>
-                                          <Titre>verification différence saisit et recette</Titre>
-                                          <DetailsVisible>1</DetailsVisible>
-                                          <DetailsVideVisible>1</DetailsVideVisible>
-                                          <Enfants/>
-                                        </Procedure>
-                                      </Enfants>
+                                      <Enfants/>
                                     </operation>
                                   </operationsLogiques>
                                 </Condition>
+                                <Action>
+                                  <Position>2938;919</Position>
+                                  <StyleLien>2</StyleLien>
+                                  <PreAssertion>recetteSaisit
+prix
+listeRecetteRecherche</PreAssertion>
+                                  <PostAssertion>recetteSaisit</PostAssertion>
+                                  <Titre>calcul du prix sac à dos</Titre>
+                                  <DetailsVisible>1</DetailsVisible>
+                                  <DetailsVideVisible>1</DetailsVideVisible>
+                                  <Enfants>
+                                    <Condition>
+                                      <Position>2917;1038</Position>
+                                      <StyleLien>0</StyleLien>
+                                      <estUnique>0</estUnique>
+                                      <operationsLogiques>
+                                        <operation>
+                                          <Titre>listeRecetteRecherche[i].listeIngredients[j].quantite > recetteSaisit.listeIngrdients[j].quantite</Titre>
+                                          <Enfants>
+                                            <Action>
+                                              <Position>2459;1208</Position>
+                                              <StyleLien>1</StyleLien>
+                                              <PreAssertion>∅</PreAssertion>
+                                              <PostAssertion>∅</PostAssertion>
+                                              <Titre>listeRecetteRecherche[i].prixSacADos  += recetteSaisit.listeIngrdients[j].quantite*recetteSaisit.listeIngredients[j].prix</Titre>
+                                              <DetailsVisible>0</DetailsVisible>
+                                              <DetailsVideVisible>1</DetailsVideVisible>
+                                              <Enfants/>
+                                            </Action>
+                                            <Action>
+                                              <Position>2899;1213</Position>
+                                              <StyleLien>1</StyleLien>
+                                              <PreAssertion>∅</PreAssertion>
+                                              <PostAssertion>∅</PostAssertion>
+                                              <Titre>listeRecetteRecherche[i].prixAjout += (listeRecetteRecherche[i].listeIngredients[j].quantite  - recetteSaiisit.listeIngrdients[j].quantite)*listeRecetteRecherche[i].listeIngredients[j].prix</Titre>
+                                              <DetailsVisible>0</DetailsVisible>
+                                              <DetailsVideVisible>1</DetailsVideVisible>
+                                              <Enfants/>
+                                            </Action>
+                                          </Enfants>
+                                        </operation>
+                                        <operation>
+                                          <Titre>Sinon</Titre>
+                                          <Enfants>
+                                            <Action>
+                                              <Position>3420;1194</Position>
+                                              <StyleLien>1</StyleLien>
+                                              <PreAssertion>∅</PreAssertion>
+                                              <PostAssertion>∅</PostAssertion>
+                                              <Titre>listeRecetteRecherche[i].prixSacADos += listeRecetteRecherche[i].listeIngredients[j].quantite *listeRecetteRecherche[i].listeIngredients[j].prix</Titre>
+                                              <DetailsVisible>0</DetailsVisible>
+                                              <DetailsVideVisible>1</DetailsVideVisible>
+                                              <Enfants/>
+                                            </Action>
+                                          </Enfants>
+                                        </operation>
+                                      </operationsLogiques>
+                                    </Condition>
+                                  </Enfants>
+                                </Action>
                               </Enfants>
                             </operation>
                             <operation>
                               <Titre>Sinon</Titre>
                               <Enfants>
                                 <Action>
-                                  <Position>2197;712</Position>
+                                  <Position>3652;923</Position>
                                   <StyleLien>1</StyleLien>
                                   <PreAssertion>∅</PreAssertion>
                                   <PostAssertion>∅</PostAssertion>
-                                  <Titre>ajout qteIngRecette * prix dans totalAjoutRecette</Titre>
-                                  <DetailsVisible>1</DetailsVisible>
+                                  <Titre>listeRecetteRecherche[i].prixAjout += listeRecetteRecherche[i].listeIngredients[j].quantite * listeRecetteRecherche[i].listeIngredients[j].prix</Titre>
+                                  <DetailsVisible>0</DetailsVisible>
                                   <DetailsVideVisible>1</DetailsVideVisible>
                                   <Enfants/>
                                 </Action>
@@ -208,20 +247,23 @@ nbSuggestion</PreAssertion>
           </Enfants>
         </Action>
         <Action>
-          <Position>2525;209</Position>
+          <Position>3937;383</Position>
           <StyleLien>1</StyleLien>
-          <PreAssertion>∅</PreAssertion>
-          <PostAssertion>∅</PostAssertion>
+          <PreAssertion>listeRecetteRecherche
+prixMax
+recetteSaisit</PreAssertion>
+          <PostAssertion>listeRecetterecherche</PostAssertion>
           <Titre>Tri liste</Titre>
           <DetailsVisible>1</DetailsVisible>
           <DetailsVideVisible>1</DetailsVideVisible>
           <Enfants/>
         </Action>
         <Action>
-          <Position>9;174</Position>
+          <Position>865;352</Position>
           <StyleLien>2</StyleLien>
           <PreAssertion>listeSaisit
-listeRechercheRecette</PreAssertion>
+listeRechercheRecette
+qteSaisit</PreAssertion>
           <PostAssertion>prixMax
 nbIngredientSaisit
 nbSuggestion
@@ -231,7 +273,7 @@ prix</PostAssertion>
           <DetailsVideVisible>1</DetailsVideVisible>
           <Enfants>
             <Action>
-              <Position>709;320</Position>
+              <Position>1565;498</Position>
               <StyleLien>1</StyleLien>
               <PreAssertion>∅</PreAssertion>
               <PostAssertion>∅</PostAssertion>
@@ -241,7 +283,7 @@ prix</PostAssertion>
               <Enfants/>
             </Action>
             <Action>
-              <Position>133;323</Position>
+              <Position>989;501</Position>
               <StyleLien>1</StyleLien>
               <PreAssertion>∅</PreAssertion>
               <PostAssertion>∅</PostAssertion>
@@ -251,17 +293,17 @@ prix</PostAssertion>
               <Enfants/>
             </Action>
             <Action>
-              <Position>8;321</Position>
+              <Position>877;499</Position>
               <StyleLien>1</StyleLien>
               <PreAssertion>∅</PreAssertion>
               <PostAssertion>∅</PostAssertion>
               <Titre>prix ← 0</Titre>
               <DetailsVisible>0</DetailsVisible>
-              <DetailsVideVisible>0</DetailsVideVisible>
+              <DetailsVideVisible>1</DetailsVideVisible>
               <Enfants/>
             </Action>
             <Action>
-              <Position>292;318</Position>
+              <Position>1148;496</Position>
               <StyleLien>1</StyleLien>
               <PreAssertion>∅</PreAssertion>
               <PostAssertion>∅</PostAssertion>
@@ -270,66 +312,19 @@ prix</PostAssertion>
               <DetailsVideVisible>1</DetailsVideVisible>
               <Enfants/>
             </Action>
+            <Action>
+              <Position>156;497</Position>
+              <StyleLien>1</StyleLien>
+              <PreAssertion>listeSaisit
+qteSaisit</PreAssertion>
+              <PostAssertion>recetteSaisit</PostAssertion>
+              <Titre>créer une recetteSaisit à partir des ingredients et qte saisit par l'utilisateur</Titre>
+              <DetailsVisible>1</DetailsVisible>
+              <DetailsVideVisible>1</DetailsVideVisible>
+              <Enfants/>
+            </Action>
           </Enfants>
         </Action>
-      </Enfants>
-    </Action>
-    <Action>
-      <Position>1157;1035</Position>
-      <StyleLien>2</StyleLien>
-      <PreAssertion>∅</PreAssertion>
-      <PostAssertion>∅</PostAssertion>
-      <Titre>verification différence saisit et recette</Titre>
-      <DetailsVisible>1</DetailsVisible>
-      <DetailsVideVisible>1</DetailsVideVisible>
-      <Enfants>
-        <Condition>
-          <Position>1200;1167</Position>
-          <StyleLien>0</StyleLien>
-          <estUnique>0</estUnique>
-          <operationsLogiques>
-            <operation>
-              <Titre>qteIngRecette > qteIngSaisit</Titre>
-              <Enfants>
-                <Action>
-                  <Position>851;1296</Position>
-                  <StyleLien>1</StyleLien>
-                  <PreAssertion>∅</PreAssertion>
-                  <PostAssertion>∅</PostAssertion>
-                  <Titre>Ajout qteIngSaisit*prix  à sacADos</Titre>
-                  <DetailsVisible>1</DetailsVisible>
-                  <DetailsVideVisible>1</DetailsVideVisible>
-                  <Enfants/>
-                </Action>
-                <Action>
-                  <Position>1051;1443</Position>
-                  <StyleLien>1</StyleLien>
-                  <PreAssertion>∅</PreAssertion>
-                  <PostAssertion>∅</PostAssertion>
-                  <Titre>Ajout diff (qteIngRecette - qteIngSaisit)*prix dans totalAjoutRecette</Titre>
-                  <DetailsVisible>1</DetailsVisible>
-                  <DetailsVideVisible>1</DetailsVideVisible>
-                  <Enfants/>
-                </Action>
-              </Enfants>
-            </operation>
-            <operation>
-              <Titre>Sinon</Titre>
-              <Enfants>
-                <Action>
-                  <Position>1532;1294</Position>
-                  <StyleLien>1</StyleLien>
-                  <PreAssertion>∅</PreAssertion>
-                  <PostAssertion>∅</PostAssertion>
-                  <Titre>Ajout qteIngRecette*prix  à sacADos</Titre>
-                  <DetailsVisible>1</DetailsVisible>
-                  <DetailsVideVisible>1</DetailsVideVisible>
-                  <Enfants/>
-                </Action>
-              </Enfants>
-            </operation>
-          </operationsLogiques>
-        </Condition>
       </Enfants>
     </Action>
   </Elements>
