@@ -107,6 +107,8 @@ class Recette
     public float $prixSacADos;
     public array $ingredients = array();
 
+
+
     //CONSTRUCTEUR
 
     /**
@@ -191,7 +193,18 @@ class Recette
     }
 
     public function ajouteIngredient(Ingredient $ingredient):void{
-        $this->ingredients[] = $ingredient;
+        array_push($this->ingredients,$ingredient);
+    }
+
+    public function supprIngredient(Ingredient $ingredient):void{
+        $cle1 = array_search($ingredient, $this->ingredients);
+        if($cle1 !== false){
+            unset($this->ingredients[$cle1]);
+        }
+}
+
+    public function verifPrixIngredient(Ingredient $ingredient):bool{
+        
     }
 }
 
