@@ -1,7 +1,18 @@
 <?php
 
+/**
+ * @created 2022-12-12
+ * @author CELLE Guillian, GARCIA Angel, LAGÜE Mathis
+ * @version 1.0
+ * @description Classes
+ */
 class Ingredient
 {
+    /**
+     * @Ingredient Cette classe permet de créer un ingrédient pour une recette avec son nom et sa quantité ainsi que son prix
+     *
+     */
+
     //ATTRIBUTS
     public int $idIngredient;
     public string $nomIngredient;
@@ -9,6 +20,19 @@ class Ingredient
     public string $unite;
 
     //CONSTRUCTEUR
+
+    /**
+     * @function __construct
+     * @function setIdIngredient
+     * @function setNomIngredient
+     * @function setPrix
+     * @function setUnite
+     * @function getIdIngredient
+     * @function getNomIngredient
+     * @function getPrix
+     * @function getUnite
+     * @description Constructeurs de la classe Ingredient
+     */
     function __construct($idIngredient, $nomIngredient, $prix, $unite)
     {
         $this->idIngredient = $idIngredient;
@@ -57,7 +81,13 @@ class Ingredient
         return $this->unite;
     }
 
-    //METHODES USUELLES
+    //MÉTHODES USUELLES
+
+    /**
+     * @function __toString
+     * @description Permet d'afficher les informations de l'ingrédient
+     * @return string
+     */
     function toString(): string
     {
         return "nomIngredient= " . $this->nomIngredient . ", prix= " . $this->prix . ", unite= " . $this->unite . " ";
@@ -66,6 +96,10 @@ class Ingredient
 
 class Recette
 {
+    /**
+     * @Recette Cette classe permet de créer une recette avec son nom, son prixAjout, son prixSacADos, ses ingrédients et sa quantité
+     */
+
     //ATTRIBUTS
     public int $idRecette;
     public string $nomRecette;
@@ -74,6 +108,18 @@ class Recette
     public array $ingredients = array();
 
     //CONSTRUCTEUR
+
+    /**
+     * @function __construct
+     * @function setIdRecette
+     * @function setNomRecette
+     * @function setPrixAjout
+     * @function setPrixSacADos
+     * @function getIdRecette
+     * @function getNomRecette
+     * @function getPrixAjout
+     * @function getPrixSacADos
+     */
     function  __construct($idRecette, $nomRecette, $prixAjout, $prixSacADos)
     {
         $this->idRecette = $idRecette;
@@ -82,17 +128,12 @@ class Recette
         $this->prixSacADos = $prixSacADos;
     }
 
-    public function addIngredient(Ingredient $ingredient):void{
-        $this->ingredients[] = $ingredient;
-    }
-
-    public function getIngredients(): array{
-        return $this->ingredients;
-    }
-
     function setIdRecette($idRecette): void
     {
         $this->idRecette = $idRecette;
+    }
+    public function getIngredients(): array{
+        return $this->ingredients;
     }
 
     function getIdRecette(): int
@@ -130,7 +171,16 @@ class Recette
         return $this->prixSacADos;
     }
 
-    //METHODES USUELLES
+    //MÉTHODES USUELLES
+
+    /**
+     * @function toString
+     * @description Permet d'afficher les informations de la recette
+     * @return string
+     *
+     * @function ajouteIngredient
+     * @description Permet d'ajouter un ingrédient à la recette
+     */
     function toString(): string
     {
         $str = "";
@@ -139,12 +189,16 @@ class Recette
         }
         return "nomRecette= " . $this->nomRecette . ", prixAjout= " . $this->prixAjout . ", prixSacADos= " . $this->prixSacADos . "<br>" . $str;
     }
+
+    public function ajouteIngredient(Ingredient $ingredient):void{
+        $this->ingredients[] = $ingredient;
+    }
 }
 
 $recette = new Recette(1, "Pain", 0.5, 0.5);
-$recette->addIngredient(new Ingredient(1, "Farine", 0.5, "kg"));
-$recette->addIngredient(new Ingredient(2, "Eau", 0.5, "L"));
-$recette->addIngredient(new Ingredient(3, "Sel", 0.5, "kg"));
+$recette->ajouteIngredient(new Ingredient(1, "Farine", 0.5, "kg"));
+$recette->ajouteIngredient(new Ingredient(2, "Eau", 0.5, "L"));
+$recette->ajouteIngredient(new Ingredient(3, "Sel", 0.5, "kg"));
 
 // get the list of ingredients in the recipe
 $ingredients = $recette->getIngredients();
@@ -152,68 +206,52 @@ echo $recette->toString();
 
 $Pain = new Recette(1, "Pain", 0.5, 0.5 );
 
-class LivreIngredients
+class livreRecette
 {
-    private array $ingredients = array();
+    /**
+     * @livreRecette Cette classe permet de créer un livre de recette avec ses recettes
+     */
 
-    public function addIngredient(Ingredient $ingredient): void
-    {
-        $this->ingredients[] = $ingredient;
+    //ATTRIBUTS
+    public array $listeRecettes = array();
+
+    //MÉTHODES USUELLES
+
+    /**
+     * @function ajouteRecette
+     * @description Permet d'ajouter une recette au livre de recette
+     */
+
+    public function ajouteRecette(Recette $recette):void{
+        $this->listeRecettes[] = $recette;
     }
 
-    public function getIngredients(): array
-    {
-        return $this->ingredients;
-    }
-
-    public function toString(): string
-    {
-        $str = "";
-        foreach ($this->ingredients as $ingredient) {
-            $str .= $ingredient->toString() . "<br>";
+    public function supprRecette(Recette $recette):void{
+        $cle = array_search($recette, $this->listeRecettes);
+        if($cle !== false){
+            unset($this->listeRecettes[$cle]);
         }
-        return $str;
     }
 
+    public function getRecettes(): array{
+        return $this->listeRecettes;
+    }
 }
 
-$livreIngredients = new LivreIngredients();
-$livreIngredients->addIngredient(new Ingredient(1, "Farine", 0.5, "kg"));
-$livreIngredients->addIngredient(new Ingredient(2, "Oeuf", 0.5, "kg"));
-$livreIngredients->addIngredient(new Ingredient(3, "Sucre", 0.5, "kg"));
-$livreIngredients->addIngredient(new Ingredient(4, "Lait", 0.5, "kg"));
-echo "<br>";
-echo $livreIngredients->toString();
-echo "<br>";
-class LivreRecettes
+$livreRecette = new livreRecette();
+$livreRecette->ajouteRecette($recette);
+$Recettes = $livreRecette->getRecettes();
+
+echo $Recettes[0] ->toString();
+
+class livreIngredient
 {
-    private array $recettes = array();
+    /**
+     * @livreIngredient Cette classe permet de créer un livre d'ingrédient avec ses ingrédients
+     */
 
-    public function addRecette(Recette $recette): void
-    {
-        $this->recettes[] = $recette;
-    }
+    //ATTRIBUTS
+    public array $listeIngredients = array();
 
-    public function getRecettes(): array
-    {
-        return $this->recettes;
-    }
-
-    public function toString(): string
-    {
-        $result = "";
-        foreach ($this->recettes as $recette) {
-            $result .= $recette->toString() . "<br>";
-        }
-        return $result;
-    }
 
 }
-
-$livreRecettes = new LivreRecettes();
-$livreRecettes->addRecette(new Recette(1, "Gateau", 0.5, 0.5 , new Ingredient(1, "Farine", 0.5, "kg")));
-$livreRecettes->addRecette(new Recette(2, "Pain", 0.5, 0.5 , new Ingredient(2, "Oeuf", 0.5, "kg")));
-$livreRecettes->addRecette(new Recette(3, "Crepes", 0.5, 0.5 , new Ingredient(3, "Sucre", 0.5, "kg")));
-$livreRecettes->addRecette(new Recette(4, "Cafe", 0.5, 0.5 , new Ingredient(4, "Lait", 0.5, "kg")));
-echo "<br>";
-echo $livreRecettes->toString();
