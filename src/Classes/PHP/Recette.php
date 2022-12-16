@@ -203,9 +203,16 @@ class Recette
         }
 }
 
-    public function verifPrixIngredient(Ingredient $ingredient):bool{
-        
+    public function verifPrixIngredient(Ingredient $ingredient, Recette $recette):bool{
+        //initialisation des variables
+        $prixMax = 10;
+        $prixOk = True;
+        $prix = 0;
+        $numIng = 0;
+        $nbIngRecette = strlen()
     }
+
+    public function convertirUnite()
 }
 
 $recette = new Recette(1, "Pain", 0.5, 0.5);
