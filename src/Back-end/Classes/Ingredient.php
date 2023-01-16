@@ -9,7 +9,7 @@
 class Ingredient
 {
     /**
-     * @Ingredient Cette classe permet de créer un ingrédient pour une recette avec son nom et sa quantité ainsi que son prix
+     * @Ingredient Cette classe permet de créer un ingrédient pour une recette avec son nom, sa quantité, son prix et son unite
      *
      */
 

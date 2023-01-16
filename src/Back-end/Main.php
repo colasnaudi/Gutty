@@ -7,10 +7,11 @@
  */
 
 //INCLUSIONS
-include_once '../Back-end/Classes/Ingredient.php';
-include_once '../Back-end/Classes/Recette.php';
-include_once '../Back-end/Classes/LivreIngredient.php';
-include_once '../Back-end/Classes/LivreRecette.php';
+include_once 'Classes/Ingredient.php';
+include_once 'Classes/Recette.php';
+include_once 'Classes/LivreIngredient.php';
+include_once 'Classes/LivreRecette.php';
+include_once  'Classes/Frigo.php';
 
 $recette = new Recette(1, "Pain", 0.5, 0.5);
 $recette->ajouteIngredient(new Ingredient(1, "Farine", 0.5, "kg"));
