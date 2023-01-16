@@ -17,33 +17,36 @@ include_once  'Classes/Frigo.php';
 $farine=new Ingredient(1, "Farine", 1.1, "kg");
 $eau=new Ingredient(2, "Eau", 0, "L");
 $sel=new Ingredient(3, "Sel", 2, "kg");
+$levure=new Ingredient(10, "Levure", 0.10, "unite");
 
 //RECETTE DE PAIN
 $recette = new Recette(1, "Pain", 0.5, 0.5);
-$recette->ajouteIngredient($farine);
-$recette->ajouteIngredient($eau);
-$recette->ajouteIngredient($sel);
+$recette->ajouteIngredient($farine, 0.5);
+$recette->ajouteIngredient($eau, 0.300);
+$recette->ajouteIngredient($sel, "pincee");
+$recette->ajouteIngredient($levure, 1);
 
 
 
-$oeuf=new Ingredient(4, "Oeuf", 2.9, "kg");
-$tomate=new Ingredient(5, "Tomate", 4, "kg");
+$oeuf=new Ingredient(4, "Oeuf", 2.9, "unite");
+$tomate=new Ingredient(5, "Tomate", 1.30, "unite");
 $fromage=new Ingredient(6, "Fromage", 10, "kg");
 $jambon=new Ingredient(7, "Jambon", 10, "kg");
-$oignon=new Ingredient(8, "Oignon", 1.2, "kg");
+$oignon=new Ingredient(8, "Oignon", 1.2, "unite");
 $olives=new Ingredient(9, "Olives", 15, "kg");
+
 
 //RECETTE DE PIZZA
 $recette2 = new Recette(2, "pizza", 0.5, 0.5);
-$recette2->ajouteIngredient($farine);
-$recette2->ajouteIngredient($eau);
-$recette2->ajouteIngredient($sel);
-$recette2->ajouteIngredient($oeuf);
-$recette2->ajouteIngredient($tomate);
-$recette2->ajouteIngredient($fromage);
-$recette2->ajouteIngredient($jambon);
-$recette2->ajouteIngredient($oignon);
-$recette2->ajouteIngredient($olives);
+$recette2->ajouteIngredient($farine, 0.350 );
+$recette2->ajouteIngredient($eau, 0.250);
+$recette2->ajouteIngredient($sel, "pincee");
+$recette2->ajouteIngredient($levure, 1);
+$recette2->ajouteIngredient($tomate, 3);
+$recette2->ajouteIngredient($fromage, 0.5);
+$recette2->ajouteIngredient($jambon, 0.5);
+$recette2->ajouteIngredient($oignon, 2);
+$recette2->ajouteIngredient($olives, 0.1);
 
 $creme_fraiche=new Ingredient(10, "Creme fraiche", 4, "kg");
 $poivre=new Ingredient(11, "Poivre", 40, "kg");
@@ -53,28 +56,28 @@ $lardons=new Ingredient(13, "Lardons", 6.7, "kg");
 
 //RECETTE DE PATES CARBONARA
 $recette3 = new Recette(3, "pates carbonara", 0.5, 0.5);
-$recette3->ajouteIngredient($creme_fraiche);
-$recette3->ajouteIngredient($poivre);
-$recette3->ajouteIngredient($pates);
-$recette3->ajouteIngredient($lardons);
-$recette3->ajouteIngredient($sel);
-$recette3->ajouteIngredient($oeuf);
-$recette3->ajouteIngredient($oignon);
+$recette3->ajouteIngredient($creme_fraiche, 0.5);
+$recette3->ajouteIngredient($poivre, "pincee");
+$recette3->ajouteIngredient($pates, 0.5);
+$recette3->ajouteIngredient($lardons, 0.250);
+$recette3->ajouteIngredient($sel, "pincee");
+$recette3->ajouteIngredient($oeuf, 3);
+$recette3->ajouteIngredient($oignon, 1);
 
-$carotte=new Ingredient(14, "Carotte", 1, "kg");
+$carotte=new Ingredient(14, "Carotte", 1, "unite");
 $beurre=new Ingredient(15, "Beurre", 7, "kg");
 $bourgignon=new Ingredient(16, "Bourgignon", 16.5, "kg");
 $vin_rouge=new Ingredient(17, "Vin rouge", 7, "L");
 
 //RECETTE DE BOEUF BOURGUIGNON
 $recette4 = new Recette(4, "boeuf bourguignon", 0.5, 0.5);
-$recette4->ajouteIngredient($carotte);
-$recette4->ajouteIngredient($beurre);
-$recette4->ajouteIngredient($bourgignon);
-$recette4->ajouteIngredient($vin_rouge);
-$recette4->ajouteIngredient($sel);
-$recette4->ajouteIngredient($poivre);
-$recette4->ajouteIngredient($oignon);
+$recette4->ajouteIngredient($carotte, 4);
+$recette4->ajouteIngredient($beurre, 0.100);
+$recette4->ajouteIngredient($bourgignon, 0.6 );
+$recette4->ajouteIngredient($vin_rouge, 0.75);
+$recette4->ajouteIngredient($sel,"pincee");
+$recette4->ajouteIngredient($poivre, "pincee");
+$recette4->ajouteIngredient($oignon, 4);
 
 
 $livreRecette = new LivreRecette();
