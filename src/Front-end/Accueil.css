@@ -18,17 +18,14 @@ header{
 
 header h1{
    font-size: 70px;
-   color: #333;
    padding-top: 55px;
    padding-left: 43%;
    font-family: andale mono, monospace;
-   color: #D76A6A;
-   stroke: 000000 20%;
-   text-shadow: 0px 2px 3px rgba(85, 85, 85, 0.5);
+   color: #11F837;
+   text-shadow: 0 2px 3px rgba(85, 85, 85, 0.5);
 }
 
 header select{
-   margin: 0;
    float: right;
    margin-right: 50px;
    margin-top: -7%;
@@ -47,6 +44,82 @@ header img{
    margin: 0 20px;
 }
 
-@media screen {
-   
+main{
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+}
+
+.search-box {
+   position: absolute;
+   top: 20%;
+   left: 75%;
+   transform: translate(-50%, 50%);
+   background: #FFB400;
+   height: 40px;
+   border-radius: 40px;
+   padding: 10px;
+}
+.search-box:hover > #search-txt {
+   width: 240px;
+   padding: 0 6px;
+}
+.search-box:hover > .search-btn {
+   background: white;
+   color: black;
+}
+.search-btn {
+   float: right;
+   width: 40px;
+   height: 40px;
+   border-radius: 50%;
+   background: #2f3640;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   transition: 0.4s;
+   color: white;
+   cursor: pointer;
+   text-decoration: none;
+}
+.search-btn > i {
+   font-size: 20px;
+}
+#search-txt {
+   border: none;
+   background: none;
+   outline: none;
+   float: left;
+   padding: 0;
+   color: black;
+   font-size: 16px;
+   transition: 0.4s;
+   line-height: 40px;
+   width: 0;
+   font-weight: bold;
+}
+
+input::placeholder {
+   color: black;
+   opacity: 1;
+}
+
+.ingredient
+{
+   margin-left: 5px;
+   display:inline-block;
+   grid-column: 1;
+   width: 25%;
+   height: 30px;
+   background-color: #fff;
+   box-shadow: 0 0 10px #ccc;
+   margin-top: 10px;
+}
+
+#list{
+   font-size:  1.5em;
+   margin-left: 90px;
+}
+
+.box{
+   margin-left: 25px;
 }

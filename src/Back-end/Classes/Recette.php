@@ -166,7 +166,7 @@ class Recette
         if ($unite == "dl" && $uniteConvertie == "l"){
             $quantiteConvertie = $quantite / 10;
         }
-        
+
         if ($unite == "l" && $uniteConvertie == "l"){
             $quantiteConvertie = $quantite;
         }

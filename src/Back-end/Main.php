@@ -112,3 +112,12 @@ $ingredient = new Ingredient(1, "Farine", 0.5, "kg");
 $ingredient->modifierIngredient(2, "Eau", 0.5, "L");
 
 echo $ingredient->toString();
+
+$recetteX = new Recette(1, "Pain", 0.5, 0.5);
+$recetteX->ajouteIngredient(new Ingredient(1, "Farine", 0.5, "kg"),2);
+$recetteX->ajouteIngredient(new Ingredient(2, "Eau", 0.5, "l"),1);
+$recetteX->ajouteIngredient(new Ingredient(3, "Sel", 0.5, "kg"),0.5);
+
+foreach($recetteX->getQuantite() as $quantite) {
+    echo $recetteX->convertirQuantite($quantite, "kg", "mg") . "<br>";
+}
