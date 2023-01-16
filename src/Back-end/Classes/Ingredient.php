@@ -92,4 +92,12 @@ class Ingredient
     {
         return "nomIngredient= " . $this->nomIngredient . ", prix= " . $this->prix . ", unite= " . $this->unite . " ";
     }
+
+    public function modifierIngredient($idX, $nomIngredientX, $prixX, $uniteX):void
+    {
+        $this->idIngredient = $idX;
+        $this->nomIngredient = $nomIngredientX;
+        $this->prix = $prixX;
+        $this->unite = $uniteX;
+    }
 }
