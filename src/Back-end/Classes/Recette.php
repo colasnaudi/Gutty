@@ -16,6 +16,7 @@ class Recette
     //ATTRIBUTS
     private string $nomRecette;
     private float $prixAjout;
+    private float $prixFrigo;
     private float $prixRecette;
     private array $ingredients = array();
     private array $quantites = array();
@@ -37,6 +38,14 @@ class Recette
         $this->ingredients = $ingredients;
         $this->quantites = $quantites;
         $this->prixRecette = $this->calculerPrixRecette();
+    }
+
+    public function setPrixFrigo(float $prixFrigo): void{
+        $this->prixFrigo = $prixFrigo;
+    }
+
+    public function getPrixFrigo(): float{
+        return $this->prixFrigo;
     }
 
     public function getIngredients(): array{
@@ -130,117 +139,58 @@ class Recette
     }
 
     //Methodes métier
-    public function convertirQuantite($quantite, $unite, $uniteConvertie): float {
-        $quantiteConvertie = 0;
-        if ($unite == "kg" && $uniteConvertie == "g"){
-            $quantiteConvertie = $quantite * 1000;
-        }
-        if ($unite == "g" && $uniteConvertie == "kg"){
-            $quantiteConvertie = $quantite / 1000;
-        }
-        if ($unite == "kg" && $uniteConvertie == "mg"){
-            $quantiteConvertie = $quantite * 1000000;
-        }
-        if ($unite == "mg" && $uniteConvertie == "kg"){
-            $quantiteConvertie = $quantite / 1000000;
-        }
-        if ($unite == "g" && $uniteConvertie == "mg"){
-            $quantiteConvertie = $quantite * 1000;
-        }
-        if ($unite == "mg" && $uniteConvertie == "g"){
-            $quantiteConvertie = $quantite / 1000;
-        }
-        if ($unite == "kg" && $uniteConvertie == "kg"){
-            $quantiteConvertie = $quantite;
-        }
-        if ($unite == "g" && $uniteConvertie == "g"){
-            $quantiteConvertie = $quantite;
-        }
-        if ($unite == "mg" && $uniteConvertie == "mg"){
-            $quantiteConvertie = $quantite;
-        }
-        if ($unite == "ml" && $uniteConvertie == "l"){
-            $quantiteConvertie = $quantite / 1000;
-        }
-        if ($unite == "l" && $uniteConvertie == "ml"){
-            $quantiteConvertie = $quantite * 1000;
-        }
-        if ($unite == "ml" && $uniteConvertie == "cl"){
-            $quantiteConvertie = $quantite / 100;
-        }
-        if ($unite == "cl" && $uniteConvertie == "ml"){
-            $quantiteConvertie = $quantite * 100;
-        }
-        if ($unite == "ml" && $uniteConvertie == "dl"){
-            $quantiteConvertie = $quantite / 10;
-        }
-        if ($unite == "dl" && $uniteConvertie == "ml"){
-            $quantiteConvertie = $quantite * 10;
-        }
-        if ($unite == "ml" && $uniteConvertie == "ml"){
-            $quantiteConvertie = $quantite;
-        }
-        if ($unite == "cl" && $uniteConvertie == "cl"){
-            $quantiteConvertie = $quantite;
-        }
-        if ($unite == "dl" && $uniteConvertie == "dl"){
-            $quantiteConvertie = $quantite;
-        }
-        if ($unite == "l" && $uniteConvertie == "l"){
-            $quantiteConvertie = $quantite;
-        }
-        if($unite == "sans unité" && $uniteConvertie == "poignée"){
-            $quantiteConvertie = $quantite * 4;
-        }
-        if($unite == "poignée" && $uniteConvertie == "sans unité"){
-            $quantiteConvertie = $quantite / 4;
-        }
-        if ($unite == "pincée" && $uniteConvertie == "gramme"){
-            $quantiteConvertie = $quantite * 5;
-        }
-        if ($unite == "g" && $uniteConvertie == "pincée"){
-            $quantiteConvertie = $quantite / 5;
-        }
-        if ($unite == "g" && $uniteConvertie == "cuillère à café"){
-            $quantiteConvertie = $quantite * 5;
-        }
-        if ($unite == "cuillère à café" && $uniteConvertie == "g"){
-            $quantiteConvertie = $quantite / 5;
-        }
-        if ($unite == "g" && $uniteConvertie == "cuillère à soupe"){
-            $quantiteConvertie = $quantite * 15;
-        }
-        if ($unite == "cuillère à soupe" && $uniteConvertie == "g"){
-            $quantiteConvertie = $quantite / 15;
-        }
-        if ($unite == "sans unité" && $uniteConvertie == "sans unité"){
-            $quantiteConvertie = $quantite;
-        }
-        if ($unite == "pincée" && $uniteConvertie == "pincée"){
-            $quantiteConvertie = $quantite;
-        }
-        if ($unite == "cuillère à café" && $uniteConvertie == "cuillère à café"){
-            $quantiteConvertie = $quantite;
-        }
-        if ($unite == "cuillère à soupe" && $uniteConvertie == "cuillère à soupe"){
-            $quantiteConvertie = $quantite;
-        }
-        return $quantiteConvertie;
-    }
+    public function calculerPrixAjout(Frigo $unFrigo):float {
+        //Initialisaiton des variables
+        $prixAjout = 0;
 
-    public function calculPrixRecette():float {
-        $prix = 0;
-        $prixIngredients = array();
+        $ingredientFrigo = $unFrigo->getIngredients();
+        $nomIngredientFrigo = array();
+        foreach ($ingredientFrigo as $ingredient){
+            $nomIngredientFrigo[] = $ingredient->getNomIngredient();
+        }
+        $quantiteFrigo = $unFrigo->getQuantites();
+        $prixIngredientFrigo = array();
+        foreach ($ingredientFrigo as $ingredient){
+            $prixIngredientFrigo[] = $ingredient->getPrix();
+        }
 
-        //On récupère le prix de chaque ingrédient
-        foreach ($this->ingredients as $ingredient){
-            $prixIngredients[] = $ingredient->getPrix();
+        $ingredientRecette = $this->ingredients;
+        $nomIngredientRecette = array();
+        foreach ($ingredientRecette as $ingredient){
+            $nomIngredientRecette[] = $ingredient->getNomIngredient();
         }
-        //On multiplie le prix de chaque ingrédient par sa quantité pour avoir le prix du frigo
-        foreach(array_combine($prixIngredients, $this->quantites) as $ingredient => $quantites) {
-            $prix = $prix + ($ingredient * $quantites);
+        $quantiteRecette = $this->quantites;
+
+        //Calcul du prix d'ajout
+        $iterateurMultiple = new MultipleIterator();
+        $iterateurMultiple->attachIterator(new ArrayIterator($nomIngredientFrigo));
+        $iterateurMultiple->attachIterator(new ArrayIterator($quantiteFrigo));
+        $iterateurMultiple->attachIterator(new ArrayIterator($prixIngredientFrigo));
+
+        foreach ($iterateurMultiple as $valeur) {
+            list($nomIngredientFrigo, $quantiteFrigo, $prixIngredientFrigo) = $valeur;
+            foreach ($nomIngredientRecette as $ingredientRecette) {
+                if ($nomIngredientFrigo == $ingredientRecette) {
+                    if ($quantiteFrigo < $quantiteRecette || $quantiteFrigo > $quantiteRecette) {
+                        $prixAjout += min($quantiteFrigo, $quantiteRecette) * $prixIngredientFrigo;
+                    }
+                }
+            }
         }
-        return $prix;
+        /*
+        foreach (array_combine($ingredientFrigo, $quantiteFrigo) as $ingredientFrigo => $quantiteFrigo) {
+            foreach (array_combine($nomIngredientRecette, $quantiteRecette) as $ingredientRecette => $quantiteRecette) {
+                if ($ingredientFrigo->getNomIngredient() == $ingredientRecette) {
+                    if ($quantiteFrigo < $quantiteRecette || $quantiteFrigo > $quantiteRecette) {
+                        $prixAjout += min($quantiteFrigo, $quantiteRecette) * $ingredientFrigo->getPrix();
+                    }
+                }
+            }
+        }
+        */
+        $this->setPrixAjout($prixAjout);
+        $this->setPrixFrigo($this->prixRecette - $prixAjout);
+        return $prixAjout;
     }
 
 }
