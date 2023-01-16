@@ -13,20 +13,21 @@ include_once 'Classes/LivreIngredient.php';
 include_once 'Classes/LivreRecette.php';
 include_once  'Classes/Frigo.php';
 
+
 $recette = new Recette(1, "Pain", 0.5, 0.5);
-$recette->ajouteIngredient(new Ingredient(1, "Farine", 0.5, "kg"));
-$recette->ajouteIngredient(new Ingredient(2, "Eau", 0.5, "L"));
-$recette->ajouteIngredient(new Ingredient(3, "Sel", 0.5, "kg"));
+$recette->ajouteIngredient(new Ingredient(1, "Farine", 0.5, "kg"),2);
+$recette->ajouteIngredient(new Ingredient(2, "Eau", 0.5, "L"),1);
+$recette->ajouteIngredient(new Ingredient(3, "Sel", 0.5, "kg"),0.5);
 $recette2 = new Recette(2, "pizza", 0.5, 0.5);
-$recette2->ajouteIngredient(new Ingredient(1, "Farine", 0.5, "kg"));
-$recette2->ajouteIngredient(new Ingredient(2, "Eau", 0.5, "L"));
-$recette2->ajouteIngredient(new Ingredient(3, "Sel", 0.5, "kg"));
-$recette2->ajouteIngredient(new Ingredient(4, "Oeuf", 0.5, "kg"));
-$recette2->ajouteIngredient(new Ingredient(5, "Tomate", 0.5, "kg"));
-$recette2->ajouteIngredient(new Ingredient(6, "Fromage", 0.5, "kg"));
-$recette2->ajouteIngredient(new Ingredient(7, "Jambon", 0.5, "kg"));
-$recette2->ajouteIngredient(new Ingredient(8, "Oignon", 0.5, "kg"));
-$recette2->ajouteIngredient(new Ingredient(9, "Olives", 0.5, "kg"));
+$recette2->ajouteIngredient(new Ingredient(1, "Farine", 0.5, "kg"),2);
+$recette2->ajouteIngredient(new Ingredient(2, "Eau", 0.5, "L"),1);
+$recette2->ajouteIngredient(new Ingredient(3, "Sel", 0.5, "kg"),0.5);
+$recette2->ajouteIngredient(new Ingredient(4, "Oeuf", 0.5, "kg"),1);
+$recette2->ajouteIngredient(new Ingredient(5, "Tomate", 0.5, "kg"),1);
+$recette2->ajouteIngredient(new Ingredient(6, "Fromage", 0.5, "kg"),1);
+$recette2->ajouteIngredient(new Ingredient(7, "Jambon", 0.5, "kg"),1);
+$recette2->ajouteIngredient(new Ingredient(8, "Oignon", 0.5, "kg"),1);
+$recette2->ajouteIngredient(new Ingredient(9, "Olives", 0.5, "kg"),1);
 
 $ingredients = $recette->getIngredients();
 $ingredients2 = $recette2->getIngredients();
