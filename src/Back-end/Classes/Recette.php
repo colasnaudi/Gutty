@@ -14,7 +14,6 @@ class Recette
      */
 
     //ATTRIBUTS
-    private int $idRecette;
     private string $nomRecette;
     private float $prixAjout;
     private float $prixRecette;
@@ -25,32 +24,23 @@ class Recette
 
     /**
      * @function __construct
-     * @function setIdRecette
      * @function setNomRecette
      * @function setPrixAjout
      * @function setPrixRecette
-     * @function getIdRecette
+     * @function setPrixRecette
      * @function getNomRecette
      * @function getPrixAjout
      * @function getPrixRecette
      */
-    public function  __construct($idRecette, $nomRecette)
-    {
-        $this->idRecette = $idRecette;
-        $this->nomRecette = $nomRecette;
+    public function __construct(String $nom, array $ingredients, array $quantites) {
+        $this->nomRecette = $nom;
+        $this->ingredients = $ingredients;
+        $this->quantites = $quantites;
+        $this->prixRecette = $this->calculerPrixRecette();
     }
 
-    public function setIdRecette($idRecette): void
-    {
-        $this->idRecette = $idRecette;
-    }
     public function getIngredients(): array{
         return $this->ingredients;
-    }
-
-    public function getIdRecette(): int
-    {
-        return $this->idRecette;
     }
 
     public function setNomRecette($nomRecette): void
@@ -88,7 +78,7 @@ class Recette
         $this->quantite = $quantite;
     }
 
-    public function getQuantite(): float{
+    public function getQuantite(): array{
         return $this->quantite;
     }
 
