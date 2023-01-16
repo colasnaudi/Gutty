@@ -135,4 +135,24 @@ class Frigo
         }
         return $prix;
     }
+
+    public function genererPossibleRecette(LivreRecette $lesRecettes): array{
+        //Initialisation des variables
+        $lesRecettesPossibles = array();
+        $mesRecettes = $lesRecettes->getRecettes();
+        //Generation des recettes possibles
+        foreach ($mesRecettes as $recette) {
+            $nbIngredientsCommuns = 0;
+            foreach ($recette->getIngredients() as $ingredient) {
+                if (in_array($ingredient, $this->ingredients)) {
+                    $nbIngredientsCommuns++;
+                }
+                if ($nbIngredientsCommuns == 2) {
+                    $lesRecettesPossibles[] = $recette;
+                }
+            }
+        }
+        return $lesRecettesPossibles;
+    }
+
 }

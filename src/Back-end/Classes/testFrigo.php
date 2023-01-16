@@ -1,41 +1,48 @@
 <?php
-require "Frigo.php";
-require "Recette.php";
-require "Ingredient.php";
+//INCLUSIONS
+include_once 'Ingredient.php';
+include_once 'Recette.php';
+include_once 'LivreIngredient.php';
+include_once 'LivreRecette.php';
+include_once  'Frigo.php';
 
-$Ingredient1 = new Ingredient(1, "Oeuf", 0.15, "unite");
-$Ingredient2 = new Ingredient(2, "Lait", 1.04, "litre");
-$Ingredient3 = new Ingredient(3, "Salade", 2, "unite");
-$Ingredient4 = new Ingredient(4, "Chorizo", 5, "kg");
-$Ingredient5 = new Ingredient(5, "Feta", 9.80, "kg");
-$Ingredient6 = new Ingredient(6, "Thon", 17.83, "kg");
-$Ingredient7 = new Ingredient(7, "Mayonnaise", 6.99, "kg");
-$Ingredient8 = new Ingredient(8, "Riz", 1.96, "kg");
+$farine=new Ingredient(1, "Farine", 1.1, "kg");
+$eau=new Ingredient(2, "Eau", 0, "L");
+$sel=new Ingredient(3, "Sel", 2, "kg");
 
-$listeIngredients = array($Ingredient1, $Ingredient2, $Ingredient3);
-$listeQuantites = array(2, 1, 1);
+$recette = new Recette(1, "Pain", 0.5, 0.5);
+$recette->ajouteIngredient($farine, 1);
+$recette->ajouteIngredient($eau, 1);
+$recette->ajouteIngredient($sel, 0.1);
 
-$Frigo = new Frigo($listeIngredients, $listeQuantites);
-$Frigo->ajouterIngredient($Ingredient4, 3);
-foreach ($Frigo->getIngredients() as $ingredient) {
-    echo $ingredient->toString() . "<br>";
+$oeuf=new Ingredient(4, "Oeuf", 2.9, "kg");
+$tomate=new Ingredient(5, "Tomate", 4, "kg");
+$fromage=new Ingredient(6, "Fromage", 10, "kg");
+$jambon=new Ingredient(7, "Jambon", 10, "kg");
+$oignon=new Ingredient(8, "Oignon", 1.2, "kg");
+$olives=new Ingredient(9, "Olives", 15, "kg");
+
+
+$recette2 = new Recette(2, "Pizza", 0.5, 0.5);
+$recette2->ajouteIngredient($farine, 1);
+$recette2->ajouteIngredient($eau, 1);
+$recette2->ajouteIngredient($sel, 0.1);
+$recette2->ajouteIngredient($oeuf, 1);
+$recette2->ajouteIngredient($tomate, 1);
+$recette2->ajouteIngredient($fromage, 1);
+$recette2->ajouteIngredient($jambon, 1);
+$recette2->ajouteIngredient($oignon, 1);
+$recette2->ajouteIngredient($olives, 1);
+
+$livreRecette = new livreRecette();
+$livreRecette->ajouteRecette($recette);
+$livreRecette->ajouteRecette($recette2);
+
+$ingredientFrigo = array($farine, $oeuf, $tomate);
+$quantiteFrigo = array(1, 3, 4);
+$frigo = new Frigo($ingredientFrigo, $quantiteFrigo);
+
+$recettePossible = $frigo->genererPossibleRecette($livreRecette);
+foreach ($recettePossible as $recette) {
+    echo $recette->getNomRecette();
 }
-
-echo "<BR>";
-
-foreach ($Frigo->getQuantites() as $quantite) {
-    echo $quantite . "<br>";
-}
-
-echo "<BR>";
-
-echo $Frigo->toString();
-
-echo "<BR>";
-
-echo $Frigo->getPrixFrigo();
-
-
-
-
-

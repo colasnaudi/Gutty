@@ -81,7 +81,7 @@ $livreRecette = new LivreRecette();
 
 
 
-// get the list of ingredients in the recipe
+
 $ingredients = $recette->getIngredients();
 $ingredients2 = $recette2->getIngredients();
 
