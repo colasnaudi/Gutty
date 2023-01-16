@@ -57,3 +57,8 @@ $MesIngredients = $livreIngredient->getIngredients();
 foreach ($MesIngredients as $ingredient) {
     echo $ingredient->toString() . "<br>";
 }
+
+$ingredient = new Ingredient(1, "Farine", 0.5, "kg");
+$ingredient->modifierIngredient(2, "Eau", 0.5, "L");
+
+echo $ingredient->toString();
