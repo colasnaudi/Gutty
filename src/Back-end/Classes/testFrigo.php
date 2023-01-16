@@ -11,9 +11,9 @@ $eau=new Ingredient(2, "Eau", 0, "L");
 $sel=new Ingredient(3, "Sel", 2, "kg");
 
 $recette = new Recette(1, "Pain", 0.5, 0.5);
-$recette->ajouteIngredient($farine);
-$recette->ajouteIngredient($eau);
-$recette->ajouteIngredient($sel);
+$recette->ajouteIngredient($farine, 1);
+$recette->ajouteIngredient($eau, 1);
+$recette->ajouteIngredient($sel, 0.1);
 
 $oeuf=new Ingredient(4, "Oeuf", 2.9, "kg");
 $tomate=new Ingredient(5, "Tomate", 4, "kg");
@@ -24,15 +24,15 @@ $olives=new Ingredient(9, "Olives", 15, "kg");
 
 
 $recette2 = new Recette(2, "Pizza", 0.5, 0.5);
-$recette2->ajouteIngredient($farine);
-$recette2->ajouteIngredient($eau);
-$recette2->ajouteIngredient($sel);
-$recette2->ajouteIngredient($oeuf);
-$recette2->ajouteIngredient($tomate);
-$recette2->ajouteIngredient($fromage);
-$recette2->ajouteIngredient($jambon);
-$recette2->ajouteIngredient($oignon);
-$recette2->ajouteIngredient($olives);
+$recette2->ajouteIngredient($farine, 1);
+$recette2->ajouteIngredient($eau, 1);
+$recette2->ajouteIngredient($sel, 0.1);
+$recette2->ajouteIngredient($oeuf, 1);
+$recette2->ajouteIngredient($tomate, 1);
+$recette2->ajouteIngredient($fromage, 1);
+$recette2->ajouteIngredient($jambon, 1);
+$recette2->ajouteIngredient($oignon, 1);
+$recette2->ajouteIngredient($olives, 1);
 
 $livreRecette = new livreRecette();
 $livreRecette->ajouteRecette($recette);
