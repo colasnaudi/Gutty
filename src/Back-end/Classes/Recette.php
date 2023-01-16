@@ -140,70 +140,50 @@ class Recette
     }
 
     //Methodes métier
-    public function convertirQuantite($quantite, $unite, $uniteConvertie): float {
+    public function convertirQuantite($quantite, $unite): float {
         $quantiteConvertie = 0;
 
-        if ($unite == "g" && $uniteConvertie == "kg"){
+        if ($unite == "g"){
             $quantiteConvertie = $quantite / 1000;
         }
 
-        if ($unite == "mg" && $uniteConvertie == "kg"){
+        if ($unite == "mg"){
             $quantiteConvertie = $quantite / 1000000;
         }
 
-        if ($unite == "kg" && $uniteConvertie == "kg"){
+        if ($unite == "kg"){
             $quantiteConvertie = $quantite;
         }
 
-        if ($unite == "ml" && $uniteConvertie == "l"){
+        if ($unite == "ml"){
             $quantiteConvertie = $quantite / 1000;
         }
 
-        if ($unite == "cl" && $uniteConvertie == "l"){
+        if ($unite == "cl"){
             $quantiteConvertie = $quantite / 100;
         }
 
-        if ($unite == "dl" && $uniteConvertie == "l"){
+        if ($unite == "dl"){
             $quantiteConvertie = $quantite / 10;
         }
 
-        if ($unite == "l" && $uniteConvertie == "l"){
+        if ($unite == "l"){
             $quantiteConvertie = $quantite;
         }
-        if($unite == "sans unite" && $uniteConvertie == "poignee"){
-            $quantiteConvertie = $quantite * 4;
-        }
-        if($unite == "poignee" && $uniteConvertie == "sans unite"){
+
+        if($unite == "poignee"){
             $quantiteConvertie = $quantite / 4;
         }
-        if ($unite == "pincee" && $uniteConvertie == "g"){
+        if ($unite == "pincee"){
             $quantiteConvertie = $quantite * 5;
         }
-        if ($unite == "g" && $uniteConvertie == "pincee"){
+        if ($unite == "cuillere a cafe"){
             $quantiteConvertie = $quantite / 5;
         }
-        if ($unite == "g" && $uniteConvertie == "cuillère à café"){
-            $quantiteConvertie = $quantite * 5;
-        }
-        if ($unite == "cuillere a cafe" && $uniteConvertie == "g"){
-            $quantiteConvertie = $quantite / 5;
-        }
-        if ($unite == "g" && $uniteConvertie == "cuillere a soupe"){
-            $quantiteConvertie = $quantite * 15;
-        }
-        if ($unite == "cuillere à soupe" && $uniteConvertie == "g"){
+        if ($unite == "cuillere à soupe"){
             $quantiteConvertie = $quantite / 15;
         }
-        if ($unite == "sans unite" && $uniteConvertie == "sans unite"){
-            $quantiteConvertie = $quantite;
-        }
-        if ($unite == "pincée" && $uniteConvertie == "pincée"){
-            $quantiteConvertie = $quantite;
-        }
-        if ($unite == "cuillere a cafe" && $uniteConvertie == "cuillere a cafe"){
-            $quantiteConvertie = $quantite;
-        }
-        if ($unite == "cuillere a soupe" && $uniteConvertie == "cuillere a soupe"){
+        if ($unite == "unite"){
             $quantiteConvertie = $quantite;
         }
         return $quantiteConvertie;
