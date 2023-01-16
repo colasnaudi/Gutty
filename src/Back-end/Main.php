@@ -23,7 +23,7 @@ $levure=new Ingredient(10, "Levure", 0.10, "unite");
 $recette = new Recette(1, "Pain", 0.5, 0.5);
 $recette->ajouteIngredient($farine, 0.5);
 $recette->ajouteIngredient($eau, 0.300);
-$recette->ajouteIngredient($sel, "pincee");
+$recette->ajouteIngredient($sel, 1);
 $recette->ajouteIngredient($levure, 1);
 
 
@@ -40,7 +40,7 @@ $olives=new Ingredient(9, "Olives", 15, "kg");
 $recette2 = new Recette(2, "pizza", 0.5, 0.5);
 $recette2->ajouteIngredient($farine, 0.350 );
 $recette2->ajouteIngredient($eau, 0.250);
-$recette2->ajouteIngredient($sel, "pincee");
+$recette2->ajouteIngredient($sel, 1);
 $recette2->ajouteIngredient($levure, 1);
 $recette2->ajouteIngredient($tomate, 3);
 $recette2->ajouteIngredient($fromage, 0.5);
@@ -57,10 +57,10 @@ $lardons=new Ingredient(13, "Lardons", 6.7, "kg");
 //RECETTE DE PATES CARBONARA
 $recette3 = new Recette(3, "pates carbonara", 0.5, 0.5);
 $recette3->ajouteIngredient($creme_fraiche, 0.5);
-$recette3->ajouteIngredient($poivre, "pincee");
+$recette3->ajouteIngredient($poivre, 1);
 $recette3->ajouteIngredient($pates, 0.5);
 $recette3->ajouteIngredient($lardons, 0.250);
-$recette3->ajouteIngredient($sel, "pincee");
+$recette3->ajouteIngredient($sel, 1);
 $recette3->ajouteIngredient($oeuf, 3);
 $recette3->ajouteIngredient($oignon, 1);
 
@@ -75,8 +75,8 @@ $recette4->ajouteIngredient($carotte, 4);
 $recette4->ajouteIngredient($beurre, 0.100);
 $recette4->ajouteIngredient($bourgignon, 0.6 );
 $recette4->ajouteIngredient($vin_rouge, 0.75);
-$recette4->ajouteIngredient($sel,"pincee");
-$recette4->ajouteIngredient($poivre, "pincee");
+$recette4->ajouteIngredient($sel,1);
+$recette4->ajouteIngredient($poivre, 1);
 $recette4->ajouteIngredient($oignon, 4);
 
 
