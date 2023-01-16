@@ -10,17 +10,16 @@
 class Recette
 {
     /**
-     * @Recette Cette classe permet de créer une recette avec son nom, son prixAjout, son prixSacADos, ses ingrédients et sa quantité
+     * @Recette Cette classe permet de créer une recette avec son nom, son prixAjout, son prix, ses ingrédients et sa quantité
      */
 
     //ATTRIBUTS
     private int $idRecette;
     private string $nomRecette;
     private float $prixAjout;
-    private float $prixSacADos;
+    private float $prixRecette;
     private array $ingredients = array();
     private array $quantites = array();
-    private float $prixRecette = 0;
 
     //CONSTRUCTEUR
 
@@ -29,18 +28,16 @@ class Recette
      * @function setIdRecette
      * @function setNomRecette
      * @function setPrixAjout
-     * @function setPrixSacADos
+     * @function setPrixRecette
      * @function getIdRecette
      * @function getNomRecette
      * @function getPrixAjout
-     * @function getPrixSacADos
+     * @function getPrixRecette
      */
-    public function  __construct($idRecette, $nomRecette, $prixAjout, $prixSacADos)
+    public function  __construct($idRecette, $nomRecette)
     {
         $this->idRecette = $idRecette;
         $this->nomRecette = $nomRecette;
-        $this->prixAjout = $prixAjout;
-        $this->prixSacADos = $prixSacADos;
     }
 
     public function setIdRecette($idRecette): void
@@ -76,14 +73,14 @@ class Recette
         return $this->prixAjout;
     }
 
-    public function setPrixSacADos($prixSacADos): void
+    public function setPrixRecette($prixRecette): void
     {
-        $this->prixSacADos = $prixSacADos;
+        $this->$prixRecette = $prixRecette;
     }
 
-    public function getPrixSacADos(): float|int
+    public function getPrixRecette(): float|int
     {
-        return $this->prixSacADos;
+        return $this->prixRecette;
     }
 
     public function setQuantite($quantite): void
@@ -240,6 +237,22 @@ class Recette
         }
         return $quantiteConvertie;
     }
+
+    public function calculPrixRecette():float {
+        $prix = 0;
+        $prixIngredients = array();
+
+        //On récupère le prix de chaque ingrédient
+        foreach ($this->ingredients as $ingredient){
+            $prixIngredients[] = $ingredient->getPrix();
+        }
+        //On multiplie le prix de chaque ingrédient par sa quantité pour avoir le prix du frigo
+        foreach(array_combine($prixIngredients, $this->quantites) as $ingredient => $quantites) {
+            $prix = $prix + ($ingredient * $quantites);
+        }
+        return $prix;
+    }
+
 }
 
 
