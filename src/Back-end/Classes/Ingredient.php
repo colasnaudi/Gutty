@@ -87,6 +87,9 @@ class Ingredient
      * @function __toString
      * @description Permet d'afficher les informations de l'ingrédient
      * @return string
+     *
+     * @function modifierIngredient
+     * @description Permet de modifier les informations d'un ingrédient
      */
     public function toString(): string
     {
