@@ -42,7 +42,6 @@ $ingredientFrigo = array($farine, $oeuf, $tomate);
 $quantiteFrigo = array(1, 3, 4);
 $frigo = new Frigo($ingredientFrigo, $quantiteFrigo);
 
-$recettePossible = $frigo->genererPossibleRecette($livreRecette);
-foreach ($recettePossible as $recette) {
-    echo $recette->getNomRecette();
-}
+echo $recette->calculPrixRecette();
+echo "<br>";
+echo $recette2->calculPrixRecette();

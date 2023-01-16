@@ -25,9 +25,6 @@ $recette->ajouteIngredient($farine, 0.5);
 $recette->ajouteIngredient($eau, 0.300);
 $recette->ajouteIngredient($sel, "pincee");
 $recette->ajouteIngredient($levure, 1);
-
-
-
 $oeuf=new Ingredient(4, "Oeuf", 2.9, "unite");
 $tomate=new Ingredient(5, "Tomate", 1.30, "unite");
 $fromage=new Ingredient(6, "Fromage", 10, "kg");
@@ -81,9 +78,6 @@ $recette4->ajouteIngredient($oignon, 4);
 
 
 $livreRecette = new LivreRecette();
-
-
-
 
 $ingredients = $recette->getIngredients();
 $ingredients2 = $recette2->getIngredients();
