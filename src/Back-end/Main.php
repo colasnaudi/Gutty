@@ -28,7 +28,6 @@ $recette2->ajouteIngredient(new Ingredient(7, "Jambon", 0.5, "kg"));
 $recette2->ajouteIngredient(new Ingredient(8, "Oignon", 0.5, "kg"));
 $recette2->ajouteIngredient(new Ingredient(9, "Olives", 0.5, "kg"));
 
-// get the list of ingredients in the recipe
 $ingredients = $recette->getIngredients();
 $ingredients2 = $recette2->getIngredients();
 
