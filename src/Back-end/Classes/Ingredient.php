@@ -87,9 +87,20 @@ class Ingredient
      * @function __toString
      * @description Permet d'afficher les informations de l'ingrédient
      * @return string
+     *
+     * @function modifierIngredient
+     * @description Permet de modifier les informations d'un ingrédient
      */
     public function toString(): string
     {
         return "nomIngredient= " . $this->nomIngredient . ", prix= " . $this->prix . ", unite= " . $this->unite . " ";
+    }
+
+    public function modifierIngredient($idX, $nomIngredientX, $prixX, $uniteX):void
+    {
+        $this->idIngredient = $idX;
+        $this->nomIngredient = $nomIngredientX;
+        $this->prix = $prixX;
+        $this->unite = $uniteX;
     }
 }
