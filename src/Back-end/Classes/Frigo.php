@@ -140,19 +140,28 @@ class Frigo
         //Initialisation des variables
         $lesRecettesPossibles = array();
         $mesRecettes = $lesRecettes->getRecettes();
+
         //Generation des recettes possibles
         foreach ($mesRecettes as $recette) {
             $nbIngredientsCommuns = 0;
+            $recetteAjouter = false;
             foreach ($recette->getIngredients() as $ingredient) {
                 if (in_array($ingredient, $this->ingredients)) {
                     $nbIngredientsCommuns++;
                 }
-                if ($nbIngredientsCommuns == 2) {
+                if ($nbIngredientsCommuns === 2 && $recetteAjouter === false) {
+                    $recetteAjouter = true;
                     $lesRecettesPossibles[] = $recette;
                 }
             }
         }
         return $lesRecettesPossibles;
     }
-
+    private function comparer($a, $b){
+        return $a->getPrixFrigo() <=> $b->getPrixFrigo();
+    }
+    public function trierSuggestion(array $listePossibilite):array {
+        usort($listePossibilite, array($this, "comparer"));
+        return array_reverse($listePossibilite);
+    }
 }
