@@ -191,7 +191,7 @@ class Recette
                         $prixFrigo += min($quantiteFrigo, $quantiteRecette) * $prixIngredientFrigo;
                     }
                     else {
-                        $prixFrigo += 0;
+                        $prixFrigo += $quantiteFrigo * $prixIngredientFrigo;
                     }
                 }
             }

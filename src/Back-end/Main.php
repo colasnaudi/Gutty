@@ -33,25 +33,6 @@ $bourgignon=new Ingredient(16, "Bourgignon", 16.5, "kg");
 $vin_rouge=new Ingredient(17, "Vin rouge", 7, "L");
 $creme_fraiche=new Ingredient(18, "Creme fraiche", 4, "L");
 
-//RECETTE DE PAIN
-$recette = new Recette(1, "Pain", 0.5, 0.5);
-$recette->ajouteIngredient($farine, 0.5);
-$recette->ajouteIngredient($eau, 0.300);
-$recette->ajouteIngredient($sel, 1);
-$recette->ajouteIngredient($levure, 1);
-
-//RECETTE DE PIZZA
-$recette2 = new Recette(2, "pizza", 0.5, 0.5);
-$recette2->ajouteIngredient($farine, 0.350 );
-$recette2->ajouteIngredient($eau, 0.250);
-$recette2->ajouteIngredient($sel, 1);
-$recette2->ajouteIngredient($levure, 1);
-$recette2->ajouteIngredient($tomate, 3);
-$recette2->ajouteIngredient($fromage, 0.5);
-$recette2->ajouteIngredient($jambon, 0.5);
-$recette2->ajouteIngredient($oignon, 2);
-$recette2->ajouteIngredient($olives, 0.1);
-
 //RECETTE DE PAIN - Prix : 2,65€
 //Frigo : 0.5 farine => Prix = 0.55
 //Ajout : 2,65 - 0.55 = 2.1
@@ -79,7 +60,6 @@ $recette3 = new Recette("Pates carbonara", $listeIngredientRecette3, $listeQuant
 $listeIngredientRecette4 = array($carotte, $beurre, $bourgignon, $vin_rouge, $sel, $poivre, $oignon);
 $listeQuantiteRecette4 = array(4, 0.100, 0.6, 0.75, 1, 1, 4);
 $recette4 = new Recette("Boeuf bourguignon", $listeIngredientRecette4, $listeQuantiteRecette4);
-
 
 //Livre de recette
 $livreRecette = new LivreRecette();
