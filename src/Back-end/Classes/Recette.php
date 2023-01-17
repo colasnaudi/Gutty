@@ -84,11 +84,11 @@ class Recette
 
     public function setQuantite($quantite): void
     {
-        $this->quantite = $quantite;
+        $this->quantites = $quantite;
     }
 
     public function getQuantite(): array{
-        return $this->quantite;
+        return $this->quantites;
     }
 
     //MÉTHODES USUELLES

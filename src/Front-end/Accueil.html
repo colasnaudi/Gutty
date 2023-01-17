@@ -7,8 +7,6 @@
 * A responsive design that adapts to different screen sizes, so that the website looks great on desktop, tablet, and mobile devices.
 * Interactive elements, such as sliders, accordions, and tabbed content, that make the website more engaging and user-friendly.
 * A clean and well-organized codebase that follows best practices and standards, to make the website easy to maintain and extend.-->
-
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -16,24 +14,43 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="Accueil.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
    <title>Accueil-Gutty</title>
 </head>
 <body>
    <header>
       <img src="logoTempo.jpg" alt="Logo temporaire">
       <h1>Gutty</h1>
-      <select name="" id="">
-         <option value="">X</option>
-         <option value="">Accueil</option>
-         <option value="">A propos</option>
-         <option value="">Contact</option>
-      </select>
    </header>
    <main>
-      
+      <div class="search-box">
+         <input type="text" name="" id="search-txt" onkeyup="search_ingredient()" placeholder="Tapez pour rechercher" />
+         <a class="search-btn" href="#">
+            <i class="fa fa-search" aria-hidden="true"></i>
+         </a>
+      </div>
+
+      <div class="Ingredients">
+         <form action="Ingredients.html">
+         <ol id="list">
+            <li class="ingredient"><input type="checkbox" id="Ingredient" name="Ingredient" value="Oeuf" class="box"/><label for="Ingredient">Oeuf</label></li>
+            <li class="ingredient"><input type="checkbox" id="Ingredient2" name="Ingredient" value="Eau" class="box" /><label for="Ingredient2">Eau</label></li>
+            <li class="ingredient"><input type="checkbox" id="Ingredient3" name="Ingredient" value="Farine" class="box"/><label for="Ingredient3">Farine</label></li>
+            <li class="ingredient"><input type="checkbox" id="Ingredient4" name="Ingredient" value="Tomate" class="box"/><label for="Ingredient4">Tomate</label></li>
+            <li class="ingredient"><input type="checkbox" id="Ingredient5" name="Ingredient" value="Carotte" class="box"/><label for="Ingredient5">Carotte</label></li>
+            <li class="ingredient"><input type="checkbox" id="Ingredient6" name="Ingredient" value="Beurre" class="box"/><label for="Ingredient6">Beurre</label></li>
+            <li class="ingredient"><input type="checkbox" id="Ingredient7" name="Ingredient" value="Chocolat" class="box"/><label for="Ingredient7">Chcolat</label></li>
+            <li class="ingredient"><label for="Ingredient8">Salade</label></li>
+            <li class="ingredient"><label for="Ingredient9">Cerise</label><input type="checkbox" id="Ingredient9" name="Ingredient" value="Cerise" class="box"/></li>
+         </ol>
+            <button type="submit">Ingrédients</button>
+         </form>
+      </div>
    </main>
    <footer>
 
    </footer>
+
+   <script src="Ingredient.js"></script>
 </body>
 </html>
