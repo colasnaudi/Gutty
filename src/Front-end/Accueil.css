@@ -108,7 +108,7 @@ input::placeholder {
    margin-left: 5px;
    display:inline-block;
    grid-column: 1;
-   width: 25%;
+   width: 33%;
    height: 30px;
    background-color: #fff;
    box-shadow: 0 0 10px #ccc;
@@ -122,4 +122,43 @@ input::placeholder {
 
 .box{
    margin-left: 25px;
+}
+
+input[type="submit"]{
+   background-color: #FFB400;
+   border: none;
+   color: white;
+   padding: 15px 32px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 16px;
+   cursor: pointer;
+   border-radius: 12px;
+   margin-left: 90px;
+   margin-top: 20px;
+}
+
+#ing{
+   font-size: 1.5em;
+   margin-left: 10px;
+   margin-top: 15px;
+   margin-bottom: -10px;
+}
+
+input[type="number"]{
+   width: 50px;
+   height: 30px;
+   border-radius: 5px;
+   border: 1px solid darkgrey;
+   margin-left: 10px;
+}
+
+.recherche{
+   margin-top: 20px;
+   margin-left: 10px;
+}
+
+#value{
+   margin-left: 10px;
 }
