@@ -71,14 +71,23 @@ $ingredientFrigo = array($creme_fraiche, $poivre, $pates, $lardons, $sel, $oigno
 $quantiteFrigo = array(0.5, 1, 0.5, 0.250, 1, 1);
 $frigo = new Frigo($ingredientFrigo, $quantiteFrigo);
 
-//Tests
-$str = $frigo->toString();
-echo "Frigo : " . $str . "<br>";
-foreach ($livreRecette->getRecettes() as $recette) {
-    echo $recette->getNomRecette() . " : " . "<br>";
+
+//Test generer suggestion
+//Generation des recettes possibles
+$recettePossible = $frigo->genererPossibleRecette($livreRecette);
+
+//Calcul du prix frigo et ajout des recettes possibles
+foreach ($recettePossible as $recette) {
     $recette->calculerPrixFrigo($frigo);
+}
+
+//Tri des recettes possibles par prixFrigo
+$recetteTriee = $frigo->trierSuggestion($recettePossible);
+foreach ($recetteTriee as $recette) {
+    echo $recette->getNomRecette() . " : " . "<br>";
     echo "Prix total : " . $recette->getPrixRecette() . "€" . "<BR>";
     echo "Prix frigo : " . $recette->getPrixFrigo() . "€" . "<BR>";
     echo "Prix ajout : " . $recette->getPrixAjout() . "€" . "<BR>";
     echo "<br>";
 }
+
