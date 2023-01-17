@@ -126,14 +126,19 @@ class Recette
     private function calculerPrixRecette(): float {
         $prix = 0;
         $prixIngredients = array();
+        $quantiteIngredients = array();
 
         //On récupère le prix de chaque ingrédient
         foreach ($this->ingredients as $ingredient){
             $prixIngredients[] = $ingredient->getPrix();
         }
+        //On récupère la quantité de chaque ingrédient
+        foreach ($this->quantites as $quantite){
+            $quantiteIngredients[] = $quantite;
+        }
         //On multiplie le prix de chaque ingrédient par sa quantité pour avoir le prix du frigo
-        foreach(array_combine($prixIngredients, $this->quantites) as $ingredient => $quantite) {
-            $prix = $prix + ($ingredient * $quantite);
+        foreach ($prixIngredients as $index => $value){
+            $prix += $prixIngredients[$index] * $quantiteIngredients[$index];
         }
         return $prix;
     }
@@ -185,9 +190,7 @@ class Recette
                 list($quantiteRecette, $nomIngredientRecette, $prixIngredientRecette) = $valeurRecette;
                 //Si l'ingrédient du frigo est présent dans la recette
                 if ($nomIngredientFrigo === $nomIngredientRecette) {
-                    echo "Ingredient en commun : " . $nomIngredientFrigo . " avec une qteFrigo : " . $quantiteFrigo . " et une qteRecette à " . $quantiteRecette . " <br>";
                     if ($quantiteFrigo < $quantiteRecette || $quantiteFrigo > $quantiteRecette) {
-                        echo "Qte min : " . min($quantiteFrigo, $quantiteRecette) . " <br>";
                         $prixFrigo += min($quantiteFrigo, $quantiteRecette) * $prixIngredientFrigo;
                     }
                     else {
@@ -196,10 +199,10 @@ class Recette
                 }
             }
         }
+        //Mise à jour des attributs prixFrigo et prixRecette de la recette
         $this->setPrixFrigo($prixFrigo);
         $this->setPrixAjout($this->prixRecette - $prixFrigo);
     }
-
 }
 
 

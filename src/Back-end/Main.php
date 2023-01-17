@@ -24,7 +24,7 @@ $jambon=new Ingredient(7, "Jambon", 10, "kg");
 $oignon=new Ingredient(8, "Oignon", 1.2, "unite");
 $olives=new Ingredient(9, "Olives", 15, "kg");
 $levure=new Ingredient(10, "Levure", 0.10, "unite");
-$poivre=new Ingredient(11, "Poivre", 2, "kg");
+$poivre=new Ingredient(11, "Poivre", 2, "unite");
 $pates=new Ingredient(12, "Pates", 1, "kg");
 $lardons=new Ingredient(13, "Lardons", 6.7, "kg");
 $carotte=new Ingredient(14, "Carotte", 1.4, "unite");
@@ -34,32 +34,29 @@ $vin_rouge=new Ingredient(17, "Vin rouge", 7, "L");
 $creme_fraiche=new Ingredient(18, "Creme fraiche", 4, "L");
 
 //RECETTE DE PAIN - Prix : 2,65€
-//Frigo : 0.5 farine => Prix = 0.55
-//Ajout : 2,65 - 0.55 = 2.1
 $listeIngredientRecette1 = array($farine, $eau, $sel, $levure);
 $listeQuantiteRecette1 = array(0.5, 0.300, 1, 1);
 $recette1 = new Recette("Pain", $listeIngredientRecette1, $listeQuantiteRecette1);
 
 //RECETTE DE PIZZA - 15.285€
-//Frigo : 0.35 farine, 3 tomates => Prix = 4,285
-//Ajout : 15.285 - 4.285 = 11
 $listeIngredientRecette2 = array($farine, $eau, $sel, $levure, $tomate, $fromage, $jambon, $oignon, $olives);
 $listeQuantiteRecette2 = array(0.350, 0.250, 1, 1, 3, 0.5, 0.5, 2, 0.1);
 $recette2 = new Recette("Pizza", $listeIngredientRecette2, $listeQuantiteRecette2);
 
 //RECETTE DE PATES CARBONARA - 8.575€
-//Frigo : 3 oeufs => Prix = 1.2
-//Ajout : 8.575 - 1.2 = 7.375
 $listeIngredientRecette3 = array($creme_fraiche, $poivre, $pates, $lardons, $sel, $oeuf, $oignon);
 $listeQuantiteRecette3 = array(0.5, 1, 0.5, 0.250, 1, 3, 1);
 $recette3 = new Recette("Pates carbonara", $listeIngredientRecette3, $listeQuantiteRecette3);
 
 //RECETTE DE BOEUF BOURGUIGNON - 27.55€
-//Frigo : Rien => Prix = 0
-//Ajout : 27.55 - 0 = 27.55
 $listeIngredientRecette4 = array($carotte, $beurre, $bourgignon, $vin_rouge, $sel, $poivre, $oignon);
 $listeQuantiteRecette4 = array(4, 0.100, 0.6, 0.75, 1, 1, 4);
 $recette4 = new Recette("Boeuf bourguignon", $listeIngredientRecette4, $listeQuantiteRecette4);
+
+//RECETTE TEST MATHIS - 6.125€
+$listeIngredientRecette5 = array($creme_fraiche, $poivre, $pates, $lardons, $sel, $oignon);
+$listeQuantiteRecette5 = array(0.25, 1, 0.25, 0.250, 1, 1);
+$recette5 = new Recette("Pates Mathis", $listeIngredientRecette5, $listeQuantiteRecette5);
 
 //Livre de recette
 $livreRecette = new LivreRecette();
@@ -67,10 +64,11 @@ $livreRecette->ajouteRecette($recette1);
 $livreRecette->ajouteRecette($recette2);
 $livreRecette->ajouteRecette($recette3);
 $livreRecette->ajouteRecette($recette4);
+$livreRecette->ajouteRecette($recette5);
 
 //Un frigo
-$ingredientFrigo = array($farine, $oeuf, $tomate);
-$quantiteFrigo = array(1, 3, 4);
+$ingredientFrigo = array($creme_fraiche, $poivre, $pates, $lardons, $sel, $oignon);
+$quantiteFrigo = array(0.5, 1, 0.5, 0.250, 1, 1);
 $frigo = new Frigo($ingredientFrigo, $quantiteFrigo);
 
 //Tests
