@@ -90,4 +90,3 @@ foreach ($recetteTriee as $recette) {
     echo "Prix ajout : " . $recette->getPrixAjout() . "€" . "<BR>";
     echo "<br>";
 }
-
