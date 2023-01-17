@@ -162,3 +162,8 @@ input[type="number"]{
 #value{
    margin-left: 10px;
 }
+
+p{
+   font-size: 20px;
+   margin-left: 10px;
+}

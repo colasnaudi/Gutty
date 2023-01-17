@@ -36,7 +36,9 @@ if(isset($_POST['quantite']) && !empty($_POST['quantite'])) {
         $quantiteFrigos[] = $quantites;
     }
     $frigo = new Frigo($ingredientFrigos, $quantiteFrigos);
+    echo "<p>";
     echo $frigo->toString();
+    echo"</p>";
 }
 else
 {

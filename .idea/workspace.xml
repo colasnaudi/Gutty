@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="4255c67a-fe5d-44be-ad62-fe665e21a56b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Back-end/Classes/Frigo.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Back-end/Classes/Frigo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Back-end/Classes/LivreIngredient.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Back-end/Classes/LivreIngredient.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Back-end/Main.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Back-end/Main.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Back-end/recherche.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Back-end/recherche.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Back-end/resultat.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Back-end/resultat.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Front-end/Accueil.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Front-end/Accueil.css" afterDir="false" />

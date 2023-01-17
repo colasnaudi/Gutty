@@ -61,47 +61,49 @@ $cotelette=new Ingredient(31, "Cotelette", 1.5, "kg");
     <div class="Ingredients">
             <ol id="list">
                 <?php
+                session_unset();
                 session_start();
                 $listeIngredients = array();
+
                 if (!isset($_SESSION['livreIngredient'])) {
                     $livreIngredient = new LivreIngredient($listeIngredients);
                     $_SESSION['livreIngredient'] = $livreIngredient;
-                } else {
+                    $livreIngredient->ajouteIngredient($farine);
+                    $livreIngredient->ajouteIngredient($eau);
+                    $livreIngredient->ajouteIngredient($sel);
+                    $livreIngredient->ajouteIngredient($oeuf);
+                    $livreIngredient->ajouteIngredient($tomate);
+                    $livreIngredient->ajouteIngredient($fromage);
+                    $livreIngredient->ajouteIngredient($jambon);
+                    $livreIngredient->ajouteIngredient($oignon);
+                    $livreIngredient->ajouteIngredient($olives);
+                    $livreIngredient->ajouteIngredient($levure);
+                    $livreIngredient->ajouteIngredient($poivre);
+                    $livreIngredient->ajouteIngredient($pates);
+                    $livreIngredient->ajouteIngredient($lardons);
+                    $livreIngredient->ajouteIngredient($carotte);
+                    $livreIngredient->ajouteIngredient($beurre);
+                    $livreIngredient->ajouteIngredient($vin_rouge);
+                    $livreIngredient->ajouteIngredient($creme_fraiche);
+                    $livreIngredient->ajouteIngredient($ail);
+                    $livreIngredient->ajouteIngredient($saumon);
+                    $livreIngredient->ajouteIngredient($aneth);
+                    $livreIngredient->ajouteIngredient($poisson);
+                    $livreIngredient->ajouteIngredient($poireau);
+                    $livreIngredient->ajouteIngredient($chou);
+                    $livreIngredient->ajouteIngredient($saucisse);
+                    $livreIngredient->ajouteIngredient($lentilles);
+                    $livreIngredient->ajouteIngredient($riz);
+                    $livreIngredient->ajouteIngredient($haricot);
+                    $livreIngredient->ajouteIngredient($steak);
+                    $livreIngredient->ajouteIngredient($cotelette);
+                }
+                else
+                {
                     $livreIngredient = $_SESSION['livreIngredient'];
                 }
 
-
-                $livreIngredient->ajouteIngredient($farine);
-                $livreIngredient->ajouteIngredient($eau);
-                $livreIngredient->ajouteIngredient($sel);
-                $livreIngredient->ajouteIngredient($oeuf);
-                $livreIngredient->ajouteIngredient($tomate);
-                $livreIngredient->ajouteIngredient($fromage);
-                $livreIngredient->ajouteIngredient($jambon);
-                $livreIngredient->ajouteIngredient($oignon);
-                $livreIngredient->ajouteIngredient($olives);
-                $livreIngredient->ajouteIngredient($levure);
-                $livreIngredient->ajouteIngredient($poivre);
-                $livreIngredient->ajouteIngredient($pates);
-                $livreIngredient->ajouteIngredient($lardons);
-                $livreIngredient->ajouteIngredient($carotte);
-                $livreIngredient->ajouteIngredient($beurre);
-                $livreIngredient->ajouteIngredient($vin_rouge);
-                $livreIngredient->ajouteIngredient($creme_fraiche);
-                $livreIngredient->ajouteIngredient($ail);
-                $livreIngredient->ajouteIngredient($saumon);
-                $livreIngredient->ajouteIngredient($aneth);
-                $livreIngredient->ajouteIngredient($poisson);
-                $livreIngredient->ajouteIngredient($poireau);
-                $livreIngredient->ajouteIngredient($chou);
-                $livreIngredient->ajouteIngredient($saucisse);
-                $livreIngredient->ajouteIngredient($lentilles);
-                $livreIngredient->ajouteIngredient($riz);
-                $livreIngredient->ajouteIngredient($haricot);
-                $livreIngredient->ajouteIngredient($steak);
-                $livreIngredient->ajouteIngredient($cotelette);
-
-                    foreach($livreIngredient->getIngredients() as $ingredient) {
+                foreach($livreIngredient->getIngredients() as $ingredient) {
                         echo '<li class="ingredient">';
                         echo '<label for="'.$ingredient->getNomIngredient().'">'.$ingredient->getNomIngredient().'</label>';
                         echo '<input type="checkbox" id="'.$ingredient->getNomIngredient().'" name="Ingredient[]" value="'.$ingredient->getNomIngredient().'" class="checkbox"/>';

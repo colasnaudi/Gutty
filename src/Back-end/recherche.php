@@ -29,7 +29,7 @@ if(isset($_REQUEST['Ingredient']) && !empty($_REQUEST['Ingredient'])) {
         echo '<form action="../Back-end/resultat.php" method="post">';
         foreach($ingredients as $ingredient) {
             echo '<label for="quantite" class="ing">'.$ingredient. '</label> <br>';
-            echo "<input type='number' class='quantiteIng' name='quantite[]' min='0'>";
+            echo "<input type='number' class='quantiteIng' name='quantite[]' min='0' step='0.1'>";
             echo "<input type='hidden' name='ingredient[]' value='$ingredient'>";
             echo '<br>';
         }
