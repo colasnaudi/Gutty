@@ -5,15 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4255c67a-fe5d-44be-ad62-fe665e21a56b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Front-end/Ingredient.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Gutty.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Gutty.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Back-end/Classes/Recette.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Back-end/Classes/Recette.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Back-end/Classes/testFrigo.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Back-end/Classes/testFrigo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Back-end/Classes/Frigo.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Back-end/Classes/Frigo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Back-end/Classes/LivreIngredient.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Back-end/Classes/LivreIngredient.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Back-end/Main.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Back-end/Main.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Back-end/recherche.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Back-end/recherche.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Back-end/resultat.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Back-end/resultat.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Front-end/Accueil.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Front-end/Accueil.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Front-end/Accueil.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Front-end/Accueil.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Front-end/Accueil.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Front-end/Accueil.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +42,11 @@
                 <list>
                   <RecentBranch>
                     <option name="branchName" value="master" />
-                    <option name="lastUsedInstant" value="1673874090" />
+                    <option name="lastUsedInstant" value="1673966669" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="JS" />
+                    <option name="lastUsedInstant" value="1673961605" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="convertirUnite_recette" />
@@ -67,12 +70,16 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 8.1" />
   <component name="ProjectId" id="2IwTwrZxVNKXDsTOqtLa5pOzt5b" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
@@ -84,6 +91,11 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Back-end" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -126,5 +138,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

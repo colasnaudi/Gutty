@@ -16,6 +16,13 @@
 
 <div class="recherche">
 <?php
+include 'Classes/Ingredient.php';
+include 'Classes/LivreIngredient.php';
+include 'Classes/Frigo.php';
+
+session_start();
+$livreIngredient = $_SESSION['livreIngredient'];
+
 if(isset($_REQUEST['Ingredient']) && !empty($_REQUEST['Ingredient'])) {
     if(is_array($_REQUEST['Ingredient'])) {
         $ingredients = $_REQUEST['Ingredient'];

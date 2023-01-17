@@ -13,19 +13,33 @@
     <img src="../Front-end/logo.png" alt="Logo temporaire">
     <h1>Gutty</h1>
 </header>
+
 <?php
+include 'Classes/Ingredient.php';
+include 'Classes/LivreIngredient.php';
+include 'Classes/Frigo.php';
+
+$ingredientFrigos = array();
+$quantiteFrigos = array();
+
+session_start();
+$livreIngredient = $_SESSION['livreIngredient'];
+
 if(isset($_POST['quantite']) && !empty($_POST['quantite'])) {
     $ingredients = $_POST['ingredient'];
     $quantite = $_POST['quantite'];
-    for($i = 0; $i < count($quantite); $i++) {
-        echo "Ingredient: " . $ingredients[$i] . "<br>";
-        echo "Quantite: " . $quantite[$i] . "<br>";
-        echo "<br>";
+
+    foreach($ingredients as $ingredient){
+        $ingredientFrigos[] = $livreIngredient->retrouverIngredient($ingredient);
     }
+    foreach($quantite as $quantites){
+        $quantiteFrigos[] = $quantites;
+    }
+    $frigo = new Frigo($ingredientFrigos, $quantiteFrigos);
+    echo $frigo->toString();
 }
 else
 {
     echo "aucun ingrédient récupéré";
 }
 ?>
-

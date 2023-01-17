@@ -108,7 +108,7 @@ input::placeholder {
    margin-left: 5px;
    display:inline-block;
    grid-column: 1;
-   width: 33%;
+   width: 30%;
    height: 30px;
    background-color: #fff;
    box-shadow: 0 0 10px #ccc;
@@ -120,7 +120,7 @@ input::placeholder {
    margin-left: 90px;
 }
 
-.box{
+.checkbox{
    margin-left: 25px;
 }
 

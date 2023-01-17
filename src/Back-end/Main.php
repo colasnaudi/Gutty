@@ -70,6 +70,7 @@ $livreRecette->ajouteRecette($recette5);
 $ingredientFrigo = array($creme_fraiche, $poivre, $pates, $lardons, $sel, $oignon);
 $quantiteFrigo = array(0.5, 1, 0.5, 0.250, 1, 1);
 $frigo = new Frigo($ingredientFrigo, $quantiteFrigo);
+echo $frigo->toString();
 
 
 //Test generer suggestion

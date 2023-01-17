@@ -80,4 +80,20 @@ class livreIngredient
         return $this->listeIngredients;
     }
 
+    /**
+     * @brief Permet de retrouver les ingrédients saisit par l'utilisateur dans le livre d'ingrédient
+     * @param String $nomIngredient Le nom de l'ingrédient saisi par l'utilisateur
+     * @return L'ingrédient correspondant au nom saisi par l'utilisateur du type Ingredient
+     */
+
+    public function retrouverIngredient(string $nomIngredient): Ingredient
+    {
+        $ingredientX = null;
+        foreach ($this->listeIngredients as $ingredient) {
+            if ($ingredient->getNomIngredient() == $nomIngredient) {
+                return $ingredient;
+            }
+        }
+        return $ingredientX;
+    }
 }

@@ -61,8 +61,16 @@ $cotelette=new Ingredient(31, "Cotelette", 1.5, "kg");
     <div class="Ingredients">
             <ol id="list">
                 <?php
+                session_start();
                 $listeIngredients = array();
-                $livreIngredient = new LivreIngredient($listeIngredients );
+                if (!isset($_SESSION['livreIngredient'])) {
+                    $livreIngredient = new LivreIngredient($listeIngredients);
+                    $_SESSION['livreIngredient'] = $livreIngredient;
+                } else {
+                    $livreIngredient = $_SESSION['livreIngredient'];
+                }
+
+
                 $livreIngredient->ajouteIngredient($farine);
                 $livreIngredient->ajouteIngredient($eau);
                 $livreIngredient->ajouteIngredient($sel);
@@ -95,8 +103,8 @@ $cotelette=new Ingredient(31, "Cotelette", 1.5, "kg");
 
                     foreach($livreIngredient->getIngredients() as $ingredient) {
                         echo '<li class="ingredient">';
-                        echo '<label for="Ingredient">'.$ingredient->getNomIngredient().'</label>';
-                        echo '<input type="checkbox" id="Ingredient" name="Ingredient[]" value="'.$ingredient->getNomIngredient().'" class="box"/>';
+                        echo '<label for="'.$ingredient->getNomIngredient().'">'.$ingredient->getNomIngredient().'</label>';
+                        echo '<input type="checkbox" id="'.$ingredient->getNomIngredient().'" name="Ingredient[]" value="'.$ingredient->getNomIngredient().'" class="checkbox"/>';
                         echo '</li>';
                     }
                 ?>
@@ -110,5 +118,16 @@ $cotelette=new Ingredient(31, "Cotelette", 1.5, "kg");
 </footer>
 
 <script src="Ingredient.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelector("body").addEventListener("change", function(event) {
+            if (event.target.matches(".checkbox")) {
+                document.getElementById('search-txt').value = "";
+                search_ingredient();
+            }
+        });
+    });
+
+</script>
 </body>
 </html>
