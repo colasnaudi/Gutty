@@ -41,8 +41,8 @@ $listeQuantiteRecette1 = array(0.5, 0.300, 1, 1);
 $recette1 = new Recette("Pain", $listeIngredientRecette1, $listeQuantiteRecette1);
 
 //RECETTE DE PIZZA - 15.285€
-//Frigo : 0.5 farine, 3 tomates => Prix = 4.45
-//Ajout : 15.285 - 4.45 = 10.835
+//Frigo : 0.35 farine, 3 tomates => Prix = 4,285
+//Ajout : 15.285 - 4.285 = 11
 $listeIngredientRecette2 = array($farine, $eau, $sel, $levure, $tomate, $fromage, $jambon, $oignon, $olives);
 $listeQuantiteRecette2 = array(0.350, 0.250, 1, 1, 3, 0.5, 0.5, 2, 0.1);
 $recette2 = new Recette("Pizza", $listeIngredientRecette2, $listeQuantiteRecette2);
@@ -75,10 +75,13 @@ $quantiteFrigo = array(1, 3, 4);
 $frigo = new Frigo($ingredientFrigo, $quantiteFrigo);
 
 //Tests
+$str = $frigo->toString();
+echo "Frigo : " . $str . "<br>";
 foreach ($livreRecette->getRecettes() as $recette) {
     echo $recette->getNomRecette() . " : " . "<br>";
-    echo "Prix ajout : " . $recette->calculerPrixAjout($frigo) . "€" . "<BR>";
-    echo "Prix frigo : " . $recette->getPrixFrigo() . "€" . "<BR>";
+    $recette->calculerPrixFrigo($frigo);
     echo "Prix total : " . $recette->getPrixRecette() . "€" . "<BR>";
+    echo "Prix frigo : " . $recette->getPrixFrigo() . "€" . "<BR>";
+    echo "Prix ajout : " . $recette->getPrixAjout() . "€" . "<BR>";
     echo "<br>";
 }

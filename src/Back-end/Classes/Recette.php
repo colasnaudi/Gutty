@@ -139,9 +139,9 @@ class Recette
     }
 
     //Methodes métier
-    public function calculerPrixAjout(Frigo $unFrigo):float {
+    public function calculerPrixFrigo(Frigo $unFrigo):void {
         //Initialisaiton des variables
-        $prixAjout = 0;
+        $prixFrigo = 0;
 
         $ingredientFrigo = $unFrigo->getIngredients();
         $nomIngredientFrigo = array();
@@ -160,37 +160,44 @@ class Recette
             $nomIngredientRecette[] = $ingredient->getNomIngredient();
         }
         $quantiteRecette = $this->quantites;
+        $prixIngredientRecette = array();
+        foreach ($ingredientRecette as $ingredient){
+            $prixIngredientRecette[] = $ingredient->getPrix();
+        }
 
-        //Calcul du prix d'ajout
-        $iterateurMultiple = new MultipleIterator();
-        $iterateurMultiple->attachIterator(new ArrayIterator($nomIngredientFrigo));
-        $iterateurMultiple->attachIterator(new ArrayIterator($quantiteFrigo));
-        $iterateurMultiple->attachIterator(new ArrayIterator($prixIngredientFrigo));
+        //Initialisation des iterateurs multiple
+        $iterateurMultipleFrigo = new MultipleIterator();
+        $iterateurMultipleFrigo->attachIterator(new ArrayIterator($nomIngredientFrigo));
+        $iterateurMultipleFrigo->attachIterator(new ArrayIterator($quantiteFrigo));
+        $iterateurMultipleFrigo->attachIterator(new ArrayIterator($prixIngredientFrigo));
 
-        foreach ($iterateurMultiple as $valeur) {
-            list($nomIngredientFrigo, $quantiteFrigo, $prixIngredientFrigo) = $valeur;
-            foreach ($nomIngredientRecette as $ingredientRecette) {
-                if ($nomIngredientFrigo == $ingredientRecette) {
+        $iterateurMultipleRecette = new MultipleIterator();
+        $iterateurMultipleRecette->attachIterator(new ArrayIterator($quantiteRecette));
+        $iterateurMultipleRecette->attachIterator(new ArrayIterator($nomIngredientRecette));
+        $iterateurMultipleRecette->attachIterator(new ArrayIterator($prixIngredientRecette));
+
+        //Calcul du prix frigo
+        //Parcours des ingrédients du frigo
+        foreach ($iterateurMultipleFrigo as $valeurFrigo) {
+            list($nomIngredientFrigo, $quantiteFrigo, $prixIngredientFrigo) = $valeurFrigo;
+            //Parcours des ingrédients de la recette
+            foreach ($iterateurMultipleRecette as $valeurRecette) {
+                list($quantiteRecette, $nomIngredientRecette, $prixIngredientRecette) = $valeurRecette;
+                //Si l'ingrédient du frigo est présent dans la recette
+                if ($nomIngredientFrigo === $nomIngredientRecette) {
+                    echo "Ingredient en commun : " . $nomIngredientFrigo . " avec une qteFrigo : " . $quantiteFrigo . " et une qteRecette à " . $quantiteRecette . " <br>";
                     if ($quantiteFrigo < $quantiteRecette || $quantiteFrigo > $quantiteRecette) {
-                        $prixAjout += min($quantiteFrigo, $quantiteRecette) * $prixIngredientFrigo;
+                        echo "Qte min : " . min($quantiteFrigo, $quantiteRecette) . " <br>";
+                        $prixFrigo += min($quantiteFrigo, $quantiteRecette) * $prixIngredientFrigo;
+                    }
+                    else {
+                        $prixFrigo += 0;
                     }
                 }
             }
         }
-        /*
-        foreach (array_combine($ingredientFrigo, $quantiteFrigo) as $ingredientFrigo => $quantiteFrigo) {
-            foreach (array_combine($nomIngredientRecette, $quantiteRecette) as $ingredientRecette => $quantiteRecette) {
-                if ($ingredientFrigo->getNomIngredient() == $ingredientRecette) {
-                    if ($quantiteFrigo < $quantiteRecette || $quantiteFrigo > $quantiteRecette) {
-                        $prixAjout += min($quantiteFrigo, $quantiteRecette) * $ingredientFrigo->getPrix();
-                    }
-                }
-            }
-        }
-        */
-        $this->setPrixAjout($prixAjout);
-        $this->setPrixFrigo($this->prixRecette - $prixAjout);
-        return $prixAjout;
+        $this->setPrixFrigo($prixFrigo);
+        $this->setPrixAjout($this->prixRecette - $prixFrigo);
     }
 
 }
