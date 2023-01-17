@@ -108,8 +108,8 @@ input::placeholder {
    margin-left: 5px;
    display:inline-block;
    grid-column: 1;
-   width: 33%;
-   height: 30px;
+   width: 30%;
+   height: 35px;
    background-color: #fff;
    box-shadow: 0 0 10px #ccc;
    margin-top: 10px;
@@ -120,9 +120,22 @@ input::placeholder {
    margin-left: 90px;
 }
 
-.box{
+.checkbox{
    margin-left: 25px;
 }
+
+#label{
+   margin-left: 2px;
+   margin-bottom: 5px;
+}
+
+input[type="checkbox"]{
+   width: 25px;
+   height: 25px;
+   margin: 5px;
+   cursor: pointer;
+}
+
 
 input[type="submit"]{
    background-color: #FFB400;
