@@ -30,7 +30,7 @@
                 $livreIngredient = $_SESSION['livreIngredient'];
                 $livreRecette = $_SESSION['livreRecette'];
 
-                foreach($livreIngredient->getIngredients() as $ingredient) {
+                foreach($livreIngredient->getListeIngredients() as $ingredient) {
                         echo '<li class="ingredient">';
                         echo '<label for="'.$ingredient->getNomIngredient().'">'.$ingredient->getNomIngredient().'</label>';
                         echo '<input type="checkbox" id="'.$ingredient->getNomIngredient().'" name="Ingredient[]" value="'.$ingredient->getNomIngredient().'" class="checkbox"/>';

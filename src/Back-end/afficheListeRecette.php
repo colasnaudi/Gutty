@@ -26,7 +26,7 @@ $livreIngredient = $_SESSION['livreIngredient'];
 $livreRecette = $_SESSION['livreRecette'];
 
 //boucle qui affiche les ingredients associés à la recette cliquée
-foreach ($livreRecette->getRecettes() as $recette) {
+foreach ($livreRecette->getListeRecettes() as $recette) {
     $quantite = $recette->getQuantite();
     $ingredient = $recette->getIngredients();
     if (isset($_GET['recette']) && $_GET['recette'] == $recette->getNomRecette()) {

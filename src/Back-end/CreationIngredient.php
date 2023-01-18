@@ -64,6 +64,7 @@ $listeQuantiteRecette5 = array(0.25, 1, 0.25, 0.250, 1, 1);
 $recette5 = new Recette("Pates Mathis", $listeIngredientRecette5, $listeQuantiteRecette5);
 
 $listeIngredients = array();
+$listeRecettes = array();
 
 session_unset();
 session_start();
@@ -109,7 +110,7 @@ else
 }
 
 if (isset($_SESSION['livreRecette'])) {
-    $livreRecette = new LivreRecette();
+    $livreRecette = new LivreRecette($listeRecettes);
     $_SESSION['livreRecette'] = $livreRecette;
     $livreRecette->ajouteRecette($recette1);
     $livreRecette->ajouteRecette($recette2);
@@ -121,6 +122,3 @@ else
 {
     $livreRecette= $_SESSION['livreRecette'];
 }
-
-
-

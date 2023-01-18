@@ -18,9 +18,9 @@ class livreRecette
     //CONSTRUCTEUR
     /**
      * @brief Constructeur de la classe LivreRecette à partir d'une liste de recettes
-     * @param [in] Recette $listeRecettes
+     * @param [in] array $listeRecettes
      */
-    public function __construct(Recette $listeRecettes)
+    public function __construct(array $listeRecettes)
     {
         $this->setListeRecettes($listeRecettes);
     }

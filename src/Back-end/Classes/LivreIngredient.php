@@ -18,9 +18,9 @@ class livreIngredient
     //CONSTRUCTEUR
     /**
      * @brief Constructeur de la classe LivreIngredient à partir d'une liste d'ingrédients
-     * @param [in] Ingredient $listeIngredients
+     * @param [in] array $listeIngredients
      */
-    public function __construct(Ingredient $listeIngredients)
+    public function __construct(Array $listeIngredients)
     {
         $this->setListeIngredients($listeIngredients);
     }

@@ -169,7 +169,7 @@ class Frigo
     {
         //Initialisation des variables
         $lesRecettesPossibles = array();
-        $mesRecettes = $lesRecettes->getRecettes();
+        $mesRecettes = $lesRecettes->getListeRecettes();
 
         //Generation des recettes possibles
         foreach ($mesRecettes as $recette) {
