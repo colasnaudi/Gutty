@@ -66,50 +66,18 @@ $recette5 = new Recette("Pates Mathis", $listeIngredientRecette5, $listeQuantite
 $listeIngredients = array();
 $listeRecettes = array();
 
+array_push($listeIngredients, $farine, $eau, $sel, $oeuf, $tomate, $fromage, $jambon, $oignon, $olives, $levure, $poivre, $pates, $lardons, $carotte, $beurre, $bourgignon, $vin_rouge, $creme_fraiche, $champignon, $ail, $saumon, $aneth, $poisson, $poireau, $chou, $saucisse, $lentilles, $riz, $haricot, $steak, $cotelette, $boeuf);
+array_push($listeRecettes, $recette1, $recette2, $recette3, $recette4, $recette5);
+
 session_unset();
 session_start();
 
 if (!isset($_SESSION['livreIngredient']) && !isset($_SESSION['livreRecette'])) {
     $livreIngredient = new LivreIngredient($listeIngredients);
     $_SESSION['livreIngredient'] = $livreIngredient;
-    $livreIngredient->ajouteIngredient($farine);
-    $livreIngredient->ajouteIngredient($eau);
-    $livreIngredient->ajouteIngredient($sel);
-    $livreIngredient->ajouteIngredient($oeuf);
-    $livreIngredient->ajouteIngredient($tomate);
-    $livreIngredient->ajouteIngredient($fromage);
-    $livreIngredient->ajouteIngredient($jambon);
-    $livreIngredient->ajouteIngredient($oignon);
-    $livreIngredient->ajouteIngredient($olives);
-    $livreIngredient->ajouteIngredient($levure);
-    $livreIngredient->ajouteIngredient($poivre);
-    $livreIngredient->ajouteIngredient($pates);
-    $livreIngredient->ajouteIngredient($lardons);
-    $livreIngredient->ajouteIngredient($carotte);
-    $livreIngredient->ajouteIngredient($beurre);
-    $livreIngredient->ajouteIngredient($vin_rouge);
-    $livreIngredient->ajouteIngredient($creme_fraiche);
-    $livreIngredient->ajouteIngredient($ail);
-    $livreIngredient->ajouteIngredient($saumon);
-    $livreIngredient->ajouteIngredient($aneth);
-    $livreIngredient->ajouteIngredient($poisson);
-    $livreIngredient->ajouteIngredient($poireau);
-    $livreIngredient->ajouteIngredient($chou);
-    $livreIngredient->ajouteIngredient($saucisse);
-    $livreIngredient->ajouteIngredient($lentilles);
-    $livreIngredient->ajouteIngredient($riz);
-    $livreIngredient->ajouteIngredient($haricot);
-    $livreIngredient->ajouteIngredient($steak);
-    $livreIngredient->ajouteIngredient($cotelette);
-    $livreIngredient->ajouteIngredient($boeuf);
-    
+
     $livreRecette = new LivreRecette($listeRecettes);
     $_SESSION['livreRecette'] = $livreRecette;
-    $livreRecette->ajouteRecette($recette1);
-    $livreRecette->ajouteRecette($recette2);
-    $livreRecette->ajouteRecette($recette3);
-    $livreRecette->ajouteRecette($recette4);
-    $livreRecette->ajouteRecette($recette5);
 }
 
 else
