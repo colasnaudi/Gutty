@@ -1,9 +1,4 @@
 var searchData=
 [
-  ['accueil_2ephp_0',['Accueil.php',['../_accueil_8php.html',1,'']]],
-  ['affichagerecette_2ephp_1',['affichageRecette.php',['../affichage_recette_8php.html',1,'']]],
-  ['affichelisterecette_2ephp_2',['afficheListeRecette.php',['../affiche_liste_recette_8php.html',1,'']]],
-  ['ajouteingredient_3',['ajouteIngredient',['../classlivre_ingredient.html#a346898a40b465c2bf2425ea3cdfaf378',1,'livreIngredient\ajouteIngredient()'],['../class_recette.html#a3b155215ed117576e845c01b4d055704',1,'Recette\ajouteIngredient()']]],
-  ['ajouterecette_4',['ajouteRecette',['../classlivre_recette.html#ad3059b8344cd568019d03582be8461d7',1,'livreRecette']]],
-  ['ajouteringredient_5',['ajouterIngredient',['../class_frigo.html#aa06fb7d6eb01c309e733a428eb7c746c',1,'Frigo']]]
+  ['_5f_5fconstruct_0',['__construct',['../class_frigo.html#a57b0d8b5a93f8204ca87ddc0ba5ab6c7',1,'Frigo\__construct()'],['../class_ingredient.html#a232067413c18a948451186b4c354504c',1,'Ingredient\__construct()'],['../classlivre_ingredient.html#ae0e64ea67417f7429c597895af7382ad',1,'livreIngredient\__construct()'],['../classlivre_recette.html#a485e8ff56c3f4cfb28bf3390fe91690c',1,'livreRecette\__construct()'],['../class_recette.html#ae282488145748cbb592e234425bd63ec',1,'Recette\__construct()']]]
 ];

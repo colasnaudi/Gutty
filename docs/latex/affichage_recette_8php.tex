@@ -1,288 +1,70 @@
-\hypertarget{affichage_recette_8php}{}\doxysection{C\+:/\+Users/angel/\+One\+Drive/\+Bureau/cours/\+S3/\+SAE/\+C1-\/\+C2/\+Gutty/src/\+Back-\/end/\+Classes/affichage\+Recette.php File Reference}
-\label{affichage_recette_8php}\index{C:/Users/angel/OneDrive/Bureau/cours/S3/SAE/C1-\/C2/Gutty/src/Back-\/end/Classes/affichageRecette.php@{C:/Users/angel/OneDrive/Bureau/cours/S3/SAE/C1-\/C2/Gutty/src/Back-\/end/Classes/affichageRecette.php}}
+\hypertarget{affichage_recette_8php}{}\doxysection{C\+:/\+Users/angel/\+One\+Drive/\+Bureau/cours/\+S3/\+SAE/\+C1-\/\+C2/\+Gutty/src/\+Back-\/end/affichage\+Recette.php File Reference}
+\label{affichage_recette_8php}\index{C:/Users/angel/OneDrive/Bureau/cours/S3/SAE/C1-\/C2/Gutty/src/Back-\/end/affichageRecette.php@{C:/Users/angel/OneDrive/Bureau/cours/S3/SAE/C1-\/C2/Gutty/src/Back-\/end/affichageRecette.php}}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{affichage_recette_8php_a8c68201f4f2ec63899c4203a3d52cf19}{\$farine}} =new \mbox{\hyperlink{class_ingredient}{Ingredient}}(1, \char`\"{}Farine\char`\"{}, 1.\+1, \char`\"{}kg\char`\"{})
+\mbox{\hyperlink{affichage_recette_8php_a9ec379f067cb8610089867f4a191443a}{\$ingredient\+Frigos}} = array()
 \item 
-\mbox{\hyperlink{affichage_recette_8php_acdf80903784de87bc1c00bff5eb9619c}{\$eau}} =new \mbox{\hyperlink{class_ingredient}{Ingredient}}(2, \char`\"{}Eau\char`\"{}, 0, \char`\"{}L\char`\"{})
+\mbox{\hyperlink{affichage_recette_8php_ae8a2cd6ed5561fbc2601295765b0e81d}{\$quantite\+Frigos}} = array()
 \item 
-\mbox{\hyperlink{affichage_recette_8php_a7d0f17f147bb327e312b71312f3cf040}{\$sel}} =new \mbox{\hyperlink{class_ingredient}{Ingredient}}(3, \char`\"{}Sel\char`\"{}, 2, \char`\"{}unite\char`\"{})
+\mbox{\hyperlink{affichage_recette_8php_a1403da9808f3ba7ecf7fa8ae369485ab}{\$livre\+Ingredient}} = \$\+\_\+\+SESSION\mbox{[}\textquotesingle{}\mbox{\hyperlink{classlivre_ingredient}{livre\+Ingredient}}\textquotesingle{}\mbox{]}
 \item 
-\mbox{\hyperlink{affichage_recette_8php_ae65449fc75d6fe65be3da025ca6425ad}{\$oeuf}} =new \mbox{\hyperlink{class_ingredient}{Ingredient}}(4, \char`\"{}Oeuf\char`\"{}, 0.\+4, \char`\"{}unite\char`\"{})
+\mbox{\hyperlink{affichage_recette_8php_a148f3c203271b46550ed8b8fb6fc1332}{\$livre\+Recette}} = \$\+\_\+\+SESSION\mbox{[}\textquotesingle{}\mbox{\hyperlink{classlivre_recette}{livre\+Recette}}\textquotesingle{}\mbox{]}
 \item 
-\mbox{\hyperlink{affichage_recette_8php_a888d5d55510e0a1090958e0dfcf5ee4a}{\$tomate}} =new \mbox{\hyperlink{class_ingredient}{Ingredient}}(5, \char`\"{}Tomate\char`\"{}, 1.\+30, \char`\"{}unite\char`\"{})
+if(isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}quantite\textquotesingle{}\mbox{]}) \&\&!empty(\$\+\_\+\+POST\mbox{[}\textquotesingle{}quantite\textquotesingle{}\mbox{]})) \mbox{\hyperlink{affichage_recette_8php_ac94b0340e2aa877a15e28d9c2a48ee56}{else}}
 \item 
-\mbox{\hyperlink{affichage_recette_8php_a8bfffc33ba551ec623b52741fae93d2d}{\$fromage}} =new \mbox{\hyperlink{class_ingredient}{Ingredient}}(6, \char`\"{}Fromage\char`\"{}, 10, \char`\"{}kg\char`\"{})
+\mbox{\hyperlink{affichage_recette_8php_a7f942a13b88775e7a48bd7e699604c8d}{\$recette\+Possible}} = \$frigo-\/$>$generer\+Possible\+Recette(\$\mbox{\hyperlink{classlivre_recette}{livre\+Recette}})
 \item 
-\mbox{\hyperlink{affichage_recette_8php_a060f6e60a9f11ca5ca23e238763ae3b6}{\$jambon}} =new \mbox{\hyperlink{class_ingredient}{Ingredient}}(7, \char`\"{}Jambon\char`\"{}, 10, \char`\"{}kg\char`\"{})
-\item 
-\mbox{\hyperlink{affichage_recette_8php_a2a95adf9018f9a42e680996d4203d77b}{\$oignon}} =new \mbox{\hyperlink{class_ingredient}{Ingredient}}(8, \char`\"{}Oignon\char`\"{}, 1.\+2, \char`\"{}unite\char`\"{})
-\item 
-\mbox{\hyperlink{affichage_recette_8php_a29d47761a3895bf9dc2b061fb04446c6}{\$olives}} =new \mbox{\hyperlink{class_ingredient}{Ingredient}}(9, \char`\"{}Olives\char`\"{}, 15, \char`\"{}kg\char`\"{})
-\item 
-\mbox{\hyperlink{affichage_recette_8php_a88bf633a44fa720addf47eb0b4caa728}{\$levure}} =new \mbox{\hyperlink{class_ingredient}{Ingredient}}(10, \char`\"{}Levure\char`\"{}, 0.\+10, \char`\"{}unite\char`\"{})
-\item 
-\mbox{\hyperlink{affichage_recette_8php_aee34b5610c170443d099d98886e0bb66}{\$poivre}} =new \mbox{\hyperlink{class_ingredient}{Ingredient}}(11, \char`\"{}Poivre\char`\"{}, 2, \char`\"{}unite\char`\"{})
-\item 
-\mbox{\hyperlink{affichage_recette_8php_aa561905a49c6cc11f26c49e0c758f936}{\$pates}} =new \mbox{\hyperlink{class_ingredient}{Ingredient}}(12, \char`\"{}Pates\char`\"{}, 1, \char`\"{}kg\char`\"{})
-\item 
-\mbox{\hyperlink{affichage_recette_8php_a1f28d357f7bccf1de93f1a0565cc85d3}{\$lardons}} =new \mbox{\hyperlink{class_ingredient}{Ingredient}}(13, \char`\"{}Lardons\char`\"{}, 6.\+7, \char`\"{}kg\char`\"{})
-\item 
-\mbox{\hyperlink{affichage_recette_8php_ad0ba7e32392c06a6370b9b3f4a1fe7a9}{\$carotte}} =new \mbox{\hyperlink{class_ingredient}{Ingredient}}(14, \char`\"{}Carotte\char`\"{}, 1.\+4, \char`\"{}unite\char`\"{})
-\item 
-\mbox{\hyperlink{affichage_recette_8php_a06c8f8b804ae266c87b7a464e6cdfdf9}{\$beurre}} =new \mbox{\hyperlink{class_ingredient}{Ingredient}}(15, \char`\"{}Beurre\char`\"{}, 7, \char`\"{}kg\char`\"{})
-\item 
-\mbox{\hyperlink{affichage_recette_8php_a99b6d12e22e6e189797e62be2a024548}{\$bourgignon}} =new \mbox{\hyperlink{class_ingredient}{Ingredient}}(16, \char`\"{}Bourgignon\char`\"{}, 16.\+5, \char`\"{}kg\char`\"{})
-\item 
-\mbox{\hyperlink{affichage_recette_8php_a27b31029952018abb05eac45121cedd5}{\$vin\+\_\+rouge}} =new \mbox{\hyperlink{class_ingredient}{Ingredient}}(17, \char`\"{}Vin rouge\char`\"{}, 7, \char`\"{}L\char`\"{})
-\item 
-\mbox{\hyperlink{affichage_recette_8php_a86cc6e3c4f6c6ff5456a0402b2b84a19}{\$creme\+\_\+fraiche}} =new \mbox{\hyperlink{class_ingredient}{Ingredient}}(18, \char`\"{}Creme fraiche\char`\"{}, 4, \char`\"{}L\char`\"{})
-\item 
-\mbox{\hyperlink{affichage_recette_8php_a74f52921fd0261ab46b937390501ee55}{\$liste\+Ingredient\+Recette1}} = array(\$farine, \$eau, \$sel, \$levure)
-\item 
-\mbox{\hyperlink{affichage_recette_8php_a969b14a849611df9a6e6592edcadaa8d}{\$liste\+Quantite\+Recette1}} = array(0.\+5, 0.\+300, 1, 1)
-\item 
-\mbox{\hyperlink{affichage_recette_8php_a311ea8c60b9b507bf55753ef3fd40555}{\$recette1}} = new \mbox{\hyperlink{class_recette}{Recette}}(\char`\"{}Pain\char`\"{}, \$liste\+Ingredient\+Recette1, \$liste\+Quantite\+Recette1)
-\item 
-\mbox{\hyperlink{affichage_recette_8php_a33a20a926d64b5a0203669bd40fb38c4}{\$liste\+Ingredient\+Recette2}} = array(\$farine, \$eau, \$sel, \$levure, \$tomate, \$fromage, \$jambon, \$oignon, \$olives)
-\item 
-\mbox{\hyperlink{affichage_recette_8php_a06117e86d41df85ba82b388d7f071be1}{\$liste\+Quantite\+Recette2}} = array(0.\+350, 0.\+250, 1, 1, 3, 0.\+5, 0.\+5, 2, 0.\+1)
-\item 
-\mbox{\hyperlink{affichage_recette_8php_ad249261836931747d028cc8bd3280f47}{\$recette2}} = new \mbox{\hyperlink{class_recette}{Recette}}(\char`\"{}Pizza\char`\"{}, \$liste\+Ingredient\+Recette2, \$liste\+Quantite\+Recette2)
-\item 
-\mbox{\hyperlink{affichage_recette_8php_a5127898fccf5d3c2393d36f957bd54b1}{\$liste\+Ingredient\+Recette3}} = array(\$creme\+\_\+fraiche, \$poivre, \$pates, \$lardons, \$sel, \$oeuf, \$oignon)
-\item 
-\mbox{\hyperlink{affichage_recette_8php_ad12fee3f99fbfbdd476f106eea64fec8}{\$liste\+Quantite\+Recette3}} = array(0.\+5, 1, 0.\+5, 0.\+250, 1, 3, 1)
-\item 
-\mbox{\hyperlink{affichage_recette_8php_a6f05d210fb3651b7e50a4dfbd13c5b1e}{\$recette3}} = new \mbox{\hyperlink{class_recette}{Recette}}(\char`\"{}Pates carbonara\char`\"{}, \$liste\+Ingredient\+Recette3, \$liste\+Quantite\+Recette3)
-\item 
-\mbox{\hyperlink{affichage_recette_8php_a78e6bb14da4e54afbb7897f23fa7c32b}{\$liste\+Ingredient\+Recette4}} = array(\$carotte, \$beurre, \$bourgignon, \$vin\+\_\+rouge, \$sel, \$poivre, \$oignon)
-\item 
-\mbox{\hyperlink{affichage_recette_8php_a55be46390a809c54eec1b8dc4907f6c6}{\$liste\+Quantite\+Recette4}} = array(4, 0.\+100, 0.\+6, 0.\+75, 1, 1, 4)
-\item 
-\mbox{\hyperlink{affichage_recette_8php_a3034839c898d1581e9f131aa60baaac5}{\$recette4}} = new \mbox{\hyperlink{class_recette}{Recette}}(\char`\"{}Boeuf bourguignon\char`\"{}, \$liste\+Ingredient\+Recette4, \$liste\+Quantite\+Recette4)
-\item 
-\mbox{\hyperlink{affichage_recette_8php_a204d9577aecb9d2af8d933c889fdc5a2}{\$liste\+Ingredient\+Recette5}} = array(\$creme\+\_\+fraiche, \$poivre, \$pates, \$lardons, \$sel, \$oignon)
-\item 
-\mbox{\hyperlink{affichage_recette_8php_a608c7885d5bd97232f2e5bcf994e47e8}{\$liste\+Quantite\+Recette5}} = array(0.\+25, 1, 0.\+25, 0.\+250, 1, 1)
-\item 
-\mbox{\hyperlink{affichage_recette_8php_a792ef8d1271e35e794cab281d0a9438d}{\$recette5}} = new \mbox{\hyperlink{class_recette}{Recette}}(\char`\"{}Pates Mathis\char`\"{}, \$liste\+Ingredient\+Recette5, \$liste\+Quantite\+Recette5)
-\item 
-\mbox{\hyperlink{affichage_recette_8php_a613a959925cff9ab5a3c4343c4e1f249}{\$liste\+Recettes}} = array(\$recette1, \$recette2, \$recette3,\$recette4, \$recette5)
-\item 
-\mbox{\hyperlink{affichage_recette_8php_ad80aa7815400ba32d276ae036771a51d}{for}} ( \$i=0;\$i$<$ sizeof( \$liste\+Recettes);\$i++)
+foreach(\$recette\+Possible as \$recette) \mbox{\hyperlink{affichage_recette_8php_ab8c33943c62c4e853c608d385102522b}{\$recette\+Triee}} = \$frigo-\/$>$trier\+Suggestion(\$recette\+Possible)
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Variable Documentation}
-\mbox{\Hypertarget{affichage_recette_8php_a06c8f8b804ae266c87b7a464e6cdfdf9}\label{affichage_recette_8php_a06c8f8b804ae266c87b7a464e6cdfdf9}} 
-\index{affichageRecette.php@{affichageRecette.php}!\$beurre@{\$beurre}}
-\index{\$beurre@{\$beurre}!affichageRecette.php@{affichageRecette.php}}
-\doxysubsubsection{\texorpdfstring{\$beurre}{$beurre}}
-{\footnotesize\ttfamily \$beurre =new \mbox{\hyperlink{class_ingredient}{Ingredient}}(15, \char`\"{}Beurre\char`\"{}, 7, \char`\"{}kg\char`\"{})}
+\mbox{\Hypertarget{affichage_recette_8php_a9ec379f067cb8610089867f4a191443a}\label{affichage_recette_8php_a9ec379f067cb8610089867f4a191443a}} 
+\index{affichageRecette.php@{affichageRecette.php}!\$ingredientFrigos@{\$ingredientFrigos}}
+\index{\$ingredientFrigos@{\$ingredientFrigos}!affichageRecette.php@{affichageRecette.php}}
+\doxysubsubsection{\texorpdfstring{\$ingredientFrigos}{$ingredientFrigos}}
+{\footnotesize\ttfamily \$ingredient\+Frigos = array()}
 
-\mbox{\Hypertarget{affichage_recette_8php_a99b6d12e22e6e189797e62be2a024548}\label{affichage_recette_8php_a99b6d12e22e6e189797e62be2a024548}} 
-\index{affichageRecette.php@{affichageRecette.php}!\$bourgignon@{\$bourgignon}}
-\index{\$bourgignon@{\$bourgignon}!affichageRecette.php@{affichageRecette.php}}
-\doxysubsubsection{\texorpdfstring{\$bourgignon}{$bourgignon}}
-{\footnotesize\ttfamily \$bourgignon =new \mbox{\hyperlink{class_ingredient}{Ingredient}}(16, \char`\"{}Bourgignon\char`\"{}, 16.\+5, \char`\"{}kg\char`\"{})}
+\mbox{\Hypertarget{affichage_recette_8php_a1403da9808f3ba7ecf7fa8ae369485ab}\label{affichage_recette_8php_a1403da9808f3ba7ecf7fa8ae369485ab}} 
+\index{affichageRecette.php@{affichageRecette.php}!\$livreIngredient@{\$livreIngredient}}
+\index{\$livreIngredient@{\$livreIngredient}!affichageRecette.php@{affichageRecette.php}}
+\doxysubsubsection{\texorpdfstring{\$livreIngredient}{$livreIngredient}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{classlivre_ingredient}{livre\+Ingredient}} = \$\+\_\+\+SESSION\mbox{[}\textquotesingle{}\mbox{\hyperlink{classlivre_ingredient}{livre\+Ingredient}}\textquotesingle{}\mbox{]}}
 
-\mbox{\Hypertarget{affichage_recette_8php_ad0ba7e32392c06a6370b9b3f4a1fe7a9}\label{affichage_recette_8php_ad0ba7e32392c06a6370b9b3f4a1fe7a9}} 
-\index{affichageRecette.php@{affichageRecette.php}!\$carotte@{\$carotte}}
-\index{\$carotte@{\$carotte}!affichageRecette.php@{affichageRecette.php}}
-\doxysubsubsection{\texorpdfstring{\$carotte}{$carotte}}
-{\footnotesize\ttfamily \$carotte =new \mbox{\hyperlink{class_ingredient}{Ingredient}}(14, \char`\"{}Carotte\char`\"{}, 1.\+4, \char`\"{}unite\char`\"{})}
+\mbox{\Hypertarget{affichage_recette_8php_a148f3c203271b46550ed8b8fb6fc1332}\label{affichage_recette_8php_a148f3c203271b46550ed8b8fb6fc1332}} 
+\index{affichageRecette.php@{affichageRecette.php}!\$livreRecette@{\$livreRecette}}
+\index{\$livreRecette@{\$livreRecette}!affichageRecette.php@{affichageRecette.php}}
+\doxysubsubsection{\texorpdfstring{\$livreRecette}{$livreRecette}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{classlivre_recette}{livre\+Recette}} = \$\+\_\+\+SESSION\mbox{[}\textquotesingle{}\mbox{\hyperlink{classlivre_recette}{livre\+Recette}}\textquotesingle{}\mbox{]}}
 
-\mbox{\Hypertarget{affichage_recette_8php_a86cc6e3c4f6c6ff5456a0402b2b84a19}\label{affichage_recette_8php_a86cc6e3c4f6c6ff5456a0402b2b84a19}} 
-\index{affichageRecette.php@{affichageRecette.php}!\$creme\_fraiche@{\$creme\_fraiche}}
-\index{\$creme\_fraiche@{\$creme\_fraiche}!affichageRecette.php@{affichageRecette.php}}
-\doxysubsubsection{\texorpdfstring{\$creme\_fraiche}{$creme\_fraiche}}
-{\footnotesize\ttfamily \$creme\+\_\+fraiche =new \mbox{\hyperlink{class_ingredient}{Ingredient}}(18, \char`\"{}Creme fraiche\char`\"{}, 4, \char`\"{}L\char`\"{})}
+\mbox{\Hypertarget{affichage_recette_8php_ae8a2cd6ed5561fbc2601295765b0e81d}\label{affichage_recette_8php_ae8a2cd6ed5561fbc2601295765b0e81d}} 
+\index{affichageRecette.php@{affichageRecette.php}!\$quantiteFrigos@{\$quantiteFrigos}}
+\index{\$quantiteFrigos@{\$quantiteFrigos}!affichageRecette.php@{affichageRecette.php}}
+\doxysubsubsection{\texorpdfstring{\$quantiteFrigos}{$quantiteFrigos}}
+{\footnotesize\ttfamily \$quantite\+Frigos = array()}
 
-\mbox{\Hypertarget{affichage_recette_8php_acdf80903784de87bc1c00bff5eb9619c}\label{affichage_recette_8php_acdf80903784de87bc1c00bff5eb9619c}} 
-\index{affichageRecette.php@{affichageRecette.php}!\$eau@{\$eau}}
-\index{\$eau@{\$eau}!affichageRecette.php@{affichageRecette.php}}
-\doxysubsubsection{\texorpdfstring{\$eau}{$eau}}
-{\footnotesize\ttfamily \$eau =new \mbox{\hyperlink{class_ingredient}{Ingredient}}(2, \char`\"{}Eau\char`\"{}, 0, \char`\"{}L\char`\"{})}
+\mbox{\Hypertarget{affichage_recette_8php_a7f942a13b88775e7a48bd7e699604c8d}\label{affichage_recette_8php_a7f942a13b88775e7a48bd7e699604c8d}} 
+\index{affichageRecette.php@{affichageRecette.php}!\$recettePossible@{\$recettePossible}}
+\index{\$recettePossible@{\$recettePossible}!affichageRecette.php@{affichageRecette.php}}
+\doxysubsubsection{\texorpdfstring{\$recettePossible}{$recettePossible}}
+{\footnotesize\ttfamily \$recette\+Possible = \$frigo-\/$>$generer\+Possible\+Recette(\$\mbox{\hyperlink{classlivre_recette}{livre\+Recette}})}
 
-\mbox{\Hypertarget{affichage_recette_8php_a8c68201f4f2ec63899c4203a3d52cf19}\label{affichage_recette_8php_a8c68201f4f2ec63899c4203a3d52cf19}} 
-\index{affichageRecette.php@{affichageRecette.php}!\$farine@{\$farine}}
-\index{\$farine@{\$farine}!affichageRecette.php@{affichageRecette.php}}
-\doxysubsubsection{\texorpdfstring{\$farine}{$farine}}
-{\footnotesize\ttfamily \$farine =new \mbox{\hyperlink{class_ingredient}{Ingredient}}(1, \char`\"{}Farine\char`\"{}, 1.\+1, \char`\"{}kg\char`\"{})}
+\mbox{\Hypertarget{affichage_recette_8php_ab8c33943c62c4e853c608d385102522b}\label{affichage_recette_8php_ab8c33943c62c4e853c608d385102522b}} 
+\index{affichageRecette.php@{affichageRecette.php}!\$recetteTriee@{\$recetteTriee}}
+\index{\$recetteTriee@{\$recetteTriee}!affichageRecette.php@{affichageRecette.php}}
+\doxysubsubsection{\texorpdfstring{\$recetteTriee}{$recetteTriee}}
+{\footnotesize\ttfamily foreach ( \$recette\+Possible as \$recette) \$recette\+Triee = \$frigo-\/$>$trier\+Suggestion(\$recette\+Possible)}
 
-\mbox{\Hypertarget{affichage_recette_8php_a8bfffc33ba551ec623b52741fae93d2d}\label{affichage_recette_8php_a8bfffc33ba551ec623b52741fae93d2d}} 
-\index{affichageRecette.php@{affichageRecette.php}!\$fromage@{\$fromage}}
-\index{\$fromage@{\$fromage}!affichageRecette.php@{affichageRecette.php}}
-\doxysubsubsection{\texorpdfstring{\$fromage}{$fromage}}
-{\footnotesize\ttfamily \$fromage =new \mbox{\hyperlink{class_ingredient}{Ingredient}}(6, \char`\"{}Fromage\char`\"{}, 10, \char`\"{}kg\char`\"{})}
+\mbox{\Hypertarget{affichage_recette_8php_ac94b0340e2aa877a15e28d9c2a48ee56}\label{affichage_recette_8php_ac94b0340e2aa877a15e28d9c2a48ee56}} 
+\index{affichageRecette.php@{affichageRecette.php}!else@{else}}
+\index{else@{else}!affichageRecette.php@{affichageRecette.php}}
+\doxysubsubsection{\texorpdfstring{else}{else}}
+{\footnotesize\ttfamily if (isset( \$\+\_\+\+POST\mbox{[} \textquotesingle{}quantite\textquotesingle{}\mbox{]}) \&\&!empty( \$\+\_\+\+POST\mbox{[} \textquotesingle{}quantite\textquotesingle{}\mbox{]})) else}
 
-\mbox{\Hypertarget{affichage_recette_8php_a060f6e60a9f11ca5ca23e238763ae3b6}\label{affichage_recette_8php_a060f6e60a9f11ca5ca23e238763ae3b6}} 
-\index{affichageRecette.php@{affichageRecette.php}!\$jambon@{\$jambon}}
-\index{\$jambon@{\$jambon}!affichageRecette.php@{affichageRecette.php}}
-\doxysubsubsection{\texorpdfstring{\$jambon}{$jambon}}
-{\footnotesize\ttfamily \$jambon =new \mbox{\hyperlink{class_ingredient}{Ingredient}}(7, \char`\"{}Jambon\char`\"{}, 10, \char`\"{}kg\char`\"{})}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ echo\ \textcolor{stringliteral}{"{}aucun\ ingrédient\ récupéré"{}}}
 
-\mbox{\Hypertarget{affichage_recette_8php_a1f28d357f7bccf1de93f1a0565cc85d3}\label{affichage_recette_8php_a1f28d357f7bccf1de93f1a0565cc85d3}} 
-\index{affichageRecette.php@{affichageRecette.php}!\$lardons@{\$lardons}}
-\index{\$lardons@{\$lardons}!affichageRecette.php@{affichageRecette.php}}
-\doxysubsubsection{\texorpdfstring{\$lardons}{$lardons}}
-{\footnotesize\ttfamily \$lardons =new \mbox{\hyperlink{class_ingredient}{Ingredient}}(13, \char`\"{}Lardons\char`\"{}, 6.\+7, \char`\"{}kg\char`\"{})}
-
-\mbox{\Hypertarget{affichage_recette_8php_a88bf633a44fa720addf47eb0b4caa728}\label{affichage_recette_8php_a88bf633a44fa720addf47eb0b4caa728}} 
-\index{affichageRecette.php@{affichageRecette.php}!\$levure@{\$levure}}
-\index{\$levure@{\$levure}!affichageRecette.php@{affichageRecette.php}}
-\doxysubsubsection{\texorpdfstring{\$levure}{$levure}}
-{\footnotesize\ttfamily \$levure =new \mbox{\hyperlink{class_ingredient}{Ingredient}}(10, \char`\"{}Levure\char`\"{}, 0.\+10, \char`\"{}unite\char`\"{})}
-
-\mbox{\Hypertarget{affichage_recette_8php_a74f52921fd0261ab46b937390501ee55}\label{affichage_recette_8php_a74f52921fd0261ab46b937390501ee55}} 
-\index{affichageRecette.php@{affichageRecette.php}!\$listeIngredientRecette1@{\$listeIngredientRecette1}}
-\index{\$listeIngredientRecette1@{\$listeIngredientRecette1}!affichageRecette.php@{affichageRecette.php}}
-\doxysubsubsection{\texorpdfstring{\$listeIngredientRecette1}{$listeIngredientRecette1}}
-{\footnotesize\ttfamily \$liste\+Ingredient\+Recette1 = array(\$farine, \$eau, \$sel, \$levure)}
-
-\mbox{\Hypertarget{affichage_recette_8php_a33a20a926d64b5a0203669bd40fb38c4}\label{affichage_recette_8php_a33a20a926d64b5a0203669bd40fb38c4}} 
-\index{affichageRecette.php@{affichageRecette.php}!\$listeIngredientRecette2@{\$listeIngredientRecette2}}
-\index{\$listeIngredientRecette2@{\$listeIngredientRecette2}!affichageRecette.php@{affichageRecette.php}}
-\doxysubsubsection{\texorpdfstring{\$listeIngredientRecette2}{$listeIngredientRecette2}}
-{\footnotesize\ttfamily \$liste\+Ingredient\+Recette2 = array(\$farine, \$eau, \$sel, \$levure, \$tomate, \$fromage, \$jambon, \$oignon, \$olives)}
-
-\mbox{\Hypertarget{affichage_recette_8php_a5127898fccf5d3c2393d36f957bd54b1}\label{affichage_recette_8php_a5127898fccf5d3c2393d36f957bd54b1}} 
-\index{affichageRecette.php@{affichageRecette.php}!\$listeIngredientRecette3@{\$listeIngredientRecette3}}
-\index{\$listeIngredientRecette3@{\$listeIngredientRecette3}!affichageRecette.php@{affichageRecette.php}}
-\doxysubsubsection{\texorpdfstring{\$listeIngredientRecette3}{$listeIngredientRecette3}}
-{\footnotesize\ttfamily \$liste\+Ingredient\+Recette3 = array(\$creme\+\_\+fraiche, \$poivre, \$pates, \$lardons, \$sel, \$oeuf, \$oignon)}
-
-\mbox{\Hypertarget{affichage_recette_8php_a78e6bb14da4e54afbb7897f23fa7c32b}\label{affichage_recette_8php_a78e6bb14da4e54afbb7897f23fa7c32b}} 
-\index{affichageRecette.php@{affichageRecette.php}!\$listeIngredientRecette4@{\$listeIngredientRecette4}}
-\index{\$listeIngredientRecette4@{\$listeIngredientRecette4}!affichageRecette.php@{affichageRecette.php}}
-\doxysubsubsection{\texorpdfstring{\$listeIngredientRecette4}{$listeIngredientRecette4}}
-{\footnotesize\ttfamily \$liste\+Ingredient\+Recette4 = array(\$carotte, \$beurre, \$bourgignon, \$vin\+\_\+rouge, \$sel, \$poivre, \$oignon)}
-
-\mbox{\Hypertarget{affichage_recette_8php_a204d9577aecb9d2af8d933c889fdc5a2}\label{affichage_recette_8php_a204d9577aecb9d2af8d933c889fdc5a2}} 
-\index{affichageRecette.php@{affichageRecette.php}!\$listeIngredientRecette5@{\$listeIngredientRecette5}}
-\index{\$listeIngredientRecette5@{\$listeIngredientRecette5}!affichageRecette.php@{affichageRecette.php}}
-\doxysubsubsection{\texorpdfstring{\$listeIngredientRecette5}{$listeIngredientRecette5}}
-{\footnotesize\ttfamily \$liste\+Ingredient\+Recette5 = array(\$creme\+\_\+fraiche, \$poivre, \$pates, \$lardons, \$sel, \$oignon)}
-
-\mbox{\Hypertarget{affichage_recette_8php_a969b14a849611df9a6e6592edcadaa8d}\label{affichage_recette_8php_a969b14a849611df9a6e6592edcadaa8d}} 
-\index{affichageRecette.php@{affichageRecette.php}!\$listeQuantiteRecette1@{\$listeQuantiteRecette1}}
-\index{\$listeQuantiteRecette1@{\$listeQuantiteRecette1}!affichageRecette.php@{affichageRecette.php}}
-\doxysubsubsection{\texorpdfstring{\$listeQuantiteRecette1}{$listeQuantiteRecette1}}
-{\footnotesize\ttfamily \$liste\+Quantite\+Recette1 = array(0.\+5, 0.\+300, 1, 1)}
-
-\mbox{\Hypertarget{affichage_recette_8php_a06117e86d41df85ba82b388d7f071be1}\label{affichage_recette_8php_a06117e86d41df85ba82b388d7f071be1}} 
-\index{affichageRecette.php@{affichageRecette.php}!\$listeQuantiteRecette2@{\$listeQuantiteRecette2}}
-\index{\$listeQuantiteRecette2@{\$listeQuantiteRecette2}!affichageRecette.php@{affichageRecette.php}}
-\doxysubsubsection{\texorpdfstring{\$listeQuantiteRecette2}{$listeQuantiteRecette2}}
-{\footnotesize\ttfamily \$liste\+Quantite\+Recette2 = array(0.\+350, 0.\+250, 1, 1, 3, 0.\+5, 0.\+5, 2, 0.\+1)}
-
-\mbox{\Hypertarget{affichage_recette_8php_ad12fee3f99fbfbdd476f106eea64fec8}\label{affichage_recette_8php_ad12fee3f99fbfbdd476f106eea64fec8}} 
-\index{affichageRecette.php@{affichageRecette.php}!\$listeQuantiteRecette3@{\$listeQuantiteRecette3}}
-\index{\$listeQuantiteRecette3@{\$listeQuantiteRecette3}!affichageRecette.php@{affichageRecette.php}}
-\doxysubsubsection{\texorpdfstring{\$listeQuantiteRecette3}{$listeQuantiteRecette3}}
-{\footnotesize\ttfamily \$liste\+Quantite\+Recette3 = array(0.\+5, 1, 0.\+5, 0.\+250, 1, 3, 1)}
-
-\mbox{\Hypertarget{affichage_recette_8php_a55be46390a809c54eec1b8dc4907f6c6}\label{affichage_recette_8php_a55be46390a809c54eec1b8dc4907f6c6}} 
-\index{affichageRecette.php@{affichageRecette.php}!\$listeQuantiteRecette4@{\$listeQuantiteRecette4}}
-\index{\$listeQuantiteRecette4@{\$listeQuantiteRecette4}!affichageRecette.php@{affichageRecette.php}}
-\doxysubsubsection{\texorpdfstring{\$listeQuantiteRecette4}{$listeQuantiteRecette4}}
-{\footnotesize\ttfamily \$liste\+Quantite\+Recette4 = array(4, 0.\+100, 0.\+6, 0.\+75, 1, 1, 4)}
-
-\mbox{\Hypertarget{affichage_recette_8php_a608c7885d5bd97232f2e5bcf994e47e8}\label{affichage_recette_8php_a608c7885d5bd97232f2e5bcf994e47e8}} 
-\index{affichageRecette.php@{affichageRecette.php}!\$listeQuantiteRecette5@{\$listeQuantiteRecette5}}
-\index{\$listeQuantiteRecette5@{\$listeQuantiteRecette5}!affichageRecette.php@{affichageRecette.php}}
-\doxysubsubsection{\texorpdfstring{\$listeQuantiteRecette5}{$listeQuantiteRecette5}}
-{\footnotesize\ttfamily \$liste\+Quantite\+Recette5 = array(0.\+25, 1, 0.\+25, 0.\+250, 1, 1)}
-
-\mbox{\Hypertarget{affichage_recette_8php_a613a959925cff9ab5a3c4343c4e1f249}\label{affichage_recette_8php_a613a959925cff9ab5a3c4343c4e1f249}} 
-\index{affichageRecette.php@{affichageRecette.php}!\$listeRecettes@{\$listeRecettes}}
-\index{\$listeRecettes@{\$listeRecettes}!affichageRecette.php@{affichageRecette.php}}
-\doxysubsubsection{\texorpdfstring{\$listeRecettes}{$listeRecettes}}
-{\footnotesize\ttfamily \$liste\+Recettes = array(\$recette1, \$recette2, \$recette3,\$recette4, \$recette5)}
-
-\mbox{\Hypertarget{affichage_recette_8php_ae65449fc75d6fe65be3da025ca6425ad}\label{affichage_recette_8php_ae65449fc75d6fe65be3da025ca6425ad}} 
-\index{affichageRecette.php@{affichageRecette.php}!\$oeuf@{\$oeuf}}
-\index{\$oeuf@{\$oeuf}!affichageRecette.php@{affichageRecette.php}}
-\doxysubsubsection{\texorpdfstring{\$oeuf}{$oeuf}}
-{\footnotesize\ttfamily \$oeuf =new \mbox{\hyperlink{class_ingredient}{Ingredient}}(4, \char`\"{}Oeuf\char`\"{}, 0.\+4, \char`\"{}unite\char`\"{})}
-
-\mbox{\Hypertarget{affichage_recette_8php_a2a95adf9018f9a42e680996d4203d77b}\label{affichage_recette_8php_a2a95adf9018f9a42e680996d4203d77b}} 
-\index{affichageRecette.php@{affichageRecette.php}!\$oignon@{\$oignon}}
-\index{\$oignon@{\$oignon}!affichageRecette.php@{affichageRecette.php}}
-\doxysubsubsection{\texorpdfstring{\$oignon}{$oignon}}
-{\footnotesize\ttfamily \$oignon =new \mbox{\hyperlink{class_ingredient}{Ingredient}}(8, \char`\"{}Oignon\char`\"{}, 1.\+2, \char`\"{}unite\char`\"{})}
-
-\mbox{\Hypertarget{affichage_recette_8php_a29d47761a3895bf9dc2b061fb04446c6}\label{affichage_recette_8php_a29d47761a3895bf9dc2b061fb04446c6}} 
-\index{affichageRecette.php@{affichageRecette.php}!\$olives@{\$olives}}
-\index{\$olives@{\$olives}!affichageRecette.php@{affichageRecette.php}}
-\doxysubsubsection{\texorpdfstring{\$olives}{$olives}}
-{\footnotesize\ttfamily \$olives =new \mbox{\hyperlink{class_ingredient}{Ingredient}}(9, \char`\"{}Olives\char`\"{}, 15, \char`\"{}kg\char`\"{})}
-
-\mbox{\Hypertarget{affichage_recette_8php_aa561905a49c6cc11f26c49e0c758f936}\label{affichage_recette_8php_aa561905a49c6cc11f26c49e0c758f936}} 
-\index{affichageRecette.php@{affichageRecette.php}!\$pates@{\$pates}}
-\index{\$pates@{\$pates}!affichageRecette.php@{affichageRecette.php}}
-\doxysubsubsection{\texorpdfstring{\$pates}{$pates}}
-{\footnotesize\ttfamily \$pates =new \mbox{\hyperlink{class_ingredient}{Ingredient}}(12, \char`\"{}Pates\char`\"{}, 1, \char`\"{}kg\char`\"{})}
-
-\mbox{\Hypertarget{affichage_recette_8php_aee34b5610c170443d099d98886e0bb66}\label{affichage_recette_8php_aee34b5610c170443d099d98886e0bb66}} 
-\index{affichageRecette.php@{affichageRecette.php}!\$poivre@{\$poivre}}
-\index{\$poivre@{\$poivre}!affichageRecette.php@{affichageRecette.php}}
-\doxysubsubsection{\texorpdfstring{\$poivre}{$poivre}}
-{\footnotesize\ttfamily \$poivre =new \mbox{\hyperlink{class_ingredient}{Ingredient}}(11, \char`\"{}Poivre\char`\"{}, 2, \char`\"{}unite\char`\"{})}
-
-\mbox{\Hypertarget{affichage_recette_8php_a311ea8c60b9b507bf55753ef3fd40555}\label{affichage_recette_8php_a311ea8c60b9b507bf55753ef3fd40555}} 
-\index{affichageRecette.php@{affichageRecette.php}!\$recette1@{\$recette1}}
-\index{\$recette1@{\$recette1}!affichageRecette.php@{affichageRecette.php}}
-\doxysubsubsection{\texorpdfstring{\$recette1}{$recette1}}
-{\footnotesize\ttfamily \$recette1 = new \mbox{\hyperlink{class_recette}{Recette}}(\char`\"{}Pain\char`\"{}, \$liste\+Ingredient\+Recette1, \$liste\+Quantite\+Recette1)}
-
-\mbox{\Hypertarget{affichage_recette_8php_ad249261836931747d028cc8bd3280f47}\label{affichage_recette_8php_ad249261836931747d028cc8bd3280f47}} 
-\index{affichageRecette.php@{affichageRecette.php}!\$recette2@{\$recette2}}
-\index{\$recette2@{\$recette2}!affichageRecette.php@{affichageRecette.php}}
-\doxysubsubsection{\texorpdfstring{\$recette2}{$recette2}}
-{\footnotesize\ttfamily \$recette2 = new \mbox{\hyperlink{class_recette}{Recette}}(\char`\"{}Pizza\char`\"{}, \$liste\+Ingredient\+Recette2, \$liste\+Quantite\+Recette2)}
-
-\mbox{\Hypertarget{affichage_recette_8php_a6f05d210fb3651b7e50a4dfbd13c5b1e}\label{affichage_recette_8php_a6f05d210fb3651b7e50a4dfbd13c5b1e}} 
-\index{affichageRecette.php@{affichageRecette.php}!\$recette3@{\$recette3}}
-\index{\$recette3@{\$recette3}!affichageRecette.php@{affichageRecette.php}}
-\doxysubsubsection{\texorpdfstring{\$recette3}{$recette3}}
-{\footnotesize\ttfamily \$recette3 = new \mbox{\hyperlink{class_recette}{Recette}}(\char`\"{}Pates carbonara\char`\"{}, \$liste\+Ingredient\+Recette3, \$liste\+Quantite\+Recette3)}
-
-\mbox{\Hypertarget{affichage_recette_8php_a3034839c898d1581e9f131aa60baaac5}\label{affichage_recette_8php_a3034839c898d1581e9f131aa60baaac5}} 
-\index{affichageRecette.php@{affichageRecette.php}!\$recette4@{\$recette4}}
-\index{\$recette4@{\$recette4}!affichageRecette.php@{affichageRecette.php}}
-\doxysubsubsection{\texorpdfstring{\$recette4}{$recette4}}
-{\footnotesize\ttfamily \$recette4 = new \mbox{\hyperlink{class_recette}{Recette}}(\char`\"{}Boeuf bourguignon\char`\"{}, \$liste\+Ingredient\+Recette4, \$liste\+Quantite\+Recette4)}
-
-\mbox{\Hypertarget{affichage_recette_8php_a792ef8d1271e35e794cab281d0a9438d}\label{affichage_recette_8php_a792ef8d1271e35e794cab281d0a9438d}} 
-\index{affichageRecette.php@{affichageRecette.php}!\$recette5@{\$recette5}}
-\index{\$recette5@{\$recette5}!affichageRecette.php@{affichageRecette.php}}
-\doxysubsubsection{\texorpdfstring{\$recette5}{$recette5}}
-{\footnotesize\ttfamily \$recette5 = new \mbox{\hyperlink{class_recette}{Recette}}(\char`\"{}Pates Mathis\char`\"{}, \$liste\+Ingredient\+Recette5, \$liste\+Quantite\+Recette5)}
-
-\mbox{\Hypertarget{affichage_recette_8php_a7d0f17f147bb327e312b71312f3cf040}\label{affichage_recette_8php_a7d0f17f147bb327e312b71312f3cf040}} 
-\index{affichageRecette.php@{affichageRecette.php}!\$sel@{\$sel}}
-\index{\$sel@{\$sel}!affichageRecette.php@{affichageRecette.php}}
-\doxysubsubsection{\texorpdfstring{\$sel}{$sel}}
-{\footnotesize\ttfamily \$sel =new \mbox{\hyperlink{class_ingredient}{Ingredient}}(3, \char`\"{}Sel\char`\"{}, 2, \char`\"{}unite\char`\"{})}
-
-\mbox{\Hypertarget{affichage_recette_8php_a888d5d55510e0a1090958e0dfcf5ee4a}\label{affichage_recette_8php_a888d5d55510e0a1090958e0dfcf5ee4a}} 
-\index{affichageRecette.php@{affichageRecette.php}!\$tomate@{\$tomate}}
-\index{\$tomate@{\$tomate}!affichageRecette.php@{affichageRecette.php}}
-\doxysubsubsection{\texorpdfstring{\$tomate}{$tomate}}
-{\footnotesize\ttfamily \$tomate =new \mbox{\hyperlink{class_ingredient}{Ingredient}}(5, \char`\"{}Tomate\char`\"{}, 1.\+30, \char`\"{}unite\char`\"{})}
-
-\mbox{\Hypertarget{affichage_recette_8php_a27b31029952018abb05eac45121cedd5}\label{affichage_recette_8php_a27b31029952018abb05eac45121cedd5}} 
-\index{affichageRecette.php@{affichageRecette.php}!\$vin\_rouge@{\$vin\_rouge}}
-\index{\$vin\_rouge@{\$vin\_rouge}!affichageRecette.php@{affichageRecette.php}}
-\doxysubsubsection{\texorpdfstring{\$vin\_rouge}{$vin\_rouge}}
-{\footnotesize\ttfamily \$vin\+\_\+rouge =new \mbox{\hyperlink{class_ingredient}{Ingredient}}(17, \char`\"{}Vin rouge\char`\"{}, 7, \char`\"{}L\char`\"{})}
-
-\mbox{\Hypertarget{affichage_recette_8php_ad80aa7815400ba32d276ae036771a51d}\label{affichage_recette_8php_ad80aa7815400ba32d276ae036771a51d}} 
-\index{affichageRecette.php@{affichageRecette.php}!for@{for}}
-\index{for@{for}!affichageRecette.php@{affichageRecette.php}}
-\doxysubsubsection{\texorpdfstring{for}{for}}
-{\footnotesize\ttfamily for(\$i=0; \$i$<$ sizeof(\$liste\+Recettes); \$i++) (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
+\end{DoxyCode}

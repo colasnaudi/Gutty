@@ -33,8 +33,6 @@
 \item 
 \mbox{\hyperlink{_creation_ingredient_8php_a06c8f8b804ae266c87b7a464e6cdfdf9}{\$beurre}} =new \mbox{\hyperlink{class_ingredient}{Ingredient}}(15, \char`\"{}Beurre\char`\"{}, 7, \char`\"{}kg\char`\"{})
 \item 
-\mbox{\hyperlink{_creation_ingredient_8php_a99b6d12e22e6e189797e62be2a024548}{\$bourgignon}} =new \mbox{\hyperlink{class_ingredient}{Ingredient}}(16, \char`\"{}Bourgignon\char`\"{}, 16.\+5, \char`\"{}kg\char`\"{})
-\item 
 \mbox{\hyperlink{_creation_ingredient_8php_a27b31029952018abb05eac45121cedd5}{\$vin\+\_\+rouge}} =new \mbox{\hyperlink{class_ingredient}{Ingredient}}(17, \char`\"{}Vin rouge\char`\"{}, 7, \char`\"{}L\char`\"{})
 \item 
 \mbox{\hyperlink{_creation_ingredient_8php_a86cc6e3c4f6c6ff5456a0402b2b84a19}{\$creme\+\_\+fraiche}} =new \mbox{\hyperlink{class_ingredient}{Ingredient}}(18, \char`\"{}Creme fraiche\char`\"{}, 4, \char`\"{}L\char`\"{})
@@ -67,10 +65,6 @@
 \item 
 \mbox{\hyperlink{_creation_ingredient_8php_af55b8a9a57b2068eea60e0f1463a8d02}{\$boeuf}} =new \mbox{\hyperlink{class_ingredient}{Ingredient}}(16, \char`\"{}Boeuf\char`\"{}, 16.\+5, \char`\"{}kg\char`\"{})
 \item 
-\mbox{\hyperlink{_creation_ingredient_8php_a2eea0d4bb8577d60b0cb1d41f7632d4a}{\$liste\+Ingredients}} = array()
-\item 
-if(!isset(\$\+\_\+\+SESSION\mbox{[}\textquotesingle{}\mbox{\hyperlink{classlivre_ingredient}{livre\+Ingredient}}\textquotesingle{}\mbox{]})) \mbox{\hyperlink{_creation_ingredient_8php_a20a2304b9f72d01a6a4b275e450f393e}{else}}
-\item 
 \mbox{\hyperlink{_creation_ingredient_8php_a74f52921fd0261ab46b937390501ee55}{\$liste\+Ingredient\+Recette1}} = array(\$farine, \$eau, \$sel, \$levure)
 \item 
 \mbox{\hyperlink{_creation_ingredient_8php_a969b14a849611df9a6e6592edcadaa8d}{\$liste\+Quantite\+Recette1}} = array(0.\+5, 0.\+300, 1, 1)
@@ -100,6 +94,14 @@ if(!isset(\$\+\_\+\+SESSION\mbox{[}\textquotesingle{}\mbox{\hyperlink{classlivre
 \mbox{\hyperlink{_creation_ingredient_8php_a608c7885d5bd97232f2e5bcf994e47e8}{\$liste\+Quantite\+Recette5}} = array(0.\+25, 1, 0.\+25, 0.\+250, 1, 1)
 \item 
 \mbox{\hyperlink{_creation_ingredient_8php_a792ef8d1271e35e794cab281d0a9438d}{\$recette5}} = new \mbox{\hyperlink{class_recette}{Recette}}(\char`\"{}Pates Mathis\char`\"{}, \$liste\+Ingredient\+Recette5, \$liste\+Quantite\+Recette5)
+\item 
+\mbox{\hyperlink{_creation_ingredient_8php_a2eea0d4bb8577d60b0cb1d41f7632d4a}{\$liste\+Ingredients}} = array()
+\item 
+\mbox{\hyperlink{_creation_ingredient_8php_a613a959925cff9ab5a3c4343c4e1f249}{\$liste\+Recettes}} = array()
+\item 
+if(!isset(\$\+\_\+\+SESSION\mbox{[}\textquotesingle{}\mbox{\hyperlink{classlivre_ingredient}{livre\+Ingredient}}\textquotesingle{}\mbox{]}) \&\&!isset(\$\+\_\+\+SESSION\mbox{[}\textquotesingle{}\mbox{\hyperlink{classlivre_recette}{livre\+Recette}}\textquotesingle{}\mbox{]})) \mbox{\hyperlink{_creation_ingredient_8php_ae26bf2f7340e6a11a5721511f585836f}{else}}
+\item 
+\mbox{\hyperlink{_creation_ingredient_8php_a148f3c203271b46550ed8b8fb6fc1332}{\$livre\+Recette}} = \$\+\_\+\+SESSION\mbox{[}\textquotesingle{}\mbox{\hyperlink{classlivre_recette}{livre\+Recette}}\textquotesingle{}\mbox{]}
 \end{DoxyCompactItemize}
 
 
@@ -127,12 +129,6 @@ if(!isset(\$\+\_\+\+SESSION\mbox{[}\textquotesingle{}\mbox{\hyperlink{classlivre
 \index{\$boeuf@{\$boeuf}!CreationIngredient.php@{CreationIngredient.php}}
 \doxysubsubsection{\texorpdfstring{\$boeuf}{$boeuf}}
 {\footnotesize\ttfamily \$boeuf =new \mbox{\hyperlink{class_ingredient}{Ingredient}}(16, \char`\"{}Boeuf\char`\"{}, 16.\+5, \char`\"{}kg\char`\"{})}
-
-\mbox{\Hypertarget{_creation_ingredient_8php_a99b6d12e22e6e189797e62be2a024548}\label{_creation_ingredient_8php_a99b6d12e22e6e189797e62be2a024548}} 
-\index{CreationIngredient.php@{CreationIngredient.php}!\$bourgignon@{\$bourgignon}}
-\index{\$bourgignon@{\$bourgignon}!CreationIngredient.php@{CreationIngredient.php}}
-\doxysubsubsection{\texorpdfstring{\$bourgignon}{$bourgignon}}
-{\footnotesize\ttfamily \$bourgignon =new \mbox{\hyperlink{class_ingredient}{Ingredient}}(16, \char`\"{}Bourgignon\char`\"{}, 16.\+5, \char`\"{}kg\char`\"{})}
 
 \mbox{\Hypertarget{_creation_ingredient_8php_ad0ba7e32392c06a6370b9b3f4a1fe7a9}\label{_creation_ingredient_8php_ad0ba7e32392c06a6370b9b3f4a1fe7a9}} 
 \index{CreationIngredient.php@{CreationIngredient.php}!\$carotte@{\$carotte}}
@@ -278,6 +274,18 @@ if(!isset(\$\+\_\+\+SESSION\mbox{[}\textquotesingle{}\mbox{\hyperlink{classlivre
 \doxysubsubsection{\texorpdfstring{\$listeQuantiteRecette5}{$listeQuantiteRecette5}}
 {\footnotesize\ttfamily \$liste\+Quantite\+Recette5 = array(0.\+25, 1, 0.\+25, 0.\+250, 1, 1)}
 
+\mbox{\Hypertarget{_creation_ingredient_8php_a613a959925cff9ab5a3c4343c4e1f249}\label{_creation_ingredient_8php_a613a959925cff9ab5a3c4343c4e1f249}} 
+\index{CreationIngredient.php@{CreationIngredient.php}!\$listeRecettes@{\$listeRecettes}}
+\index{\$listeRecettes@{\$listeRecettes}!CreationIngredient.php@{CreationIngredient.php}}
+\doxysubsubsection{\texorpdfstring{\$listeRecettes}{$listeRecettes}}
+{\footnotesize\ttfamily \$liste\+Recettes = array()}
+
+\mbox{\Hypertarget{_creation_ingredient_8php_a148f3c203271b46550ed8b8fb6fc1332}\label{_creation_ingredient_8php_a148f3c203271b46550ed8b8fb6fc1332}} 
+\index{CreationIngredient.php@{CreationIngredient.php}!\$livreRecette@{\$livreRecette}}
+\index{\$livreRecette@{\$livreRecette}!CreationIngredient.php@{CreationIngredient.php}}
+\doxysubsubsection{\texorpdfstring{\$livreRecette}{$livreRecette}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{classlivre_recette}{livre\+Recette}} = \$\+\_\+\+SESSION\mbox{[}\textquotesingle{}\mbox{\hyperlink{classlivre_recette}{livre\+Recette}}\textquotesingle{}\mbox{]}}
+
 \mbox{\Hypertarget{_creation_ingredient_8php_ae65449fc75d6fe65be3da025ca6425ad}\label{_creation_ingredient_8php_ae65449fc75d6fe65be3da025ca6425ad}} 
 \index{CreationIngredient.php@{CreationIngredient.php}!\$oeuf@{\$oeuf}}
 \index{\$oeuf@{\$oeuf}!CreationIngredient.php@{CreationIngredient.php}}
@@ -392,15 +400,15 @@ if(!isset(\$\+\_\+\+SESSION\mbox{[}\textquotesingle{}\mbox{\hyperlink{classlivre
 \doxysubsubsection{\texorpdfstring{\$vin\_rouge}{$vin\_rouge}}
 {\footnotesize\ttfamily \$vin\+\_\+rouge =new \mbox{\hyperlink{class_ingredient}{Ingredient}}(17, \char`\"{}Vin rouge\char`\"{}, 7, \char`\"{}L\char`\"{})}
 
-\mbox{\Hypertarget{_creation_ingredient_8php_a20a2304b9f72d01a6a4b275e450f393e}\label{_creation_ingredient_8php_a20a2304b9f72d01a6a4b275e450f393e}} 
+\mbox{\Hypertarget{_creation_ingredient_8php_ae26bf2f7340e6a11a5721511f585836f}\label{_creation_ingredient_8php_ae26bf2f7340e6a11a5721511f585836f}} 
 \index{CreationIngredient.php@{CreationIngredient.php}!else@{else}}
 \index{else@{else}!CreationIngredient.php@{CreationIngredient.php}}
 \doxysubsubsection{\texorpdfstring{else}{else}}
-{\footnotesize\ttfamily if (isset( \$\+\_\+\+SESSION\mbox{[} \textquotesingle{}\mbox{\hyperlink{classlivre_recette}{livre\+Recette}}\textquotesingle{}\mbox{]})) else}
+{\footnotesize\ttfamily if (!isset( \$\+\_\+\+SESSION\mbox{[} \textquotesingle{}\mbox{\hyperlink{classlivre_ingredient}{livre\+Ingredient}}\textquotesingle{}\mbox{]}) \&\&!isset( \$\+\_\+\+SESSION\mbox{[} \textquotesingle{}\mbox{\hyperlink{classlivre_recette}{livre\+Recette}}\textquotesingle{}\mbox{]})) else}
 
 {\bfseries Initial value\+:}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\{}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{recherche_8php_a1403da9808f3ba7ecf7fa8ae369485ab}{\$livreIngredient}}\ =\ \$\_SESSION[\textcolor{stringliteral}{'livreIngredient'}]}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{affichage_recette_8php_a1403da9808f3ba7ecf7fa8ae369485ab}{\$livreIngredient}}\ =\ \$\_SESSION[\textcolor{stringliteral}{'livreIngredient'}]}
 
 \end{DoxyCode}

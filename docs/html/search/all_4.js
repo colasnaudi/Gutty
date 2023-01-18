@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['else_0',['else',['../_creation_ingredient_8php.html#a20a2304b9f72d01a6a4b275e450f393e',1,'else():&#160;CreationIngredient.php'],['../recherche_8php.html#afac8cd3a3d8cb81defe059b0995b9f31',1,'else():&#160;recherche.php'],['../resultat_8php.html#ac94b0340e2aa877a15e28d9c2a48ee56',1,'else():&#160;resultat.php']]]
+  ['calculerprixfrigo_0',['calculerPrixFrigo',['../class_recette.html#a19f98bae54305e5b8d310aa8987e5d4c',1,'Recette']]],
+  ['creationingredient_2ephp_1',['CreationIngredient.php',['../_creation_ingredient_8php.html',1,'']]]
 ];
