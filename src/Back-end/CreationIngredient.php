@@ -20,7 +20,6 @@ $pates=new Ingredient(12, "Pates", 1, "kg");
 $lardons=new Ingredient(13, "Lardons", 6.7, "kg");
 $carotte=new Ingredient(14, "Carotte", 1.4, "unite");
 $beurre=new Ingredient(15, "Beurre", 7, "kg");
-$bourgignon=new Ingredient(16, "Bourgignon", 16.5, "kg");
 $vin_rouge=new Ingredient(17, "Vin rouge", 7, "L");
 $creme_fraiche=new Ingredient(18, "Creme fraiche", 4, "L");
 $champignon=new Ingredient(19, "Champignon", 1.2, "kg");
