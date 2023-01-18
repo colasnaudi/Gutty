@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4255c67a-fe5d-44be-ad62-fe665e21a56b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Back-end/CreationIngredient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Back-end/recherche.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Back-end/recherche.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Back-end/Main.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Back-end/Main.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Back-end/resultat.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Back-end/resultat.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Front-end/Accueil.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Front-end/Accueil.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Front-end/Accueil.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Front-end/Accueil.php" afterDir="false" />
@@ -107,6 +109,8 @@
       <workItem from="1671178892660" duration="314000" />
       <workItem from="1673856859817" duration="4474000" />
       <workItem from="1673857666835" duration="1660000" />
+      <workItem from="1674026724194" duration="3071000" />
+      <workItem from="1674029931999" duration="173000" />
     </task>
     <servers />
   </component>

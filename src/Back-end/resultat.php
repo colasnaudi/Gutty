@@ -15,15 +15,14 @@
 </header>
 
 <?php
-include 'Classes/Ingredient.php';
-include 'Classes/LivreIngredient.php';
-include 'Classes/Frigo.php';
+include_once 'CreationIngredient.php';
+
 
 $ingredientFrigos = array();
 $quantiteFrigos = array();
 
-session_start();
 $livreIngredient = $_SESSION['livreIngredient'];
+$livreRecette = $_SESSION['livreRecette'];
 
 if(isset($_POST['quantite']) && !empty($_POST['quantite'])) {
     $ingredients = $_POST['ingredient'];
@@ -36,12 +35,33 @@ if(isset($_POST['quantite']) && !empty($_POST['quantite'])) {
         $quantiteFrigos[] = $quantites;
     }
     $frigo = new Frigo($ingredientFrigos, $quantiteFrigos);
-    echo "<p>";
-    echo $frigo->toString();
-    echo"</p>";
+
 }
 else
 {
     echo "aucun ingrédient récupéré";
+}
+
+//Test generer suggestion
+//Generation des recettes possibles
+$recettePossible = $frigo->genererPossibleRecette($livreRecette);
+
+
+//Calcul du prix frigo et ajout des recettes possibles
+foreach ($recettePossible as $recette) {
+    $recette->calculerPrixFrigo($frigo);
+}
+
+//Tri des recettes possibles par prixFrigo
+$recetteTriee = $frigo->trierSuggestion($recettePossible);
+
+foreach ($recetteTriee as $recette) {
+    echo "<p>".$recette->getNomRecette()." :</p><br>";
+    echo "<p class='Recette'>";
+    echo "Prix total : " . $recette->getPrixRecette() . "€" . "<BR>";
+    echo "Prix frigo : " . $recette->getPrixFrigo() . "€" . "<BR>";
+    echo "Prix ajout : " . $recette->getPrixAjout() . "€" . "<BR>";
+    echo "</p>";
+    echo "<br>";
 }
 ?>

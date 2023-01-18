@@ -29,7 +29,7 @@ $pates=new Ingredient(12, "Pates", 1, "kg");
 $lardons=new Ingredient(13, "Lardons", 6.7, "kg");
 $carotte=new Ingredient(14, "Carotte", 1.4, "unite");
 $beurre=new Ingredient(15, "Beurre", 7, "kg");
-$bourgignon=new Ingredient(16, "Bourgignon", 16.5, "kg");
+$boeuf=new Ingredient(16, "Boeuf", 16.5, "kg");
 $vin_rouge=new Ingredient(17, "Vin rouge", 7, "L");
 $creme_fraiche=new Ingredient(18, "Creme fraiche", 4, "L");
 
@@ -49,7 +49,7 @@ $listeQuantiteRecette3 = array(0.5, 1, 0.5, 0.250, 1, 3, 1);
 $recette3 = new Recette("Pates carbonara", $listeIngredientRecette3, $listeQuantiteRecette3);
 
 //RECETTE DE BOEUF BOURGUIGNON - 27.55€
-$listeIngredientRecette4 = array($carotte, $beurre, $bourgignon, $vin_rouge, $sel, $poivre, $oignon);
+$listeIngredientRecette4 = array($carotte, $beurre, $boeuf, $vin_rouge, $sel, $poivre, $oignon);
 $listeQuantiteRecette4 = array(4, 0.100, 0.6, 0.75, 1, 1, 4);
 $recette4 = new Recette("Boeuf bourguignon", $listeIngredientRecette4, $listeQuantiteRecette4);
 
