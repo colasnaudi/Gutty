@@ -2,7 +2,7 @@
 /**
  * @file Frigo.php
  * @author CELLE Guillian, GARCIA Angel, LAGÜE Mathis
- * @brief Classe Frigo qui ets une composition de la classe Ingredient
+ * @brief Classe Frigo qui est une composition de la classe Ingredient
  * @version 1.0
  * @date 2022-12-12
  */
@@ -14,10 +14,12 @@ class Frigo
      * @brief Liste des ingrédients du frigo
      */
     private array $ingredients = array();
+
     /**
      * @brief Liste des quantités des ingrédients du frigo
      */
     private array $quantites = array();
+
     /**
      * @brief Prix total du frigo (somme des prix des ingrédients multiplié par leur quantité)
      */
