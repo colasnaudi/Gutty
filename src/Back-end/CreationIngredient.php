@@ -118,7 +118,3 @@ if (isset($_SESSION['livreRecette'])) {
     $livreRecette->ajouteRecette($recette4);
     $livreRecette->ajouteRecette($recette5);
 }
-else
-{
-    $livreRecette= $_SESSION['livreRecette'];
-}
