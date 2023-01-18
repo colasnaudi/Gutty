@@ -69,7 +69,7 @@ $listeRecettes = array();
 session_unset();
 session_start();
 
-if (!isset($_SESSION['livreIngredient'])) {
+if (!isset($_SESSION['livreIngredient']) && !isset($_SESSION['livreRecette'])) {
     $livreIngredient = new LivreIngredient($listeIngredients);
     $_SESSION['livreIngredient'] = $livreIngredient;
     $livreIngredient->ajouteIngredient($farine);
@@ -102,14 +102,7 @@ if (!isset($_SESSION['livreIngredient'])) {
     $livreIngredient->ajouteIngredient($steak);
     $livreIngredient->ajouteIngredient($cotelette);
     $livreIngredient->ajouteIngredient($boeuf);
-}
-
-else
-{
-    $livreIngredient = $_SESSION['livreIngredient'];
-}
-
-if (isset($_SESSION['livreRecette'])) {
+    
     $livreRecette = new LivreRecette($listeRecettes);
     $_SESSION['livreRecette'] = $livreRecette;
     $livreRecette->ajouteRecette($recette1);
@@ -117,4 +110,10 @@ if (isset($_SESSION['livreRecette'])) {
     $livreRecette->ajouteRecette($recette3);
     $livreRecette->ajouteRecette($recette4);
     $livreRecette->ajouteRecette($recette5);
+}
+
+else
+{
+    $livreIngredient = $_SESSION['livreIngredient'];
+    $livreRecette = $_SESSION['livreRecette'];
 }
