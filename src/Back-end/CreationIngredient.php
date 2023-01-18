@@ -38,6 +38,31 @@ $steak=new Ingredient(30, "Steak", 1.5, "kg");
 $cotelette=new Ingredient(31, "Cotelette", 1.5, "kg");
 $boeuf=new Ingredient(16, "Boeuf", 16.5, "kg");
 
+//RECETTE DE PAIN - Prix : 2,65€
+$listeIngredientRecette1 = array($farine, $eau, $sel, $levure);
+$listeQuantiteRecette1 = array(0.5, 0.300, 1, 1);
+$recette1 = new Recette("Pain", $listeIngredientRecette1, $listeQuantiteRecette1);
+
+//RECETTE DE PIZZA - 15.285€
+$listeIngredientRecette2 = array($farine, $eau, $sel, $levure, $tomate, $fromage, $jambon, $oignon, $olives);
+$listeQuantiteRecette2 = array(0.350, 0.250, 1, 1, 3, 0.5, 0.5, 2, 0.1);
+$recette2 = new Recette("Pizza", $listeIngredientRecette2, $listeQuantiteRecette2);
+
+//RECETTE DE PATES CARBONARA - 8.575€
+$listeIngredientRecette3 = array($creme_fraiche, $poivre, $pates, $lardons, $sel, $oeuf, $oignon);
+$listeQuantiteRecette3 = array(0.5, 1, 0.5, 0.250, 1, 3, 1);
+$recette3 = new Recette("Pates carbonara", $listeIngredientRecette3, $listeQuantiteRecette3);
+
+//RECETTE DE BOEUF BOURGUIGNON - 27.55€
+$listeIngredientRecette4 = array($carotte, $beurre, $boeuf, $vin_rouge, $sel, $poivre, $oignon);
+$listeQuantiteRecette4 = array(4, 0.100, 0.6, 0.75, 1, 1, 4);
+$recette4 = new Recette("Boeuf bourguignon", $listeIngredientRecette4, $listeQuantiteRecette4);
+
+//RECETTE TEST MATHIS - 6.125€
+$listeIngredientRecette5 = array($creme_fraiche, $poivre, $pates, $lardons, $sel, $oignon);
+$listeQuantiteRecette5 = array(0.25, 1, 0.25, 0.250, 1, 1);
+$recette5 = new Recette("Pates Mathis", $listeIngredientRecette5, $listeQuantiteRecette5);
+
 $listeIngredients = array();
 
 session_unset();
@@ -86,41 +111,16 @@ else
 if (isset($_SESSION['livreRecette'])) {
     $livreRecette = new LivreRecette();
     $_SESSION['livreRecette'] = $livreRecette;
+    $livreRecette->ajouteRecette($recette1);
+    $livreRecette->ajouteRecette($recette2);
+    $livreRecette->ajouteRecette($recette3);
+    $livreRecette->ajouteRecette($recette4);
+    $livreRecette->ajouteRecette($recette5);
 }
 else
 {
     $livreRecette= $_SESSION['livreRecette'];
 }
 
-//RECETTE DE PAIN - Prix : 2,65€
-$listeIngredientRecette1 = array($farine, $eau, $sel, $levure);
-$listeQuantiteRecette1 = array(0.5, 0.300, 1, 1);
-$recette1 = new Recette("Pain", $listeIngredientRecette1, $listeQuantiteRecette1);
-
-//RECETTE DE PIZZA - 15.285€
-$listeIngredientRecette2 = array($farine, $eau, $sel, $levure, $tomate, $fromage, $jambon, $oignon, $olives);
-$listeQuantiteRecette2 = array(0.350, 0.250, 1, 1, 3, 0.5, 0.5, 2, 0.1);
-$recette2 = new Recette("Pizza", $listeIngredientRecette2, $listeQuantiteRecette2);
-
-//RECETTE DE PATES CARBONARA - 8.575€
-$listeIngredientRecette3 = array($creme_fraiche, $poivre, $pates, $lardons, $sel, $oeuf, $oignon);
-$listeQuantiteRecette3 = array(0.5, 1, 0.5, 0.250, 1, 3, 1);
-$recette3 = new Recette("Pates carbonara", $listeIngredientRecette3, $listeQuantiteRecette3);
-
-//RECETTE DE BOEUF BOURGUIGNON - 27.55€
-$listeIngredientRecette4 = array($carotte, $beurre, $boeuf, $vin_rouge, $sel, $poivre, $oignon);
-$listeQuantiteRecette4 = array(4, 0.100, 0.6, 0.75, 1, 1, 4);
-$recette4 = new Recette("Boeuf bourguignon", $listeIngredientRecette4, $listeQuantiteRecette4);
-
-//RECETTE TEST MATHIS - 6.125€
-$listeIngredientRecette5 = array($creme_fraiche, $poivre, $pates, $lardons, $sel, $oignon);
-$listeQuantiteRecette5 = array(0.25, 1, 0.25, 0.250, 1, 1);
-$recette5 = new Recette("Pates Mathis", $listeIngredientRecette5, $listeQuantiteRecette5);
 
 
-//Livre de recette
-$livreRecette->ajouteRecette($recette1);
-$livreRecette->ajouteRecette($recette2);
-$livreRecette->ajouteRecette($recette3);
-$livreRecette->ajouteRecette($recette4);
-$livreRecette->ajouteRecette($recette5);

@@ -8,6 +8,8 @@
 }
 
 h2 {
+    margin-left: 20px;
+    margin-top: 10px;
     color: #F28500;
     margin-bottom: 20px;
     font-size: 2em;
@@ -19,6 +21,12 @@ ul {
     list-style: none;
     padding: 0;
 }
+
+a {
+    text-decoration: none;
+    color: #c96e00;
+}
+
 
 .recipe {
     font-family: 'Montserrat', sans-serif;
@@ -43,4 +51,29 @@ ul {
     color: #fff;
     cursor: pointer;
     transform: scale(1.1);
+}
+
+.recipe:hover a {
+    color: #fff;
+}
+
+h3 {
+    margin-left: 25px;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #F28500;
+}
+
+.IngredientRecette {
+    font-style: italic;
+    font-size: 1.3em;
+    margin-bottom: 10px;
+    color: #333333;
+}
+
+p {
+    margin-left: 30px;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #333333;
 }
