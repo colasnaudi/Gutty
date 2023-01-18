@@ -66,7 +66,7 @@ $recette5 = new Recette("Pates Mathis", $listeIngredientRecette5, $listeQuantite
 $listeIngredients = array();
 $listeRecettes = array();
 
-array_push($listeIngredients, $farine, $eau, $sel, $oeuf, $tomate, $fromage, $jambon, $oignon, $olives, $levure, $poivre, $pates, $lardons, $carotte, $beurre, $bourgignon, $vin_rouge, $creme_fraiche, $champignon, $ail, $saumon, $aneth, $poisson, $poireau, $chou, $saucisse, $lentilles, $riz, $haricot, $steak, $cotelette, $boeuf);
+array_push($listeIngredients, $farine, $eau, $sel, $oeuf, $tomate, $fromage, $jambon, $oignon, $olives, $levure, $poivre, $pates, $lardons, $carotte, $beurre, $vin_rouge, $creme_fraiche, $champignon, $ail, $saumon, $aneth, $poisson, $poireau, $chou, $saucisse, $lentilles, $riz, $haricot, $steak, $cotelette, $boeuf);
 array_push($listeRecettes, $recette1, $recette2, $recette3, $recette4, $recette5);
 
 session_start();
@@ -84,4 +84,3 @@ else
     $livreIngredient = $_SESSION['livreIngredient'];
     $livreRecette = $_SESSION['livreRecette'];
 }
-session_destroy();

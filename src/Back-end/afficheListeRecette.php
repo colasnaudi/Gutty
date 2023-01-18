@@ -40,4 +40,5 @@ foreach ($livreRecette->getListeRecettes() as $recette) {
         }
     }
 }
+session_destroy();
 ?>
