@@ -1,0 +1,46 @@
+
+
+.recipes-container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+h2 {
+    color: #F28500;
+    margin-bottom: 20px;
+    font-size: 2em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+.recipe {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2em;
+    padding: 20px;
+    margin-bottom: 30px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px #cccccc;
+    transition: all 0.3s ease-in-out;
+    color: #333333; /* couleur de police */
+    text-transform: uppercase; /* transformation de texte en majuscule */
+    letter-spacing: 4px; /* espacement entre les lettres */
+    line-height: 1.5em; /* hauteur de ligne */
+    text-align: center; /* alignement du texte */
+}
+
+
+
+.recipe:hover {
+    background-color: #F28500;
+    color: #fff;
+    cursor: pointer;
+    transform: scale(1.1);
+}
