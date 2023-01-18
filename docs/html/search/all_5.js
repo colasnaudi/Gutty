@@ -2,7 +2,7 @@ var searchData=
 [
   ['genererpossiblerecette_0',['genererPossibleRecette',['../class_frigo.html#a36602fd52b05f90b8f9f09fa16db5d16',1,'Frigo']]],
   ['getidingredient_1',['getIdIngredient',['../class_ingredient.html#aa12060aadb8998359f9b37f1f43c34be',1,'Ingredient']]],
-  ['getingredients_2',['getIngredients',['../class_frigo.html#a3ee17085a1e0dbe24e05f504147deb8a',1,'Frigo\getIngredients()'],['../classlivre_ingredient.html#a3ee17085a1e0dbe24e05f504147deb8a',1,'livreIngredient\getIngredients()'],['../class_recette.html#a3ee17085a1e0dbe24e05f504147deb8a',1,'Recette\getIngredients()']]],
+  ['getingredients_2',['getIngredients',['../class_frigo.html#a3ee17085a1e0dbe24e05f504147deb8a',1,'Frigo\getIngredients()'],['../class_recette.html#a3ee17085a1e0dbe24e05f504147deb8a',1,'Recette\getIngredients()']]],
   ['getlisteingredients_3',['getListeIngredients',['../classlivre_ingredient.html#a544114c53390a01d504e00ac9d98e42c',1,'livreIngredient']]],
   ['getnomingredient_4',['getNomIngredient',['../class_ingredient.html#a0355e64f4977728b59c314b79284fc89',1,'Ingredient']]],
   ['getnomrecette_5',['getNomRecette',['../class_recette.html#a2c42bce6f5fbe9201891621be41ba5b1',1,'Recette']]],

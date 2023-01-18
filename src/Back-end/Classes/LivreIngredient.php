@@ -1,55 +1,66 @@
 <?php
 
 /**
- * @created 2022-12-12
+ * @file LivreIngredient.php
  * @author CELLE Guillian, GARCIA Angel, LAGÜE Mathis
+ * @brief Classe LivreIngredient qui est une composition de la classe Ingredient
  * @version 1.0
- * @description Classes LivreIngredient
+ * @date 2022-12-12
  */
 class livreIngredient
 {
-    /**
-     * @livreIngredient Cette classe permet de créer un livre d'ingrédient avec ses ingrédients
-     */
-
     //ATTRIBUTS
+    /**
+     * @brief Liste des ingrédients du livre
+     */
     public array $listeIngredients = array();
 
     //CONSTRUCTEUR
 
     /**
-     * @function setListeIngredients
-     * @function getListeIngredients
-     * @function __construct
-     * @description Permet de créer un livre d'ingrédient avec ses ingrédients
+     * @brief Constructeur de la classe LivreIngredient à partir d'une liste d'ingrédients
+     * @param [in] Ingredient $listeIngredients
      */
-
-    public function setListeIngredients($listeIngredients): void
-    {
-        $this->listeIngredients = $listeIngredients;
-    }
-    public function __construct($listeIngredients)
+    public function __construct(Ingredient $listeIngredients)
     {
         $this->setListeIngredients($listeIngredients);
     }
 
+    //ENCAPSULATION
+
+    /**
+     * @brief Setter de la liste des ingrédients du livre
+     * @param [in] array $listeIngredients La liste des ingrédients du livre
+     * @return void
+     */
+    public function setListeIngredients(array $listeIngredients): void
+    {
+        $this->listeIngredients = $listeIngredients;
+    }
+
+    /**
+     * @brief Getter de la liste des ingrédients du livre
+     * @return La liste des ingrédients du livre
+     */
     public function getListeIngredients(): array{
         return $this->listeIngredients;
     }
 
-    //MÉTHODES USUELLES
+    //MÉTHODES METIERS
 
     /**
-     * @function ajouteIngredient
-     * @description Permet d'ajouter un ingrédient au livre d'ingrédient
+     * @brief Permet d'ajouter un ingrédient au livre d'ingrédients
+     * @param [in] Ingredient $ingredient L'ingrédient à ajouter
+     * @return void
      */
     public function ajouteIngredient(Ingredient $ingredient):void{
         $this->listeIngredients[] = $ingredient;
     }
 
     /**
-     * @function supprIngredient
-     * @description Permet de supprimer un ingrédient du livre d'ingrédient
+     * @brief Permet de supprimer un ingrédient du livre d'ingrédients
+     * @param [in] Ingredient $ingredient L'ingrédient à supprimer
+     * @return void
      */
     public function supprIngredient(Ingredient $ingredient):void{
         $cle = array_search($ingredient, $this->listeIngredients);
@@ -59,10 +70,11 @@ class livreIngredient
     }
 
     /**
-     * @function modifIngredient
-     * @description Permet de modifier un ingrédient du livre d'ingrédient
+     * @brief Permet de modifier un ingrédient du livre d'ingrédients
+     * @param [in] Ingredient $ingredient L'ingrédient à modifier
+     * @param [in] Ingredient $ingredientModif L'ingrédient modifié
+     * @return void
      */
-
     public function modifIngredient(Ingredient $ingredient, Ingredient $newIngredient):void
     {
         $cle = array_search($ingredient, $this->listeIngredients);
@@ -70,14 +82,4 @@ class livreIngredient
             $this->listeIngredients[$cle] = $newIngredient;
         }
     }
-
-    /**
-     * @function getIngredients
-     * @description Permet d'afficher les ingrédients du livre d'ingrédient
-     */
-    public function getIngredients(): array
-    {
-        return $this->listeIngredients;
-    }
-
 }
