@@ -3,26 +3,39 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\hyperlink{classlivre_recette_ac2d9136286aa75bfb9f66eb0d1639e1e}{\+\_\+\+\_\+construct}} (\mbox{\hyperlink{class_recette}{Recette}} \$liste\+Recettes)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe Livre\+Recette à partir d\textquotesingle{}une liste de recettes. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classlivre_recette_a8bdf64cea1c911bc990d77a6bef1f857}{set\+Liste\+Recettes}} (array \$liste\+Recettes)
+\begin{DoxyCompactList}\small\item\em Setter de la liste des recettes du livre. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classlivre_recette_a5b9e383a314f4af00cdeb9dc78b9abdd}{get\+Liste\+Recettes}} ()
+\begin{DoxyCompactList}\small\item\em Getter de la liste des recettes du livre. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classlivre_recette_ad3059b8344cd568019d03582be8461d7}{ajoute\+Recette}} (\mbox{\hyperlink{class_recette}{Recette}} \$recette)
-\item 
+\begin{DoxyCompactList}\small\item\em Permet d\textquotesingle{}ajouter une recette au livre de recettes. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classlivre_recette_afe49ce0c4bebf0a8947610507f4bad91}{suppr\+Recette}} (\mbox{\hyperlink{class_recette}{Recette}} \$recette)
-\item 
-\mbox{\hyperlink{classlivre_recette_aa39e7f7324afceb987af1e0ad43a90b0}{get\+Recettes}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Permet de supprimer une recette du livre de recettes. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Data Fields}
 \begin{DoxyCompactItemize}
 \item 
 array \mbox{\hyperlink{classlivre_recette_acad3bc7a48892fac3c5732047a572a5b}{\$liste\+Recettes}} = array()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Liste des recettes du livre. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\doxysubsection{Detailed Description}
-@created 2022-\/12-\/12 \begin{DoxyAuthor}{Author}
-CELLE Guillian, GARCIA Angel, LAGÜE Mathis 
-\end{DoxyAuthor}
-\begin{DoxyVersion}{Version}
-1.\+0 @description Classes Livre\+Recette 
-\end{DoxyVersion}
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classlivre_recette_ac2d9136286aa75bfb9f66eb0d1639e1e}\label{classlivre_recette_ac2d9136286aa75bfb9f66eb0d1639e1e}} 
+\index{livreRecette@{livreRecette}!\_\_construct@{\_\_construct}}
+\index{\_\_construct@{\_\_construct}!livreRecette@{livreRecette}}
+\doxysubsubsection{\texorpdfstring{\_\_construct()}{\_\_construct()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_recette}{Recette}}}]{\$liste\+Recettes }\end{DoxyParamCaption})}
+
+
+
+Constructeur de la classe Livre\+Recette à partir d\textquotesingle{}une liste de recettes. 
+
+
+\begin{DoxyParams}[2]{Parameters}
+\mbox{\texttt{ in}}  & \mbox{\hyperlink{class_recette}{Recette}} & {\em \$liste\+Recettes} & \\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Member Function Documentation}
@@ -32,19 +45,68 @@ CELLE Guillian, GARCIA Angel, LAGÜE Mathis
 \doxysubsubsection{\texorpdfstring{ajouteRecette()}{ajouteRecette()}}
 {\footnotesize\ttfamily ajoute\+Recette (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_recette}{Recette}}}]{\$recette }\end{DoxyParamCaption})}
 
-@function ajoute\+Recette @description Permet d\textquotesingle{}ajouter une recette au livre de recette \mbox{\Hypertarget{classlivre_recette_aa39e7f7324afceb987af1e0ad43a90b0}\label{classlivre_recette_aa39e7f7324afceb987af1e0ad43a90b0}} 
-\index{livreRecette@{livreRecette}!getRecettes@{getRecettes}}
-\index{getRecettes@{getRecettes}!livreRecette@{livreRecette}}
-\doxysubsubsection{\texorpdfstring{getRecettes()}{getRecettes()}}
-{\footnotesize\ttfamily get\+Recettes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-@function get\+Recettes @description Permet d\textquotesingle{}afficher les recettes du livre de recette \mbox{\Hypertarget{classlivre_recette_afe49ce0c4bebf0a8947610507f4bad91}\label{classlivre_recette_afe49ce0c4bebf0a8947610507f4bad91}} 
+
+Permet d\textquotesingle{}ajouter une recette au livre de recettes. 
+
+
+\begin{DoxyParams}[2]{Parameters}
+\mbox{\texttt{ in}}  & \mbox{\hyperlink{class_recette}{Recette}} & {\em \$recette} & La recette à ajouter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classlivre_recette_a5b9e383a314f4af00cdeb9dc78b9abdd}\label{classlivre_recette_a5b9e383a314f4af00cdeb9dc78b9abdd}} 
+\index{livreRecette@{livreRecette}!getListeRecettes@{getListeRecettes}}
+\index{getListeRecettes@{getListeRecettes}!livreRecette@{livreRecette}}
+\doxysubsubsection{\texorpdfstring{getListeRecettes()}{getListeRecettes()}}
+{\footnotesize\ttfamily get\+Liste\+Recettes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter de la liste des recettes du livre. 
+
+\begin{DoxyReturn}{Returns}
+La liste des recettes du livre 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classlivre_recette_a8bdf64cea1c911bc990d77a6bef1f857}\label{classlivre_recette_a8bdf64cea1c911bc990d77a6bef1f857}} 
+\index{livreRecette@{livreRecette}!setListeRecettes@{setListeRecettes}}
+\index{setListeRecettes@{setListeRecettes}!livreRecette@{livreRecette}}
+\doxysubsubsection{\texorpdfstring{setListeRecettes()}{setListeRecettes()}}
+{\footnotesize\ttfamily set\+Liste\+Recettes (\begin{DoxyParamCaption}\item[{array}]{\$liste\+Recettes }\end{DoxyParamCaption})}
+
+
+
+Setter de la liste des recettes du livre. 
+
+
+\begin{DoxyParams}[2]{Parameters}
+\mbox{\texttt{ in}}  & array & {\em \$liste\+Recettes} & La liste des recettes du livre \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classlivre_recette_afe49ce0c4bebf0a8947610507f4bad91}\label{classlivre_recette_afe49ce0c4bebf0a8947610507f4bad91}} 
 \index{livreRecette@{livreRecette}!supprRecette@{supprRecette}}
 \index{supprRecette@{supprRecette}!livreRecette@{livreRecette}}
 \doxysubsubsection{\texorpdfstring{supprRecette()}{supprRecette()}}
 {\footnotesize\ttfamily suppr\+Recette (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_recette}{Recette}}}]{\$recette }\end{DoxyParamCaption})}
 
-@function suppr\+Recette @description Permet de supprimer une recette du livre de recette 
+
+
+Permet de supprimer une recette du livre de recettes. 
+
+
+\begin{DoxyParams}[2]{Parameters}
+\mbox{\texttt{ in}}  & \mbox{\hyperlink{class_recette}{Recette}} & {\em \$recette} & La recette à supprimer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
 
 \doxysubsection{Field Documentation}
 \mbox{\Hypertarget{classlivre_recette_acad3bc7a48892fac3c5732047a572a5b}\label{classlivre_recette_acad3bc7a48892fac3c5732047a572a5b}} 
@@ -53,7 +115,11 @@ CELLE Guillian, GARCIA Angel, LAGÜE Mathis
 \doxysubsubsection{\texorpdfstring{\$listeRecettes}{$listeRecettes}}
 {\footnotesize\ttfamily array \$liste\+Recettes = array()}
 
-@livre\+Recette Cette classe permet de créer un livre de recette avec ses recettes 
+
+
+Liste des recettes du livre. 
+
+
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
