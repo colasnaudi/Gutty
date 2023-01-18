@@ -25,7 +25,7 @@ Utilisateur qui pourra également participer aux développement de l'application
 -  Développer les autres fonctionnalités du site
 
 ## 🙇 Author
-- CELLE Guillian [Contacter par mail](gcelle@iutbayonne.univ-pau.fr)
+- CELLE Guillian (gcelle@iutbayonne.univ-pau.fr)
 - GARCIA Angel (agarcia026@iutbayonne.univ-pau.fr)
 - LAGUE Mathis(mlague001@iutbayonne.univ-pau.fr))
 - NAUDI Colas(cnaudi@iutbayonne.univ-pau.fr)
