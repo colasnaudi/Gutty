@@ -69,7 +69,6 @@ $listeRecettes = array();
 array_push($listeIngredients, $farine, $eau, $sel, $oeuf, $tomate, $fromage, $jambon, $oignon, $olives, $levure, $poivre, $pates, $lardons, $carotte, $beurre, $bourgignon, $vin_rouge, $creme_fraiche, $champignon, $ail, $saumon, $aneth, $poisson, $poireau, $chou, $saucisse, $lentilles, $riz, $haricot, $steak, $cotelette, $boeuf);
 array_push($listeRecettes, $recette1, $recette2, $recette3, $recette4, $recette5);
 
-session_unset();
 session_start();
 
 if (!isset($_SESSION['livreIngredient']) && !isset($_SESSION['livreRecette'])) {
@@ -85,3 +84,4 @@ else
     $livreIngredient = $_SESSION['livreIngredient'];
     $livreRecette = $_SESSION['livreRecette'];
 }
+session_destroy();
