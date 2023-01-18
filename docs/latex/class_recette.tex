@@ -3,55 +3,61 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_recette_a9c8955cc5c3da51af7b8c04f7f785f75}{\+\_\+\+\_\+construct}} (String \$nom, array \$ingredients, array \$quantites)
-\item 
+\mbox{\hyperlink{class_recette_ae282488145748cbb592e234425bd63ec}{\+\_\+\+\_\+construct}} (string \$nom, array \$ingredients, array \$quantites)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe \mbox{\hyperlink{class_recette}{Recette}} à partir d\textquotesingle{}un nom, d\textquotesingle{}une liste d\textquotesingle{}ingrédients et d\textquotesingle{}une liste de quantités. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_recette_a8a0b41b46304a51d8c86ca98a0bb6be2}{set\+Prix\+Frigo}} (float \$prix\+Frigo)
-\item 
+\begin{DoxyCompactList}\small\item\em Setter du prix du frigo. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_recette_a7d9c7400f6aef5f259be0c53b26aa0cd}{get\+Prix\+Frigo}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Getter du prix du frigo. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_recette_a3ee17085a1e0dbe24e05f504147deb8a}{get\+Ingredients}} ()
-\item 
-\mbox{\hyperlink{class_recette_a302c966f37114cb6de01a166006be5d8}{set\+Nom\+Recette}} (\$nom\+Recette)
-\item 
+\begin{DoxyCompactList}\small\item\em Getter des ingrédients de la recette. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_recette_aa6148eb730d0a21bd8823bd5332575c8}{set\+Ingredients}} (array \$ingredients)
+\begin{DoxyCompactList}\small\item\em Setter des ingrédients de la recette. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_recette_ae093f062f4e2fd2ced9805c5130544bc}{set\+Nom\+Recette}} (string \$nom\+Recette)
+\begin{DoxyCompactList}\small\item\em Setter du nom de la recette. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_recette_a2c42bce6f5fbe9201891621be41ba5b1}{get\+Nom\+Recette}} ()
-\item 
-\mbox{\hyperlink{class_recette_a861bb261aea7bcd9cfdb8cc4be0e04fc}{set\+Prix\+Ajout}} (\$prix\+Ajout)
-\item 
+\begin{DoxyCompactList}\small\item\em Getter du nom de la recette. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_recette_afbc515909844c3cc4919f24372a6e7c6}{set\+Prix\+Ajout}} (float$\vert$int \$prix\+Ajout)
+\begin{DoxyCompactList}\small\item\em Setter du prix à ajouter. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_recette_a20fc6102844565328af0fe8650a5b359}{get\+Prix\+Ajout}} ()
-\item 
-\mbox{\hyperlink{class_recette_a12b6cdefab86e1f073f84b17eb5abb38}{set\+Prix\+Recette}} (\$prix\+Recette)
-\item 
+\begin{DoxyCompactList}\small\item\em Getter du prix à ajouter. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_recette_a628c3e0f3d1ba2d91d14bcbd112e4c75}{set\+Prix\+Recette}} (float$\vert$int \$prix\+Recette)
+\begin{DoxyCompactList}\small\item\em Setter du prix de la recette. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_recette_aa7737bd101f9ab81112be0cb05108a21}{get\+Prix\+Recette}} ()
-\item 
-\mbox{\hyperlink{class_recette_ad78bcb44bf07bc85d279509102e33f0b}{set\+Quantite}} (\$quantite)
-\item 
+\begin{DoxyCompactList}\small\item\em Getter du prix de la recette. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_recette_ae81e0d17dec67ad3bdcc3872c80722ec}{set\+Quantite}} (array \$quantite)
+\begin{DoxyCompactList}\small\item\em Setter des quantités des ingrédients de la recette. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_recette_a4d5bf7912bcb539b3ed9d3ead607a214}{get\+Quantite}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Getter des quantités des ingrédients de la recette. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_recette_a5558c5d549f41597377fa1ea8a1cefa3}{to\+String}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Affiche les ingrédients de la recette, leur quantité et leur unité \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_recette_a3b155215ed117576e845c01b4d055704}{ajoute\+Ingredient}} (\mbox{\hyperlink{class_ingredient}{Ingredient}} \$ingredient, float \$quantite)
-\item 
+\begin{DoxyCompactList}\small\item\em Ajoute un ingrédient et sa quantité dans la recette. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_recette_a19f98bae54305e5b8d310aa8987e5d4c}{calculer\+Prix\+Frigo}} (\mbox{\hyperlink{class_frigo}{Frigo}} \$un\+Frigo)
-\end{DoxyCompactItemize}
-
-
-\doxysubsection{Detailed Description}
-@created 2022-\/12-\/12 \begin{DoxyAuthor}{Author}
-CELLE Guillian, GARCIA Angel, LAGÜE Mathis 
-\end{DoxyAuthor}
-\begin{DoxyVersion}{Version}
-1.\+0 @description Classes \mbox{\hyperlink{class_recette}{Recette}} 
-\end{DoxyVersion}
+\begin{DoxyCompactList}\small\item\em Calcul le prix frigo de la recette. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_recette_a9c8955cc5c3da51af7b8c04f7f785f75}\label{class_recette_a9c8955cc5c3da51af7b8c04f7f785f75}} 
+\mbox{\Hypertarget{class_recette_ae282488145748cbb592e234425bd63ec}\label{class_recette_ae282488145748cbb592e234425bd63ec}} 
 \index{Recette@{Recette}!\_\_construct@{\_\_construct}}
 \index{\_\_construct@{\_\_construct}!Recette@{Recette}}
 \doxysubsubsection{\texorpdfstring{\_\_construct()}{\_\_construct()}}
-{\footnotesize\ttfamily \+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{String}]{\$nom,  }\item[{array}]{\$ingredients,  }\item[{array}]{\$quantites }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{string}]{\$nom,  }\item[{array}]{\$ingredients,  }\item[{array}]{\$quantites }\end{DoxyParamCaption})}
 
-@function \+\_\+\+\_\+construct @function set\+Nom\+Recette @function set\+Prix\+Ajout @function set\+Prix\+Recette @function set\+Prix\+Recette @function get\+Nom\+Recette @function get\+Prix\+Ajout @function get\+Prix\+Recette 
+
+
+Constructeur de la classe \mbox{\hyperlink{class_recette}{Recette}} à partir d\textquotesingle{}un nom, d\textquotesingle{}une liste d\textquotesingle{}ingrédients et d\textquotesingle{}une liste de quantités. 
+
+
+\begin{DoxyParams}[2]{Parameters}
+\mbox{\texttt{ in}}  & string & {\em \$nom\+Recette} & Le nom de la recette \\
+\hline
+\mbox{\texttt{ in}}  & array & {\em \$ingredients} & La liste des ingrédients de la recette \\
+\hline
+\mbox{\texttt{ in}}  & array & {\em \$quantites} & La liste des quantités des ingrédients de la recette \\
+\hline
+\end{DoxyParams}
+
 
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{class_recette_a3b155215ed117576e845c01b4d055704}\label{class_recette_a3b155215ed117576e845c01b4d055704}} 
@@ -60,88 +66,240 @@ CELLE Guillian, GARCIA Angel, LAGÜE Mathis
 \doxysubsubsection{\texorpdfstring{ajouteIngredient()}{ajouteIngredient()}}
 {\footnotesize\ttfamily ajoute\+Ingredient (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_ingredient}{Ingredient}}}]{\$ingredient,  }\item[{float}]{\$quantite }\end{DoxyParamCaption})}
 
+
+
+Ajoute un ingrédient et sa quantité dans la recette. 
+
+
+\begin{DoxyParams}[2]{Parameters}
+\mbox{\texttt{ in}}  & \mbox{\hyperlink{class_ingredient}{Ingredient}} & {\em \$ingredient} & L\textquotesingle{}ingrédient à ajouter \\
+\hline
+\mbox{\texttt{ in}}  & float & {\em \$quantite} & La quantité de l\textquotesingle{}ingrédient à ajouter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_recette_a19f98bae54305e5b8d310aa8987e5d4c}\label{class_recette_a19f98bae54305e5b8d310aa8987e5d4c}} 
 \index{Recette@{Recette}!calculerPrixFrigo@{calculerPrixFrigo}}
 \index{calculerPrixFrigo@{calculerPrixFrigo}!Recette@{Recette}}
 \doxysubsubsection{\texorpdfstring{calculerPrixFrigo()}{calculerPrixFrigo()}}
 {\footnotesize\ttfamily calculer\+Prix\+Frigo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_frigo}{Frigo}}}]{\$un\+Frigo }\end{DoxyParamCaption})}
 
+
+
+Calcul le prix frigo de la recette. 
+
+En réalité on calcul le prix frigo ainsi que le prix à ajouter
+
+On va aussi mettre à jour les attributs prix\+Frigo et prix\+Ajout de la recette 
+\begin{DoxyParams}[2]{Parameters}
+\mbox{\texttt{ in}}  & \mbox{\hyperlink{class_frigo}{Frigo}} & {\em \$un\+Frigo} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_recette_a3ee17085a1e0dbe24e05f504147deb8a}\label{class_recette_a3ee17085a1e0dbe24e05f504147deb8a}} 
 \index{Recette@{Recette}!getIngredients@{getIngredients}}
 \index{getIngredients@{getIngredients}!Recette@{Recette}}
 \doxysubsubsection{\texorpdfstring{getIngredients()}{getIngredients()}}
 {\footnotesize\ttfamily get\+Ingredients (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+Getter des ingrédients de la recette. 
+
+\begin{DoxyReturn}{Returns}
+La liste des ingrédients de la recette 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_recette_a2c42bce6f5fbe9201891621be41ba5b1}\label{class_recette_a2c42bce6f5fbe9201891621be41ba5b1}} 
 \index{Recette@{Recette}!getNomRecette@{getNomRecette}}
 \index{getNomRecette@{getNomRecette}!Recette@{Recette}}
 \doxysubsubsection{\texorpdfstring{getNomRecette()}{getNomRecette()}}
 {\footnotesize\ttfamily get\+Nom\+Recette (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+Getter du nom de la recette. 
+
+\begin{DoxyReturn}{Returns}
+Le nom de la recette 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_recette_a20fc6102844565328af0fe8650a5b359}\label{class_recette_a20fc6102844565328af0fe8650a5b359}} 
 \index{Recette@{Recette}!getPrixAjout@{getPrixAjout}}
 \index{getPrixAjout@{getPrixAjout}!Recette@{Recette}}
 \doxysubsubsection{\texorpdfstring{getPrixAjout()}{getPrixAjout()}}
 {\footnotesize\ttfamily get\+Prix\+Ajout (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+Getter du prix à ajouter. 
+
+\begin{DoxyReturn}{Returns}
+Le prix à ajouter 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_recette_a7d9c7400f6aef5f259be0c53b26aa0cd}\label{class_recette_a7d9c7400f6aef5f259be0c53b26aa0cd}} 
 \index{Recette@{Recette}!getPrixFrigo@{getPrixFrigo}}
 \index{getPrixFrigo@{getPrixFrigo}!Recette@{Recette}}
 \doxysubsubsection{\texorpdfstring{getPrixFrigo()}{getPrixFrigo()}}
 {\footnotesize\ttfamily get\+Prix\+Frigo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+Getter du prix du frigo. 
+
+\begin{DoxyReturn}{Returns}
+Le prix du frigo 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_recette_aa7737bd101f9ab81112be0cb05108a21}\label{class_recette_aa7737bd101f9ab81112be0cb05108a21}} 
 \index{Recette@{Recette}!getPrixRecette@{getPrixRecette}}
 \index{getPrixRecette@{getPrixRecette}!Recette@{Recette}}
 \doxysubsubsection{\texorpdfstring{getPrixRecette()}{getPrixRecette()}}
 {\footnotesize\ttfamily get\+Prix\+Recette (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+Getter du prix de la recette. 
+
+\begin{DoxyReturn}{Returns}
+Le prix de la recette 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_recette_a4d5bf7912bcb539b3ed9d3ead607a214}\label{class_recette_a4d5bf7912bcb539b3ed9d3ead607a214}} 
 \index{Recette@{Recette}!getQuantite@{getQuantite}}
 \index{getQuantite@{getQuantite}!Recette@{Recette}}
 \doxysubsubsection{\texorpdfstring{getQuantite()}{getQuantite()}}
 {\footnotesize\ttfamily get\+Quantite (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{class_recette_a302c966f37114cb6de01a166006be5d8}\label{class_recette_a302c966f37114cb6de01a166006be5d8}} 
+
+
+Getter des quantités des ingrédients de la recette. 
+
+\begin{DoxyReturn}{Returns}
+La liste des quantités des ingrédients de la recette 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_recette_aa6148eb730d0a21bd8823bd5332575c8}\label{class_recette_aa6148eb730d0a21bd8823bd5332575c8}} 
+\index{Recette@{Recette}!setIngredients@{setIngredients}}
+\index{setIngredients@{setIngredients}!Recette@{Recette}}
+\doxysubsubsection{\texorpdfstring{setIngredients()}{setIngredients()}}
+{\footnotesize\ttfamily set\+Ingredients (\begin{DoxyParamCaption}\item[{array}]{\$ingredients }\end{DoxyParamCaption})}
+
+
+
+Setter des ingrédients de la recette. 
+
+
+\begin{DoxyParams}[2]{Parameters}
+\mbox{\texttt{ in}}  & array & {\em \$ingredients} & La liste des ingrédients de la recette \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_recette_ae093f062f4e2fd2ced9805c5130544bc}\label{class_recette_ae093f062f4e2fd2ced9805c5130544bc}} 
 \index{Recette@{Recette}!setNomRecette@{setNomRecette}}
 \index{setNomRecette@{setNomRecette}!Recette@{Recette}}
 \doxysubsubsection{\texorpdfstring{setNomRecette()}{setNomRecette()}}
-{\footnotesize\ttfamily set\+Nom\+Recette (\begin{DoxyParamCaption}\item[{}]{\$nom\+Recette }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily set\+Nom\+Recette (\begin{DoxyParamCaption}\item[{string}]{\$nom\+Recette }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{class_recette_a861bb261aea7bcd9cfdb8cc4be0e04fc}\label{class_recette_a861bb261aea7bcd9cfdb8cc4be0e04fc}} 
+
+
+Setter du nom de la recette. 
+
+
+\begin{DoxyParams}[2]{Parameters}
+\mbox{\texttt{ in}}  & string & {\em \$nom\+Recette} & Le nom de la recette \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_recette_afbc515909844c3cc4919f24372a6e7c6}\label{class_recette_afbc515909844c3cc4919f24372a6e7c6}} 
 \index{Recette@{Recette}!setPrixAjout@{setPrixAjout}}
 \index{setPrixAjout@{setPrixAjout}!Recette@{Recette}}
 \doxysubsubsection{\texorpdfstring{setPrixAjout()}{setPrixAjout()}}
-{\footnotesize\ttfamily set\+Prix\+Ajout (\begin{DoxyParamCaption}\item[{}]{\$prix\+Ajout }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily set\+Prix\+Ajout (\begin{DoxyParamCaption}\item[{float$\vert$int}]{\$prix\+Ajout }\end{DoxyParamCaption})}
 
+
+
+Setter du prix à ajouter. 
+
+
+\begin{DoxyParams}[2]{Parameters}
+\mbox{\texttt{ in}}  & float | int & {\em \$prix\+Ajout} & Le prix à ajouter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_recette_a8a0b41b46304a51d8c86ca98a0bb6be2}\label{class_recette_a8a0b41b46304a51d8c86ca98a0bb6be2}} 
 \index{Recette@{Recette}!setPrixFrigo@{setPrixFrigo}}
 \index{setPrixFrigo@{setPrixFrigo}!Recette@{Recette}}
 \doxysubsubsection{\texorpdfstring{setPrixFrigo()}{setPrixFrigo()}}
 {\footnotesize\ttfamily set\+Prix\+Frigo (\begin{DoxyParamCaption}\item[{float}]{\$prix\+Frigo }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{class_recette_a12b6cdefab86e1f073f84b17eb5abb38}\label{class_recette_a12b6cdefab86e1f073f84b17eb5abb38}} 
+
+
+Setter du prix du frigo. 
+
+
+\begin{DoxyParams}[2]{Parameters}
+\mbox{\texttt{ in}}  & float & {\em \$prix\+Frigo} & Le prix du frigo \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_recette_a628c3e0f3d1ba2d91d14bcbd112e4c75}\label{class_recette_a628c3e0f3d1ba2d91d14bcbd112e4c75}} 
 \index{Recette@{Recette}!setPrixRecette@{setPrixRecette}}
 \index{setPrixRecette@{setPrixRecette}!Recette@{Recette}}
 \doxysubsubsection{\texorpdfstring{setPrixRecette()}{setPrixRecette()}}
-{\footnotesize\ttfamily set\+Prix\+Recette (\begin{DoxyParamCaption}\item[{}]{\$prix\+Recette }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily set\+Prix\+Recette (\begin{DoxyParamCaption}\item[{float$\vert$int}]{\$prix\+Recette }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{class_recette_ad78bcb44bf07bc85d279509102e33f0b}\label{class_recette_ad78bcb44bf07bc85d279509102e33f0b}} 
+
+
+Setter du prix de la recette. 
+
+
+\begin{DoxyParams}[2]{Parameters}
+\mbox{\texttt{ in}}  & float | int & {\em \$prix\+Recette} & Le prix de la recette \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_recette_ae81e0d17dec67ad3bdcc3872c80722ec}\label{class_recette_ae81e0d17dec67ad3bdcc3872c80722ec}} 
 \index{Recette@{Recette}!setQuantite@{setQuantite}}
 \index{setQuantite@{setQuantite}!Recette@{Recette}}
 \doxysubsubsection{\texorpdfstring{setQuantite()}{setQuantite()}}
-{\footnotesize\ttfamily set\+Quantite (\begin{DoxyParamCaption}\item[{}]{\$quantite }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily set\+Quantite (\begin{DoxyParamCaption}\item[{array}]{\$quantite }\end{DoxyParamCaption})}
 
+
+
+Setter des quantités des ingrédients de la recette. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$quantite} & La liste des quantités des ingrédients de la recette \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_recette_a5558c5d549f41597377fa1ea8a1cefa3}\label{class_recette_a5558c5d549f41597377fa1ea8a1cefa3}} 
 \index{Recette@{Recette}!toString@{toString}}
 \index{toString@{toString}!Recette@{Recette}}
 \doxysubsubsection{\texorpdfstring{toString()}{toString()}}
 {\footnotesize\ttfamily to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-@function to\+String @description Permet d\textquotesingle{}afficher les informations de la recette \begin{DoxyReturn}{Returns}
-string
+
+
+Affiche les ingrédients de la recette, leur quantité et leur unité 
+
+\begin{DoxyReturn}{Returns}
+Le message d\textquotesingle{}affichage 
 \end{DoxyReturn}
-@function ajoute\+Ingredient @description Permet d\textquotesingle{}ajouter un ingrédient à la recette 
+
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

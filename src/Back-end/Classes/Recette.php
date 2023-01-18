@@ -1,92 +1,173 @@
 <?php
 
 /**
- * @created 2022-12-12
+ * @file Recette.php
  * @author CELLE Guillian, GARCIA Angel, LAGÜE Mathis
+ * @brief Classe Recette qui est une composition de la classe Ingredient
  * @version 1.0
- * @description Classes Recette
+ * @date 2022-12-12
  */
 
 class Recette
 {
-    /**
-     * @Recette Cette classe permet de créer une recette avec son nom, son prixAjout, son prix, ses ingrédients et sa quantité
-     */
-
     //ATTRIBUTS
+    /**
+     * @brief Le nom de la recette
+     */
     private string $nomRecette;
+
+    /**
+     * @brief Le prix à ajouter pour la recette
+     * @details C'est à dire le prix des ingrédients qui ne sont pas dans le frigo
+     * @details Ce prix sera calculé en fonction des ingrédients d'un frigo et leur quantité
+     */
     private float $prixAjout;
+
+    /**
+     * @brief Le prix frigo de la recette
+     * @details C'est à dire le prix des ingrédients qui sont déjà dans le frigo
+     * @details Ce prix sera calculé en fonction des ingrédients d'un frigo et leur quantité
+     */
     private float $prixFrigo;
+
+    /**
+     * @brief Le prix de la recette
+     * @details C'est à dire le prix des ingrédients de la recette multiplié par leur quantité
+     */
     private float $prixRecette;
+
+    /**
+     * @brief La liste des ingrédients de la recette
+     */
     private array $ingredients = array();
+
+    /**
+     * @brief La liste des quantités des ingrédients de la recette
+     */
     private array $quantites = array();
 
     //CONSTRUCTEUR
 
     /**
-     * @function __construct
-     * @function setNomRecette
-     * @function setPrixAjout
-     * @function setPrixRecette
-     * @function setPrixRecette
-     * @function getNomRecette
-     * @function getPrixAjout
-     * @function getPrixRecette
+     * @brief Constructeur de la classe Recette à partir d'un nom, d'une liste d'ingrédients et d'une liste de quantités
+     * @param [in] string $nomRecette Le nom de la recette
+     * @param [in] array $ingredients La liste des ingrédients de la recette
+     * @param [in] array $quantites La liste des quantités des ingrédients de la recette
      */
-    public function __construct(String $nom, array $ingredients, array $quantites) {
+    public function __construct(string $nom, array $ingredients, array $quantites) {
         $this->nomRecette = $nom;
         $this->ingredients = $ingredients;
         $this->quantites = $quantites;
         $this->prixRecette = $this->calculerPrixRecette();
     }
 
+    //ENCAPSULATION
+
+    /**
+     * @brief Setter du prix du frigo
+     * @param [in] float $prixFrigo Le prix du frigo
+     * @return void
+     */
     public function setPrixFrigo(float $prixFrigo): void{
         $this->prixFrigo = $prixFrigo;
     }
 
+    /**
+     * @brief Getter du prix du frigo
+     * @return Le prix du frigo
+     */
     public function getPrixFrigo(): float{
         return $this->prixFrigo;
     }
 
+    /**
+     * @brief Getter des ingrédients de la recette
+     * @return La liste des ingrédients de la recette
+     */
     public function getIngredients(): array{
         return $this->ingredients;
     }
 
-    public function setNomRecette($nomRecette): void
+    /**
+     * @brief Setter des ingrédients de la recette
+     * @param [in] array $ingredients La liste des ingrédients de la recette
+     * @return void
+     */
+    public function setIngredients(array $ingredients): void{
+        $this->ingredients = $ingredients;
+    }
+
+    /**
+     * @brief Setter du nom de la recette
+     * @param [in] string $nomRecette Le nom de la recette
+     * @return void
+     */
+    public function setNomRecette(string $nomRecette): void
     {
         $this->nomRecette = $nomRecette;
     }
 
+    /**
+     * @brief Getter du nom de la recette
+     * @return Le nom de la recette
+     */
     public function getNomRecette(): string
     {
         return $this->nomRecette;
     }
 
-    public function setPrixAjout($prixAjout): void
+    /**
+     * @brief Setter du prix à ajouter
+     * @param [in] float|int $prixAjout Le prix à ajouter
+     * @return void
+     */
+    public function setPrixAjout(float|int $prixAjout): void
     {
         $this->prixAjout = $prixAjout;
     }
 
+    /**
+     * @brief Getter du prix à ajouter
+     * @return Le prix à ajouter
+     */
     public function getPrixAjout(): float|int
     {
         return $this->prixAjout;
     }
 
-    public function setPrixRecette($prixRecette): void
+    /**
+     * @brief Setter du prix de la recette
+     * @param [in] float|int $prixRecette Le prix de la recette
+     * @return void
+     */
+    public function setPrixRecette(float|int $prixRecette): void
     {
         $this->$prixRecette = $prixRecette;
     }
 
+    /**
+     * @brief Getter du prix de la recette
+     * @return Le prix de la recette
+     */
     public function getPrixRecette(): float|int
     {
         return $this->prixRecette;
     }
 
-    public function setQuantite($quantite): void
+    /**
+     * @brief Setter des quantités des ingrédients de la recette
+     * @param array $quantite La liste des quantités des ingrédients de la recette
+     * @return void
+     */
+    public function setQuantite(array $quantite): void
     {
         $this->quantites = $quantite;
     }
 
+    /**
+     * @brief Getter des quantités des ingrédients de la recette
+     * @return La liste des quantités des ingrédients de la recette
+     */
     public function getQuantite(): array{
         return $this->quantites;
     }
@@ -94,12 +175,8 @@ class Recette
     //MÉTHODES USUELLES
 
     /**
-     * @function toString
-     * @description Permet d'afficher les informations de la recette
-     * @return string
-     *
-     * @function ajouteIngredient
-     * @description Permet d'ajouter un ingrédient à la recette
+     * @brief Affiche les ingrédients de la recette, leur quantité et leur unité
+     * @return Le message d'affichage
      */
     public function toString(): string{
         $lesIngredients = array();
@@ -114,6 +191,13 @@ class Recette
         return $str;
     }
 
+    //METHODES METIERS
+    /**
+     * @brief Ajoute un ingrédient et sa quantité dans la recette
+     * @param [in] Ingredient $ingredient L'ingrédient à ajouter
+     * @param [in] float $quantite La quantité de l'ingrédient à ajouter
+     * @return void
+     */
     public function ajouteIngredient(Ingredient $ingredient, float $quantite): void
     {
         //Ajout de l'ingrédient et de sa quantité
@@ -123,11 +207,16 @@ class Recette
         $this->prixRecette = $this->calculerPrixRecette();
     }
 
+    /**
+     * @brief Calcul le prix de la recette
+     * @details On multiplie le prix de chaque ingrédient par sa quantité pour avoir le prix de la recette
+     * @return Le prix de la recette
+     */
     private function calculerPrixRecette(): float {
+        //Initialisation des variables
         $prix = 0;
         $prixIngredients = array();
         $quantiteIngredients = array();
-
         //On récupère le prix de chaque ingrédient
         foreach ($this->ingredients as $ingredient){
             $prixIngredients[] = $ingredient->getPrix();
@@ -136,14 +225,20 @@ class Recette
         foreach ($this->quantites as $quantite){
             $quantiteIngredients[] = $quantite;
         }
-        //On multiplie le prix de chaque ingrédient par sa quantité pour avoir le prix du frigo
+        //On multiplie le prix de chaque ingrédient par sa quantité pour avoir le prix de la recette
         foreach ($prixIngredients as $index => $value){
             $prix += $prixIngredients[$index] * $quantiteIngredients[$index];
         }
         return $prix;
     }
 
-    //Methodes métier
+    /**
+     * @brief Calcul le prix frigo de la recette
+     * @details En réalité on calcul le prix frigo ainsi que le prix à ajouter
+     * @details On va aussi mettre à jour les attributs prixFrigo et prixAjout de la recette
+     * @param [in] Frigo $unFrigo
+     * @return void
+     */
     public function calculerPrixFrigo(Frigo $unFrigo):void {
         //Initialisaiton des variables
         $prixFrigo = 0;
