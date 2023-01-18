@@ -16,7 +16,6 @@ class livreIngredient
     public array $listeIngredients = array();
 
     //CONSTRUCTEUR
-
     /**
      * @brief Constructeur de la classe LivreIngredient à partir d'une liste d'ingrédients
      * @param [in] Ingredient $listeIngredients
