@@ -1,17 +1,10 @@
 <?php
-/**
- * @created 2022-12-12
- * @author CELLE Guillian, GARCIA Angel, LAGÜE Mathis
- * @version 1.0
- * @description Main du projet
- */
-
 //INCLUSIONS
-include_once 'Classes/Ingredient.php';
-include_once 'Classes/Recette.php';
-include_once 'Classes/LivreIngredient.php';
-include_once 'Classes/LivreRecette.php';
-include_once  'Classes/Frigo.php';
+include_once  'Frigo.php';
+include_once 'Ingredient.php';
+include_once 'Recette.php';
+include_once 'LivreIngredient.php';
+include_once 'LivreRecette.php';
 
 //Ingrédients
 $farine=new Ingredient(1, "Farine", 1.1, "kg");
@@ -29,7 +22,7 @@ $pates=new Ingredient(12, "Pates", 1, "kg");
 $lardons=new Ingredient(13, "Lardons", 6.7, "kg");
 $carotte=new Ingredient(14, "Carotte", 1.4, "unite");
 $beurre=new Ingredient(15, "Beurre", 7, "kg");
-$boeuf=new Ingredient(16, "Boeuf", 16.5, "kg");
+$bourgignon=new Ingredient(16, "Bourgignon", 16.5, "kg");
 $vin_rouge=new Ingredient(17, "Vin rouge", 7, "L");
 $creme_fraiche=new Ingredient(18, "Creme fraiche", 4, "L");
 
@@ -49,7 +42,7 @@ $listeQuantiteRecette3 = array(0.5, 1, 0.5, 0.250, 1, 3, 1);
 $recette3 = new Recette("Pates carbonara", $listeIngredientRecette3, $listeQuantiteRecette3);
 
 //RECETTE DE BOEUF BOURGUIGNON - 27.55€
-$listeIngredientRecette4 = array($carotte, $beurre, $boeuf, $vin_rouge, $sel, $poivre, $oignon);
+$listeIngredientRecette4 = array($carotte, $beurre, $bourgignon, $vin_rouge, $sel, $poivre, $oignon);
 $listeQuantiteRecette4 = array(4, 0.100, 0.6, 0.75, 1, 1, 4);
 $recette4 = new Recette("Boeuf bourguignon", $listeIngredientRecette4, $listeQuantiteRecette4);
 
@@ -66,28 +59,28 @@ $livreRecette->ajouteRecette($recette3);
 $livreRecette->ajouteRecette($recette4);
 $livreRecette->ajouteRecette($recette5);
 
-//Un frigo
-$ingredientFrigo = array($creme_fraiche, $poivre, $pates, $lardons, $sel, $oignon);
-$quantiteFrigo = array(0.5, 1, 0.5, 0.250, 1, 1);
-$frigo = new Frigo($ingredientFrigo, $quantiteFrigo);
-echo $frigo->toString();
 
 
-//Test generer suggestion
-//Generation des recettes possibles
-$recettePossible = $frigo->genererPossibleRecette($livreRecette);
+//boucle qui affiche les ingredients associés à la recette cliquée
+foreach ($livreRecette->getRecettes() as $recette) {
+    $quantite = $recette->getQuantite();
+    $ingredient = $recette->getIngredients();
+    if (isset($_GET['recette']) && $_GET['recette'] == $recette->getNomRecette()) {
+        echo "<h2>Recette : " . $recette->getNomRecette() . "</h2>";
+        echo "<h3>Ingredients :</h3>";
 
-//Calcul du prix frigo et ajout des recettes possibles
-foreach ($recettePossible as $recette) {
-    $recette->calculerPrixFrigo($frigo);
+        foreach ($quantite as $index => $value) {
+            echo "<p>" . $ingredient[$index]->getNomIngredient() . "</p>";
+            echo "<p>" . $quantite[$index] . "</p>";
+        }
+
+
+    }
 }
 
-//Tri des recettes possibles par prixFrigo
-$recetteTriee = $frigo->trierSuggestion($recettePossible);
-foreach ($recetteTriee as $recette) {
-    echo $recette->getNomRecette() . " : " . "<br>";
-    echo "Prix total : " . $recette->getPrixRecette() . "€" . "<BR>";
-    echo "Prix frigo : " . $recette->getPrixFrigo() . "€" . "<BR>";
-    echo "Prix ajout : " . $recette->getPrixAjout() . "€" . "<BR>";
-    echo "<br>";
-}
+
+
+
+
+
+?>

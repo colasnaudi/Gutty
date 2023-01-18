@@ -26,12 +26,14 @@ class Frigo
     private float $prixFrigo = 0;
 
     //CONSTRUCTEUR
+
     /**
      * @brief Constructeur de la classe Frigo à partir d'une liste d'ingrédients et d'une liste de quantités
      * @param [in] array $ingredients La liste des ingrédients du frigo
      * @param [in] array $quantites La liste des quantités des ingrédients du frigo
      */
-    public function __construct(array $ingredients, array $quantites) {
+    public function __construct(array $ingredients, array $quantites)
+    {
         $this->ingredients = $ingredients;
         $this->quantites = $quantites;
         $this->prixFrigo = $this->calculerPrixFrigo();
@@ -43,7 +45,8 @@ class Frigo
      * @brief Getter de la liste des ingrédients du frigo
      * @return Une liste d'ingrédients
      */
-    public function getIngredients(): array{
+    public function getIngredients(): array
+    {
         return $this->ingredients;
     }
 
@@ -52,7 +55,8 @@ class Frigo
      * @param [in] array $ingredients La liste des ingrédients du frigo
      * @return void
      */
-    public function setIngredients(array $ingredients): void{
+    public function setIngredients(array $ingredients): void
+    {
         $this->ingredients = $ingredients;
     }
 
@@ -60,7 +64,8 @@ class Frigo
      * @brief Getter de la liste des quantités
      * @return Une liste de quantités
      */
-    public function getQuantites(): array{
+    public function getQuantites(): array
+    {
         return $this->quantites;
     }
 
@@ -69,7 +74,8 @@ class Frigo
      * @param [in] array $quantites La liste des quantités des ingrédients du frigo
      * @return void
      */
-    public function setQuantites(array $quantites): void{
+    public function setQuantites(array $quantites): void
+    {
         $this->quantites = $quantites;
     }
 
@@ -77,7 +83,8 @@ class Frigo
      * @brief Getter du prix du frigo
      * @return Un prix
      */
-    public function getPrixFrigo(): float{
+    public function getPrixFrigo(): float
+    {
         return $this->prixFrigo;
     }
 
@@ -86,19 +93,22 @@ class Frigo
      * @brief Setter du prix du frigo
      * @return void
      */
-    public function setPrixFrigo(float $prixFrigo): void{
+    public function setPrixFrigo(float $prixFrigo): void
+    {
         $this->prixFrigo = $prixFrigo;
     }
 
     //METHODES USUELLES
+
     /**
      * @brief Permet d'afficher les informations du frigo
      * @details Affiche le nom de l'ingrédient et la quantité présente dans le frigo
      * @return Le message d'affichage
      */
-    public function toString(): string{
+    public function toString(): string
+    {
         $lesIngredients = array();
-        foreach ($this->ingredients as $ingredient){
+        foreach ($this->ingredients as $ingredient) {
             $lesIngredients[] = $ingredient->getNomIngredient();
         }
         $str = "Liste des ingrédients du frigo : <br>";
@@ -126,22 +136,24 @@ class Frigo
     }
 
     //METHODES METIERS
+
     /**
      * @brief Calcule le prix du frigo
      * @details Calcule le prix du frigo en multipliant le prix de chaque ingrédient par sa quantité
-     * @return Le prix du frigo
+     * @return  int Le prix du frigo
      */
-    private function calculerPrixFrigo(): float {
+    private function calculerPrixFrigo(): float
+    {
         //Initialisation des variables
         $prix = 0;
         $prixIngredients = array();
 
         //On récupère le prix de chaque ingrédient
-        foreach ($this->ingredients as $ingredient){
+        foreach ($this->ingredients as $ingredient) {
             $prixIngredients[] = $ingredient->getPrix();
         }
         //On multiplie le prix de chaque ingrédient par sa quantité pour avoir le prix du frigo
-        foreach(array_combine($prixIngredients, $this->quantites) as $ingredient => $quantite) {
+        foreach (array_combine($prixIngredients, $this->quantites) as $ingredient => $quantite) {
             $prix = $prix + ($ingredient * $quantite);
         }
         return $prix;
@@ -153,7 +165,8 @@ class Frigo
      * @param LivreRecette $lesRecettes Le livre de recettes
      * @return La liste des recettes possibles
      */
-    public function genererPossibleRecette(LivreRecette $lesRecettes): array{
+    public function genererPossibleRecette(LivreRecette $lesRecettes): array
+    {
         //Initialisation des variables
         $lesRecettesPossibles = array();
         $mesRecettes = $lesRecettes->getRecettes();
@@ -181,7 +194,8 @@ class Frigo
      * @param $recetteB
      * @return -1 si $a < $b, 0 si $a = $b, 1 si $a > $b
      */
-    private function comparer($recetteA, $recetteB): int{
+    private function comparer($recetteA, $recetteB): int
+    {
         return $recetteA->getPrixFrigo() <=> $recetteB->getPrixFrigo();
     }
 
@@ -190,7 +204,8 @@ class Frigo
      * @param array $listePossibilite La liste des recettes possibles
      * @return La liste des recettes possibles triées par prix frigo décroissant
      */
-    public function trierSuggestion(array $listePossibilite):array {
+    public function trierSuggestion(array $listePossibilite): array
+    {
         usort($listePossibilite, array($this, "comparer"));
         return array_reverse($listePossibilite);
     }
