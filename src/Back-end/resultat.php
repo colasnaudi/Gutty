@@ -17,7 +17,6 @@
 <?php
 include_once 'CreationIngredient.php';
 
-
 $ingredientFrigos = array();
 $quantiteFrigos = array();
 
