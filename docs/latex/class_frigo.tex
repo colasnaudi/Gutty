@@ -1,0 +1,220 @@
+\hypertarget{class_frigo}{}\doxysection{Frigo Class Reference}
+\label{class_frigo}\index{Frigo@{Frigo}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_frigo_a57b0d8b5a93f8204ca87ddc0ba5ab6c7}{\+\_\+\+\_\+construct}} (array \$ingredients, array \$quantites)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe \mbox{\hyperlink{class_frigo}{Frigo}} à partir d\textquotesingle{}une liste d\textquotesingle{}ingrédients et d\textquotesingle{}une liste de quantités. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_frigo_a3ee17085a1e0dbe24e05f504147deb8a}{get\+Ingredients}} ()
+\begin{DoxyCompactList}\small\item\em Getter de la liste des ingrédients du frigo. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_frigo_aa6148eb730d0a21bd8823bd5332575c8}{set\+Ingredients}} (array \$ingredients)
+\begin{DoxyCompactList}\small\item\em Setter de la liste des \$ingredients. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_frigo_abbc3d919d29ebe87f043fad49b12f1bd}{get\+Quantites}} ()
+\begin{DoxyCompactList}\small\item\em Getter de la liste des quantités. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_frigo_a854809eeafa094e44a962684adeef451}{set\+Quantites}} (array \$quantites)
+\begin{DoxyCompactList}\small\item\em Setter de la liste des quantités. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_frigo_a7d9c7400f6aef5f259be0c53b26aa0cd}{get\+Prix\+Frigo}} ()
+\begin{DoxyCompactList}\small\item\em Getter du prix du frigo. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_frigo_a8a0b41b46304a51d8c86ca98a0bb6be2}{set\+Prix\+Frigo}} (float \$prix\+Frigo)
+\begin{DoxyCompactList}\small\item\em Setter du prix du frigo. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_frigo_a5558c5d549f41597377fa1ea8a1cefa3}{to\+String}} ()
+\begin{DoxyCompactList}\small\item\em Permet d\textquotesingle{}afficher les informations du frigo. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_frigo_aa06fb7d6eb01c309e733a428eb7c746c}{ajouter\+Ingredient}} (\mbox{\hyperlink{class_ingredient}{Ingredient}} \$ingredient, int \$quantite)
+\begin{DoxyCompactList}\small\item\em Ajoute un ingrédient au frigo. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_frigo_a36602fd52b05f90b8f9f09fa16db5d16}{generer\+Possible\+Recette}} (Livre\+Recette \$les\+Recettes)
+\begin{DoxyCompactList}\small\item\em Permet de générer les recettes possibles à partir des ingrédients du frigo et du livre de recettes. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_frigo_ae255555dd04963786216bf434c9a3f4a}{trier\+Suggestion}} (array \$liste\+Possibilite)
+\begin{DoxyCompactList}\small\item\em Trie les recettes possibles par prix frigo décroissant. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_frigo_a57b0d8b5a93f8204ca87ddc0ba5ab6c7}\label{class_frigo_a57b0d8b5a93f8204ca87ddc0ba5ab6c7}} 
+\index{Frigo@{Frigo}!\_\_construct@{\_\_construct}}
+\index{\_\_construct@{\_\_construct}!Frigo@{Frigo}}
+\doxysubsubsection{\texorpdfstring{\_\_construct()}{\_\_construct()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{array}]{\$ingredients,  }\item[{array}]{\$quantites }\end{DoxyParamCaption})}
+
+
+
+Constructeur de la classe \mbox{\hyperlink{class_frigo}{Frigo}} à partir d\textquotesingle{}une liste d\textquotesingle{}ingrédients et d\textquotesingle{}une liste de quantités. 
+
+
+\begin{DoxyParams}[2]{Parameters}
+\mbox{\texttt{ in}}  & array & {\em \$ingredients} & La liste des ingrédients du frigo \\
+\hline
+\mbox{\texttt{ in}}  & array & {\em \$quantites} & La liste des quantités des ingrédients du frigo \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_frigo_aa06fb7d6eb01c309e733a428eb7c746c}\label{class_frigo_aa06fb7d6eb01c309e733a428eb7c746c}} 
+\index{Frigo@{Frigo}!ajouterIngredient@{ajouterIngredient}}
+\index{ajouterIngredient@{ajouterIngredient}!Frigo@{Frigo}}
+\doxysubsubsection{\texorpdfstring{ajouterIngredient()}{ajouterIngredient()}}
+{\footnotesize\ttfamily ajouter\+Ingredient (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_ingredient}{Ingredient}}}]{\$ingredient,  }\item[{int}]{\$quantite }\end{DoxyParamCaption})}
+
+
+
+Ajoute un ingrédient au frigo. 
+
+Ajoute un ingrédient et sa quantité au frigo et met à jour le prix du frigo 
+\begin{DoxyParams}[2]{Parameters}
+\mbox{\texttt{ in}}  & \mbox{\hyperlink{class_ingredient}{Ingredient}} & {\em \$ingredient} & L\textquotesingle{}ingrédient à ajouter au frigo \\
+\hline
+\mbox{\texttt{ in}}  & int & {\em \$quantite} & La quantité de l\textquotesingle{}ingrédient à ajouter au frigo \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+Si l\textquotesingle{}ingrédient est déjà présent dans le frigo l\textquotesingle{}ingrédient et sa quantité sont dupliqués et le prix du frigo est mis à jour 
+\end{DoxyWarning}
+\mbox{\Hypertarget{class_frigo_a36602fd52b05f90b8f9f09fa16db5d16}\label{class_frigo_a36602fd52b05f90b8f9f09fa16db5d16}} 
+\index{Frigo@{Frigo}!genererPossibleRecette@{genererPossibleRecette}}
+\index{genererPossibleRecette@{genererPossibleRecette}!Frigo@{Frigo}}
+\doxysubsubsection{\texorpdfstring{genererPossibleRecette()}{genererPossibleRecette()}}
+{\footnotesize\ttfamily generer\+Possible\+Recette (\begin{DoxyParamCaption}\item[{Livre\+Recette}]{\$les\+Recettes }\end{DoxyParamCaption})}
+
+
+
+Permet de générer les recettes possibles à partir des ingrédients du frigo et du livre de recettes. 
+
+Les recettes possibles sont celles dont au moins deux ingrédients sont présents dans le frigo et la recette 
+\begin{DoxyParams}[1]{Parameters}
+Livre\+Recette & {\em \$les\+Recettes} & Le livre de recettes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+La liste des recettes possibles 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_frigo_a3ee17085a1e0dbe24e05f504147deb8a}\label{class_frigo_a3ee17085a1e0dbe24e05f504147deb8a}} 
+\index{Frigo@{Frigo}!getIngredients@{getIngredients}}
+\index{getIngredients@{getIngredients}!Frigo@{Frigo}}
+\doxysubsubsection{\texorpdfstring{getIngredients()}{getIngredients()}}
+{\footnotesize\ttfamily get\+Ingredients (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter de la liste des ingrédients du frigo. 
+
+\begin{DoxyReturn}{Returns}
+Une liste d\textquotesingle{}ingrédients 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_frigo_a7d9c7400f6aef5f259be0c53b26aa0cd}\label{class_frigo_a7d9c7400f6aef5f259be0c53b26aa0cd}} 
+\index{Frigo@{Frigo}!getPrixFrigo@{getPrixFrigo}}
+\index{getPrixFrigo@{getPrixFrigo}!Frigo@{Frigo}}
+\doxysubsubsection{\texorpdfstring{getPrixFrigo()}{getPrixFrigo()}}
+{\footnotesize\ttfamily get\+Prix\+Frigo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter du prix du frigo. 
+
+\begin{DoxyReturn}{Returns}
+Un prix 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_frigo_abbc3d919d29ebe87f043fad49b12f1bd}\label{class_frigo_abbc3d919d29ebe87f043fad49b12f1bd}} 
+\index{Frigo@{Frigo}!getQuantites@{getQuantites}}
+\index{getQuantites@{getQuantites}!Frigo@{Frigo}}
+\doxysubsubsection{\texorpdfstring{getQuantites()}{getQuantites()}}
+{\footnotesize\ttfamily get\+Quantites (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter de la liste des quantités. 
+
+\begin{DoxyReturn}{Returns}
+Une liste de quantités 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_frigo_aa6148eb730d0a21bd8823bd5332575c8}\label{class_frigo_aa6148eb730d0a21bd8823bd5332575c8}} 
+\index{Frigo@{Frigo}!setIngredients@{setIngredients}}
+\index{setIngredients@{setIngredients}!Frigo@{Frigo}}
+\doxysubsubsection{\texorpdfstring{setIngredients()}{setIngredients()}}
+{\footnotesize\ttfamily set\+Ingredients (\begin{DoxyParamCaption}\item[{array}]{\$ingredients }\end{DoxyParamCaption})}
+
+
+
+Setter de la liste des \$ingredients. 
+
+
+\begin{DoxyParams}[2]{Parameters}
+\mbox{\texttt{ in}}  & array & {\em \$ingredients} & La liste des ingrédients du frigo \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_frigo_a8a0b41b46304a51d8c86ca98a0bb6be2}\label{class_frigo_a8a0b41b46304a51d8c86ca98a0bb6be2}} 
+\index{Frigo@{Frigo}!setPrixFrigo@{setPrixFrigo}}
+\index{setPrixFrigo@{setPrixFrigo}!Frigo@{Frigo}}
+\doxysubsubsection{\texorpdfstring{setPrixFrigo()}{setPrixFrigo()}}
+{\footnotesize\ttfamily set\+Prix\+Frigo (\begin{DoxyParamCaption}\item[{float}]{\$prix\+Frigo }\end{DoxyParamCaption})}
+
+
+
+Setter du prix du frigo. 
+
+
+\begin{DoxyParams}[2]{Parameters}
+\mbox{\texttt{ in}}  & float & {\em \$prix\+Frigo} & Le prix du frigo \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_frigo_a854809eeafa094e44a962684adeef451}\label{class_frigo_a854809eeafa094e44a962684adeef451}} 
+\index{Frigo@{Frigo}!setQuantites@{setQuantites}}
+\index{setQuantites@{setQuantites}!Frigo@{Frigo}}
+\doxysubsubsection{\texorpdfstring{setQuantites()}{setQuantites()}}
+{\footnotesize\ttfamily set\+Quantites (\begin{DoxyParamCaption}\item[{array}]{\$quantites }\end{DoxyParamCaption})}
+
+
+
+Setter de la liste des quantités. 
+
+
+\begin{DoxyParams}[2]{Parameters}
+\mbox{\texttt{ in}}  & array & {\em \$quantites} & La liste des quantités des ingrédients du frigo \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_frigo_a5558c5d549f41597377fa1ea8a1cefa3}\label{class_frigo_a5558c5d549f41597377fa1ea8a1cefa3}} 
+\index{Frigo@{Frigo}!toString@{toString}}
+\index{toString@{toString}!Frigo@{Frigo}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Permet d\textquotesingle{}afficher les informations du frigo. 
+
+Affiche le nom de l\textquotesingle{}ingrédient et la quantité présente dans le frigo \begin{DoxyReturn}{Returns}
+Le message d\textquotesingle{}affichage 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_frigo_ae255555dd04963786216bf434c9a3f4a}\label{class_frigo_ae255555dd04963786216bf434c9a3f4a}} 
+\index{Frigo@{Frigo}!trierSuggestion@{trierSuggestion}}
+\index{trierSuggestion@{trierSuggestion}!Frigo@{Frigo}}
+\doxysubsubsection{\texorpdfstring{trierSuggestion()}{trierSuggestion()}}
+{\footnotesize\ttfamily trier\+Suggestion (\begin{DoxyParamCaption}\item[{array}]{\$liste\+Possibilite }\end{DoxyParamCaption})}
+
+
+
+Trie les recettes possibles par prix frigo décroissant. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$liste\+Possibilite} & La liste des recettes possibles \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+La liste des recettes possibles triées par prix frigo décroissant 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/angel/\+One\+Drive/\+Bureau/cours/\+S3/\+SAE/\+C1-\/\+C2/\+Gutty/src/\+Back-\/end/\+Classes/\mbox{\hyperlink{_frigo_8php}{Frigo.\+php}}\end{DoxyCompactItemize}
