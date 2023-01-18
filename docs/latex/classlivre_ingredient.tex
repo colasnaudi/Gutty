@@ -14,7 +14,9 @@
 \mbox{\hyperlink{classlivre_ingredient_a56b8e06448a18709e1d21cb5bd0785a6}{suppr\+Ingredient}} (\mbox{\hyperlink{class_ingredient}{Ingredient}} \$ingredient)
 \begin{DoxyCompactList}\small\item\em Permet de supprimer un ingrédient du livre d\textquotesingle{}ingrédients. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classlivre_ingredient_a36511f9c8279f4ce95098aa0c223c517}{modif\+Ingredient}} (\mbox{\hyperlink{class_ingredient}{Ingredient}} \$ingredient, \mbox{\hyperlink{class_ingredient}{Ingredient}} \$new\+Ingredient)
-\begin{DoxyCompactList}\small\item\em Permet de modifier un ingrédient du livre d\textquotesingle{}ingrédients. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Permet de modifier un ingrédient du livre d\textquotesingle{}ingrédients. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classlivre_ingredient_a9d747b143b1c53aeeacc93df69395673}{retrouver\+Ingredient}} (string \$nom\+Ingredient)
+\begin{DoxyCompactList}\small\item\em Permet de rechercher un ingrédient dans le livre d\textquotesingle{}ingrédients. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Data Fields}
 \begin{DoxyCompactItemize}
 \item 
@@ -91,6 +93,24 @@ Permet de modifier un ingrédient du livre d\textquotesingle{}ingrédients.
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classlivre_ingredient_a9d747b143b1c53aeeacc93df69395673}\label{classlivre_ingredient_a9d747b143b1c53aeeacc93df69395673}} 
+\index{livreIngredient@{livreIngredient}!retrouverIngredient@{retrouverIngredient}}
+\index{retrouverIngredient@{retrouverIngredient}!livreIngredient@{livreIngredient}}
+\doxysubsubsection{\texorpdfstring{retrouverIngredient()}{retrouverIngredient()}}
+{\footnotesize\ttfamily retrouver\+Ingredient (\begin{DoxyParamCaption}\item[{string}]{\$nom\+Ingredient }\end{DoxyParamCaption})}
+
+
+
+Permet de rechercher un ingrédient dans le livre d\textquotesingle{}ingrédients. 
+
+
+\begin{DoxyParams}[2]{Parameters}
+\mbox{\texttt{ in}}  & string & {\em \$nom\+Ingredient} & Le nom de l\textquotesingle{}ingrédient à rechercher \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+L\textquotesingle{}intrédient recherché s\textquotesingle{}il est trouvé ou null sinon 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classlivre_ingredient_a73fe0c8495904ea7a89415c6c36fbaf3}\label{classlivre_ingredient_a73fe0c8495904ea7a89415c6c36fbaf3}} 
 \index{livreIngredient@{livreIngredient}!setListeIngredients@{setListeIngredients}}

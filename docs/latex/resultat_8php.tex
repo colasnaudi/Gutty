@@ -1,0 +1,70 @@
+\hypertarget{resultat_8php}{}\doxysection{C\+:/\+Users/angel/\+One\+Drive/\+Bureau/cours/\+S3/\+SAE/\+C1-\/\+C2/\+Gutty/src/\+Back-\/end/resultat.php File Reference}
+\label{resultat_8php}\index{C:/Users/angel/OneDrive/Bureau/cours/S3/SAE/C1-\/C2/Gutty/src/Back-\/end/resultat.php@{C:/Users/angel/OneDrive/Bureau/cours/S3/SAE/C1-\/C2/Gutty/src/Back-\/end/resultat.php}}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{resultat_8php_a9ec379f067cb8610089867f4a191443a}{\$ingredient\+Frigos}} = array()
+\item 
+\mbox{\hyperlink{resultat_8php_ae8a2cd6ed5561fbc2601295765b0e81d}{\$quantite\+Frigos}} = array()
+\item 
+\mbox{\hyperlink{resultat_8php_a1403da9808f3ba7ecf7fa8ae369485ab}{\$livre\+Ingredient}} = \$\+\_\+\+SESSION\mbox{[}\textquotesingle{}\mbox{\hyperlink{classlivre_ingredient}{livre\+Ingredient}}\textquotesingle{}\mbox{]}
+\item 
+\mbox{\hyperlink{resultat_8php_a148f3c203271b46550ed8b8fb6fc1332}{\$livre\+Recette}} = \$\+\_\+\+SESSION\mbox{[}\textquotesingle{}\mbox{\hyperlink{classlivre_recette}{livre\+Recette}}\textquotesingle{}\mbox{]}
+\item 
+if(isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}quantite\textquotesingle{}\mbox{]}) \&\&!empty(\$\+\_\+\+POST\mbox{[}\textquotesingle{}quantite\textquotesingle{}\mbox{]})) \mbox{\hyperlink{resultat_8php_ac94b0340e2aa877a15e28d9c2a48ee56}{else}}
+\item 
+\mbox{\hyperlink{resultat_8php_a7f942a13b88775e7a48bd7e699604c8d}{\$recette\+Possible}} = \$frigo-\/$>$generer\+Possible\+Recette(\$\mbox{\hyperlink{classlivre_recette}{livre\+Recette}})
+\item 
+foreach(\$recette\+Possible as \$recette) \mbox{\hyperlink{resultat_8php_ab8c33943c62c4e853c608d385102522b}{\$recette\+Triee}} = \$frigo-\/$>$trier\+Suggestion(\$recette\+Possible)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{resultat_8php_a9ec379f067cb8610089867f4a191443a}\label{resultat_8php_a9ec379f067cb8610089867f4a191443a}} 
+\index{resultat.php@{resultat.php}!\$ingredientFrigos@{\$ingredientFrigos}}
+\index{\$ingredientFrigos@{\$ingredientFrigos}!resultat.php@{resultat.php}}
+\doxysubsubsection{\texorpdfstring{\$ingredientFrigos}{$ingredientFrigos}}
+{\footnotesize\ttfamily \$ingredient\+Frigos = array()}
+
+\mbox{\Hypertarget{resultat_8php_a1403da9808f3ba7ecf7fa8ae369485ab}\label{resultat_8php_a1403da9808f3ba7ecf7fa8ae369485ab}} 
+\index{resultat.php@{resultat.php}!\$livreIngredient@{\$livreIngredient}}
+\index{\$livreIngredient@{\$livreIngredient}!resultat.php@{resultat.php}}
+\doxysubsubsection{\texorpdfstring{\$livreIngredient}{$livreIngredient}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{classlivre_ingredient}{livre\+Ingredient}} = \$\+\_\+\+SESSION\mbox{[}\textquotesingle{}\mbox{\hyperlink{classlivre_ingredient}{livre\+Ingredient}}\textquotesingle{}\mbox{]}}
+
+\mbox{\Hypertarget{resultat_8php_a148f3c203271b46550ed8b8fb6fc1332}\label{resultat_8php_a148f3c203271b46550ed8b8fb6fc1332}} 
+\index{resultat.php@{resultat.php}!\$livreRecette@{\$livreRecette}}
+\index{\$livreRecette@{\$livreRecette}!resultat.php@{resultat.php}}
+\doxysubsubsection{\texorpdfstring{\$livreRecette}{$livreRecette}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{classlivre_recette}{livre\+Recette}} = \$\+\_\+\+SESSION\mbox{[}\textquotesingle{}\mbox{\hyperlink{classlivre_recette}{livre\+Recette}}\textquotesingle{}\mbox{]}}
+
+\mbox{\Hypertarget{resultat_8php_ae8a2cd6ed5561fbc2601295765b0e81d}\label{resultat_8php_ae8a2cd6ed5561fbc2601295765b0e81d}} 
+\index{resultat.php@{resultat.php}!\$quantiteFrigos@{\$quantiteFrigos}}
+\index{\$quantiteFrigos@{\$quantiteFrigos}!resultat.php@{resultat.php}}
+\doxysubsubsection{\texorpdfstring{\$quantiteFrigos}{$quantiteFrigos}}
+{\footnotesize\ttfamily \$quantite\+Frigos = array()}
+
+\mbox{\Hypertarget{resultat_8php_a7f942a13b88775e7a48bd7e699604c8d}\label{resultat_8php_a7f942a13b88775e7a48bd7e699604c8d}} 
+\index{resultat.php@{resultat.php}!\$recettePossible@{\$recettePossible}}
+\index{\$recettePossible@{\$recettePossible}!resultat.php@{resultat.php}}
+\doxysubsubsection{\texorpdfstring{\$recettePossible}{$recettePossible}}
+{\footnotesize\ttfamily \$recette\+Possible = \$frigo-\/$>$generer\+Possible\+Recette(\$\mbox{\hyperlink{classlivre_recette}{livre\+Recette}})}
+
+\mbox{\Hypertarget{resultat_8php_ab8c33943c62c4e853c608d385102522b}\label{resultat_8php_ab8c33943c62c4e853c608d385102522b}} 
+\index{resultat.php@{resultat.php}!\$recetteTriee@{\$recetteTriee}}
+\index{\$recetteTriee@{\$recetteTriee}!resultat.php@{resultat.php}}
+\doxysubsubsection{\texorpdfstring{\$recetteTriee}{$recetteTriee}}
+{\footnotesize\ttfamily foreach ( \$recette\+Possible as \$recette) \$recette\+Triee = \$frigo-\/$>$trier\+Suggestion(\$recette\+Possible)}
+
+\mbox{\Hypertarget{resultat_8php_ac94b0340e2aa877a15e28d9c2a48ee56}\label{resultat_8php_ac94b0340e2aa877a15e28d9c2a48ee56}} 
+\index{resultat.php@{resultat.php}!else@{else}}
+\index{else@{else}!resultat.php@{resultat.php}}
+\doxysubsubsection{\texorpdfstring{else}{else}}
+{\footnotesize\ttfamily if (isset( \$\+\_\+\+POST\mbox{[} \textquotesingle{}quantite\textquotesingle{}\mbox{]}) \&\&!empty( \$\+\_\+\+POST\mbox{[} \textquotesingle{}quantite\textquotesingle{}\mbox{]})) else}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ echo\ \textcolor{stringliteral}{"{}aucun\ ingrédient\ récupéré"{}}}
+
+\end{DoxyCode}
