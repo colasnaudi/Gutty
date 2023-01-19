@@ -1,25 +1,37 @@
 function recherche_ingredient() {
+    //récupère les caractères entrés dans la barre de recherche en minuscule
+    let searchValue = document.getElementById('ing_recherche').value.toLowerCase();
 
-    // On récupère la valeur de l'input de recherche avec l'id correspondant
-    let element = document.getElementById('ing_recherche').value
+    //récupère les ingrédients
+    let ingredients = document.getElementsByClassName('ingredient');
 
-    //On passe l'element recupéré en minuscule pour éviter les erreurs de frappe
-    element=element.toLowerCase();
+    //parcourt les ingrédients et les affiche si le nom correspond à la recherche
+    if (searchValue.length > 0) {
 
-    // On récupère la liste des ingrédients
-    let ingredient = document.getElementsByClassName('ingredient');
+        //parcourt les ingrédients
+        for (let i = 0; i < ingredients.length; i++) {
 
-    for (let i = 0; i < ingredient.length; i++) {
-        // Si l'ingrédient ne contient pas les caractères recherchés
-        if (!ingredient[i].innerHTML.toLowerCase().includes(element)) {
+            //récupère le nom de l'ingrédient en minuscule
+            let ingredientName = ingredients[i].getElementsByTagName("label")[0].innerHTML.toLowerCase();
 
-            // On cache l'ingrédient
-            ingredient[i].style.display="none";
+            //cache l'ingrédient si le nom ne correspond pas à la recherche
+            if (!ingredientName.includes(searchValue)) {
+
+                // Hide the ingredient
+                ingredients[i].style.display = "none";
+            }
+            else
+            {
+                //Affiche l'ingrédient en block
+                ingredients[i].style.display = "block";
+            }
         }
-        else
-        {
-            // On affiche l'ingrédient
-            ingredient[i].style.display="inline-block";
+    }
+    else
+    {
+        //affiche tous les ingrédients si la recherche est vide
+        for(let i = 0; i < ingredients.length; i++){
+            ingredients[i].style.display = "inline-block";
         }
     }
 }
