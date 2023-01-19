@@ -1,14 +1,25 @@
-function search_ingredient() {
-    let input = document.getElementById('search-txt').value
-    input=input.toLowerCase();
-    let x = document.getElementsByClassName('ingredient');
+function recherche_ingredient() {
 
-    for (i = 0; i < x.length; i++) {
-        if (!x[i].innerHTML.toLowerCase().includes(input)) {
-            x[i].style.display="none";
+    // On récupère la valeur de l'input de recherche avec l'id correspondant
+    let element = document.getElementById('ing_recherche').value
+
+    //On passe l'element recupéré en minuscule pour éviter les erreurs de frappe
+    element=element.toLowerCase();
+
+    // On récupère la liste des ingrédients
+    let ingredient = document.getElementsByClassName('ingredient');
+
+    for (let i = 0; i < ingredient.length; i++) {
+        // Si l'ingrédient ne contient pas les caractères recherchés
+        if (!ingredient[i].innerHTML.toLowerCase().includes(element)) {
+
+            // On cache l'ingrédient
+            ingredient[i].style.display="none";
         }
-        else {
-            x[i].style.display="inline-block";
+        else
+        {
+            // On affiche l'ingrédient
+            ingredient[i].style.display="inline-block";
         }
     }
 }

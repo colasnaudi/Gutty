@@ -14,9 +14,9 @@
     <h1>Gutty</h1>
 </header>
 <main>
-    <div class="search-box">
-        <input type="text" name="" id="search-txt" onkeyup="search_ingredient()" placeholder="Tapez pour rechercher" />
-        <a class="search-btn" href="#">
+    <div class="recherche_box">
+        <input type="text" name="" id="ing_recherche" onkeyup="recherche_ingredient()" placeholder="Tapez pour rechercher" />
+        <a class="bouton_recherche" href="#">
             <i class="fa fa-search" aria-hidden="true"></i>
         </a>
     </div>
@@ -39,7 +39,7 @@
                 ?>
             </ol>
             </div>
-            <input type="submit" value="Valider">
+            <input type="submit" value="Valider" id="Valider">
         </form>
 </main>
 <footer>
@@ -48,11 +48,17 @@
 
 <script src="Ingredient.js"></script>
 <script>
+    /*Faire réapparaitre les ingrédients quand on coche une case*/
     document.addEventListener("DOMContentLoaded", function() {
+        /*On récupère les informations de la page précédente*/
         document.querySelector("body").addEventListener("change", function(event) {
+            /*On vérifie les changements dans les checkbox*/
             if (event.target.matches(".checkbox")) {
-                document.getElementById('search-txt').value = "";
-                search_ingredient();
+                /*si la checkbox est modifiée*/
+                document.getElementById('ing_recherche').value = "";
+                /*On récupère la liste des ingrédients*/
+                recherche_ingredient();
+                /*On affiche les ingrédients*/
             }
         });
     });

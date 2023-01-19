@@ -49,7 +49,7 @@ main{
    grid-template-columns: 1fr 1fr;
 }
 
-.search-box {
+.recherche_box {
    position: absolute;
    top: 20%;
    left: 75%;
@@ -59,15 +59,15 @@ main{
    border-radius: 40px;
    padding: 10px;
 }
-.search-box:hover > #search-txt {
+.recherche_box:hover > #ing_recherche {
    width: 240px;
    padding: 0 6px;
 }
-.search-box:hover > .search-btn {
+.recherche_box:hover > .bouton_recherche {
    background: white;
    color: black;
 }
-.search-btn {
+.bouton_recherche {
    float: right;
    width: 40px;
    height: 40px;
@@ -81,10 +81,10 @@ main{
    cursor: pointer;
    text-decoration: none;
 }
-.search-btn > i {
+.bouton_recherche > i {
    font-size: 20px;
 }
-#search-txt {
+#ing_recherche {
    border: none;
    background: none;
    outline: none;
@@ -124,7 +124,7 @@ input::placeholder {
    margin-left: 25px;
 }
 
-input[type="submit"]{
+#Valider{
    background-color: #FFB400;
    border: none;
    color: white;
@@ -137,6 +137,17 @@ input[type="submit"]{
    border-radius: 12px;
    margin-left: 90px;
    margin-top: 20px;
+}
+
+#Valider:hover{
+   transition: 0.4s;
+   background-color: #FFB400;
+   color: black;
+}
+
+#Valider:active{
+   background-color:#FFB400;
+   color: #886000;
 }
 
 #ing{
@@ -156,11 +167,45 @@ input[type="number"]{
 
 .recherche{
    margin-top: 20px;
+   margin-left: 44%;
+   align-items: center;
+}
+
+.recherche_ing{
+   font-size: 24px ;
+   display: flex;
+   flex-direction: row;
    margin-left: 10px;
+    margin-top: 5px;
+   align-items: center;
+   transition: all 0.3s ease-in-out;
 }
 
 #value{
+   background-color: #FFB400;
+   border: none;
+   color: white;
+   padding: 15px 32px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 16px;
+   cursor: pointer;
+   border-radius: 12px;
+   margin-top: 20px;
    margin-left: 10px;
+   transition: all 0.3s ease-in-out;
+}
+
+#value:hover{
+   transition: 0.4s;
+   background-color: #886000;
+   color: #FFB400;
+}
+
+#value:active{
+   background-color:#FFB400;
+   color: #886000;
 }
 
 p{

@@ -26,15 +26,19 @@ $livreIngredient = $_SESSION['livreIngredient'];
 if(isset($_REQUEST['Ingredient']) && !empty($_REQUEST['Ingredient'])) {
     if(is_array($_REQUEST['Ingredient'])) {
         $ingredients = $_REQUEST['Ingredient'];
+
         echo '<form action="../Back-end/affichageRecette.php" method="post">';
         foreach($ingredients as $ingredient) {
+            echo "<div class='recherche_ing'>";
             echo '<label for="quantite" class="ing">'.$ingredient. '</label> <br>';
             echo "<input type='number' class='quantiteIng' name='quantite[]' min='0' step='0.1'>";
             echo "<input type='hidden' name='ingredient[]' value='$ingredient'>";
             echo '<br>';
+            echo "</div>";
         }
         echo '<input type="submit" value="Ajouter au frigo" id="value">';
         echo '</form>';
+
     }
 }
 else
