@@ -229,7 +229,8 @@ class Recette
         foreach ($prixIngredients as $index => $value){
             $prix += $prixIngredients[$index] * $quantiteIngredients[$index];
         }
-        return $prix;
+        return number_format(round($prix, 2), 2);
+
     }
 
     /**
