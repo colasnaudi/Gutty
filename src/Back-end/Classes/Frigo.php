@@ -21,9 +21,9 @@ class Frigo
     private array $quantites = array();
 
     /**
-     * @brief Prix total du frigo (somme des prix des ingrédients multiplié par leur quantité)
+     * @brief Pourcentage d'utilisation du frigo
      */
-    private float $prixFrigo = 0;
+    private float $pourcentageFrigo = 0;
 
     //CONSTRUCTEUR
 
@@ -36,7 +36,7 @@ class Frigo
     {
         $this->ingredients = $ingredients;
         $this->quantites = $quantites;
-        $this->prixFrigo = $this->calculerPrixFrigo();
+        $this->pourcentageFrigo = $this->calculerPourcentageFrigo();
     }
 
     //ENCAPSULATION
@@ -83,19 +83,19 @@ class Frigo
      * @brief Getter du prix du frigo
      * @return Un prix
      */
-    public function getPrixFrigo(): float
+    public function getPourcentageFrigo(): float
     {
-        return $this->prixFrigo;
+        return $this->pourcentageFrigo;
     }
 
     /**
-     * @param [in] float $prixFrigo Le prix du frigo
+     * @param [in] float $pourcentageFrigo Le prix du frigo
      * @brief Setter du prix du frigo
      * @return void
      */
-    public function setPrixFrigo(float $prixFrigo): void
+    public function setPourcentageFrigo(float $pourcentageFrigo): void
     {
-        $this->prixFrigo = $prixFrigo;
+        $this->pourcentageFrigo = $pourcentageFrigo;
     }
 
     //METHODES USUELLES
@@ -132,7 +132,7 @@ class Frigo
         array_push($this->ingredients, $ingredient);
         array_push($this->quantites, $quantite);
         //Calcul du prix du frigo
-        $this->prixFrigo = $this->calculerPrixFrigo();
+        $this->pourcentageFrigo = $this->calculerPourcentageFrigo();
     }
 
     //METHODES METIERS
@@ -142,7 +142,7 @@ class Frigo
      * @details Calcule le prix du frigo en multipliant le prix de chaque ingrédient par sa quantité
      * @return  int Le prix du frigo
      */
-    private function calculerPrixFrigo(): float
+    private function calculerPourcentageFrigo(): float
     {
         //Initialisation des variables
         $prix = 0;
@@ -196,7 +196,7 @@ class Frigo
      */
     private function comparer($recetteA, $recetteB): int
     {
-        return $recetteA->getPrixFrigo() <=> $recetteB->getPrixFrigo();
+        return $recetteA->getPourcentageFrigo() <=> $recetteB->getPourcentageFrigo();
     }
 
     /**

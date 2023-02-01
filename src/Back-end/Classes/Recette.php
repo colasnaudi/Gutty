@@ -24,11 +24,10 @@ class Recette
     private float $prixAjout;
 
     /**
-     * @brief Le prix frigo de la recette
-     * @details C'est à dire le prix des ingrédients qui sont déjà dans le frigo
+     * @brief Le pourcentage d'utilisateion du frigo de la recette
      * @details Ce prix sera calculé en fonction des ingrédients d'un frigo et leur quantité
      */
-    private float $prixFrigo;
+    private float $pourcentageFrigo;
 
     /**
      * @brief Le prix de la recette
@@ -62,22 +61,21 @@ class Recette
     }
 
     //ENCAPSULATION
-
     /**
-     * @brief Setter du prix du frigo
-     * @param [in] float $prixFrigo Le prix du frigo
+     * @brief Setter du pourcentage du frigo
+     * @param [in] float $pourcentageFrigo Le prix du frigo
      * @return void
      */
-    public function setPrixFrigo(float $prixFrigo): void{
-        $this->prixFrigo = $prixFrigo;
+    public function setPourcentageFrigo(float $pourcentageFrigo): void{
+        $this->pourcentageFrigo = $pourcentageFrigo;
     }
 
     /**
-     * @brief Getter du prix du frigo
+     * @brief Getter du pourcentage du frigo
      * @return Le prix du frigo
      */
-    public function getPrixFrigo(): float{
-        return $this->prixFrigo;
+    public function getPourcentageFrigo(): float{
+        return $this->pourcentageFrigo;
     }
 
     /**
@@ -236,13 +234,13 @@ class Recette
     /**
      * @brief Calcul le prix frigo de la recette
      * @details En réalité on calcul le prix frigo ainsi que le prix à ajouter
-     * @details On va aussi mettre à jour les attributs prixFrigo et prixAjout de la recette
+     * @details On va aussi mettre à jour les attributs PourcentageFrigo et prixAjout de la recette
      * @param [in] Frigo $unFrigo
      * @return void
      */
-    public function calculerPrixFrigo(Frigo $unFrigo):void {
+    public function calculerPourcentageFrigo(Frigo $unFrigo):void {
         //Initialisaiton des variables
-        $prixFrigo = 0;
+        $pourcentageFrigo = 0;
 
         $ingredientFrigo = $unFrigo->getIngredients();
         $nomIngredientFrigo = array();
@@ -287,17 +285,17 @@ class Recette
                 //Si l'ingrédient du frigo est présent dans la recette
                 if ($nomIngredientFrigo === $nomIngredientRecette) {
                     if ($quantiteFrigo < $quantiteRecette || $quantiteFrigo > $quantiteRecette) {
-                        $prixFrigo += min($quantiteFrigo, $quantiteRecette) * $prixIngredientFrigo;
+                        $pourcentageFrigo += min($quantiteFrigo, $quantiteRecette) * $prixIngredientFrigo;
                     }
                     else {
-                        $prixFrigo += $quantiteFrigo * $prixIngredientFrigo;
+                        $pourcentageFrigo += $quantiteFrigo * $prixIngredientFrigo;
                     }
                 }
             }
         }
-        //Mise à jour des attributs prixFrigo et prixRecette de la recette
-        $this->setPrixFrigo($prixFrigo);
-        $this->setPrixAjout($this->prixRecette - $prixFrigo);
+        //Mise à jour des attributs PourcentageFrigo et prixRecette de la recette
+        $this->setPourcentageFrigo(round($pourcentageFrigo*100/$this->prixRecette));
+        $this->setPrixAjout($this->prixRecette - $pourcentageFrigo);
     }
 }
 
