@@ -16,7 +16,7 @@ body {
     position: absolute;
     width: 200px;
     height: 200px;
-    left: 668px;
+    left: 44%;
     top: 20px;
     border-radius: 50%;
 
@@ -38,13 +38,13 @@ form {
 
 form button {
     align-items: center;
-    width: 300px;
+    width: 200px;
     height: 60px;
     font-weight: 700;
-    font-size: 28px;
+    font-size: 15px;
     background: white;
-
-    border-radius: 50px;
+    border: rgba(48, 48, 48, 0.5) solid 1px;
+    border-radius: 10px;
     box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
     color: #303030;
     margin-bottom: 10px;
@@ -57,26 +57,28 @@ form button {
     font-weight: 700;
     font-size: 28px;
     background: #3BC824;
-    border: rgba(48, 48, 48, 0.5) solid 1px;
-    border-radius: 5px;
+    border: rgba(48, 48, 48, 0.5) solid 0px;
     box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
     color: #303030;
     margin-top: 20px;
-    border-radius: 50px;
+    border-radius: 30px;
+    font-size: 20px;
 
 }
 
 .btns {
     display:flex;
     flex-direction: column;
-    width: 200px;
-    border-radius: 50px;
-    margin-left: 85px;/*positionnement des input*/
+    width: 340px;
+    margin-left: 20px;/*positionnement des input*/
+
 
 }
 
 .btns input{
     margin: 15px;
+    font-style: italic;
+    border-width: 0px;
 }
 
 
@@ -87,11 +89,7 @@ input[type="text"] {
     font-size: 16px;
     padding: 12px 20px;
     width: 100%;
+    border-radius: 10px;
 }
 
-a{
-    display: flex;
-    text-align: center;
-    margin-left: 158px;
-}
 
