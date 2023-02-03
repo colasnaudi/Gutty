@@ -34,7 +34,7 @@
 
                 </form>
                 <div class="creerCompte">
-                    <button type="submit">Créer un compte</button>
+                    <button type="submit" onclick="window.location.href = 'creerCompte.php';">Créer un compte</button>
 
             </div>
 
