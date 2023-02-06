@@ -27,7 +27,7 @@
                         <button type="submit">Connexion</button>
                     </div>
                     <div>
-                        <a href="https://www.google.com/search?q=t%27es+con&rlz=1C1ONGR_frFR933FR933&sxsrf=AJOqlzX1QDxZDTMaUWXaSm-HxNnH9LjjUw:1675327980827&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjNqreJu_b8AhVmcKQEHfVqAaYQ_AUoAXoECAEQAw&biw=1536&bih=714&dpr=1.25#imgrc=o_UGfWxuq4BjZM">Mot de passe oublié?</a>.
+                        <a href = 'motDePasseOublie.php'>Mot de passe oublié?</a>.
 
                     </div>
 

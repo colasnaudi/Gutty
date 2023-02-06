@@ -6,8 +6,7 @@ body {
     display: flex;
     justify-content: center;
     color: #303030;
-    width: 100%;
-    height: 100%;
+
 }
 
 
@@ -22,7 +21,7 @@ a:hover {
     position: absolute;
     width: 200px;
     height: 200px;
-    left: 44%;
+    left: 43.5%;
     top: 20px;
     border-radius: 50%;
 
@@ -83,9 +82,13 @@ form button {
 
 }
 
-.btns input{
-    margin: 20px;
+.btns input::placeholder {
     font-style: italic;
+
+}
+
+.btns input{
+    margin: 15px;
     border-width: 0px;
 }
 
@@ -93,7 +96,7 @@ form button {
 input[type="text"] {
     background-color: white;
     border-radius: 10px;
-    color: #555;
+    color: black;
     font-size: 16px;
     padding: 12px 20px;
     width: 100%;
@@ -103,6 +106,6 @@ a{
     color: black;
     display: flex;
     text-align: center;
-    margin-left: 158px;
+    margin-left: 35%;
 }
 
