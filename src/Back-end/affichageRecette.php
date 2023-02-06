@@ -33,10 +33,10 @@ $recettePossible = $frigo->genererPossibleRecette($livreRecette);
 
 //Calcul du prix frigo et ajout des recettes possibles
 foreach ($recettePossible as $recette) {
-    $recette->calculerPrixFrigo($frigo);
+    $recette->calculerPourcentageFrigo($frigo);
 }
 
-//Tri des recettes possibles par prixFrigo
+//Tri des recettes possibles par PourcentageFrigo
 $recetteTriee = $frigo->trierSuggestion($recettePossible);
 
 ?>
@@ -67,8 +67,8 @@ $recetteTriee = $frigo->trierSuggestion($recettePossible);
                         <?php
 
                         echo $recetteTriee[$i]->getNomRecette() . " : " . $recetteTriee[$i]->getPrixRecette() . "€"
-                            . "   prix ajout = " . $recetteTriee[$i]->getPrixAjout() . "€"
-                            . "  prix frigo =  " . $recetteTriee[$i]->getPrixFrigo() . "€"?>
+                            . "   Prix d'ajout = " . $recetteTriee[$i]->getPrixAjout() . "€"
+                            . "  Pourcentage utilisé =  " . $recetteTriee[$i]->getPourcentageFrigo() . "%"?>
                     </li>
                 <?php } ?>
             </ul>

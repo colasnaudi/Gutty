@@ -10,10 +10,9 @@ $farine=new Ingredient(1, "Farine", 1.1, "kg");
 $eau=new Ingredient(2, "Eau", 0, "L");
 $sel=new Ingredient(3, "Sel", 2, "kg");
 
-$recette = new Recette(1, "Pain", 0.5, 0.5);
-$recette->ajouteIngredient($farine,2);
-$recette->ajouteIngredient($eau,1);
-$recette->ajouteIngredient($sel,0.5);
+$listeIng1 = array($farine, $eau, $sel);
+$listeQte1 = array(2, 1, 0.5);
+$recette = new Recette(1, $listeIng1, $listeQte1);
 
 $oeuf=new Ingredient(4, "Oeuf", 2.9, "kg");
 $tomate=new Ingredient(5, "Tomate", 4, "kg");
@@ -22,17 +21,9 @@ $jambon=new Ingredient(7, "Jambon", 10, "kg");
 $oignon=new Ingredient(8, "Oignon", 1.2, "kg");
 $olives=new Ingredient(9, "Olives", 15, "kg");
 
-
-$recette2 = new Recette(2, "Pizza", 0.5, 0.5);
-$recette2->ajouteIngredient($farine,2);
-$recette2->ajouteIngredient($eau,1);
-$recette2->ajouteIngredient($sel,0.5);
-$recette2->ajouteIngredient($oeuf,1);
-$recette2->ajouteIngredient($tomate,1);
-$recette2->ajouteIngredient($fromage,1);
-$recette2->ajouteIngredient($jambon,1);
-$recette2->ajouteIngredient($oignon,1);
-$recette2->ajouteIngredient($olives,1);
+$listeIng2 = array($farine, $eau, $sel, $oeuf, $tomate, $fromage, $jambon, $oignon, $olives);
+$listeQte2 = array(2, 1, 0.5, 1, 1, 1, 1, 1, 1);
+$recette2 = new Recette(2, $listeIng2, $listeQte2);
 
 $livreRecette = new livreRecette();
 $livreRecette->ajouteRecette($recette);
