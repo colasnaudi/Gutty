@@ -98,9 +98,9 @@ class BaseDeDonnees
         //On vérifie si le nom existe dans la base de données
         if ($this->checkNom($nom)) {
             //On vérifie si le mot de passe correspond au mot de passe de l'utilisateur dans la base de données
-            if ($this->checkMdp($nom, $mdp)) { echo "Connnexion ok"; return true; }
+            if ($this->checkMdp($nom, $mdp)) { return true; }
             //Si le mot de passe ne correspond pas au mot de passe de l'utilisateur dans la base de données
-            else { echo "Mauvais mdp"; return false; }
+            else { return false; }
         }
         //Si le nom n'existe pas dans la base de données
         else { "Mauvais pseudo"; return false; }
@@ -166,18 +166,15 @@ class BaseDeDonnees
             //On vérifie si le mail est disponible
             if ($this->disponibleMail($mail)) {
                 //On vérifie si les deux mots de passe sont identiques
-                if ($this->verifMdpIdentique($mdp, $mdp2)) {
-                    $this->ajouterUtilisateur($nom, $mail, $mdp);
-                    return true;
-                }
+                if ($this->verifMdpIdentique($mdp, $mdp2)) { return true; }
                 //Si les deux mots de passe ne sont pas identiques
-                else { echo "Les deux mots de passe ne sont pas identiques"; return false; }
+                else { return false; }
             }
             //Si le mail n'est pas disponible
-            else { echo "Le mail n'est pas disponible"; return false; }
+            else { return false; }
         }
         //Si le nom n'est pas disponible
-        else { echo "Le nom n'est pas disponible"; return false; }
+        else { return false; }
     }
 
     /*------------------GESTION DES UTILISATEURS------------------*/
@@ -188,7 +185,7 @@ class BaseDeDonnees
      * @param [in]string $mdp Le mot de passe de l'utilisateur
      * @return void
      */
-    private function ajouterUtilisateur(string $nom, string $mail, string $mdp): void {
+    public function ajouterUtilisateur(string $nom, string $mail, string $mdp): void {
         $mdpHash = password_hash($mdp, PASSWORD_ARGON2ID, ['memory_cost' => 2048, 'time_cost' => 4, 'threads' => 3]);
         $sql = "INSERT INTO Utilisateur(nom, mail, mdp) VALUES(?, ?, ?)";
         $resultat = $this->connexion->prepare($sql);
