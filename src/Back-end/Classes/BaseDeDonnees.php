@@ -157,24 +157,24 @@ class BaseDeDonnees
      * @param [in] string $mail Le mail que veux choisir l'utilisateur
      * @param [in] string $mdp Le premier mot de passe saisie par l'utilisateur
      * @param [in] string $mdp2 Le deuxième mot de passe saisie par l'utilisateur
-     * @return Vrai si l'inscription est correcte, sinon faux
+     * @return Vrai si l'inscription est correcte, sinon faux et l'explication de pourquoi c'est faux
      */
-    public function checkInscription(string $nom, string $mail, string $mdp, string $mdp2): bool
+    public function checkInscription(string $nom, string $mail, string $mdp, string $mdp2): array
     {
         //On vérifie si le nom est disponible
         if ($this->disponibleNom($nom)) {
             //On vérifie si le mail est disponible
             if ($this->disponibleMail($mail)) {
                 //On vérifie si les deux mots de passe sont identiques
-                if ($this->verifMdpIdentique($mdp, $mdp2)) { return true; }
+                if ($this->verifMdpIdentique($mdp, $mdp2)) { return array('verif' => true); }
                 //Si les deux mots de passe ne sont pas identiques
-                else { return false; }
+                else { return array('verif' => false, 'erreur' => 'mdp'); }
             }
             //Si le mail n'est pas disponible
-            else { return false; }
+            else { return array('verif' => false, 'erreur' => 'mail'); }
         }
         //Si le nom n'est pas disponible
-        else { return false; }
+        else { return array('verif' => false, 'erreur' => 'nom'); }
     }
 
     /*------------------GESTION DES UTILISATEURS------------------*/

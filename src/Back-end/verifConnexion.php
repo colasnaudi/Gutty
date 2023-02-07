@@ -7,7 +7,7 @@ $bdd = new BaseDeDonnees();
 $pseudo = $_POST['pseudo'];
 $mdp = $_POST['mdp'];
 
-
+//Check la connexion
 if ($bdd->checkConnexion($pseudo, $mdp)) {
     header('Location: ../Front-end/pageAccueil.php');
 }
