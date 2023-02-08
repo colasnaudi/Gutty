@@ -10,30 +10,29 @@ body {
 }
 
 
-
-.logoGutty > img{
+.logoGutty > img {
     position: absolute;
     width: 200px;
     height: 200px;
     left: 43.5%;
     top: 20px;
     border-radius: 50%;
-
 }
 
 form {
-
     background-color: #F28500;
     text-align: center;
     padding-top: 20px;
     margin-top: 220px;
     border-radius: 25px;
-
-
-
 }
 
-
+.form-error {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: red;
+    text-align: center;
+}
 
 form button {
     align-items: center;
@@ -44,12 +43,12 @@ form button {
     background: white;
     border: rgba(48, 48, 48, 0.5) solid 1px;
     border-radius: 10px;
-    box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     color: #303030;
     margin-bottom: 10px;
 }
 
-.connexion   button{
+.connexion button {
 
     width: 450px;
     height: 60px;
@@ -57,7 +56,7 @@ form button {
     font-size: 28px;
     background: #3BC824;
     border: rgba(48, 48, 48, 0.5) solid 0px;
-    box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     color: #303030;
     margin-top: 20px;
     border-radius: 30px;
@@ -66,26 +65,20 @@ form button {
 }
 
 .btns {
-    display:flex;
+    display: flex;
     flex-direction: column;
     width: 340px;
-    margin-left: 20px;/*positionnement des input*/
-
-
+    margin-left: 20px; /*positionnement des input*/
 }
 
 .btns input::placeholder {
     font-style: italic;
-
 }
 
-.btns input{
+.btns input {
     margin: 15px;
     border-width: 0px;
 }
-
-
-
 
 input[type="text"] {
     background-color: white;
@@ -95,8 +88,16 @@ input[type="text"] {
     padding: 12px 20px;
     width: 100%;
     border-radius: 10px;
-    font-style: nor
+}
 
+input[type="password"] {
+    background-color: white;
+    border-radius: 4px;
+    color: black;
+    font-size: 16px;
+    padding: 12px 20px;
+    width: 100%;
+    border-radius: 10px;
 }
 
 

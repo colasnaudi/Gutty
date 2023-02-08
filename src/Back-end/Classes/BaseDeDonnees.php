@@ -60,17 +60,15 @@ class BaseDeDonnees
      */
     private function checkNom(string $nom): bool
     {
-        $sql = "SELECT COUNT(*) FROM Utilisateur WHERE nom = '$nom'";
-        $resultat = $this->connexion->query($sql);
-        $count = $resultat->fetchColumn();
-        $resultat->closeCursor();
-        if ($count == 1) {
-            return true;
+        $sql = "SELECT COUNT(*) as nbNom FROM Utilisateur WHERE nom = ?";
+        $resultat = $this->connexion->prepare($sql);
+        $resultat->execute([$nom]);
+        $valResultat = $resultat->fetch(PDO::FETCH_ASSOC);
+        if ($valResultat !== false) {
+            if ($valResultat['nbNom'] == 1) { return true; }
+            else { return false; }
         }
-        else {
-            return false;
-            //$generationHtml = '<link rel="stylesheet" href="../front-end/connexionErrnom.css">';
-        }
+        else { return false; }
     }
 
     /**
@@ -79,18 +77,15 @@ class BaseDeDonnees
      * @param string $mdp Le mot de passe de l'utilisateur
      * @return Vrai si le mot de passe correspond, faux sinon
      */
-    private function checkMdp(string $nom, string $mdp): bool {
-        $sql = "SELECT mdp FROM Utilisateur WHERE nom = '$nom'";
-        $resultat = $this->connexion->query($sql);
-        $mdpHash = $resultat->fetchColumn();
-        if (password_verify($mdp, $mdpHash)) {
-            echo "Le mot de passe est valide ! <br> ";
-            return true;
+    private function checkMdp(string $nom, string $mdp): bool
+    {
+        $sql = "SELECT mdp FROM Utilisateur WHERE nom = ?";
+        $resultat = $this->connexion->prepare($sql);
+        if ($resultat->execute([$nom]) && ($valResultat = $resultat->fetch(PDO::FETCH_ASSOC)) !== false) {
+            if (password_verify($mdp, $valResultat['mdp']) && ($valResultat !== false)) { return true; }
+            else { return false; }
         }
-        else {
-            echo "Le mot de passe est invalide.";
-            return false;
-        }
+        else { return false; }
     }
 
     /**
@@ -103,20 +98,12 @@ class BaseDeDonnees
         //On vérifie si le nom existe dans la base de données
         if ($this->checkNom($nom)) {
             //On vérifie si le mot de passe correspond au mot de passe de l'utilisateur dans la base de données
-            if ($this->checkMdp($nom, $mdp)) {
-                return true;
-            }
+            if ($this->checkMdp($nom, $mdp)) { return true; }
             //Si le mot de passe ne correspond pas au mot de passe de l'utilisateur dans la base de données
-            else {
-                echo "Mot de passe incorrect <BR>";
-                return false;
-            }
+            else { return false; }
         }
         //Si le nom n'existe pas dans la base de données
-        else {
-            echo "Nom incorrect <br>";
-            return false;
-        }
+        else { "Mauvais pseudo"; return false; }
     }
 
     /*------------------GESTION DE L'INSCRIPTION------------------*/
@@ -126,16 +113,15 @@ class BaseDeDonnees
      * @return Vrai si le nom est disponible, faux sinon
      */
     private function disponibleNom(string $nom): bool {
-        $sql = "SELECT COUNT(*) FROM Utilisateur WHERE nom = '$nom'";
-        $resultat = $this->connexion->query($sql);
-        $count = $resultat->fetchColumn();
-        $resultat->closeCursor();
-        if ($count == 0) {
-            return true;
+        $sql = "SELECT COUNT(*) as nbNom FROM Utilisateur WHERE nom = ?";
+        $resultat = $this->connexion->prepare($sql);
+        $resultat->execute([$nom]);
+        $valResultat = $resultat->fetch(PDO::FETCH_ASSOC);
+        if ($valResultat !== false) {
+            if($valResultat['nbNom'] != 0){ return false; }
+            else { return true; }
         }
-        else {
-            return false;
-        }
+        else { return false; }
     }
 
     /**
@@ -144,16 +130,15 @@ class BaseDeDonnees
      * @return Vrai si le mail est disponible, faux sinon
      */
     private function disponibleMail(string $mail): bool {
-        $sql = "SELECT COUNT(*) FROM Utilisateur WHERE mail = '$mail'";
-        $resultat = $this->connexion->query($sql);
-        $count = $resultat->fetchColumn();
-        $resultat->closeCursor();
-        if ($count == 0) {
-            return true;
+        $sql = "SELECT COUNT(*) as nbMail FROM Utilisateur WHERE mail = ?";
+        $resultat = $this->connexion->prepare($sql);
+        $resultat->execute([$mail]);
+        $valResultat = $resultat->fetch(PDO::FETCH_ASSOC);
+        if ($valResultat !== false) {
+            if($valResultat['nbMail'] != 0){ return false; }
+            else { return true; }
         }
-        else {
-            return false;
-        }
+        else { return false; }
     }
 
     /**
@@ -163,12 +148,7 @@ class BaseDeDonnees
      * @return Vrai si les deux mots de passes correspondent, sinon faux
      */
     private function verifMdpIdentique(string $mdp, string $mdp2): bool {
-        if ($mdp == $mdp2) {
-            return true;
-        }
-        else {
-            return false;
-        }
+        return  $mdp == $mdp2;
     }
 
     /**
@@ -177,31 +157,24 @@ class BaseDeDonnees
      * @param [in] string $mail Le mail que veux choisir l'utilisateur
      * @param [in] string $mdp Le premier mot de passe saisie par l'utilisateur
      * @param [in] string $mdp2 Le deuxième mot de passe saisie par l'utilisateur
-     * @return Vrai si l'inscription est correcte, sinon faux
+     * @return Vrai si l'inscription est correcte, sinon faux et l'explication de pourquoi c'est faux
      */
-    public function checkInscription(string $nom, string $mail, string $mdp, string $mdp2): bool
+    public function checkInscription(string $nom, string $mail, string $mdp, string $mdp2): array
     {
         //On vérifie si le nom est disponible
         if ($this->disponibleNom($nom)) {
             //On vérifie si le mail est disponible
             if ($this->disponibleMail($mail)) {
                 //On vérifie si les deux mots de passe sont identiques
-                if ($this->verifMdpIdentique($mdp, $mdp2)) {
-                    return true;
-                } //Si les deux mots de passe ne sont pas identiques
-                else {
-                    return false;
-                }
-            } //Si le mail n'est pas disponible
-            else {
-                echo "Mail déjà utilisé <br>";
-                return false;
+                if ($this->verifMdpIdentique($mdp, $mdp2)) { return array('verif' => true); }
+                //Si les deux mots de passe ne sont pas identiques
+                else { return array('verif' => false, 'erreur' => 'mdp'); }
             }
+            //Si le mail n'est pas disponible
+            else { return array('verif' => false, 'erreur' => 'mail'); }
         }
         //Si le nom n'est pas disponible
-        else {
-            return false;
-        }
+        else { return array('verif' => false, 'erreur' => 'nom'); }
     }
 
     /*------------------GESTION DES UTILISATEURS------------------*/
@@ -214,7 +187,30 @@ class BaseDeDonnees
      */
     public function ajouterUtilisateur(string $nom, string $mail, string $mdp): void {
         $mdpHash = password_hash($mdp, PASSWORD_ARGON2ID, ['memory_cost' => 2048, 'time_cost' => 4, 'threads' => 3]);
-        $sql = "INSERT INTO Utilisateur(nom, mail, mdp) VALUES('$nom', '$mail', '$mdpHash')";
-        $this->connexion->exec($sql);
+        $sql = "INSERT INTO Utilisateur(nom, mail, mdp) VALUES(?, ?, ?)";
+        $resultat = $this->connexion->prepare($sql);
+        $resultat->execute([$nom, $mail, $mdpHash]);
+    }
+
+    private function retirerUtilisateur(string $nom): void {
+        $sql = "DELETE FROM Utilisateur WHERE nom = ?";
+        $resultat = $this->connexion->prepare($sql);
+        $resultat->execute([$nom]);
+    }
+
+    private function existeUtilsateur(string $nom): bool {
+        $sql = "SELECT COUNT(*) as nbNom FROM Utilisateur WHERE nom = ?";
+        $resultat = $this->connexion->prepare($sql);
+        $resultat->execute([$nom]);
+        $valResultat = $resultat->fetch(PDO::FETCH_ASSOC);
+        if ($valResultat !== false) {
+            if($valResultat['nbNom'] == 1){ return true; }
+            else { return false; }
+        }
+        else { return false; }
+    }
+
+    public function bannirUtilsateur(string $nom): void {
+        if($this->existeUtilsateur($nom)) { $this->retirerUtilisateur($nom); }
     }
 }
