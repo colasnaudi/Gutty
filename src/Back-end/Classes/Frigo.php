@@ -198,6 +198,12 @@ class Frigo
      */
     private function comparerAvecQuantite($recetteA, $recetteB): int
     {
+        if ($recetteA->getPourcentageFrigo() === $recetteB->getPourcentageFrigo()) {
+            if ($recetteA->getPrixAjout() === $recetteB->getPrixAjout()) {
+                return !($recetteA->getPrixRecette() <=> $recetteB->getPrixRecette());
+            }
+            return !($recetteA->getPrixAjout() <=> $recetteB->getPrixAjout());
+        }
         return $recetteA->getPourcentageFrigo() <=> $recetteB->getPourcentageFrigo();
     }
 
@@ -214,6 +220,9 @@ class Frigo
 
     private function comparerSansQuantite($recetteA, $recetteB): int
     {
+        if ($recetteA->getNbIngredientCommun() === $recetteB->getNbIngredientCommun()) {
+            return !($recetteA->getPrixRecette() <=> $recetteB->getPrixRecette());
+        }
         return $recetteA->getNbIngredientCommun() <=> $recetteB->getNbIngredientCommun();
     }
 
