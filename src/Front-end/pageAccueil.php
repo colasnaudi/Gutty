@@ -27,7 +27,7 @@
     </div>
     <div class="partieBasse">
         <div class="rechercheIngredient">
-            <button>Recherche par ingrédient</button>
+            <button onclick="location.href='rechercheParIngredient.php'">Recherche par ingrédient</button>
         </div>
         <div class="ajouterRecette">
             <button>Ajouter une recette</button>

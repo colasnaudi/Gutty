@@ -219,7 +219,7 @@ class Frigo
 
     public function trierSuggestionSansQuantite(array $listePossibilite): array
     {
-        usort($listePossibilite, array($this, "comparerAvecQuantite"));
+        usort($listePossibilite, array($this, "comparerSansQuantite"));
         return array_reverse($listePossibilite);
     }
 }
