@@ -20,7 +20,7 @@
             <i class="fa fa-search" aria-hidden="true"></i>
         </a>
     </div>
-    <form action="../Back-end/choixQuantiteRecherche.php" method="post">
+    <form action="../Back-end/resultatRechercheIngredientSansQuantite.php" method="post">
     <div class="Ingredients">
             <ol id="list">
                 <?php
@@ -39,8 +39,11 @@
                 ?>
             </ol>
             </div>
-            <input type="submit" value="Valider" id="Valider">
+            <input type="submit" value="Saisir les quantités" id="SaisirQte" formaction="../Back-end/choixQuantiteRecherche.php">
+            <input type="submit" value="Rechercher sans quantité" id="RechercheSansQte" formaction="../Back-end/resultatRechercheIngredientSansQuantite.php">
         </form>
+
+
 </main>
 <footer>
 
@@ -62,7 +65,6 @@
             }
         });
     });
-
 </script>
 </body>
 </html>

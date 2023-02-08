@@ -45,6 +45,11 @@ class Recette
      */
     private array $quantites = array();
 
+    /**
+     * @brief Le nombre d'ingrédients en commun avec les ingrédients du frigo
+     */
+    private int $nbIngredientCommun;
+
     //CONSTRUCTEUR
 
     /**
@@ -170,6 +175,14 @@ class Recette
         return $this->quantites;
     }
 
+    public function setNbIngredientCommun(int $nbIngredient): void {
+        $this->nbIngredientCommun = $nbIngredient;
+    }
+
+    public function getNbIngredientCommun(): int {
+        return $this->nbIngredientCommun;
+    }
+
     //MÉTHODES USUELLES
 
     /**
@@ -234,7 +247,7 @@ class Recette
     /**
      * @brief Calcul le prix frigo de la recette
      * @details En réalité on calcul le prix frigo ainsi que le prix à ajouter
-     * @details On va aussi mettre à jour les attributs PourcentageFrigo et prixAjout de la recette
+     * @details On va aussi mettre à jour les attributs pourcentageFrigo et prixAjout de la recette
      * @param [in] Frigo $unFrigo
      * @return void
      */
@@ -296,6 +309,16 @@ class Recette
         //Mise à jour des attributs PourcentageFrigo et prixRecette de la recette
         $this->setPourcentageFrigo(round($pourcentageFrigo*100/$this->prixRecette));
         $this->setPrixAjout($this->prixRecette - $pourcentageFrigo);
+    }
+
+    public function compterIngredientCommun(Frigo $unFrigo): void {
+        $nbIngredientCommun = 0;
+        foreach ($unFrigo->getIngredients() as $ingredient) {
+            if (in_array($ingredient, $this->ingredients)) {
+                $nbIngredientCommun++;
+            }
+        }
+        $this->setNbIngredientCommun($nbIngredientCommun);
     }
 }
 
