@@ -12,6 +12,8 @@ body {
 
 
 
+
+
 .logoGutty > img{
     position: absolute;
     width: 200px;
@@ -26,8 +28,7 @@ form {
 
     background-color: #F28500;
     text-align: center;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 20px;
     margin-top: 220px;
     border-radius: 25px;
 
@@ -51,7 +52,7 @@ form button {
     border: 0;
 }
 
-.retourConnexion button{
+.connexion button{
 
     width: 450px;
     height: 60px;
@@ -97,5 +98,6 @@ input[type="text"] {
     padding: 12px 20px;
     width: 100%;
 }
+
 
 
