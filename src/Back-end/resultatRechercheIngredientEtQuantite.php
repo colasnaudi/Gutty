@@ -47,7 +47,7 @@ $recetteTriee = $frigo->trierSuggestion($recettePossible);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Front-end/Accueil.css">
+    <link rel="stylesheet" href="../Front-end/rechercheParIngredient.css">
     <link rel="stylesheet" href="../Front-end/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <title>Accueil-Gutty</title>
@@ -63,7 +63,7 @@ $recetteTriee = $frigo->trierSuggestion($recettePossible);
             <ul>
                 <?php for($i=0; $i<sizeof($recetteTriee); $i++){ ?>
                     <li class="recipe">
-                        <a href="afficheListeRecette.php?recette=<?php echo $recetteTriee[$i]->getNomRecette(); ?>">
+                        <a href="afficherUneRecette.php?recette=<?php echo $recetteTriee[$i]->getNomRecette(); ?>">
                         <?php
 
                         echo $recetteTriee[$i]->getNomRecette() . " : " . $recetteTriee[$i]->getPrixRecette() . "€"

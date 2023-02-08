@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Front-end/Accueil.css">
+    <link rel="stylesheet" href="../Front-end/rechercheParIngredient.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <title>Accueil-Gutty</title>
 </head>
@@ -27,7 +27,7 @@ if(isset($_REQUEST['Ingredient']) && !empty($_REQUEST['Ingredient'])) {
     if(is_array($_REQUEST['Ingredient'])) {
         $ingredients = $_REQUEST['Ingredient'];
 
-        echo '<form action="../Back-end/affichageRecette.php" method="post">';
+        echo '<form action="resultatRechercheIngredientEtQuantite.php" method="post">';
         foreach($ingredients as $ingredient) {
             echo "<div class='recherche_ing'>";
             echo '<label for="quantite" class="ing">'.$ingredient. '</label> <br>';
@@ -38,7 +38,6 @@ if(isset($_REQUEST['Ingredient']) && !empty($_REQUEST['Ingredient'])) {
         }
         echo '<input type="submit" value="Ajouter au frigo" id="value">';
         echo '</form>';
-
     }
 }
 else
