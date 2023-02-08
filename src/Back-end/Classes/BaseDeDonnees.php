@@ -216,4 +216,25 @@ class BaseDeDonnees
     public function bannirUtilsateur(string $nom): void {
         if($this->existeUtilsateur($nom)) { $this->retirerUtilisateur($nom); }
     }
+
+    public function recettesDeLaSemaine(): array {
+        //On récupère 7 recettes aléatoires
+        $sql = "SELECT * FROM Recette ORDER BY RAND() LIMIT 7";
+        $resultat = $this->connexion->prepare($sql);
+        $resultat->execute();
+        $valResultat = $resultat->fetchAll(PDO::FETCH_ASSOC);
+        return $valResultat;
+    }
+
+    public function getIngredientsRecette(int $id): array {
+        $sql = "SELECT nomIngredient FROM Composer WHERE idRecette = ?";
+        $resultat = $this->connexion->prepare($sql);
+        $resultat->execute([$id]);
+        $valResultat = $resultat->fetchAll(PDO::FETCH_ASSOC);
+        $ingredients = array_map(function($ingredient) {
+            return $ingredient['nomIngredient'];
+        }, $valResultat);
+        return $ingredients;
+    }
+
 }
