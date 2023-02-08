@@ -6,12 +6,13 @@ body {
     display: flex;
     justify-content: center;
     color: #303030;
+
 }
 
-a:hover {
-    color: #3BC824;
-    text-decoration: #3BC824 ;
-}
+
+
+
+
 
 .logoGutty > img{
     position: absolute;
@@ -20,22 +21,22 @@ a:hover {
     left: 43.5%;
     top: 20px;
     border-radius: 50%;
+
 }
 
 form {
+
     background-color: #F28500;
     text-align: center;
     padding-top: 20px;
     margin-top: 220px;
     border-radius: 25px;
+
+
+
 }
 
-.form-error {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    color: red;
-    text-align: center;
-}
+
 
 form button {
     width: 200px;
@@ -43,6 +44,7 @@ form button {
     font-weight: 700;
     font-size: 15px;
     background: white;
+
     border-radius: 10px;
     box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
     color: #303030;
@@ -50,7 +52,8 @@ form button {
     border: 0;
 }
 
-.creerCompte button{
+.connexion button{
+
     width: 450px;
     height: 60px;
     font-weight: 700;
@@ -63,6 +66,9 @@ form button {
     margin-top: 20px;
     border-radius: 25px;
     font-size: 20px;
+
+
+
 }
 
 .btns {
@@ -70,16 +76,19 @@ form button {
     flex-direction: column;
     width: 340px;
     margin-left: 17px;/*positionnement des input*/
+
 }
 
 .btns input::placeholder {
     font-style: italic;
+
 }
 
 .btns input{
     margin: 15px;
     border-width: 0px;
 }
+
 
 input[type="text"] {
     background-color: white;
@@ -90,19 +99,5 @@ input[type="text"] {
     width: 100%;
 }
 
-input[type="password"] {
-    background-color: white;
-    border-radius: 10px;
-    color: black;
-    font-size: 16px;
-    padding: 12px 20px;
-    width: 100%;
-}
 
-a{
-    color: black;
-    display: flex;
-    text-align: center;
-    margin-left: 35%;
-}
 
