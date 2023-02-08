@@ -5,9 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4255c67a-fe5d-44be-ad62-fe665e21a56b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Front-end/bootstrap-3.3.7-dist/css/bootstrap-theme.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Front-end/bootstrap-3.3.7-dist/css/bootstrap-theme.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Front-end/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Front-end/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Front-end/bootstrap-3.3.7-dist/css/bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Front-end/bootstrap-3.3.7-dist/css/bootstrap.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Front-end/bootstrap-3.3.7-dist/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Front-end/bootstrap-3.3.7-dist/css/bootstrap.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Front-end/bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Front-end/bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Front-end/bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Front-end/bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Front-end/bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Front-end/bootstrap-3.3.7-dist/js/bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Front-end/bootstrap-3.3.7-dist/js/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Front-end/bootstrap-3.3.7-dist/js/npm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Back-end/Classes/Recette.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Back-end/Classes/Recette.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Back-end/recherche.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Back-end/recherche.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Back-end/Classes/BaseDeDonnees.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Back-end/Classes/BaseDeDonnees.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Front-end/Accueil.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Front-end/Accueil.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Front-end/pageAccueil.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Front-end/pageAccueil.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Front-end/pageAccueil.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Front-end/pageAccueil.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +82,11 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 8.1" />
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 8.2">
+    <include_path>
+      <path value="" />
+    </include_path>
+  </component>
   <component name="ProjectId" id="2IwTwrZxVNKXDsTOqtLa5pOzt5b" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -108,6 +131,10 @@
       <workItem from="1674026724194" duration="3071000" />
       <workItem from="1674029931999" duration="173000" />
       <workItem from="1674160467328" duration="2861000" />
+      <workItem from="1675796615845" duration="5086000" />
+      <workItem from="1675848551600" duration="3569000" />
+      <workItem from="1675860189839" duration="5328000" />
+      <workItem from="1675873562199" duration="1626000" />
     </task>
     <servers />
   </component>
