@@ -62,7 +62,7 @@ $recetteTriee = $frigo->trierSuggestionAvecQuantite($recettePossible);
             <ul>
                 <?php for($i=0; $i<sizeof($recetteTriee); $i++){ ?>
                     <li class="recipe">
-                        <a href="afficherUneRecette.php?recette=<?php echo $recetteTriee[$i]->getNomRecette(); ?>">
+                        <a href="../Front-end/afficherUneRecette.php?recette=<?php echo $recetteTriee[$i]->getNomRecette(); ?>">
                         <?php
                         echo $recetteTriee[$i]->getNomRecette() . " : " . $recetteTriee[$i]->getPrixRecette() . "€"
                             . "   Prix d'ajout = " . $recetteTriee[$i]->getPrixAjout() . "€"
