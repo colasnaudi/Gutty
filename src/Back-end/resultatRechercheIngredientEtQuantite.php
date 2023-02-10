@@ -37,7 +37,7 @@ foreach ($recettePossible as $recette) {
 }
 
 //Tri des recettes possibles par PourcentageFrigo
-$recetteTriee = $frigo->trierSuggestion($recettePossible);
+$recetteTriee = $frigo->trierSuggestionAvecQuantite($recettePossible);
 
 ?>
 
@@ -57,7 +57,6 @@ $recetteTriee = $frigo->trierSuggestion($recettePossible);
         <img src="../Front-end/logo.png" alt="Logo temporaire">
         <h1>Gutty</h1>
     </header>
-
         <div class="recipes-container">
             <h2>Liste de recettes</h2>
             <ul>
@@ -65,7 +64,6 @@ $recetteTriee = $frigo->trierSuggestion($recettePossible);
                     <li class="recipe">
                         <a href="../Front-end/afficherUneRecette.php?recette=<?php echo $recetteTriee[$i]->getNomRecette(); ?>">
                         <?php
-
                         echo $recetteTriee[$i]->getNomRecette() . " : " . $recetteTriee[$i]->getPrixRecette() . "€"
                             . "   Prix d'ajout = " . $recetteTriee[$i]->getPrixAjout() . "€"
                             . "  Pourcentage utilisé =  " . $recetteTriee[$i]->getPourcentageFrigo() . "%"?>

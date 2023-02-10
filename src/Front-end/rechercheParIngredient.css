@@ -124,7 +124,7 @@ input::placeholder {
    margin-left: 25px;
 }
 
-#Valider{
+#SaisirQte, #RechercheSansQte{
    background-color: #FFB400;
    border: none;
    color: white;
@@ -139,13 +139,13 @@ input::placeholder {
    margin-top: 20px;
 }
 
-#Valider:hover{
+#SaisirQte:hover, #RechercheSansQte:hover{
    transition: 0.4s;
    background-color: #FFB400;
    color: black;
 }
 
-#Valider:active{
+#SaisirQte:active, #RechercheSansQte:active{
    background-color:#FFB400;
    color: #886000;
 }

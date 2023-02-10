@@ -12,7 +12,7 @@ $sel=new Ingredient(3, "Sel", 2, "kg");
 
 $listeIng1 = array($farine, $eau, $sel);
 $listeQte1 = array(2, 1, 0.5);
-$recette = new Recette(1, $listeIng1, $listeQte1);
+$recette1 = new Recette(1, $listeIng1, $listeQte1);
 
 $oeuf=new Ingredient(4, "Oeuf", 2.9, "kg");
 $tomate=new Ingredient(5, "Tomate", 4, "kg");
@@ -25,14 +25,18 @@ $listeIng2 = array($farine, $eau, $sel, $oeuf, $tomate, $fromage, $jambon, $oign
 $listeQte2 = array(2, 1, 0.5, 1, 1, 1, 1, 1, 1);
 $recette2 = new Recette(2, $listeIng2, $listeQte2);
 
-$livreRecette = new livreRecette();
-$livreRecette->ajouteRecette($recette);
-$livreRecette->ajouteRecette($recette2);
-
 $ingredientFrigo = array($farine, $oeuf, $tomate);
 $quantiteFrigo = array(1, 3, 4);
 $frigo = new Frigo($ingredientFrigo, $quantiteFrigo);
 
+/*
 echo $recette->calculPrixRecette();
 echo "<br>";
 echo $recette2->calculPrixRecette();
+*/
+
+$recette1->compterIngredientCommun($frigo);
+echo $recette1->getNbIngredientCommun();
+echo "<br>";
+echo count($recette2->getIngredients());
+

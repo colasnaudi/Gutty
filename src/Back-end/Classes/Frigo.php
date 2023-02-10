@@ -32,11 +32,13 @@ class Frigo
      * @param [in] array $ingredients La liste des ingrédients du frigo
      * @param [in] array $quantites La liste des quantités des ingrédients du frigo
      */
-    public function __construct(array $ingredients, array $quantites)
+    public function __construct(array $ingredients, array|null $quantites)
     {
         $this->ingredients = $ingredients;
-        $this->quantites = $quantites;
-        $this->pourcentageFrigo = $this->calculerPourcentageFrigo();
+        if($quantites != null) {
+            $this->quantites = $quantites;
+            $this->pourcentageFrigo = $this->calculerPourcentageFrigo();
+        }
     }
 
     //ENCAPSULATION
@@ -194,8 +196,14 @@ class Frigo
      * @param $recetteB
      * @return -1 si $a < $b, 0 si $a = $b, 1 si $a > $b
      */
-    private function comparer($recetteA, $recetteB): int
+    private function comparerAvecQuantite($recetteA, $recetteB): int
     {
+        if ($recetteA->getPourcentageFrigo() === $recetteB->getPourcentageFrigo()) {
+            if ($recetteA->getPrixAjout() === $recetteB->getPrixAjout()) {
+                return !($recetteA->getPrixRecette() <=> $recetteB->getPrixRecette());
+            }
+            return !($recetteA->getPrixAjout() <=> $recetteB->getPrixAjout());
+        }
         return $recetteA->getPourcentageFrigo() <=> $recetteB->getPourcentageFrigo();
     }
 
@@ -204,9 +212,23 @@ class Frigo
      * @param array $listePossibilite La liste des recettes possibles
      * @return La liste des recettes possibles triées par prix frigo décroissant
      */
-    public function trierSuggestion(array $listePossibilite): array
+    public function trierSuggestionAvecQuantite(array $listePossibilite): array
     {
-        usort($listePossibilite, array($this, "comparer"));
+        usort($listePossibilite, array($this, "comparerAvecQuantite"));
+        return array_reverse($listePossibilite);
+    }
+
+    private function comparerSansQuantite($recetteA, $recetteB): int
+    {
+        if ($recetteA->getNbIngredientCommun() === $recetteB->getNbIngredientCommun()) {
+            return !($recetteA->getPrixRecette() <=> $recetteB->getPrixRecette());
+        }
+        return $recetteA->getNbIngredientCommun() <=> $recetteB->getNbIngredientCommun();
+    }
+
+    public function trierSuggestionSansQuantite(array $listePossibilite): array
+    {
+        usort($listePossibilite, array($this, "comparerSansQuantite"));
         return array_reverse($listePossibilite);
     }
 }
