@@ -174,12 +174,14 @@ button{
 
 }
 
-h2{
+.affichageImage{
+    padding-top: 30px;
     text-align: center  ;
-    padding-bottom: 30px;
+    padding-bottom: 50px    ;
 }
 
 h3 {
+    padding-top: 30px;
     text-align: center;
 }
 
@@ -191,7 +193,8 @@ h3 {
     font-size: 20px;
     padding-top: 30px;
     padding-left: 30px;
-
+    background-color: gray;
+    width: 40%;
 }
 
 
@@ -232,6 +235,10 @@ h3 {
     top: 71%;
 }
 
+.partieCommentaires {
+    padding-top: 30px;
+    text-align: left;
+}
 
 .traitCommentaires{
     font-size: 20px;

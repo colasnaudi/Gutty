@@ -72,12 +72,13 @@ foreach ($livreRecette->getListeRecettes() as $recette) {
         echo "<span class='fa fa-star '></span>";
         echo "<span class='fa fa-star '></span></div>";
         echo "<div class='note'>";
-        echo "<span> avis</span>";
+        echo "<a href='Commentaires'> avis</a>";
         echo "</div>";
 
+        echo "<div class='affichageImage'>";
         echo "<h2>Image recette en dessous</h2>";
         echo "<img src= '' alt='Image de la recette'>";
-        echo "<h3>Temps de préparation | Temps de cuisson</h3>";
+        echo "<h3>Temps de préparation | Temps de cuisson | Nombre de personnes</h3>";
         echo "<p class='traitIngredient'>Ingrédients</p>";
         //echo "<div class='trait'>";
         echo "<div class='partieRecette'>";
@@ -91,6 +92,9 @@ foreach ($livreRecette->getListeRecettes() as $recette) {
 }
     echo "<p class='traitPreparation'>Préparation</p>";
     echo "<p class='traitCommentaires'>Commentaires</p>";
+    echo "<div class='partieCommentaires'>";
+    echo "<h2>Donnez votre avis</h2>";
+
 
 
 session_destroy();
