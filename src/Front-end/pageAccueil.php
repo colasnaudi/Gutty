@@ -54,7 +54,7 @@
                 echo '<div class="col-lg-4 col-sm-12 col-xs-12 vignette">';
                 echo '<img src="'.$recette['image'].'" alt="Image de la recette" >';
                 echo '<div class="col-lg-12">';
-                echo '<h3>'.$recette['nom'].'</h3>';
+                echo '<h3>'.$recette['nomsss'].'</h3>';
                 echo '<p>' . implode(', ', $bdd->getIngredientsRecette($recette['id'])) . '</p>';
                 echo '</div>';
                 echo '</div>';
