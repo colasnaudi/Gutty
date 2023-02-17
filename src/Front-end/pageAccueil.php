@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="pageAccueil.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <title>Accueil-Gutty</title>
@@ -12,30 +13,25 @@
 <header>
     <div class="partieHaute">
         <div class="logoEtTitre">
-            <img src="logo.png" alt="Logo temporaire">
-            <h1>Gutty</h1>
+            <a href="#">
+                <img src="logo.png" alt="Logo temporaire">
+                <h1>Gutty</h1>
+            </a>
         </div>
         <div class="recherche">
-            <!--Ancien code
-            <input type="text" name="" id="ing_recherche" placeholder="Je recherche" />
-            <form method="post" class="bouton_recherche" action="../Back-end/rechercheParNom.php">
-                <input class ="iconeRecherche" type="submit" value="">
+            <form action="../Back-end/rechercheParNom.php" method="post" class="bouton_recherche">
                 <i class="material-icons iconeRecherche">search</i>
-                -->
-            <!-- Debut Angel -->
-            <form method="post" class="bouton_recherche" action="../Back-end/rechercheParNom.php">
-                <input type="text" name="recetteRecherche" id="ing_recherche" placeholder="Je recherche" />
-                <button type="submit">Search</button>
-            <!-- Fin Angel -->
             </form>
         </div>
         <div class="monCompte">
-            <i class="material-icons iconeCompte">person</i>
+            <a href="">
+                <i class="material-icons iconeCompte">person</i>
+            </a>
         </div>
     </div>
     <div class="partieBasse">
         <div class="rechercheIngredient">
-            <button onclick="location.href='rechercheParIngredient.php'">Recherche par ingrédient</button>
+            <button>Recherche par ingrédient</button>
         </div>
         <div class="ajouterRecette">
             <button>Ajouter une recette</button>
@@ -46,12 +42,30 @@
     </div>
 </header>
 <main>
+    <div class="container listeRecette">
+        <h2>Recettes aléatoires</h2>
+            <?php
+            //AFFICHER 7 RECETTES ALEATOIRES
+            include '../Back-end/Classes/BaseDeDonnees.php';
 
+            $bdd = new BaseDeDonnees();
+            $resultatRecettes = $bdd->recettesDeLaSemaine();
+            echo '<div class="recette">';
+            foreach($resultatRecettes as $recette) {
+                echo '<div class="col-lg-4 col-sm-12 col-xs-12 vignette">';
+                echo '<img src="'.$recette['image'].'" alt="Image de la recette" >';
+                echo '<div class="col-lg-12">';
+                echo '<h3>'.$recette['nomsss'].'</h3>';
+                echo '<p>' . implode(', ', $bdd->getIngredientsRecette($recette['id'])) . '</p>';
+                echo '</div>';
+                echo '</div>';
+            }
+            ?>
+        </div>
 </main>
 
 <footer>
 
 </footer>
-
 </body>
 </html>

@@ -224,4 +224,25 @@ class BaseDeDonnees
         if (count($listeResultat) == 0) { return array('Aucun résultat'); }
         else { return $listeResultat; }
     }
+
+    public function recettesDeLaSemaine(): array {
+        //On récupère 7 recettes aléatoires
+        $sql = "SELECT * FROM Recette ORDER BY RAND() LIMIT 7";
+        $resultat = $this->connexion->prepare($sql);
+        $resultat->execute();
+        $valResultat = $resultat->fetchAll(PDO::FETCH_ASSOC);
+        return $valResultat;
+    }
+
+    public function getIngredientsRecette(int $id): array {
+        $sql = "SELECT nomIngredient FROM Composer WHERE idRecette = ?";
+        $resultat = $this->connexion->prepare($sql);
+        $resultat->execute([$id]);
+        $valResultat = $resultat->fetchAll(PDO::FETCH_ASSOC);
+        $ingredients = array_map(function($ingredient) {
+            return $ingredient['nomIngredient'];
+        }, $valResultat);
+        return $ingredients;
+    }
+
 }
