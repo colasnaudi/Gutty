@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="pageAccueil.css">
+    <link rel="stylesheet" href="../Front-end/pageAccueil.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <title>Accueil-Gutty</title>
 </head>
@@ -12,22 +12,14 @@
 <header>
     <div class="partieHaute">
         <div class="logoEtTitre">
-            <img src="logo.png" alt="Logo temporaire">
+            <img src="../Front-end/logo.png" alt="Logo temporaire">
             <h1>Gutty</h1>
         </div>
         <div class="recherche">
-            <!--Ancien code
-            <input type="text" name="" id="ing_recherche" placeholder="Je recherche" />
-            <form method="post" class="bouton_recherche" action="../Back-end/rechercheParNom.php">
-                <input class ="iconeRecherche" type="submit" value="">
+            <input type="text" name="recetteRecherche" id="ing_recherche" placeholder="Je recherche" />
+            <a class="bouton_recherche" href="rechercheParNom.php">
                 <i class="material-icons iconeRecherche">search</i>
-                -->
-            <!-- Debut Angel -->
-            <form method="post" class="bouton_recherche" action="../Back-end/rechercheParNom.php">
-                <input type="text" name="recetteRecherche" id="ing_recherche" placeholder="Je recherche" />
-                <button type="submit">Search</button>
-            <!-- Fin Angel -->
-            </form>
+            </a>
         </div>
         <div class="monCompte">
             <i class="material-icons iconeCompte">person</i>
@@ -45,13 +37,16 @@
         </div>
     </div>
 </header>
-<main>
 
-</main>
+<?php
+include 'Classes/BaseDeDonnees.php';
+$bdd = new BaseDeDonnees();
 
-<footer>
+$recherche = $_POST['recetteRecherche'];
 
-</footer>
+$resultatRecherche = $bdd->rechercherParNom($recherche);
 
-</body>
-</html>
+foreach ($resultatRecherche as $recette) {
+    echo $recette;
+    echo '<br>';
+}
