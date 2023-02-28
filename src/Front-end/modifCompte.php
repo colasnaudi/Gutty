@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="MonCompte.css">
+    <link rel="stylesheet" href="modifCompte.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <title>Mon compte</title>
+    <title>Modifier mon compte</title>
 </head>
 <body>
 <header>
@@ -45,8 +45,10 @@
             <a href="">
                 <i class="material-icons iconeCompte">person</i>
             </a>
-            <h2>PSEUDO</h2>
-            <h3>Adresse@mail.com</h3>
+            <div class="inputModif">
+                <input type="text" placeholder="PSEUDO"></input>
+                <input type="text" placeholder="Adresse@mail.com"></input>
+            </div>
         </div>
     </div>
     <div class="boutonDeconnexion">
@@ -61,3 +63,4 @@
 </footer>
 </body>
 </html>
+<?php
