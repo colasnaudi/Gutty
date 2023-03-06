@@ -58,7 +58,7 @@ $recetteTriee = $frigo->trierSuggestionAvecQuantite($recettePossible);
         <h1>Gutty</h1>
     </header>
         <div class="recipes-container">
-            <h2>Liste de recettes</h2>
+            <h2>Liste de recettes <?php echo "(".sizeof($recetteTriee)." recettes)" ?></h2>
             <ul>
                 <?php for($i=0; $i<sizeof($recetteTriee); $i++){ ?>
                     <li class="recipe">

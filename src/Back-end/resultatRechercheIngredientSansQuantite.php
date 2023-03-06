@@ -5,17 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Front-end/rechercheParIngredient.css">
-    <link rel="stylesheet" href="../Front-end/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <title>Accueil-Gutty</title>
 </head>
 <body>
-<header>
-    <img src="../Front-end/logo.png" alt="Logo temporaire">
-    <h1>Gutty</h1>
-</header>
-
 <?php
+include_once "../Front-end/header.html";
+
 include_once 'CreationIngredient.php';
 
 $ingredientFrigos = array();
@@ -54,7 +50,7 @@ $recetteTriee = $frigo->trierSuggestionSansQuantite($recettePossible);
 ?>
 
 <div class="recipes-container">
-    <h2>Liste de recettes</h2>
+    <h2>Liste de recettes <?php echo "(".sizeof($recetteTriee)." recettes)"  ?></h2>
     <ul>
         <?php for($i=0; $i<sizeof($recetteTriee); $i++){ ?>
             <li class="recipe">
