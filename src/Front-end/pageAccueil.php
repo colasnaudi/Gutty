@@ -24,7 +24,7 @@
             </form>
         </div>
         <div class="monCompte">
-            <a href="">
+            <a href="MonCompte.php">
                 <i class="material-icons iconeCompte">person</i>
             </a>
         </div>
