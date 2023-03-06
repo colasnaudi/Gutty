@@ -100,6 +100,7 @@ header{
     display: grid;
 }
 
+
 .profilUser{
     margin:40px 70% 0 0;
     background: #FFB400;
@@ -108,8 +109,30 @@ header{
     height: 120px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.5);
     margin-left: 75%;
-    margin-top: -15%;
+    margin-top: -14%;
 
+}
+
+
+#photo-profil {
+    margin-top: -50%;
+    margin-left: -30%;
+    background-color: #4CAF50; /* couleur de fond du bouton */
+    color: white; /* couleur du texte du bouton */
+    padding: 10px 20px; /* taille du padding */
+    border: none; /* pas de bordure */
+    cursor: pointer; /* curseur de souris sur le bouton */
+    border-radius: 5px; /* bordure arrondie */
+
+}
+
+.bouton-photo:hover {
+    background-color: #3e8e41; /* couleur de fond du bouton lorsqu'il est survolé */
+}
+
+#aperçu-photo {
+    max-width: 120px;
+    border-radius: 50%;
 }
 
 .profilUser i{

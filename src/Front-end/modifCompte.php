@@ -42,9 +42,14 @@
             <button>Supprimer mon compte</button>
         </div>
         <div class="profilUser">
+            <input type="file" id="photo-profil" name="photo-profil" accept="image/*">
+            <img id="aperçu-photo" src="#" alt="Aperçu de la photo de profil">
+            <script src="modifCompte.js"></script>
             <a href="">
                 <i class="material-icons iconeCompte">person</i>
             </a>
+
+
             <div class="inputModif">
                 <input type="text" placeholder="PSEUDO"></input>
                 <input type="text" placeholder="Adresse@mail.com"></input>
