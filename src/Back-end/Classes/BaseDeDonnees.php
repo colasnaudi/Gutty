@@ -245,4 +245,47 @@ class BaseDeDonnees
         return $ingredients;
     }
 
+    private function getIdRecette(string $nom): int {
+        $sql = "SELECT id FROM Recette WHERE nom = ?";
+        $resultat = $this->connexion->prepare($sql);
+        $resultat->execute([$nom]);
+        $valResultat = $resultat->fetch(PDO::FETCH_ASSOC);
+        return $valResultat['id'];
+    }
+
+    private function getIdIngredient(string $nom): int {
+        $sql = "SELECT id FROM Ingredient WHERE nom = ?";
+        $resultat = $this->connexion->prepare($sql);
+        $resultat->execute([$nom]);
+        $valResultat = $resultat->fetch(PDO::FETCH_ASSOC);
+        return $valResultat['id'];
+    }
+
+    private function getIdUtilisateur(string $nom): int {
+        $sql = "SELECT id FROM Utilisateur WHERE nom = ?";
+        $resultat = $this->connexion->prepare($sql);
+        $resultat->execute([$nom]);
+        $valResultat = $resultat->fetch(PDO::FETCH_ASSOC);
+        return $valResultat['id'];
+    }
+
+    public function insererUneRecette(string $nom, string $etape, string $image, string $temps, int $nbPersonnes, int $idUtilisateur): void {
+        $sql = "INSERT INTO Recette(nom, etape, image, temps, nbPersonnes, idUtilisateur) VALUES(?, ?, ?, ?, ?, ?)";
+        $resultat = $this->connexion->prepare($sql);
+        $resultat->execute([$nom, $etape, $image, $temps, $nbPersonnes, $idUtilisateur]);
+    }
+
+    public function insererDansComposer(string $nomRecette, array $nomIngredient, array $quantiteIngredient): void {
+        $sql = "INSERT INTO Composer(idRecette, idIngredient, quantiteIngredient) VALUES(?, ?, ?)";
+        $resultat = $this->connexion->prepare($sql);
+        for ($i = 0; $i < count($nomIngredient); $i++) {
+            $resultat->execute([$this->getIdRecette($nomRecette), $this->getIdIngredient($nomIngredient[$i]), $quantiteIngredient[$i]]);
+        }
+    }
+
+    public function ajouterRecette(string $nom, string $etape, string $image, string $temps, int $nbPersonnes, array $nomIngredient, array $quantiteIngredient): void {
+        $idUtilisateur = $this->getIdUtilisateur(/*$_SESSION['nom']*/'Angel');
+        $this->insererUneRecette($nom, $etape, $image, $temps, $nbPersonnes, $idUtilisateur);
+        $this->insererDansComposer($nom, $nomIngredient, $quantiteIngredient);
+    }
 }
