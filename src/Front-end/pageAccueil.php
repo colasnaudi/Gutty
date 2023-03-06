@@ -10,38 +10,9 @@
     <title>Accueil-Gutty</title>
 </head>
 <body>
-<header>
-    <div class="partieHaute">
-        <div class="logoEtTitre">
-            <a href="#">
-                <img src="logo.png" alt="Logo temporaire">
-                <h1>Gutty</h1>
-            </a>
-        </div>
-        <div class="recherche">
-            <input type="text" name="" id="ing_recherche" placeholder="Je recherche" />
-            <form action="" method="post" class="bouton_recherche">
-                <i class="material-icons iconeRecherche">search</i>
-            </form>
-        </div>
-        <div class="monCompte">
-            <a href="">
-                <i class="material-icons iconeCompte">person</i>
-            </a>
-        </div>
-    </div>
-    <div class="partieBasse">
-        <div class="rechercheIngredient">
-            <button>Recherche par ingrédient</button>
-        </div>
-        <div class="ajouterRecette">
-            <button>Ajouter une recette</button>
-        </div>
-        <div class="recettesFavorites">
-            <button>Recettes favorites</button>
-        </div>
-    </div>
-</header>
+<?php
+include_once 'header.html';
+?>
 <main>
     <div class="container listeRecette">
         <h2>Recettes aléatoires</h2>
