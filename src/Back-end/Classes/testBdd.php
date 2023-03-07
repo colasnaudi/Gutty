@@ -1,11 +1,14 @@
 <?php
 include 'BaseDeDonnees.php';
+include 'Ingredient.php';
 
 $bddGutty = new BaseDeDonnees();
 
-$pseudo = "userTest";
-$mail = "test@iutbayonne.univ-pau.fr";
-$mdp = "root";
-$mdp2 = "root";
+$table = 'Ingredient';
 
-$bddGutty->bannirUtilsateur($pseudo);
+$resultat = $bddGutty->getColumns($table);
+
+
+$object = $bddGutty->objectToObject($resultat, $table);
+
+var_dump($object);

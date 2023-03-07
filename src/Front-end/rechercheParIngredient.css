@@ -2,108 +2,13 @@
    padding: 0;
    margin: 0;
 }
-
-body{
-   background-color: #f2f2f2;
-   font-family: 'Open Sans', sans-serif;
-}
-
-header{
-   display:inline-block;
-   width: 100%;
-   height: 180px;
-   background-color: #fff;
-   box-shadow: 0 0 10px #ccc;
-}
-
-header h1{
-   font-size: 70px;
-   padding-top: 55px;
-   padding-left: 43%;
-   font-family: andale mono, monospace;
-   color: #11F837;
-   text-shadow: 0 2px 3px rgba(85, 85, 85, 0.5);
-}
-
-header select{
-   float: right;
-   margin-right: 50px;
-   margin-top: -7%;
-   width: 100px;
-   height: 100px;
-   border: 1px solid #ccc;
-   border-radius: 5px;
-   padding: 5px;
-}
-
-header img{
-   padding-top: 15px;
-   width: 150px;
-   height: 150px;
-   float: left;
-   margin: 0 20px;
-}
-
+/*
 main{
    display: grid;
-   grid-template-columns: 1fr 1fr;
+   grid-template-columns: 1fr 1fr 1fr;
 }
 
-.recherche_box {
-   position: absolute;
-   top: 20%;
-   left: 75%;
-   transform: translate(-50%, 50%);
-   background: #FFB400;
-   height: 40px;
-   border-radius: 40px;
-   padding: 10px;
-}
-.recherche_box:hover > #ing_recherche {
-   width: 240px;
-   padding: 0 6px;
-}
-.recherche_box:hover > .bouton_recherche {
-   background: white;
-   color: black;
-}
-.bouton_recherche {
-   float: right;
-   width: 40px;
-   height: 40px;
-   border-radius: 50%;
-   background: #2f3640;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   transition: 0.4s;
-   color: white;
-   cursor: pointer;
-   text-decoration: none;
-}
-.bouton_recherche > i {
-   font-size: 20px;
-}
-#ing_recherche {
-   border: none;
-   background: none;
-   outline: none;
-   float: left;
-   padding: 0;
-   color: black;
-   font-size: 16px;
-   transition: 0.4s;
-   line-height: 40px;
-   width: 0;
-   font-weight: bold;
-}
-
-input::placeholder {
-   color: black;
-   opacity: 1;
-}
-
-.ingredient
+main .ingredient
 {
    margin-left: 5px;
    display:inline-block;
@@ -115,16 +20,16 @@ input::placeholder {
    margin-top: 10px;
 }
 
-#list{
+main #list{
    font-size:  1.5em;
    margin-left: 90px;
 }
 
-.checkbox{
+main .checkbox{
    margin-left: 25px;
 }
 
-#SaisirQte, #RechercheSansQte{
+main #SaisirQte, #RechercheSansQte{
    background-color: #FFB400;
    border: none;
    color: white;
@@ -139,25 +44,25 @@ input::placeholder {
    margin-top: 20px;
 }
 
-#SaisirQte:hover, #RechercheSansQte:hover{
+main #SaisirQte:hover, #RechercheSansQte:hover{
    transition: 0.4s;
    background-color: #FFB400;
    color: black;
 }
 
-#SaisirQte:active, #RechercheSansQte:active{
+main #SaisirQte:active, #RechercheSansQte:active{
    background-color:#FFB400;
    color: #886000;
 }
 
-#ing{
+main #ing{
    font-size: 1.5em;
    margin-left: 10px;
    margin-top: 15px;
    margin-bottom: -10px;
 }
 
-input[type="number"]{
+main input[type="number"]{
    width: 50px;
    height: 30px;
    border-radius: 5px;
@@ -165,23 +70,23 @@ input[type="number"]{
    margin-left: 10px;
 }
 
-.recherche{
+main .recherche{
    margin-top: 20px;
    margin-left: 44%;
    align-items: center;
 }
 
-.recherche_ing{
+main .recherche_ing{
    font-size: 24px ;
    display: flex;
    flex-direction: row;
    margin-left: 10px;
-    margin-top: 5px;
+   margin-top: 5px;
    align-items: center;
    transition: all 0.3s ease-in-out;
 }
 
-#value{
+main #value{
    background-color: #FFB400;
    border: none;
    color: white;
@@ -197,23 +102,23 @@ input[type="number"]{
    transition: all 0.3s ease-in-out;
 }
 
-#value:hover{
+main #value:hover{
    transition: 0.4s;
    background-color: #886000;
    color: #FFB400;
 }
 
-#value:active{
+main #value:active{
    background-color:#FFB400;
    color: #886000;
 }
 
-p{
+main p{
    font-size: 20px;
    margin-left: 10px;
 }
 
-.recette{
+main .recette{
    margin-left: 5px;
    display:inline-block;
    width: 70%;
@@ -221,4 +126,106 @@ p{
    background-color: #fff;
    box-shadow: 0 0 10px #ccc;
    margin-top: 10px;
+}*/
+
+main{
+   display: flex;
+   heigth:100vh;
+   width: 100%;
+}
+
+main .recherche_box_ing{
+   margin-left: 15px;
+   display:inline-block;
+   grid-column: 1;
+   width: 35%;
+   height: 40px;
+   border-radius: 10px;
+   background-color: #FFB400;
+   margin-top: 10px;
+}
+
+main #ing_recherche{
+   font-size:  1.5em;
+   margin-left: 10px;
+   width: 85%;
+   color: black;
+   background: #FFB400;
+   border: none;
+}
+
+main #ing_recherche:focus{
+    outline: none;
+}
+
+main .bouton_rechercher_ing{
+    border: none;
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: all 0.3s ease-in-out;
+}
+
+main .liste-ingredient_bouton{
+    display: grid;
+    grid-template-columns: 65% 35%;
+    margin-left: 10px;
+    margin-top: 10px;
+    height: 100%;
+    width: 100%;
+}
+
+main .Ingredients{
+    grid-column: 1;
+    margin-left: 5px;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
+    margin-top: 10px;
+}
+
+main .ingredient{
+    display: inline-block;
+    width: 135px;
+    height: 45px;
+    background-color: #D9D9D9;
+    box-shadow: 0 2px 5px #919191;
+    border-radius: 10px;
+    margin:10px;
+}
+
+main .ingredient label {
+    font-size: 1.2em;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: -10px;
+    width: 135px;
+    height: 45px;
+}
+
+main .ingredient input{
+    display: none;
+}
+
+main .bouton_suivant{
+    grid-column: 2;
+}
+
+main .bouton_suivant input{
+    background-color: #FFB400;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 12px;
+    margin-left: 90px;
+    margin-top: 20px;
 }

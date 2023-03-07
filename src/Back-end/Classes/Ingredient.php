@@ -13,7 +13,7 @@ class Ingredient
     /**
      * @brief Id de l'ingrédient
      */
-    private int $idIngredient;
+    private string $imageIngredient;
 
     /**
      * @brief Nom de l'ingrédient
@@ -40,10 +40,10 @@ class Ingredient
      * @param [in] float $prix
      * @param [in] string $unite
      */
-    public function __construct(int $idIngredient, string $nomIngredient, float $prix, string $unite)
+    public function __construct(string $nomIngredient, string $imageIngredient, float $prix, string $unite)
     {
-        $this->idIngredient = $idIngredient;
         $this->nomIngredient = $nomIngredient;
+        $this->imageIngredient = $imageIngredient;
         $this->prix = $prix;
         $this->unite = $unite;
     }
@@ -54,18 +54,18 @@ class Ingredient
      * @param [in] int $idIngredient L'id de l'ingrédient
      * @return void
      */
-    public function setIdIngredient(int $idIngredient): void
+    public function setImageIngredient(string $imageIngredient): void
     {
-        $this->idIngredient = $idIngredient;
+        $this->imageIngredient = $imageIngredient;
     }
 
     /**
      * @brief Getter de l'id de l'ingrédient
      * @return L'id de l'ingrédient
      */
-    public function getIdIngredient(): int
+    public function getImageIngredient(): int
     {
-        return $this->idIngredient;
+        return $this->imageIngredient;
     }
 
     /**
@@ -145,9 +145,9 @@ class Ingredient
      * @param [in] string $uniteX
      * @return void
      */
-    public function modifierIngredient(int $idX, string $nomIngredientX, float $prixX, string $uniteX):void
+    public function modifierIngredient(string $imageX, string $nomIngredientX, float $prixX, string $uniteX):void
     {
-        $this->idIngredient = $idX;
+        $this->imageIngredient = $imageX;
         $this->nomIngredient = $nomIngredientX;
         $this->prix = $prixX;
         $this->unite = $uniteX;
