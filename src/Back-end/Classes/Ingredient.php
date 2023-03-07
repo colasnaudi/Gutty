@@ -63,7 +63,7 @@ class Ingredient
      * @brief Getter de l'id de l'ingrédient
      * @return L'id de l'ingrédient
      */
-    public function getImageIngredient(): int
+    public function getImageIngredient(): string
     {
         return $this->imageIngredient;
     }
