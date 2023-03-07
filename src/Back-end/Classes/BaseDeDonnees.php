@@ -88,6 +88,18 @@ class BaseDeDonnees
         else { return false; }
     }
 
+    private function checkMail(string $mail): bool {
+        $sql = "SELECT COUNT(*) as nbMail FROM Utilisateur WHERE mail = ?";
+        $resultat = $this->connexion->prepare($sql);
+        $resultat->execute([$mail]);
+        $valResultat = $resultat->fetch(PDO::FETCH_ASSOC);
+        if ($valResultat !== false) {
+            if ($valResultat['nbMail'] == 1) { return true; }
+            else { return false; }
+        }
+        else { return false; }
+    }
+
     /**
      * @brief Vérifie si le nom et le mot de passe saisie par l'utilisateur existe dans la base de données
      * @param [in] string $nom Le nom de l'utilisateur
@@ -102,8 +114,12 @@ class BaseDeDonnees
             //Si le mot de passe ne correspond pas au mot de passe de l'utilisateur dans la base de données
             else { return false; }
         }
+        else if ($this->checkMail($nom)) {
+            if ($this->checkMdp($this->getNom($nom), $mdp)) { return true; }
+            else { return false; }
+        }
         //Si le nom n'existe pas dans la base de données
-        else { "Mauvais pseudo"; return false; }
+        else { return false; }
     }
 
     /*------------------GESTION DE L'INSCRIPTION------------------*/
@@ -239,7 +255,6 @@ class BaseDeDonnees
         $resultat->execute([$cle, $nom]);
         return $cle;
     }
-
 
     /*------------------GESTION DES RECETTES------------------*/
     public function rechercherParNom(string $nom): array {
