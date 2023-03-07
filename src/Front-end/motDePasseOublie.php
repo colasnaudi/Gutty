@@ -12,12 +12,11 @@
 <body>
 
 <main>
-
     <div class="logoGutty">
         <img src="logo.png"
     </div>
     <div class=""formulaire>
-        <form action="connexionUtilisateur" class="connexionUtilisateur">
+        <form action="../Back-end/mailMdpOublier.php" class="connexionUtilisateur" method="post">
             <div class="btns">
                 <input type="text" id="nom" name="nom" placeholder="Nom d'utilisateur ou adresse mail" required>
 

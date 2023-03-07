@@ -214,6 +214,33 @@ class BaseDeDonnees
         if($this->existeUtilsateur($nom)) { $this->retirerUtilisateur($nom); }
     }
 
+    public function getMail(string $nom) {
+        $sql = "SELECT mail FROM Utilisateur WHERE nom = ?";
+        $resultat = $this->connexion->prepare($sql);
+        $resultat->execute([$nom]);
+        $valResultat = $resultat->fetch(PDO::FETCH_ASSOC);
+        if ($valResultat !== false) { return $valResultat['mail']; }
+        else { return false; }
+    }
+
+    public function getNom(string $mail){
+        $sql = "SELECT nom FROM Utilisateur WHERE mail = ?";
+        $resultat = $this->connexion->prepare($sql);
+        $resultat->execute([$mail]);
+        $valResultat = $resultat->fetch(PDO::FETCH_ASSOC);
+        if ($valResultat !== false) { return $valResultat['nom']; }
+        else { return false; }
+    }
+
+    public function genererCleVerif(string $nom): string {
+        $cle = bin2hex(random_bytes(16));
+        $sql = "UPDATE Utilisateur SET cle = ? WHERE nom = ?";
+        $resultat = $this->connexion->prepare($sql);
+        $resultat->execute([$cle, $nom]);
+        return $cle;
+    }
+
+
     /*------------------GESTION DES RECETTES------------------*/
     public function rechercherParNom(string $nom): array {
         $listeResultat = array();
