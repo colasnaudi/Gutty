@@ -287,6 +287,23 @@ class BaseDeDonnees
         return $ingredients;
     }
 
+
+    public function getColumns(string $table): array {
+        $sql = "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = ? AND TABLE_SCHEMA = 'poc_sae11'";
+        $resultat = $this->connexion->prepare($sql);
+        $resultat->execute([$table]);
+        $valResultat = $resultat->fetchAll(PDO::FETCH_OBJ);
+        return $valResultat;
+    }
+
+    function objectToObject($instance, $className) {
+        return unserialize(sprintf(
+            'O:%d:"%s"%s',
+            strlen($className),
+            $className,
+            strstr(strstr(serialize($instance), '"'), ':')
+        ));
+        
     private function getIdRecette(string $nom): int {
         $sql = "SELECT id FROM Recette WHERE nom = ?";
         $resultat = $this->connexion->prepare($sql);

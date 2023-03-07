@@ -23,7 +23,7 @@ function recherche_ingredient() {
             else
             {
                 //Affiche l'ingrédient en block
-                ingredients[i].style.display = "block";
+                ingredients[i].style.display = "flex";
             }
         }
     }
@@ -33,5 +33,17 @@ function recherche_ingredient() {
         for(let i = 0; i < ingredients.length; i++){
             ingredients[i].style.display = "inline-block";
         }
+    }
+}
+
+//fonction changeant la couleur des blocks ayant pour id le nom de l'ingrédient sélectionnés et cochant la checkbox cachée quand l'ingrédient est cliqué. Comparer les labels des ingrédients aux id des checkbox pour les cocher et aux id de la div pour changer de couleur
+
+function changeColor(event) {
+    var cible = event.currentTarget;
+    if (event.target.checked) {
+        cible.style.backgroundColor = "#35a922";
+        document.getElementById(cible.id).checked = true;
+    } else {
+        cible.style.backgroundColor = "#D9D9D9";
     }
 }

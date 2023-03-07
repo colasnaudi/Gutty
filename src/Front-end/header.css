@@ -11,6 +11,11 @@ header{
     position: fix;
 }
 
+header a{
+    text-decoration: none;
+    color: black;
+}
+
 .partieHaute{
     width: 100%;
     height: 70%;

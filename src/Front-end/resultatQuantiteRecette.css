@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.recipes-container {
+    margin-left: 10px;
+}
+
+.recipes-container h2 {
+    font-size: 1.5em;
+}
+
+.recipe{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+    height: 80px;
+    background-color: #D9D9D9;
+    border-radius: 20px;
+    margin: 15px 20px 15px 10px;
+    box-shadow: 0 5px 5px 0 #888888;
+}
+
+.recipe:hover {
+    transform: scale(1.02);
+}
+
+.recipes-container a{
+    text-decoration: none;
+    color: black;
+    font-size: 22px;
+}
+
+.recipes-container a:hover{
+    color:black;
+}
+
+.recipe

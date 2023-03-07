@@ -65,10 +65,9 @@ h4 {
 
 .IngredientRecette{
     display: inline-block;
-    text-align: right;
+    text-align: center;
     font-size: 20px;
     padding-top: 30px;
-    padding-left: 30px;
     width: 40%;
 }
 
@@ -137,11 +136,6 @@ form button {
     padding-bottom: 1px;
 }
 
-
-
-
-
-
 .vignettePreparation{
     display: inline-block;
     width: 98.5%;
@@ -180,7 +174,9 @@ input::placeholder{
     text-align: left;
 }
 
-
+.partieCommentaires input:focus{
+    outline: none;
+}
 
 h3 {
     padding-left: 30px;
