@@ -54,7 +54,7 @@ foreach ($livreRecette->getListeRecettes() as $recette) {
             foreach ($quantite as $index => $quantiteRecette) {
                     echo "<div class='vignette'>";
 
-                    echo "<p class='IngredientRecette'>" . $ingredient[$index]->getNomIngredient() . "</p>";
+                    echo "<p class='IngredientRecette'>" . $ingredient[$index]->getImageIngredient() . "</p>";
                     echo "<p>" . $quantiteRecette;
                     echo "<p> " . $ingredient[$index]->getUnite() . "</p>";
                 echo "</div>";
@@ -78,7 +78,7 @@ foreach ($livreRecette->getListeRecettes() as $recette) {
 
         echo "<h3>Donnez votre avis</h3>";
         echo "<div class='partieCommentaires'>";
-        echo"<form action='Commentaires' method='post'>";
+        echo"<form action='Commentaires' method='post' id='comm'>";
         echo"<div class='btns'>";
                         echo"<input type='text' placeholder= 'Ajouter un avis'/></div>";
                     echo"<div>";

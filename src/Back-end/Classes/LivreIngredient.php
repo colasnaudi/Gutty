@@ -85,16 +85,15 @@ class livreIngredient
     /**
      * @brief Permet de rechercher un ingrédient dans le livre d'ingrédients
      * @param [in] string $nomIngredient Le nom de l'ingrédient à rechercher
-     * @return L'intrédient recherché s'il est trouvé ou null sinon
+     * @return Ingredient|null L'intrédient recherché s'il est trouvé ou null sinon
      */
-    public function retrouverIngredient(string $nomIngredient): Ingredient
+    public function retrouverIngredient(string $nomIngredient): ?Ingredient
     {
-        $ingredientX = null;
         foreach ($this->listeIngredients as $ingredient) {
-            if ($ingredient->getNomIngredient() == $nomIngredient) {
+            if ($ingredient->getImageIngredient() == $nomIngredient) {
                 return $ingredient;
             }
         }
-        return $ingredientX;
+        return null;
     }
 }
