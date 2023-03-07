@@ -1,7 +1,17 @@
 <?php
 include 'BaseDeDonnees.php';
+include 'Ingredient.php';
 
 $bddGutty = new BaseDeDonnees();
+
+$table = 'Ingredient';
+
+$resultat = $bddGutty->getColumns($table);
+
+
+$object = $bddGutty->objectToObject($resultat, $table);
+
+var_dump($object);
 
 $listeIngredient = array("Lait", "Farine", "Oeuf", "Tomate");
 $listeQte = array(1, 2, 3, 4);
@@ -14,3 +24,4 @@ echo "Recette ajoutée";
 
 $bddGutty->ajouterRecette("TestAjoutPhp", "Etape1 : Je test \nEtape2 : Je test encore", "X", "10min", 2, $listeIngredient, $listeQte);
 echo "Recette ajoutée";
+
