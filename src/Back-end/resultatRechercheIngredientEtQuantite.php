@@ -47,29 +47,31 @@ $recetteTriee = $frigo->trierSuggestionAvecQuantite($recettePossible);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Front-end/rechercheParIngredient.css">
+    <link rel="stylesheet" href="../Front-end/resultatQuantiteRecette.css">
     <link rel="stylesheet" href="../Front-end/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <title>Accueil-Gutty</title>
 </head>
 <body>
-    <header>
-        <img src="../Front-end/logo.png" alt="Logo temporaire">
-        <h1>Gutty</h1>
-    </header>
+    <?php
+    include_once "../Front-end/header.html";
+    ?>
+<main>
         <div class="recipes-container">
             <h2>Liste de recettes <?php echo "(".sizeof($recetteTriee)." recettes)" ?></h2>
             <ul>
                 <?php for($i=0; $i<sizeof($recetteTriee); $i++){ ?>
+                <a href="../Front-end/afficherUneRecette.php?recette=<?php echo $recetteTriee[$i]->getNomRecette(); ?>">
                     <li class="recipe">
-                        <a href="../Front-end/afficherUneRecette.php?recette=<?php echo $recetteTriee[$i]->getNomRecette(); ?>">
                         <?php
                         echo $recetteTriee[$i]->getNomRecette() . " : " . $recetteTriee[$i]->getPrixRecette() . "€"
                             . "   Prix d'ajout = " . $recetteTriee[$i]->getPrixAjout() . "€"
                             . "  Pourcentage utilisé =  " . $recetteTriee[$i]->getPourcentageFrigo() . "%"?>
                     </li>
+                </a>
                 <?php } ?>
             </ul>
         </div>
+</main>
 </body>
 </html>
