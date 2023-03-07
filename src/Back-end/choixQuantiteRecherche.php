@@ -9,16 +9,17 @@
     <title>Accueil-Gutty</title>
 </head>
 <body>
-<header>
-    <img src="../Front-end/logo.png" alt="Logo temporaire">
-    <h1>Gutty</h1>
-</header>
-
+<?php
+include_once '../Front-end/header.html';
+?>
 <div class="recherche">
 <?php
 include 'Classes/Ingredient.php';
 include 'Classes/LivreIngredient.php';
 include 'Classes/Frigo.php';
+
+
+
 
 session_start();
 $livreIngredient = $_SESSION['livreIngredient'];

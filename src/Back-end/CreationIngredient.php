@@ -29,13 +29,13 @@ $aneth=new Ingredient(22, "Aneth", 0.5, "unite");
 $poisson=new Ingredient(23, "Poisson", 1.5, "kg");
 $poireau=new Ingredient(24, "Poireau", 1.5, "kg");
 $chou=new Ingredient(25, "Chou", 1.5, "kg");
-$saucisse=new Ingredient(26, "Saucisse", 1.5, "kg");
-$lentilles=new Ingredient(27, "Lentilles", 1.5, "kg");
-$riz=new Ingredient(28, "Riz", 1.5, "kg");
+$saucisse=new Ingredient(26, "Saucisse", 10.42, "kg");
+$lentilles=new Ingredient(27, "Lentilles", 3.3, "kg");
+$riz=new Ingredient(28, "Riz", 1.98, "kg");
 $haricot=new Ingredient(29, "Haricot", 1.5, "kg");
-$steak=new Ingredient(30, "Steak", 1.5, "kg");
-$cotelette=new Ingredient(31, "Cotelette", 1.5, "kg");
-$boeuf=new Ingredient(16, "Boeuf", 16.5, "kg");
+$steak=new Ingredient(30, "Steak", 24.06, "kg");
+$cotelette=new Ingredient(31, "Cotelette", 39.90, "kg");
+$boeuf=new Ingredient(16, "Cote de boeuf", 30, "kg");
 
 //RECETTE DE PAIN - Prix : 2,65€
 $listeIngredientRecette1 = array($farine, $eau, $sel, $levure);
