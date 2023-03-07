@@ -36,7 +36,6 @@ function recherche_ingredient() {
     }
 }
 
-//fonction changeant la couleur des blocks ayant pour id le nom de l'ingrédient sélectionnés et cochant la checkbox cachée quand l'ingrédient est cliqué. Comparer les labels des ingrédients aux id des checkbox pour les cocher et aux id de la div pour changer de couleur
 
 function changeColor(event) {
     var cible = event.currentTarget;
