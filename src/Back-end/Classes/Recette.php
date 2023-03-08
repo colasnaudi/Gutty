@@ -11,12 +11,6 @@
 class Recette
 {
     //ATTRIBUTS
-
-    /**
-     * @brief L'id de la recette
-     */
-    private int $idRecette;
-
     /**
      * @brief Le nom de la recette
      */
@@ -95,8 +89,7 @@ class Recette
      * @param [in] array $ingredients La liste des ingrédients de la recette
      * @param [in] array $quantites La liste des quantités des ingrédients de la recette
      */
-    public function __construct(int $id, string $nom, string $etape, string $image, string $temps, int $etat, int $nbPersonne, int $idUtilisateur, array $ingredients, array $quantites) {
-        $this->idRecette = $id;
+    public function __construct(string $nom, string $etape, string $image, string $temps, int $etat, int $nbPersonne, int $idUtilisateur, array $ingredients, array $quantites) {
         $this->nomRecette = $nom;
         $this->etapeRecette = $etape;
         $this->imageRecette = $image;
@@ -110,24 +103,6 @@ class Recette
     }
 
     //ENCAPSULATION
-
-    /**
-     * @brief Getter de l'id de la recette
-     * @return L'id de la recette
-     */
-    public function getIdRecette(): int{
-        return $this->idRecette;
-    }
-
-    /**
-     * @brief Setter de l'id de la recette
-     * @param [in] int $idRecette L'id de la recette
-     * @return void
-     */
-    public function setIdRecette(int $idRecette): void{
-        $this->idRecette = $idRecette;
-    }
-
     /**
      * @brief Setter du nom de la recette
      * @param [in] string $nomRecette Le nom de la recette
