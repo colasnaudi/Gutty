@@ -33,13 +33,15 @@
 <main>
     <div class="container">
         <div class="boutonRecettes">
-            <button>Mes recettes</button>
+            <button onclick="window.location.href='mesRecettes.php'">Mes recettes</button>
         </div>
         <div class="boutonModif">
-            <button>Modifier mon compte</button>
+            <button onclick="window.location.href='modifCompte.php'">Modifier mon compte</button>
+            <a href="modifCompte.php"></a>
         </div>
         <div class="boutonSupprimer">
-            <button>Supprimer mon compte</button>
+            <button onclick="window.location.href='supprimerCompte.php'">Supprimer mon compte</button>
+
         </div>
         <div class="profilUser">
             <a href="">
@@ -50,7 +52,7 @@
         </div>
     </div>
     <div class="boutonDeconnexion">
-        <button>DECONNEXION</button>
+        <button onclick="window.location.href='connexion.php'">DECONNEXION</button>
     </div>
 
 </main>

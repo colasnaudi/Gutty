@@ -96,33 +96,7 @@ header{
     font-size: 300%;
 }
 
-.container{
-    display: grid;
-}
 
-.profilUser{
-    margin:40px 70% 0 0;
-    background: #FFB400;
-    border-radius: 50%;
-    width: 120px;
-    height: 120px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
-    margin-left: 75%;
-    margin-top: -15%;
-
-}
-
-.profilUser i{
-    color: black;
-    margin: 5px 0 0 5px;
-    font-size: 100px;
-    padding: 5px;
-}
-
-h3{
-    margin-left: -45%;
-    font-size: 200%;
-}
 
 .boutonRecettes button{
     font-size: 150%;
@@ -133,7 +107,7 @@ h3{
     margin-top: 3%;
     margin-left: 17%;
     width: 20%;
-    background-color: lightgreen;
+    background-color: green;
 }
 .boutonRecettes button:hover{
     background: green;

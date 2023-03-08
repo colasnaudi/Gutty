@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="modifCompte.css">
+    <link rel="stylesheet" href="mesRecettes.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <title>Modifier mon compte</title>
+    <title>Mes recettes</title>
 </head>
 <body>
 <header>
@@ -33,25 +33,14 @@
 <main>
     <div class="container">
         <div class="boutonRecettes">
-            <button onclick="window.location.href='mesRecettes.php'">Mes recettes</button>
+            <button>Mes recettes</button>
         </div>
         <div class="boutonModif">
-            <button>Modifier mon compte</button>
+            <button onclick="window.location.href='modifCompte.php'">Modifier mon compte</button>
+            <a href="modifCompte.php"></a>
         </div>
         <div class="boutonSupprimer">
-            <button onclick="window.location.href='supprimerCompte.php'">Supprimer mon compte</button>
-        </div>
-        <div class="profilUser">
-            <img id="aperçu-photo" src="#" alt="Aperçu photo de profil">
-            <label for="photo-profil" class="bouton-photo">Changer la photo de profil</label>
-            <input type="file" id="photo-profil" name="photo-profil" accept="image/*">
-            <script src="modifCompte.js"></script>
-
-
-            <div class="inputModif">
-                <input type="text" placeholder="PSEUDO"></input>
-                <input type="text" placeholder="Adresse@mail.com"></input>
-            </div>
+            <button>Supprimer mon compte</button>
         </div>
     </div>
     <div class="boutonDeconnexion">
@@ -66,4 +55,4 @@
 </footer>
 </body>
 </html>
-<?php
+

@@ -102,20 +102,17 @@ header{
 
 
 .profilUser{
-    margin:40px 70% 0 0;
-    background: #FFB400;
-    border-radius: 50%;
+
     width: 120px;
     height: 120px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
     margin-left: 75%;
-    margin-top: -14%;
+    margin-top: -15%;
 
 }
 
 
 #photo-profil {
-    margin-top: -50%;
+    margin-top: -80%;
     margin-left: -30%;
     background-color: #4CAF50; /* couleur de fond du bouton */
     color: white; /* couleur du texte du bouton */
@@ -125,25 +122,38 @@ header{
     border-radius: 5px; /* bordure arrondie */
 
 }
+.bouton-photo {
+    border-radius: 5%;
+    display: block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
 
 .bouton-photo:hover {
     background-color: #3e8e41; /* couleur de fond du bouton lorsqu'il est survolé */
 }
 
+input[type="file"] {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
 #aperçu-photo {
+    text-align: center;
     max-width: 120px;
     border-radius: 50%;
 }
 
-.profilUser i{
-    color: black;
-    margin: 5px 0 0 5px;
-    font-size: 100px;
-    padding: 5px;
-}
+
 
 .inputModif{
-    margin-top:10%;
+    margin-top:30%;
     margin-left: -30%;
     padding-bottom: 10%;
 }
@@ -172,6 +182,9 @@ input::placeholder{
     width: 20%;
     background-color: lightgreen;
 }
+.boutonRecettes button:hover{
+    background: green;
+}
 
 .boutonModif button{
     font-size: 150%;
@@ -196,6 +209,9 @@ input::placeholder{
     margin-left: 17%;
     width: 20%;
     background-color: lightcoral;
+}
+.boutonSupprimer button:hover{
+    background: red;
 }
 
 

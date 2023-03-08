@@ -96,33 +96,7 @@ header{
     font-size: 300%;
 }
 
-.container{
-    display: grid;
-}
 
-.profilUser{
-    margin:40px 70% 0 0;
-    background: #FFB400;
-    border-radius: 50%;
-    width: 120px;
-    height: 120px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
-    margin-left: 75%;
-    margin-top: -15%;
-
-}
-
-.profilUser i{
-    color: black;
-    margin: 5px 0 0 5px;
-    font-size: 100px;
-    padding: 5px;
-}
-
-h3{
-    margin-left: -45%;
-    font-size: 200%;
-}
 
 .boutonRecettes button{
     font-size: 150%;
@@ -154,7 +128,7 @@ h3{
     background: green;
 }
 
-.boutonSupprimer button{
+#popup-button{
 
     font-size: 150%;
     border: none;
@@ -166,9 +140,64 @@ h3{
     width: 20%;
     background-color: lightcoral;
 }
-.boutonSupprimer button:hover{
-    background: red;
+
+
+.popup-container {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
 }
+
+.popup-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 1px solid black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+
+}
+
+.popup-content input {
+    background-color: lightgrey;
+    width: 100%;
+
+}
+
+
+
+
+
+
+
+#close-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 20%;
+}
+
+.boutons{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
+    border-radius: 10%;
+}
+
+
+
 
 
 
@@ -180,12 +209,13 @@ h3{
     border-radius: 15px;
     padding-bottom: 10px;
     padding-top: 10px;
-    margin-top: 8%;
-    margin-left: 40%;
-    width: 20%;
+    margin-top: 10.8%;
+    margin-left: 36.5%;
+    width: 27%;
     background-color: firebrick;
     color: white;
 }
+
 
 /*
 button:hover{
