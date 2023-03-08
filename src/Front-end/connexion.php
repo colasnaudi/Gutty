@@ -31,7 +31,7 @@
                 </form>
             </div>
             <div class="creerCompte">
-                <button type="submit" onclick="window.location.href = 'creerCompte.php';">Créer un compte</button>
+                <button type="submit" onclick="window.location.href = '../Front-end/creerCompte.php';">Créer un compte</button>
             </div>
         </main>
 </body>

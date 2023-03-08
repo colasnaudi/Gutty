@@ -88,6 +88,18 @@ class BaseDeDonnees
         else { return false; }
     }
 
+    private function checkMail(string $mail): bool {
+        $sql = "SELECT COUNT(*) as nbMail FROM Utilisateur WHERE mail = ?";
+        $resultat = $this->connexion->prepare($sql);
+        $resultat->execute([$mail]);
+        $valResultat = $resultat->fetch(PDO::FETCH_ASSOC);
+        if ($valResultat !== false) {
+            if ($valResultat['nbMail'] == 1) { return true; }
+            else { return false; }
+        }
+        else { return false; }
+    }
+
     /**
      * @brief Vérifie si le nom et le mot de passe saisie par l'utilisateur existe dans la base de données
      * @param [in] string $nom Le nom de l'utilisateur
@@ -102,8 +114,12 @@ class BaseDeDonnees
             //Si le mot de passe ne correspond pas au mot de passe de l'utilisateur dans la base de données
             else { return false; }
         }
+        else if ($this->checkMail($nom)) {
+            if ($this->checkMdp($this->getNom($nom), $mdp)) { return true; }
+            else { return false; }
+        }
         //Si le nom n'existe pas dans la base de données
-        else { "Mauvais pseudo"; return false; }
+        else { return false; }
     }
 
     /*------------------GESTION DE L'INSCRIPTION------------------*/
@@ -214,6 +230,32 @@ class BaseDeDonnees
         if($this->existeUtilsateur($nom)) { $this->retirerUtilisateur($nom); }
     }
 
+    public function getMail(string $nom) {
+        $sql = "SELECT mail FROM Utilisateur WHERE nom = ?";
+        $resultat = $this->connexion->prepare($sql);
+        $resultat->execute([$nom]);
+        $valResultat = $resultat->fetch(PDO::FETCH_ASSOC);
+        if ($valResultat !== false) { return $valResultat['mail']; }
+        else { return false; }
+    }
+
+    public function getNom(string $mail){
+        $sql = "SELECT nom FROM Utilisateur WHERE mail = ?";
+        $resultat = $this->connexion->prepare($sql);
+        $resultat->execute([$mail]);
+        $valResultat = $resultat->fetch(PDO::FETCH_ASSOC);
+        if ($valResultat !== false) { return $valResultat['nom']; }
+        else { return false; }
+    }
+
+    public function genererCleVerif(string $nom): string {
+        $cle = bin2hex(random_bytes(16));
+        $sql = "UPDATE Utilisateur SET cle = ? WHERE nom = ?";
+        $resultat = $this->connexion->prepare($sql);
+        $resultat->execute([$cle, $nom]);
+        return $cle;
+    }
+
     /*------------------GESTION DES RECETTES------------------*/
     public function rechercherParNom(string $nom): array {
         $listeResultat = array();
@@ -245,4 +287,64 @@ class BaseDeDonnees
         return $ingredients;
     }
 
+
+    public function getColumns(string $table): array {
+        $sql = "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = ? AND TABLE_SCHEMA = 'poc_sae11'";
+        $resultat = $this->connexion->prepare($sql);
+        $resultat->execute([$table]);
+        $valResultat = $resultat->fetchAll(PDO::FETCH_OBJ);
+        return $valResultat;
+    }
+
+    function objectToObject($instance, $className) {
+        return unserialize(sprintf(
+            'O:%d:"%s"%s',
+            strlen($className),
+            $className,
+            strstr(strstr(serialize($instance), '"'), ':')
+        ));
+        
+    private function getIdRecette(string $nom): int {
+        $sql = "SELECT id FROM Recette WHERE nom = ?";
+        $resultat = $this->connexion->prepare($sql);
+        $resultat->execute([$nom]);
+        $valResultat = $resultat->fetch(PDO::FETCH_ASSOC);
+        return $valResultat['id'];
+    }
+
+    private function getIdIngredient(string $nom): int {
+        $sql = "SELECT id FROM Ingredient WHERE nom = ?";
+        $resultat = $this->connexion->prepare($sql);
+        $resultat->execute([$nom]);
+        $valResultat = $resultat->fetch(PDO::FETCH_ASSOC);
+        return $valResultat['id'];
+    }
+
+    private function getIdUtilisateur(string $nom): int {
+        $sql = "SELECT id FROM Utilisateur WHERE nom = ?";
+        $resultat = $this->connexion->prepare($sql);
+        $resultat->execute([$nom]);
+        $valResultat = $resultat->fetch(PDO::FETCH_ASSOC);
+        return $valResultat['id'];
+    }
+
+    public function insererUneRecette(string $nom, string $etape, string $image, string $temps, int $nbPersonnes, int $idUtilisateur): void {
+        $sql = "INSERT INTO Recette(nom, etape, image, temps, nbPersonnes, idUtilisateur) VALUES(?, ?, ?, ?, ?, ?)";
+        $resultat = $this->connexion->prepare($sql);
+        $resultat->execute([$nom, $etape, $image, $temps, $nbPersonnes, $idUtilisateur]);
+    }
+
+    public function insererDansComposer(string $nomRecette, array $nomIngredient, array $quantiteIngredient): void {
+        $sql = "INSERT INTO Composer(idRecette, idIngredient, quantiteIngredient) VALUES(?, ?, ?)";
+        $resultat = $this->connexion->prepare($sql);
+        for ($i = 0; $i < count($nomIngredient); $i++) {
+            $resultat->execute([$this->getIdRecette($nomRecette), $this->getIdIngredient($nomIngredient[$i]), $quantiteIngredient[$i]]);
+        }
+    }
+
+    public function ajouterRecette(string $nom, string $etape, string $image, string $temps, int $nbPersonnes, array $nomIngredient, array $quantiteIngredient): void {
+        $idUtilisateur = $this->getIdUtilisateur(/*$_SESSION['nom']*/'Angel');
+        $this->insererUneRecette($nom, $etape, $image, $temps, $nbPersonnes, $idUtilisateur);
+        $this->insererDansComposer($nom, $nomIngredient, $quantiteIngredient);
+    }
 }

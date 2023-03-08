@@ -4,25 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="rechercheParIngredient.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <title>Accueil-Gutty</title>
+    <title>RechercheParIngrédient-Gutty</title>
 </head>
 <body>
-<header>
-    <img src="logo.png" alt="Logo temporaire">
-    <h1>Gutty</h1>
-</header>
+<?php
+include_once 'header.html';
+?>
 <main>
-    <div class="recherche_box">
-        <input type="text" name="" id="ing_recherche" onkeyup="recherche_ingredient()" placeholder="Tapez pour rechercher" />
-        <a class="bouton_recherche" href="#">
+    <div class="recherche_box_ing">
+        <input type="text" name="" id="ing_recherche" onkeyup="recherche_ingredient()" placeholder="Rechercher ingrédient" />
+        <a class="bouton_rechercher_ing" href="#">
             <i class="fa fa-search" aria-hidden="true"></i>
         </a>
     </div>
-    <form action="../Back-end/resultatRechercheIngredientSansQuantite.php" method="post">
+    <form action="../Back-end/resultatRechercheIngredientSansQuantite.php" method="post" class="liste-ingredient_bouton">
     <div class="Ingredients">
-            <ol id="list">
                 <?php
                 include_once '../Back-end/CreationIngredient.php';
                 include_once '../Back-end/Classes/Recette.php';
@@ -31,19 +31,18 @@
                 $livreRecette = $_SESSION['livreRecette'];
 
                 foreach($livreIngredient->getListeIngredients() as $ingredient) {
-                        echo '<li class="ingredient">';
-                        echo '<label for="'.$ingredient->getNomIngredient().'">'.$ingredient->getNomIngredient().'</label>';
-                        echo '<input type="checkbox" id="'.$ingredient->getNomIngredient().'" name="Ingredient[]" value="'.$ingredient->getNomIngredient().'" class="checkbox"/>';
-                        echo '</li>';
+                        echo '<div class="ingredient" id="id'.$ingredient->getImageIngredient().'"onclick="changeColor(event)">';
+                        echo '<label for="'.$ingredient->getImageIngredient().'">'.$ingredient->getImageIngredient().'</label>';;
+                        echo '<input type="checkbox" id="'.$ingredient->getImageIngredient().'" name="Ingredient[]" value="'.$ingredient->getImageIngredient().'" class="checkbox"/>';
+                        echo '</div>';
                     }
                 ?>
-            </ol>
-            </div>
+        </div>
+        <div class="bouton_suivant">
             <input type="submit" value="Saisir les quantités" id="SaisirQte" formaction="../Back-end/choixQuantiteRecherche.php">
             <input type="submit" value="Rechercher sans quantité" id="RechercheSansQte" formaction="../Back-end/resultatRechercheIngredientSansQuantite.php">
+        </div>
         </form>
-
-
 </main>
 <footer>
 
