@@ -7,18 +7,25 @@
  * @version 1.0
  * @date 2022-12-12
  */
+
 class Ingredient
 {
     //ATTRIBUTS
+
     /**
      * @brief Id de l'ingrédient
      */
-    private string $imageIngredient;
+    private int $idIngredient;
 
     /**
      * @brief Nom de l'ingrédient
      */
     private string $nomIngredient;
+
+    /**
+     * @brief Image de l'ingrédient
+     */
+    private string $imageIngredient;
 
     /**
      * @brief Prix de l'ingrédient
@@ -40,8 +47,9 @@ class Ingredient
      * @param [in] float $prix
      * @param [in] string $unite
      */
-    public function __construct(string $nomIngredient, string $imageIngredient, float $prix, string $unite)
+    public function __construct(int $idIngredient, string $nomIngredient, string $imageIngredient, float $prix, string $unite)
     {
+        $this->idIngredient = $idIngredient;
         $this->nomIngredient = $nomIngredient;
         $this->imageIngredient = $imageIngredient;
         $this->prix = $prix;
@@ -54,18 +62,18 @@ class Ingredient
      * @param [in] int $idIngredient L'id de l'ingrédient
      * @return void
      */
-    public function setImageIngredient(string $imageIngredient): void
+    public function setIdIngredient(int $idIngredient): void
     {
-        $this->imageIngredient = $imageIngredient;
+        $this->idIngredient = $idIngredient;
     }
 
     /**
      * @brief Getter de l'id de l'ingrédient
      * @return L'id de l'ingrédient
      */
-    public function getImageIngredient(): string
+    public function getIdIngredient(): int
     {
-        return $this->imageIngredient;
+        return $this->idIngredient;
     }
 
     /**
@@ -85,6 +93,25 @@ class Ingredient
     public function getNomIngredient(): string
     {
         return $this->nomIngredient;
+    }
+
+    /**
+     * @brief Setter de l'image de l'ingrédient
+     * @param [in] string $imageIngredient L'image de l'ingrédient
+     * @return void
+     */
+    public function setImageIngredient(string $imageIngredient): void
+    {
+        $this->imageIngredient = $imageIngredient;
+    }
+
+    /**
+     * @brief Getter de l'image de l'ingrédient
+     * @return L'image de l'ingrédient
+     */
+    public function getImageIngredient(): string
+    {
+        return $this->imageIngredient;
     }
 
     /**

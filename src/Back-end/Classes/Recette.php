@@ -11,10 +11,47 @@
 class Recette
 {
     //ATTRIBUTS
+
+    /**
+     * @brief L'id de la recette
+     */
+    private int $idRecette;
+
     /**
      * @brief Le nom de la recette
      */
     private string $nomRecette;
+
+    /**
+     * @brief Etapes de la recette
+     */
+    private string $etapeRecette;
+
+    /**
+     * @brief Image de la recette
+     */
+    private string $imageRecette;
+
+    /**
+     * @brief Temps de préparation de la recette
+     */
+    private string $temps;
+
+    /**
+     * @brief Etat de la recette
+     * @details L'état de la recette peut être 0 (non validée), 1 (validée) ou 2 (refusée)
+     */
+    private int $etat;
+
+    /**
+     * @brief Le nombre de personne pour la recette
+     */
+    private int $nbPersonne;
+
+    /**
+     * @brief L'id de l'utilisateur qui a créé la recette
+     */
+    private int $idUtilisateur;
 
     /**
      * @brief Le prix à ajouter pour la recette
@@ -58,46 +95,37 @@ class Recette
      * @param [in] array $ingredients La liste des ingrédients de la recette
      * @param [in] array $quantites La liste des quantités des ingrédients de la recette
      */
-    public function __construct(string $nom, array $ingredients, array $quantites) {
+    public function __construct(int $id, string $nom, string $etape, string $image, string $temps, int $etat, int $nbPersonne, int $idUtilisateur, array $ingredients, array $quantites) {
+        $this->idRecette = $id;
         $this->nomRecette = $nom;
+        $this->etapeRecette = $etape;
+        $this->imageRecette = $image;
+        $this->temps = $temps;
+        $this->etat = $etat;
+        $this->nbPersonne = $nbPersonne;
+        $this->idUtilisateur = $idUtilisateur;
         $this->ingredients = $ingredients;
         $this->quantites = $quantites;
         $this->prixRecette = $this->calculerPrixRecette();
     }
 
     //ENCAPSULATION
+
     /**
-     * @brief Setter du pourcentage du frigo
-     * @param [in] float $pourcentageFrigo Le prix du frigo
+     * @brief Getter de l'id de la recette
+     * @return L'id de la recette
+     */
+    public function getIdRecette(): int{
+        return $this->idRecette;
+    }
+
+    /**
+     * @brief Setter de l'id de la recette
+     * @param [in] int $idRecette L'id de la recette
      * @return void
      */
-    public function setPourcentageFrigo(float $pourcentageFrigo): void{
-        $this->pourcentageFrigo = $pourcentageFrigo;
-    }
-
-    /**
-     * @brief Getter du pourcentage du frigo
-     * @return Le prix du frigo
-     */
-    public function getPourcentageFrigo(): float{
-        return $this->pourcentageFrigo;
-    }
-
-    /**
-     * @brief Getter des ingrédients de la recette
-     * @return La liste des ingrédients de la recette
-     */
-    public function getIngredients(): array{
-        return $this->ingredients;
-    }
-
-    /**
-     * @brief Setter des ingrédients de la recette
-     * @param [in] array $ingredients La liste des ingrédients de la recette
-     * @return void
-     */
-    public function setIngredients(array $ingredients): void{
-        $this->ingredients = $ingredients;
+    public function setIdRecette(int $idRecette): void{
+        $this->idRecette = $idRecette;
     }
 
     /**
@@ -120,6 +148,120 @@ class Recette
     }
 
     /**
+     * @brief Getter des étapes de la recette
+     * @return Les étapes de la recette
+     */
+    public function getEtapeRecette(): string
+    {
+        return $this->etapeRecette;
+    }
+
+    /**
+     * @brief Setter des étapes de la recette
+     * @param [in] string $etapeRecette Les étapes de la recette
+     * @return void
+     */
+    public function setEtapeRecette(string $etapeRecette): void
+    {
+        $this->etapeRecette = $etapeRecette;
+    }
+
+    /**
+     * @brief Getter de l'image de la recette
+     * @return L'image de la recette
+     */
+    public function getImageRecette(): string
+    {
+        return $this->imageRecette;
+    }
+
+    /**
+     * @brief Setter de l'image de la recette
+     * @param [in] string $imageRecette L'image de la recette
+     * @return void
+     */
+    public function setImageRecette(string $imageRecette): void
+    {
+        $this->imageRecette = $imageRecette;
+    }
+
+    /**
+     * @brief Getter du temps de la recette
+     * @return Le temps de la recette
+     */
+    public function getTemps(): string
+    {
+        return $this->temps;
+    }
+
+    /**
+     * @brief Setter du temps de la recette
+     * @param [in] string $temps Le temps de la recette
+     * @return void
+     */
+    public function setTemps(string $temps): void
+    {
+        $this->temps = $temps;
+    }
+
+    /**
+     * @brief Getter de l'état de la recette
+     * @return L'état de la recette
+     */
+    public function getEtat(): int
+    {
+        return $this->etat;
+    }
+
+    /**
+     * @brief Setter de l'état de la recette
+     * @param [in] int $etat L'état de la recette
+     * @return void
+     */
+    public function setEtat(int $etat): void
+    {
+        $this->etat = $etat;
+    }
+
+    /**
+     * @brief Getter du nombre de personne de la recette
+     * @return Le nombre de personne de la recette
+     */
+    public function getNbPersonne(): int
+    {
+        return $this->nbPersonne;
+    }
+
+    /**
+     * @brief Setter du nombre de personne de la recette
+     * @param [in] int $nbPersonne Le nombre de personne de la recette
+     * @return void
+     */
+    public function setNbPersonne(int $nbPersonne): void
+    {
+        $this->nbPersonne = $nbPersonne;
+    }
+
+    /**
+     * @brief Getter de l'id de l'utilisateur de la recette
+     * @return L'id de l'utilisateur de la recette
+     */
+    public function getIdUtilisateur(): int
+    {
+        return $this->idUtilisateur;
+    }
+
+    /**
+     * @brief Setter de l'id de l'utilisateur de la recette
+     * @param [in] int $idUtilisateur L'id de l'utilisateur de la recette
+     * @return void
+     */
+    public function setIdUtilisateur(int $idUtilisateur): void
+    {
+        $this->idUtilisateur = $idUtilisateur;
+    }
+
+    /**
      * @brief Setter du prix à ajouter
      * @param [in] float|int $prixAjout Le prix à ajouter
      * @return void
@@ -139,6 +281,23 @@ class Recette
     }
 
     /**
+     * @brief Setter du pourcentage du frigo
+     * @param [in] float $pourcentageFrigo Le prix du frigo
+     * @return void
+     */
+    public function setPourcentageFrigo(float $pourcentageFrigo): void{
+        $this->pourcentageFrigo = $pourcentageFrigo;
+    }
+
+    /**
+     * @brief Getter du pourcentage du frigo
+     * @return Le prix du frigo
+     */
+    public function getPourcentageFrigo(): float{
+        return $this->pourcentageFrigo;
+    }
+
+    /**
      * @brief Setter du prix de la recette
      * @param [in] float|int $prixRecette Le prix de la recette
      * @return void
@@ -155,6 +314,23 @@ class Recette
     public function getPrixRecette(): float|int
     {
         return $this->prixRecette;
+    }
+
+    /**
+     * @brief Getter des ingrédients de la recette
+     * @return La liste des ingrédients de la recette
+     */
+    public function getIngredients(): array{
+        return $this->ingredients;
+    }
+
+    /**
+     * @brief Setter des ingrédients de la recette
+     * @param [in] array $ingredients La liste des ingrédients de la recette
+     * @return void
+     */
+    public function setIngredients(array $ingredients): void{
+        $this->ingredients = $ingredients;
     }
 
     /**
@@ -184,7 +360,6 @@ class Recette
     }
 
     //MÉTHODES USUELLES
-
     /**
      * @brief Affiche les ingrédients de la recette, leur quantité et leur unité
      * @return Le message d'affichage
@@ -311,6 +486,11 @@ class Recette
         $this->setPrixAjout($this->prixRecette - $pourcentageFrigo);
     }
 
+    /**
+     * @brief On compte le nombre d'ingrédient en commun entre la recette et le frigo saisit
+     * @param [in] Frigo $unFrigo
+     * @return void
+     */
     public function compterIngredientCommun(Frigo $unFrigo): void {
         $nbIngredientCommun = 0;
         foreach ($unFrigo->getIngredients() as $ingredient) {
