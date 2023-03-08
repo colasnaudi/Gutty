@@ -296,13 +296,15 @@ class BaseDeDonnees
         return $valResultat;
     }
 
-    function objectToObject($instance, $className) {
+    function objectToObject($instance, $className)
+    {
         return unserialize(sprintf(
             'O:%d:"%s"%s',
             strlen($className),
             $className,
             strstr(strstr(serialize($instance), '"'), ':')
         ));
+    }
         
     private function getIdRecette(string $nom): int {
         $sql = "SELECT id FROM Recette WHERE nom = ?";
