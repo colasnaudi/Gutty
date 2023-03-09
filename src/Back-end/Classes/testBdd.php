@@ -1,27 +1,26 @@
 <?php
 include 'BaseDeDonnees.php';
-include 'Ingredient.php';
+include 'Recette.php';
 
 $bddGutty = new BaseDeDonnees();
 
-$table = 'Ingredient';
+$table = 'Recette';
 
-$resultat = $bddGutty->getColumns($table);
+$resultat = $bddGutty->getRecettes();
 
+$listeRecettes = array();
 
-$object = $bddGutty->objectToObject($resultat, $table);
+foreach ($resultat as $r){
+    echo '<p>';
+    $recette = new Recette($r['nom'],[],[]);
+    echo $r['nom'];
+    $recette->setIngredients($bddGutty->getIngredientsRecette($r['id']));
+    //var_dump($bddGutty->getIngredientsRecette($r['nom']));
+    var_dump($bddGutty->getNomIngredients($recette->getIngredients()));
+    array_push($listeRecettes, $recette);
+    echo '</p>';
+}
 
-var_dump($object);
+//afficher les ingrédients de chaque recette
 
-$listeIngredient = array("Lait", "Farine", "Oeuf", "Tomate");
-$listeQte = array(1, 2, 3, 4);
-//MARCHE
-/*
-$bddGutty->insererUneRecette("TestAjoutPhp", "Etape1 : Je test \n Etape2 : Je test encore", "X", "10min", 2, 1);
-$bddGutty->insererDansComposer("TestAjoutPhp", $listeIngredient, $listeQte);
-echo "Recette ajoutée";
-*/
-
-$bddGutty->ajouterRecette("TestAjoutPhp", "Etape1 : Je test \nEtape2 : Je test encore", "X", "10min", 2, $listeIngredient, $listeQte);
-echo "Recette ajoutée";
-
+var_dump($listeRecettes);
