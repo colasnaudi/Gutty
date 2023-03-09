@@ -27,7 +27,7 @@ include_once 'header.html';
             echo '<div class="recette">';
             foreach($resultatRecettes as $recette) {
                 echo '<div class="col-lg-3 col-sm-12 col-xs-12 vignette">';
-                $recette = new Recette($recette['nom'],[],[]);
+                $recette = new Recette($recette['nom'],'etape','image','temps',0,0,0,[],[]);
                 //echo '<img src="'.$recette['image'].'" alt="Image de la recette" >';
                 echo '<div class="col-lg-12">';
                 //echo '<h3>'.$recette['nom'].'</h3>';
