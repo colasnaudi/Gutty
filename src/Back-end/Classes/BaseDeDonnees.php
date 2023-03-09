@@ -23,7 +23,7 @@ class BaseDeDonnees
     /**
      * @brief Connexion à la base de données
      */
-    private PDO $connexion;
+    public PDO $connexion;
 
     //CONSTRUCTEUR
     public function __construct()
@@ -276,35 +276,63 @@ class BaseDeDonnees
         return $valResultat;
     }
 
-    public function getIngredientsRecette(int $id): array {
-        $sql = "SELECT nomIngredient FROM Composer WHERE idRecette = ?";
+    public function getIngredientsRecette(string $nom): array {
+        $sql = "SELECT idIngredient FROM Composer WHERE idRecette = ?";
         $resultat = $this->connexion->prepare($sql);
-        $resultat->execute([$id]);
+        $resultat->execute([$nom]);
         $valResultat = $resultat->fetchAll(PDO::FETCH_ASSOC);
         $ingredients = array_map(function($ingredient) {
-            return $ingredient['nomIngredient'];
+            return $ingredient['idIngredient'];
         }, $valResultat);
+        var_dump($valResultat);
         return $ingredients;
     }
 
+    //recuperer le nom des ingredients à partir des ID
+    public function getNomIngredients(array $ingredients): array {
+        $listeIngredients = array();
+        foreach ($ingredients as $ingredient) {
+            $sql = "SELECT nom FROM Ingredient WHERE id = ?";
+            $resultat = $this->connexion->prepare($sql);
+            $resultat->execute([$ingredient]);
+            $valResultat = $resultat->fetch(PDO::FETCH_ASSOC);
+            $listeIngredients[] = $valResultat['nom'];
+        }
+        return $listeIngredients;
+    }
 
-    public function getColumns(string $table): array {
+    /*public function getColumns(string $table): array {
         $sql = "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = ? AND TABLE_SCHEMA = 'poc_sae11'";
         $resultat = $this->connexion->prepare($sql);
         $resultat->execute([$table]);
         $valResultat = $resultat->fetchAll(PDO::FETCH_OBJ);
         return $valResultat;
+    }*/
+
+    //fonction qui permet de récupérer les recettes de la base de données
+    public function getRecettes(): array {
+        $sql = "SELECT * FROM Recette";
+        $resultat = $this->connexion->prepare($sql);
+        $resultat->execute();
+        $valResultat = $resultat->fetchAll(PDO::FETCH_ASSOC);
+        return $valResultat;
     }
 
-    function objectToObject($instance, $className)
-    {
-        return unserialize(sprintf(
-            'O:%d:"%s"%s',
-            strlen($className),
-            $className,
-            strstr(strstr(serialize($instance), '"'), ':')
-        ));
-    }
+    //fonction permettant de récupérer les ingrédients des recettes de la liste précédente
+    /*public function getIngredientsRecette(array $recettes): array {
+        $ingredients = array();
+        foreach ($recettes as $recette) {
+            $sql = "SELECT nomIngredient FROM Composer WHERE nomRecette = ?";
+            $resultat = $this->connexion->prepare($sql);
+            $resultat->execute([$recette['nom']]);
+            $valResultat = $resultat->fetchAll(PDO::FETCH_ASSOC);
+            $ingredients[$recette['nom']] = array_map(function($ingredient) {
+                return $ingredient['nomIngredient'];
+            }, $valResultat);
+        }
+        return $ingredients;
+    }*/
+
         
     private function getIdRecette(string $nom): int {
         $sql = "SELECT id FROM Recette WHERE nom = ?";
