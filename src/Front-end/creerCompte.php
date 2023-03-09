@@ -40,7 +40,7 @@
             </div>
         </form>
         <div class="connexion">
-            <button type="submit" onclick="window.location.href = 'connexion.php';">J'ai un compte</button>
+            <button type="submit" onclick="window.location.href = '../Front-end/connexion.php';">J'ai un compte</button>
         </div>
 </main>
 </body>
