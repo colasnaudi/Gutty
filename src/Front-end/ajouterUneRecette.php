@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Front-end/ajouterUneRecette.css">
+    <script type = "text/javascript" src="ajouterUneRecette.js" defer></script>
     <title>Ajouter votre recette</title>
 </head>
 <body>
@@ -12,49 +13,51 @@
 include_once "../Front-end/header.html";
 ?>
 <main>
-    <body>
-        <div class="formulaire">
-                <form method="post" action="../Back-end/verifAjoutRecette.php" class="formRecette">
-                    <div class="recette">
-                        <div class="titre">
-                            <label for="titre">Titre</label>
-                            <br>
-                            <input type="text" name="titre" id="titre" placeholder="Titre de la recette" required>
-                            <br>
-                        </div>
-                        <div class="nbPersonne">
-                            <label for="nbPersonnes">Nombre de personnes</label>
-                            <br>
-                            <input type="number" name="nbPersonnes" id="nbPersonnes" value=2 min=1 required>
-                            <br>
-                        </div>
-                        <div class="tempsRecette">
-                            <label for="tempsRecette">Temps de la recette</label>
-                            <br>
-                            <input type="number" name="tempsRecette" id="heuresTempsRecette" value=0 min=0 max=24 required>
-                            <span>heures</span>
-                            <input type="number" name="tempsRecette" id="minutesTempsRecette" min=0 max=59 required>
-                            <span>minutes</span>
-                            <br>
-                        </div>
-                        <div class="typeCuisson">
-                            <label for="typeCuisson">Type de cuisson</label>
-                            <br>
-                            <button>Four</button>
-                            <button>Plaque</button>
-                            <button>Pas de cuisson</button>
-                            <button>Autre</button>
-                        </div>
-                        <div class="imageRecette">
-                            <label for="image">Image</label>
-                            <br>
-                            <input type="text" name="image" id="image" placeholder="Image" required>
-                            <br>
-                        </div>
+    <div class="formulaire">
+            <form method="post" action="../Back-end/verifAjoutRecette.php" class="formRecette">
+                <div class="recette">
+                    <div class="titre">
+                        <label for="titre">Titre</label>
+                        <br>
+                        <input type="text" name="titre" id="titre" placeholder="Titre de la recette" required>
+                        <br>
+                    </div>
+                    <div class="nbPersonne">
+                        <label for="nbPersonnes">Nombre de personnes</label>
+                        <br>
+                        <input type="number" name="nbPersonnes" id="nbPersonnes" value=2 min=1 required>
+                        <br>
+                    </div>
+                    <div class="tempsRecette">
+                        <label for="tempsRecette">Temps de la recette</label>
+                        <br>
+                        <input type="number" name="tempsRecette" id="heuresTempsRecette" value=0 min=0 max=24 required>
+                        <span>heures</span>
+                        <input type="number" name="tempsRecette" id="minutesTempsRecette" min=0 max=59 required>
+                        <span>minutes</span>
+                        <br>
+                    </div>
+                    <div class="typeCuisson">
+                        <label for="typeCuisson">Type de cuisson</label>
+                        <br>
+                        <div id="btn1" onclick="changeBackground1()">Four</div>
+                        <div id="btn2" onclick="changeBackground2()">Plaque</div>
+                        <div id="btn3" onclick="changeBackground3()">Sans plaque</div>
+                        <div id="btn4" onclick="changeBackground4()">Autre</div>
+                    </div>
+                    <div class="imageRecette">
+                        <label for="image">Image</label>
+                        <br>
+                        <img id="aperçu-photo" src="#" alt="Aperçu photo de profil">
+                        <input type="file" id="photo-profil" name="photo-profil" accept="image/*">
+                        <br>
+                    </div>
+                    <div class="boutonSuivant">
                         <input type="submit" value="Ajouter les ingrédients">
                     </div>
-                </form>
-            </div>
+                </div>
+            </form>
+        </div>
     </body>
 </main>
 </body>
