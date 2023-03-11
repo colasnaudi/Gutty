@@ -381,10 +381,10 @@ class BaseDeDonnees
         return $valResultat['id'];
     }
 
-    public function insererUneRecette(string $nom, string $etape, string $image, string $temps, int $nbPersonnes, int $idUtilisateur): void {
-        $sql = "INSERT INTO Recette(nom, etape, image, temps, nbPersonnes, idUtilisateur) VALUES(?, ?, ?, ?, ?, ?)";
+    public function insererUneRecette(string $nom, string $etape, string $image, string $temps, int $nbPersonnes, int $idUtilisateur, string $typeCuisson): void {
+        $sql = "INSERT INTO Recette(nom, etape, image, temps, nbPersonnes, idUtilisateur, typeCuisson) VALUES(?, ?, ?, ?, ?, ?, ?)";
         $resultat = $this->connexion->prepare($sql);
-        $resultat->execute([$nom, $etape, $image, $temps, $nbPersonnes, $idUtilisateur]);
+        $resultat->execute([$nom, $etape, $image, $temps, $nbPersonnes, $idUtilisateur, $typeCuisson]);
     }
 
     public function insererDansComposer(string $nomRecette, array $nomIngredient, array $quantiteIngredient): void {
