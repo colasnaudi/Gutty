@@ -110,12 +110,21 @@ class BaseDeDonnees
         //On vérifie si le nom existe dans la base de données
         if ($this->checkNom($nom)) {
             //On vérifie si le mot de passe correspond au mot de passe de l'utilisateur dans la base de données
-            if ($this->checkMdp($nom, $mdp)) { return true; }
+            if ($this->checkMdp($nom, $mdp)) {
+                //lancer une session
+                session_start();
+                $_SESSION['nom'] = $nom;
+                return true;
+            }
             //Si le mot de passe ne correspond pas au mot de passe de l'utilisateur dans la base de données
             else { return false; }
         }
         else if ($this->checkMail($nom)) {
-            if ($this->checkMdp($this->getNom($nom), $mdp)) { return true; }
+            if ($this->checkMdp($this->getNom($nom), $mdp)) {
+                session_start();
+                $_SESSION['nom'] = $this->getNom($nom);
+                return true;
+            }
             else { return false; }
         }
         //Si le nom n'existe pas dans la base de données
@@ -182,7 +191,11 @@ class BaseDeDonnees
             //On vérifie si le mail est disponible
             if ($this->disponibleMail($mail)) {
                 //On vérifie si les deux mots de passe sont identiques
-                if ($this->verifMdpIdentique($mdp, $mdp2)) { return array('verif' => true); }
+                if ($this->verifMdpIdentique($mdp, $mdp2)) {
+                    session_start();
+                    $_SESSION['nom']= $nom;
+                    return array('verif' => true);
+                }
                 //Si les deux mots de passe ne sont pas identiques
                 else { return array('verif' => false, 'erreur' => 'mdp'); }
             }

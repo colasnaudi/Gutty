@@ -35,7 +35,7 @@
 <main>
     <div class="container">
         <div class="boutonRecettes">
-            <button>Mes recettes</button>
+            <button onclick="window.location.href='mesRecettes.php'">Mes recettes</button>
         </div>
         <div class="boutonModif">
             <button onclick="window.location.href='modifCompte.php'">Modifier mon compte</button>
@@ -62,7 +62,6 @@
                 </div>
             </div>
             <script src="supprimerCompte.js"></script>
-
 
 
 

@@ -1,3 +1,10 @@
+<?php
+include_once "../Back-end/Classes/BaseDeDonnees.php";
+session_start();
+$nom=$_SESSION['nom'];
+$bdd = new BaseDeDonnees();
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -10,49 +17,37 @@
     <title>Mon compte</title>
 </head>
 <body>
-<header>
-    <div class="partieHaute">
-        <div class="logoEtTitre">
-            <a href="pageAccueil.php">
-                <img src="logo.png" alt="Logo temporaire">
-                <h1>Gutty</h1>
-            </a>
-        </div>
-        <div class="monCompte">
-            <a href="">
-                <i class="material-icons iconeCompte">person</i>
-            </a>
-        </div>
-    </div>
-    <div class="partieBasse">
-        <div class="bandeauCompte">
-            <button>Mon compte</button>
-        </div>
-    </div>
-</header>
-<main>
+<?php include_once "../Front-end/header.html"; ?>
+
+
     <div class="container">
         <div class="boutonRecettes">
             <button onclick="window.location.href='mesRecettes.php'">Mes recettes</button>
         </div>
-        <div class="boutonModif">
-            <button onclick="window.location.href='modifCompte.php'">Modifier mon compte</button>
-            <a href="modifCompte.php"></a>
-        </div>
-        <div class="boutonSupprimer">
-            <button onclick="window.location.href='supprimerCompte.php'">Supprimer mon compte</button>
-
+        <div class="boutonDeconnexion">
+            <button onclick="window.location.href='connexion.php'">DECONNEXION</button>
         </div>
         <div class="profilUser">
-            <a href="">
-                <i class="material-icons iconeCompte">person</i>
-            </a>
-            <h2>PSEUDO</h2>
-            <h3>Adresse@mail.com</h3>
+            <img id="aperçu-photo" src="#" alt="Aperçu photo de profil">
+            <label for="photo-profil" class="bouton-photo">Changer la photo de profil</label>
+            <input type="file" id="photo-profil" name="photo-profil" accept="image/*">
+            <script src="modifCompte.js"></script>
+
+
+
+
+            <div class="inputModif">
+
+                    <input type="text" placeholder=<?php echo $nom ?>  >
+
+                    <input type="text" placeholder=<?php echo  $bdd->getMail($nom) ?>>
+
+            </div>
         </div>
+
     </div>
-    <div class="boutonDeconnexion">
-        <button onclick="window.location.href='connexion.php'">DECONNEXION</button>
+    <div class="boutonSupprimer">
+        <button onclick="window.location.href='supprimerCompte.php'">Supprimer mon compte</button>
     </div>
 
 </main>
