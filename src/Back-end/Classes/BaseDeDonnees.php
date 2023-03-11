@@ -386,9 +386,9 @@ class BaseDeDonnees
         }
     }
 
-    public function ajouterRecette(string $nom, string $etape, string $image, string $temps, int $nbPersonnes, array $nomIngredient, array $quantiteIngredient): void {
+    public function ajouterRecette(string $nom, string $etape, string $image, string $temps, int $nbPersonnes, string $typeCuisson, array $nomIngredient, array $quantiteIngredient): void {
         $idUtilisateur = $this->getIdUtilisateur(/*$_SESSION['nom']*/'Angel');
-        $this->insererUneRecette($nom, $etape, $image, $temps, $nbPersonnes, $idUtilisateur);
+        $this->insererUneRecette($nom, $etape, $image, $temps, $nbPersonnes, $idUtilisateur, $typeCuisson);
         $this->insererDansComposer($nom, $nomIngredient, $quantiteIngredient);
     }
 }
