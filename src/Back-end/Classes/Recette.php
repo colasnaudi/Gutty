@@ -48,6 +48,12 @@ class Recette
     private int $idUtilisateur;
 
     /**
+     * @brief Le type de cuisson de la recette
+     * @details Le type de cuisson peut être four, plaque, sans plaque ou autre
+     */
+    private string $typeCuisson;
+
+    /**
      * @brief Le prix à ajouter pour la recette
      * @details C'est à dire le prix des ingrédients qui ne sont pas dans le frigo
      * @details Ce prix sera calculé en fonction des ingrédients d'un frigo et leur quantité
@@ -89,7 +95,7 @@ class Recette
      * @param [in] array $ingredients La liste des ingrédients de la recette
      * @param [in] array $quantites La liste des quantités des ingrédients de la recette
      */
-    public function __construct(string $nom, string $etape, string $image, string $temps, int $etat, int $nbPersonne, int $idUtilisateur, array $ingredients, array $quantites) {
+    public function __construct(string $nom, string $etape, string $image, string $temps, int $etat, int $nbPersonne, int $idUtilisateur, string $typeCuisson, array $ingredients, array $quantites) {
         $this->nomRecette = $nom;
         $this->etapeRecette = $etape;
         $this->imageRecette = $image;
@@ -97,6 +103,7 @@ class Recette
         $this->etat = $etat;
         $this->nbPersonne = $nbPersonne;
         $this->idUtilisateur = $idUtilisateur;
+        $this->typeCuisson = $typeCuisson;
         $this->ingredients = $ingredients;
         $this->quantites = $quantites;
         $this->prixRecette = $this->calculerPrixRecette();
@@ -234,6 +241,25 @@ class Recette
     public function setIdUtilisateur(int $idUtilisateur): void
     {
         $this->idUtilisateur = $idUtilisateur;
+    }
+
+    /**
+     * @brief Getter du type de cuisson de la recette
+     * @return Le type de cuisson de la recette
+     */
+    public function getTypeCuisson(): string
+    {
+        return $this->typeCuisson;
+    }
+
+    /**
+     * @brief Setter du type de cuisson de la recette
+     * @param [in] string $typeCuisson Le type de cuisson de la recette
+     * @return void
+     */
+    public function setTypeCuisson(string $typeCuisson): void
+    {
+        $this->typeCuisson = $typeCuisson;
     }
 
     /**

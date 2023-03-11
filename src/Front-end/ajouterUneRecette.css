@@ -29,13 +29,20 @@
 
 .titre input {
     width: 49%;
+    border: none;
 }
 
-.nbPersonne input {
-    width: 5%;
+input[type=text] {
+
+    border-bottom: 2px solid black;
 }
 
-.tempsRecette input {
+input[type=text]:focus {
+    outline: none;
+    border-bottom: 2px solid #35a922;
+}
+
+.nbPersonne input, .tempsRecette input {
     width: 5%;
 }
 
@@ -57,7 +64,7 @@ span {
     border: 1px solid black;
     margin-bottom: 5px;
     border-radius: 5px;
-    font-size: 18px;
+    font-size: 120%;
     background-color: #FFFFFF;
     text-align: center;
     padding-top: 18px;
@@ -72,9 +79,35 @@ img {
     max-height: 150px;
 }
 
-.boutonSuivant {
+#inputImageRecette {
+    padding-left: 0;
+    padding-top: 2px;
+    border: none;
+    font-size: 15px;
+}
+
+.ajouterIngredient {
     width: 100%;
     height: 10%;
+}
+
+input[type=submit] {
+    border: 2px solid black !important;
+    padding: 0;
+    font-size: 150%;
+    border: none;
+    font-weight: bold;
+    background-color: white;
+}
+
+input[type=submit]:hover {
+    background-color: #35a922;
+    color: black;
+    content: '\00bb';
+}
+
+input[type=submit]:after {
+
 }
 
 

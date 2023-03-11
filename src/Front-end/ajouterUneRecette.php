@@ -14,7 +14,7 @@ include_once "../Front-end/header.html";
 ?>
 <main>
     <div class="formulaire">
-            <form method="post" action="../Back-end/verifAjoutRecette.php" class="formRecette">
+            <form method="post" action="#" class="formRecette">
                 <div class="recette">
                     <div class="titre">
                         <label for="titre">Titre</label>
@@ -48,11 +48,11 @@ include_once "../Front-end/header.html";
                     <div class="imageRecette">
                         <label for="image">Image</label>
                         <br>
-                        <img id="aperçu-photo" src="#" alt="Aperçu photo de profil">
-                        <input type="file" id="photo-profil" name="photo-profil" accept="image/*">
+                        <img id="imageRecette" src="#" alt="Aperçu de l'image de la recette">
+                        <input type="file" id="inputImageRecette" name="inputImageRecette" accept="image/*" required>
                         <br>
                     </div>
-                    <div class="boutonSuivant">
+                    <div class="ajouterIngredient">
                         <input type="submit" value="Ajouter les ingrédients">
                     </div>
                 </div>

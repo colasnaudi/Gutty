@@ -31,8 +31,8 @@ function changeBackground4() {
     btn4.style.background = "#ffb400";
 }
 
-const inputPhoto = document.querySelector('#photo-profil');
-const apercuPhoto = document.querySelector('#aperçu-photo');
+const inputPhoto = document.querySelector('#inputImageRecette');
+const apercuPhoto = document.querySelector('#imageRecette');
 
 inputPhoto.addEventListener('change', function() {
     const file = this.files[0];
