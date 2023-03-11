@@ -19,16 +19,20 @@ include_once 'header.html';
             <?php
             //AFFICHER 7 RECETTES ALEATOIRES
             include '../Back-end/Classes/BaseDeDonnees.php';
+            include '../Back-end/Classes/Recette.php';
 
-            $bdd = new BaseDeDonnees();
-            $resultatRecettes = $bdd->recettesDeLaSemaine();
+            $bddGutty = new BaseDeDonnees();
+            $resultatRecettes = $bddGutty->recettesDeLaSemaine();
+
             echo '<div class="recette">';
             foreach($resultatRecettes as $recette) {
-                echo '<div class="col-lg-4 col-sm-12 col-xs-12 vignette">';
-                echo '<img src="'.$recette['image'].'" alt="Image de la recette" >';
+                echo '<div class="col-lg-3 col-sm-12 col-xs-12 vignette">';
+                $recette = new Recette($recette['nom'],'etape','image','temps',0,0,0, "",[],[]);
+                //echo '<img src="'.$recette['image'].'" alt="Image de la recette" >';
                 echo '<div class="col-lg-12">';
-                echo '<h3>'.$recette['nom'].'</h3>';
-                echo '<p>' . implode(', ', $bdd->getIngredientsRecette($recette['id'])) . '</p>';
+                //echo '<h3>'.$recette['nom'].'</h3>';
+                echo '<h3>'.$recette->getNomRecette().'</h3>';
+                //echo '<p>' . implode(', ', $bddGutty->getIngredientsRecette($recette['id'])) . '</p>';
                 echo '</div>';
                 echo '</div>';
             }

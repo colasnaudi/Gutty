@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" xmlns="http://www.w3.org/1999/html">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,8 +19,8 @@
       </a>
     </div>
     <div class="rechercheGenerale">
-      <input type="text" name="" id="generale_recherche" placeholder="Je recherche" />
       <form action="../Back-end/rechercheParNom.php" method="post" class="bouton_recherche_generale">
+        <input type="text" name="recetteRecherche" id="generale_recherche" placeholder="Je recherche" />
         <button><i class="material-icons iconeRecherche">search</i></button>
       </form>
     </div>
@@ -35,12 +35,10 @@
       <button><a href="../Front-end/rechercheParIngredient.php">Recherche par ingrédient</a></button>
     </div>
     <div class="ajouterRecette">
-      <button>Ajouter une recette</button>
+      <button><a href="../Front-end/ajouterUneRecette.php">Ajouter une recette</a></button>
     </div>
     <div class="recettesFavorites">
       <button>Recettes favorites</button>
     </div>
   </div>
 </header>
-</body>
-</html>

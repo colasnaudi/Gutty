@@ -23,7 +23,7 @@ class BaseDeDonnees
     /**
      * @brief Connexion à la base de données
      */
-    private PDO $connexion;
+    public PDO $connexion;
 
     //CONSTRUCTEUR
     public function __construct()
@@ -111,7 +111,6 @@ class BaseDeDonnees
         if ($this->checkNom($nom)) {
             //On vérifie si le mot de passe correspond au mot de passe de l'utilisateur dans la base de données
             if ($this->checkMdp($nom, $mdp)) {
-                //lancer une session
                 session_start();
                 $_SESSION['nom'] = $nom;
                 return true;
@@ -122,7 +121,10 @@ class BaseDeDonnees
         else if ($this->checkMail($nom)) {
             if ($this->checkMdp($this->getNom($nom), $mdp)) {
                 session_start();
+
                 $_SESSION['nom'] = $this->getNom($nom);
+                $_SESSION['nom'] = $nom;
+
                 return true;
             }
             else { return false; }
@@ -166,6 +168,10 @@ class BaseDeDonnees
         else { return false; }
     }
 
+    private function estMail(string $mail): bool {
+        return filter_var($mail, FILTER_VALIDATE_EMAIL);
+    }
+
     /**
      * @brief Vérifie si les deux mots de passes correspondent
      * @param [in] string $mdp Le premier mot de passe saisie par l'utilisateur
@@ -190,6 +196,7 @@ class BaseDeDonnees
         if ($this->disponibleNom($nom)) {
             //On vérifie si le mail est disponible
             if ($this->disponibleMail($mail)) {
+
                 //On vérifie si les deux mots de passe sont identiques
                 if ($this->verifMdpIdentique($mdp, $mdp2)) {
                     session_start();
@@ -198,6 +205,20 @@ class BaseDeDonnees
                 }
                 //Si les deux mots de passe ne sont pas identiques
                 else { return array('verif' => false, 'erreur' => 'mdp'); }
+                //On vérifie si le mail est valide
+                if ($this->estMail($mail)) {
+                    //On vérifie si les deux mots de passe sont identiques
+                    if ($this->verifMdpIdentique($mdp, $mdp2)) {
+                        session_start();
+                        $_SESSION['nom'] = $nom;
+                        return array('verif' => true);
+                    }
+                    //Si les deux mots de passe ne sont pas identiques
+                    else { return array('verif' => false, 'erreur' => 'mdp'); }
+                }
+                //Si le mail n'est pas valide
+                else { return array('verif' => false, 'erreur' => 'ecritureMail'); }
+
             }
             //Si le mail n'est pas disponible
             else { return array('verif' => false, 'erreur' => 'mail'); }
@@ -216,6 +237,8 @@ class BaseDeDonnees
      */
     public function ajouterUtilisateur(string $nom, string $mail, string $mdp): void {
         $mdpHash = password_hash($mdp, PASSWORD_ARGON2ID, ['memory_cost' => 2048, 'time_cost' => 4, 'threads' => 3]);
+        $nom = htmlentities($nom);
+        $mail = htmlentities($mail);
         $sql = "INSERT INTO Utilisateur(nom, mail, mdp) VALUES(?, ?, ?)";
         $resultat = $this->connexion->prepare($sql);
         $resultat->execute([$nom, $mail, $mdpHash]);
@@ -289,35 +312,63 @@ class BaseDeDonnees
         return $valResultat;
     }
 
-    public function getIngredientsRecette(int $id): array {
-        $sql = "SELECT nomIngredient FROM Composer WHERE idRecette = ?";
+    public function getIngredientsRecette(string $nom): array {
+        $sql = "SELECT idIngredient FROM Composer WHERE idRecette = ?";
         $resultat = $this->connexion->prepare($sql);
-        $resultat->execute([$id]);
+        $resultat->execute([$nom]);
         $valResultat = $resultat->fetchAll(PDO::FETCH_ASSOC);
         $ingredients = array_map(function($ingredient) {
-            return $ingredient['nomIngredient'];
+            return $ingredient['idIngredient'];
         }, $valResultat);
+        var_dump($valResultat);
         return $ingredients;
     }
 
+    //recuperer le nom des ingredients à partir des ID
+    public function getNomIngredients(array $ingredients): array {
+        $listeIngredients = array();
+        foreach ($ingredients as $ingredient) {
+            $sql = "SELECT nom FROM Ingredient WHERE id = ?";
+            $resultat = $this->connexion->prepare($sql);
+            $resultat->execute([$ingredient]);
+            $valResultat = $resultat->fetch(PDO::FETCH_ASSOC);
+            $listeIngredients[] = $valResultat['nom'];
+        }
+        return $listeIngredients;
+    }
 
-    public function getColumns(string $table): array {
+    /*public function getColumns(string $table): array {
         $sql = "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = ? AND TABLE_SCHEMA = 'poc_sae11'";
         $resultat = $this->connexion->prepare($sql);
         $resultat->execute([$table]);
         $valResultat = $resultat->fetchAll(PDO::FETCH_OBJ);
         return $valResultat;
+    }*/
+
+    //fonction qui permet de récupérer les recettes de la base de données
+    public function getRecettes(): array {
+        $sql = "SELECT * FROM Recette";
+        $resultat = $this->connexion->prepare($sql);
+        $resultat->execute();
+        $valResultat = $resultat->fetchAll(PDO::FETCH_ASSOC);
+        return $valResultat;
     }
 
-    function objectToObject($instance, $className)
-    {
-        return unserialize(sprintf(
-            'O:%d:"%s"%s',
-            strlen($className),
-            $className,
-            strstr(strstr(serialize($instance), '"'), ':')
-        ));
-    }
+    //fonction permettant de récupérer les ingrédients des recettes de la liste précédente
+    /*public function getIngredientsRecette(array $recettes): array {
+        $ingredients = array();
+        foreach ($recettes as $recette) {
+            $sql = "SELECT nomIngredient FROM Composer WHERE nomRecette = ?";
+            $resultat = $this->connexion->prepare($sql);
+            $resultat->execute([$recette['nom']]);
+            $valResultat = $resultat->fetchAll(PDO::FETCH_ASSOC);
+            $ingredients[$recette['nom']] = array_map(function($ingredient) {
+                return $ingredient['nomIngredient'];
+            }, $valResultat);
+        }
+        return $ingredients;
+    }*/
+
         
     private function getIdRecette(string $nom): int {
         $sql = "SELECT id FROM Recette WHERE nom = ?";
@@ -343,10 +394,10 @@ class BaseDeDonnees
         return $valResultat['id'];
     }
 
-    public function insererUneRecette(string $nom, string $etape, string $image, string $temps, int $nbPersonnes, int $idUtilisateur): void {
-        $sql = "INSERT INTO Recette(nom, etape, image, temps, nbPersonnes, idUtilisateur) VALUES(?, ?, ?, ?, ?, ?)";
+    public function insererUneRecette(string $nom, string $etape, string $image, string $temps, int $nbPersonnes, int $idUtilisateur, string $typeCuisson): void {
+        $sql = "INSERT INTO Recette(nom, etape, image, temps, nbPersonnes, idUtilisateur, typeCuisson) VALUES(?, ?, ?, ?, ?, ?, ?)";
         $resultat = $this->connexion->prepare($sql);
-        $resultat->execute([$nom, $etape, $image, $temps, $nbPersonnes, $idUtilisateur]);
+        $resultat->execute([$nom, $etape, $image, $temps, $nbPersonnes, $idUtilisateur, $typeCuisson]);
     }
 
     public function insererDansComposer(string $nomRecette, array $nomIngredient, array $quantiteIngredient): void {
@@ -357,9 +408,9 @@ class BaseDeDonnees
         }
     }
 
-    public function ajouterRecette(string $nom, string $etape, string $image, string $temps, int $nbPersonnes, array $nomIngredient, array $quantiteIngredient): void {
+    public function ajouterRecette(string $nom, string $etape, string $image, string $temps, int $nbPersonnes, string $typeCuisson, array $nomIngredient, array $quantiteIngredient): void {
         $idUtilisateur = $this->getIdUtilisateur(/*$_SESSION['nom']*/'Angel');
-        $this->insererUneRecette($nom, $etape, $image, $temps, $nbPersonnes, $idUtilisateur);
+        $this->insererUneRecette($nom, $etape, $image, $temps, $nbPersonnes, $idUtilisateur, $typeCuisson);
         $this->insererDansComposer($nom, $nomIngredient, $quantiteIngredient);
     }
 }

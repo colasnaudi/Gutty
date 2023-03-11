@@ -26,6 +26,9 @@
                 <?php if (isset($mailError) && $mailError): ?>
                     <div class="form-error">Cette adresse mail est déja utilisée</div>
                 <?php endif ?>
+                <?php if (isset($ecritureMailError) && $ecritureMailError): ?>
+                    <div class="form-error">Entrez une adresse mail valide</div>
+                <?php endif ?>
                 <input type="text" id="mail" name="mail" placeholder="Adresse mail" required>
 
                 <input type="password" id="mdp" name="mdp" placeholder="Mot de passe" required>
@@ -40,7 +43,7 @@
             </div>
         </form>
         <div class="connexion">
-            <button type="submit" onclick="window.location.href = 'connexion.php';">J'ai un compte</button>
+            <button type="submit" onclick="window.location.href = '../Front-end/connexion.php';">J'ai un compte</button>
         </div>
 </main>
 </body>
