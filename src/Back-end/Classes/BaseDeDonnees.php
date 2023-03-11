@@ -165,6 +165,10 @@ class BaseDeDonnees
         else { return false; }
     }
 
+    private function estMail(string $mail): bool {
+        return filter_var($mail, FILTER_VALIDATE_EMAIL);
+    }
+
     /**
      * @brief Vérifie si les deux mots de passes correspondent
      * @param [in] string $mdp Le premier mot de passe saisie par l'utilisateur
@@ -189,14 +193,19 @@ class BaseDeDonnees
         if ($this->disponibleNom($nom)) {
             //On vérifie si le mail est disponible
             if ($this->disponibleMail($mail)) {
-                //On vérifie si les deux mots de passe sont identiques
-                if ($this->verifMdpIdentique($mdp, $mdp2)) {
-                    session_start();
-                    $_SESSION['nom'] = $nom;
-                    return array('verif' => true);
+                //On vérifie si le mail est valide
+                if ($this->estMail($mail)) {
+                    //On vérifie si les deux mots de passe sont identiques
+                    if ($this->verifMdpIdentique($mdp, $mdp2)) {
+                        session_start();
+                        $_SESSION['nom'] = $nom;
+                        return array('verif' => true);
+                    }
+                    //Si les deux mots de passe ne sont pas identiques
+                    else { return array('verif' => false, 'erreur' => 'mdp'); }
                 }
-                //Si les deux mots de passe ne sont pas identiques
-                else { return array('verif' => false, 'erreur' => 'mdp'); }
+                //Si le mail n'est pas valide
+                else { return array('verif' => false, 'erreur' => 'ecritureMail'); }
             }
             //Si le mail n'est pas disponible
             else { return array('verif' => false, 'erreur' => 'mail'); }
