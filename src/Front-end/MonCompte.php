@@ -18,37 +18,40 @@ $bdd = new BaseDeDonnees();
 </head>
 <body>
 <?php include_once "../Front-end/header.html"; ?>
+<div class="bandeauCompte">
+    <button onclick="window.location.href='MonCompte.php'">Mon compte</button>
+</div>
 
+<div class="container">
 
-    <div class="container">
-        <div class="boutonRecettes">
-            <button onclick="window.location.href='mesRecettes.php'">Mes recettes</button>
-        </div>
-        <div class="boutonDeconnexion">
-            <button onclick="window.location.href='connexion.php'">DECONNEXION</button>
-        </div>
-        <div class="profilUser">
+    <div class="account-info">
+        <h1>Mon compte</h1>
+
+        <div class="profile-pic">
             <img id="aperçu-photo" src="#" alt="Aperçu photo de profil">
-            <label for="photo-profil" class="bouton-photo">Changer la photo de profil</label>
+            <label for="photo-profil" class="change-pic-btn">Changer la photo de profil</label>
             <input type="file" id="photo-profil" name="photo-profil" accept="image/*">
             <script src="modifCompte.js"></script>
-
-
-
-
-            <div class="inputModif">
-
-                    <input type="text" placeholder=<?php echo $nom ?>  >
-
-                    <input type="text" placeholder=<?php echo  $bdd->getMail($nom) ?>>
-
-            </div>
         </div>
+        <div class="user-info">
+            <label for="username">Pseudo:</label>
+            <input type="text" id="username" placeholder=<?php echo $nom ?> disabled>
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder=<?php echo  $bdd->getMail($nom) ?> disabled>
+        </div>
+    </div>
+    <div class="account-btns">
+        <button class="Deconnexion-btn" onclick="window.location.href='connexion.php'">DECONNEXION</button>
+        <button class="mesRecettes-btn" onclick="window.location.href='mesRecettes.php'">Mes recettes</button>
+    </div>
+    <div class="partieSupprimer">
+        <button class="partieSupprimer-btn" onclick="window.location.href='supprimerCompte.php'">Supprimer mon compte</button>
+    </div>
 
-    </div>
-    <div class="boutonSupprimer">
-        <button onclick="window.location.href='supprimerCompte.php'">Supprimer mon compte</button>
-    </div>
+
+</div>
+
+
 
 </main>
 

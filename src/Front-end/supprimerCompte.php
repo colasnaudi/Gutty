@@ -12,38 +12,10 @@
     <title>Supprimer mon compte</title>
 </head>
 <body>
-<header>
-    <div class="partieHaute">
-        <div class="logoEtTitre">
-            <a href="pageAccueil.php">
-                <img src="logo.png" alt="Logo temporaire">
-                <h1>Gutty</h1>
-            </a>
-        </div>
-        <div class="monCompte">
-            <a href="MonCompte.php">
-                <i class="material-icons iconeCompte">person</i>
-            </a>
-        </div>
-    </div>
-    <div class="partieBasse">
-        <div class="bandeauCompte">
-            <button onclick="window.location.href='MonCompte.php'">Mon compte</button>
-        </div>
-    </div>
-</header>
+<?php include_once "../Front-end/header.html"; ?>
 <main>
     <div class="container">
-        <div class="boutonRecettes">
-            <button onclick="window.location.href='mesRecettes.php'">Mes recettes</button>
-        </div>
-        <div class="boutonModif">
-            <button onclick="window.location.href='modifCompte.php'">Modifier mon compte</button>
-            <a href="modifCompte.php"></a>
-        </div>
-        <!--<div class="boutonSupprimer">
-            <button>Supprimer mon compte</button>
-        </div>-->
+
         <button id="popup-button">Supprimer mon compte</button>
         <div class="popup-container" id="popup-container">
             <div class="popup-content">
@@ -63,13 +35,6 @@
             </div>
             <script src="supprimerCompte.js"></script>
 
-
-
-
-    </div>
-    <div class="boutonDeconnexion">
-        <button onclick="window.location.href='connexion.php'">DECONNEXION</button>
-    </div>
 
 </main>
 

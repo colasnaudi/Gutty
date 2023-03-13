@@ -2,67 +2,69 @@
     padding: 0;
     margin: 0;
 }
-
-.boutonRecettes button{
-    font-size: 150%;
-    border: none;
-    border-radius: 10px;
-    padding-bottom: 10px;
-    padding-top: 10px;
-    margin-top: 3%;
-    margin-left: -15%;
-    width: 20%;
-    background-color: lightgreen;
-}
-.boutonRecettes button:hover{
-    background: green;
-}
-
-
-
-.boutonSupprimer button{
-
-    font-size: 150%;
-    border: none;
-    border-radius: 10px;
-    padding-bottom: 10px;
-    margin-bottom: 0%;
-    padding-top: 10px;
-    margin-top: -1%;
-    margin-left: 40%;
-    width: 20%;
-    background-color: lightcoral;
-}
-.boutonSupprimer button:hover{
-    background: red;
-}
-
-
-
-.boutonDeconnexion button{
-    font-size: 150%;
-    border: none;
-    border-radius: 10px;
-    padding-bottom: 10px;
-    padding-top: 10px;
-    margin-top: 4%;
-    margin-left: -15%;
-    width: 20%;
-    background-color: lightgreen;
-}
-
-
-/*
-button:hover{
-    background: #FFB400;
-}
-
-*/
-
-
-
 .container{
-    display: grid;
+
+    margin: 0 auto;
+    max-width: 600px;
+    padding: 20px;
+}
+
+.container h1 {
+    font-size: 2em;
+    text-align: center;
+}
+
+.bandeauCompte{
+
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-right: 1px solid black;
+}
+
+
+
+
+.bandeauCompte button{
+    background: #ffe4a1;
+    border: none;
+    width: 100%;
+    height: 100%;
+    font-size: 300%;
+}
+.account-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.profile-pic {
+    position: relative;
+}
+
+.profile-pic img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-top: 10%;
+}
+
+.change-pic-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 0.8em;
+    cursor: pointer;
+    margin-top: 10px;
 }
 
 
@@ -76,21 +78,23 @@ button:hover{
 }
 
 
-#photo-profil {
-    margin-top: -80%;
-    margin-left: -30%;
-    background-color: #4CAF50; /* couleur de fond du bouton */
-    color: white; /* couleur du texte du bouton */
-    padding: 10px 20px; /* taille du padding */
-    border: none; /* pas de bordure */
-    cursor: pointer; /* curseur de souris sur le bouton */
-    border-radius: 5px; /* bordure arrondie */
 
+
+.user-info {
+    flex: 1;
+    margin-left: 20px;
 }
 
-.profilUser input{
-    width: 200px;
-    height: 40px;
+.user-info label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.user-info input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
     margin-bottom: 10px;
 }
 
@@ -139,8 +143,93 @@ input[type="file"] {
     margin-bottom: 10px;
 }
 
-input::placeholder{
-    font-size: 150%;
-    color: black;
-    text-align: center;
+
+
+
+.account-btns {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10%;
 }
+
+.Deconnexion-btn {
+    background-color: red;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.mesRecettes-btn {
+    background-color: #35a922;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+.partieSupprimer {
+    text-align: center;
+    margin-top: 50px;
+
+}
+
+.partieSupprimer-btn {
+    color: grey;
+    background-color: none;
+    font-size:none;
+    border: none;
+    text-decoration: underline;
+
+}
+
+/* Style pour la popup de suppression de compte */
+
+
+#popup-button{
+
+    font-size: 150%;
+    border: none;
+    border-radius: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-top: 3%;
+    margin-left: 17%;
+    width: 20%;
+    background-color: lightcoral;
+}
+
+
+.popup-container {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popup-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 1px solid black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+
+}
+
+.popup-content input {
+    background-color: lightgrey;
+    width: 100%;
+
+}
+

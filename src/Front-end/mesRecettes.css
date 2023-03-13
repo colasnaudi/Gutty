@@ -81,11 +81,10 @@ header{
     justify-content: center;
     align-items: center;
     text-align: center;
-}
-
-.bandeauCompte{
     border-right: 1px solid black;
 }
+
+
 
 
 .bandeauCompte button{

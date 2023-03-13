@@ -7,8 +7,8 @@
     border-radius: 10px;
     padding-bottom: 10px;
     padding-top: 10px;
-    margin-top: 3%;
-    margin-left: 17%;
+    margin-top: 10%;
+    margin-left: 39.5%;
     width: 20%;
     background-color: lightcoral;
 }
@@ -72,26 +72,3 @@
 
 
 
-
-.boutonDeconnexion button{
-    font-weight: normal;
-    font-family: "Comic Sans MS";
-    font-size: 220%;
-    border: none;
-    border-radius: 15px;
-    padding-bottom: 10px;
-    padding-top: 10px;
-    margin-top: 10.8%;
-    margin-left: 36.5%;
-    width: 27%;
-    background-color: firebrick;
-    color: white;
-}
-
-
-/*
-button:hover{
-    background: #FFB400;
-}
-
-*/
