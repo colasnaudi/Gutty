@@ -1,20 +1,14 @@
 <?php
-include_once 'CreationIngredient.php';
-
-$ingredientFrigos = array();
-
+include_once '../Back-end/CreationIngredient.php';
 $livreIngredient = $_SESSION['livreIngredient'];
 $livreRecette = $_SESSION['livreRecette'];
 
+$ingredientFrigos = array();
+
 if(isset($_REQUEST['Ingredient']) && !empty($_REQUEST['Ingredient'])) {
-    if (is_array($_REQUEST['Ingredient'])) {
+    if(is_array($_REQUEST['Ingredient'])) {
         $ingredients = $_REQUEST['Ingredient'];
-
-        foreach($ingredients as $ingredient){
-            $ingredientFrigos[] = $livreIngredient->retrouverIngredient($ingredient);
-        }
-        $frigo = new Frigo($ingredientFrigos, null);
-
+        $frigo = new Frigo($ingredients, null);
     }
 }
 else
@@ -23,10 +17,10 @@ else
     exit();
 }
 
+
 //Test generer suggestion
 //Generation des recettes possibles
 $recettePossible = $frigo->genererPossibleRecette($livreRecette);
-
 //Calcul du nombre d'ingrédient en commun
 foreach ($recettePossible as $recette) {
     $recette->compterIngredientCommun($frigo);

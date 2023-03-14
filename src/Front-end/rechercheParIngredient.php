@@ -29,11 +29,10 @@ include_once 'header.html';
 
                 $livreIngredient = $_SESSION['livreIngredient'];
                 $livreRecette = $_SESSION['livreRecette'];
-
                 foreach($livreIngredient->getListeIngredients() as $ingredient) {
-                        echo '<div class="ingredient" id="id'.$ingredient->getImageIngredient().'"onclick="changeColor(event)">';
-                        echo '<label for="'.$ingredient->getImageIngredient().'">'.$ingredient->getImageIngredient().'</label>';;
-                        echo '<input type="checkbox" id="'.$ingredient->getImageIngredient().'" name="Ingredient[]" value="'.$ingredient->getImageIngredient().'" class="checkbox"/>';
+                        echo '<div class="ingredient" id="id'.$ingredient->getNomIngredient().'"onclick="changeColor(event)">';
+                        echo '<label for="'.$ingredient->getNomIngredient().'">'.$ingredient->getNomIngredient().'</label>';;
+                        echo '<input type="checkbox" id="'.$ingredient->getNomIngredient().'" name="Ingredient[]" value="'.$ingredient->getNomIngredient().'" class="checkbox"/>';
                         echo '</div>';
                     }
                 ?>
