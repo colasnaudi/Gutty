@@ -1,8 +1,9 @@
 <?php
 include 'Classes/BaseDeDonnees.php';
-
 //DECLARATION DES VARIABLES
 $loginError = true;
+
+
 $bdd = new BaseDeDonnees();
 $pseudo = $_POST['pseudo'];
 $mdp = $_POST['mdp'];
