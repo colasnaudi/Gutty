@@ -3,7 +3,8 @@
     margin: 0;
     font-family: 'Montserrat', sans-serif;
 }
-button{
+
+main button{
     width: 100%;
     height: 100%;
     border: none;
@@ -14,7 +15,7 @@ button{
     cursor: pointer;
 }
 
-.nomRecette{
+main .nomRecette{
     font-size: 30px;
     text-decoration: none;
     text-align: center;
@@ -22,7 +23,7 @@ button{
     margin-top: 20px;
 }
 
-.star-rating {
+main .star-rating {
     font-size: 1.5em;
     color: #FFD600;
     text-align: center;
@@ -38,7 +39,7 @@ button{
 }
 **/
 
-.note{
+main .note{
     display: inline-block;
     font-size: 20px;
     margin-left: 60%;
@@ -47,29 +48,29 @@ button{
 
 }
 
-img{
+main img{
     width: 475px;
     height: 250px;
     object-fit: cover;
 }
 
-.affichageImage{
+main .affichageImage{
     padding-top: 30px;
     text-align: center  ;
     padding-bottom: 50px    ;
 }
 
-h4 {
+main h4 {
     padding-top: 30px;
     text-align: center;
 }
 
-.partieRecette{
+main .partieRecette{
     justify-content: center;
 }
 
 
-.IngredientRecette{
+main .IngredientRecette{
     display: inline-block;
     text-align: center;
     font-size: 20px;
@@ -79,7 +80,7 @@ h4 {
 
 
 
-.vignette{
+main .vignette{
     display: inline-block ;
 
     width: 330px;
@@ -93,23 +94,23 @@ h4 {
 
 
 
-.btns {
+main .btns {
     display:flex;
     flex-direction: column;
     width: 90%;
     margin-left: 17px;/*positionnement des input*/
 }
 
-.btns input::placeholder {
+main .btns input::placeholder {
     font-style: italic;
 }
 
-.btns input{
+main .btns input{
     margin: 15px;
     border-width: 0px;
 }
 
-form button {
+main form button {
     margin-left: 80%;
     width: 200px;
     height: 48px;
@@ -123,26 +124,26 @@ form button {
     border: 0;
 }
 
-.TitreIngredient{
+main .TitreIngredient{
     font-size: 20px;
     text-align: center;
     padding-top: 20px;
     padding-bottom: 1px;
 }
-.TitrePreparation{
+main .TitrePreparation{
     font-size: 20px;
     text-align: center;
     padding-top: 20px;
     padding-bottom: 1px;
 }
-#TitreCommentaires{
+main #TitreCommentaires{
     font-size: 20px;
     text-align: center;
     padding-top: 20px;
     padding-bottom: 1px;
 }
 
-.vignettePreparation{
+main .vignettePreparation{
     display: inline-block;
     width: 98.5%;
     height: 170px;
@@ -152,7 +153,7 @@ form button {
     box-shadow: 0 5px 5px 0 #888888;
 }
 
-input[type="text"] {
+main input[type="text"] {
     width: 100%;
     height: 100%;
     box-sizing: border-box;
@@ -163,12 +164,12 @@ input[type="text"] {
     ;
 }
 
-input::placeholder{
+main input::placeholder{
     color: grey;
     font-size: 20px;
 }
 
-.partieCommentaires{
+main .partieCommentaires{
     display: inline-block;
     width: 98.5%;
     height: 170px;
@@ -180,11 +181,11 @@ input::placeholder{
     text-align: left;
 }
 
-.partieCommentaires input:focus{
+main .partieCommentaires input:focus{
     outline: none;
 }
 
-h3 {
+main h3 {
     padding-left: 30px;
     text-align: left    ;
 }

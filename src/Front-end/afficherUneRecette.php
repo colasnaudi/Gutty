@@ -13,7 +13,10 @@
 <body>
 <?php
 include_once 'header.html';
+?>
 
+<main>
+    <?php
 //INCLUSIONS
 
 include_once '../Back-end/CreationIngredient.php';
@@ -86,3 +89,4 @@ foreach ($livreRecette->getListeRecettes() as $recette) {
 
 session_destroy();
 ?>
+</main>
