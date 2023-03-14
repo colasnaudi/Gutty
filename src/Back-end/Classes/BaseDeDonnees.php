@@ -449,4 +449,39 @@ class BaseDeDonnees
         $valResultat = $resultat->fetch(PDO::FETCH_ASSOC);
         return new Ingredient($valResultat['id'], $valResultat['nom'], $valResultat['image'],$valResultat['prix'], $valResultat['unite'] );
     }
+
+    //GESTION DES ETAPES
+    public function getEtapes(): array {
+        $sql = "SELECT * FROM Etape";
+        $resultat = $this->connexion->prepare($sql);
+        $resultat->execute();
+        $valResultat = $resultat->fetchAll(PDO::FETCH_ASSOC);
+        return $valResultat;
+    }
+
+    public function getEtapesParRecette(string $nomRecette): array {
+        $sql = "SELECT NumEtape FROM Etape WHERE idRecette = (SELECT id FROM Recette WHERE nom = ?)";
+        $resultat = $this->connexion->prepare($sql);
+        $resultat->execute([$nomRecette]);
+
+        $valResultat = $resultat->fetchAll(PDO::FETCH_ASSOC);
+
+        $idEtapes = array_map(function($idEtape) {
+            return $idEtape['NumEtape'];
+        }, $valResultat);
+
+        $listeEtapes = array();
+        foreach ($idEtapes as $id) {
+            $listeEtapes[] = $this->creerEtapeDepuisId($id);
+        }
+        return $listeEtapes;
+    }
+
+    private function creerEtapeDepuisId(int $id): Etape {
+        $sql = "SELECT * FROM Etape WHERE NumEtape = ?";
+        $resultat = $this->connexion->prepare($sql);
+        $resultat->execute([$id]);
+        $valResultat = $resultat->fetch(PDO::FETCH_ASSOC);
+        return new Etape($valResultat['idRecette'],$valResultat['NumEtape'] , $valResultat['Texte']);
+    }
 }

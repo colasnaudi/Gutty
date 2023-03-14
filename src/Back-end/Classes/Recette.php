@@ -19,7 +19,7 @@ class Recette
     /**
      * @brief Etapes de la recette
      */
-    private string $etapeRecette;
+    private array $etapeRecette = array();
 
     /**
      * @brief Image de la recette
@@ -95,7 +95,7 @@ class Recette
      * @param [in] array $ingredients La liste des ingrédients de la recette
      * @param [in] array $quantites La liste des quantités des ingrédients de la recette
      */
-    public function __construct(string $nom, string $etape, string $image, string $temps, int $etat, int $nbPersonne, int $idUtilisateur, string $typeCuisson, array $ingredients, array $quantites) {
+    public function __construct(string $nom, array $etape, string $image, string $temps, int $etat, int $nbPersonne, int $idUtilisateur, string $typeCuisson, array $ingredients, array $quantites) {
         $this->nomRecette = $nom;
         $this->etapeRecette = $etape;
         $this->imageRecette = $image;
@@ -133,7 +133,7 @@ class Recette
      * @brief Getter des étapes de la recette
      * @return Les étapes de la recette
      */
-    public function getEtapeRecette(): string
+    public function getEtapeRecette(): array
     {
         return $this->etapeRecette;
     }
@@ -143,7 +143,7 @@ class Recette
      * @param [in] string $etapeRecette Les étapes de la recette
      * @return void
      */
-    public function setEtapeRecette(string $etapeRecette): void
+    public function setEtapeRecette(array $etapeRecette): void
     {
         $this->etapeRecette = $etapeRecette;
     }
