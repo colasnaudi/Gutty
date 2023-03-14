@@ -531,13 +531,15 @@ class BaseDeDonnees
         return $listeEtapes;
     }
 
-    private function creerEtapeDepuisId(int $id): Etape {
+    private function creerEtapeDepuisId(int $id): Etape
+    {
         $sql = "SELECT * FROM Etape WHERE NumEtape = ?";
         $resultat = $this->connexion->prepare($sql);
         $resultat->execute([$id]);
         $valResultat = $resultat->fetch(PDO::FETCH_ASSOC);
-        return new Etape($valResultat['idRecette'],$valResultat['NumEtape'] , $valResultat['Texte']);
-        
+        return new Etape($valResultat['idRecette'], $valResultat['NumEtape'], $valResultat['Texte']);
+    }
+
     public function insererEtape(int $numEtape, int $idRecette, string $texteEtape): void {
         $sql = "INSERT INTO Etape(numEtape, idRecette, texteEtape) VALUES(?, ?, ?)";
         $resultat = $this->connexion->prepare($sql);
