@@ -456,12 +456,8 @@ class BaseDeDonnees
 
     public function getIngredientsParNom(array $nomIngredients): array {
         $listeIngredients = array();
-        foreach ($nomIngredients as $nomIngredient) {
-            $sql = "SELECT * FROM Ingredient WHERE nom = ?";
-            $resultat = $this->connexion->prepare($sql);
-            $resultat->execute([$nomIngredient]);
-            $valResultat = $resultat->fetch(PDO::FETCH_ASSOC);
-            $listeIngredients[] = $valResultat;
+        foreach ($nomIngredients as $nom) {
+            $listeIngredients[] = $this->creerIngredientDepuisNom($nom);
         }
         return $listeIngredients;
     }
@@ -500,6 +496,14 @@ class BaseDeDonnees
         $sql = "SELECT * FROM Ingredient WHERE id = ?";
         $resultat = $this->connexion->prepare($sql);
         $resultat->execute([$id]);
+        $valResultat = $resultat->fetch(PDO::FETCH_ASSOC);
+        return new Ingredient($valResultat['id'], $valResultat['nom'], $valResultat['image'],$valResultat['prix'], $valResultat['unite'] );
+    }
+
+    private function creerIngredientDepuisNom(string $nom): Ingredient {
+        $sql = "SELECT * FROM Ingredient WHERE nom = ?";
+        $resultat = $this->connexion->prepare($sql);
+        $resultat->execute([$nom]);
         $valResultat = $resultat->fetch(PDO::FETCH_ASSOC);
         return new Ingredient($valResultat['id'], $valResultat['nom'], $valResultat['image'],$valResultat['prix'], $valResultat['unite'] );
     }

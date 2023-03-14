@@ -152,7 +152,7 @@ class Frigo
 
         //On récupère le prix de chaque ingrédient
         foreach ($this->ingredients as $ingredient) {
-            $prixIngredients[] = $ingredient->getPrix();
+            array_push($prixIngredients, $ingredient->getPrix());
         }
         //On multiplie le prix de chaque ingrédient par sa quantité pour avoir le prix du frigo
         foreach (array_combine($prixIngredients, $this->quantites) as $ingredient => $quantite) {
@@ -178,7 +178,7 @@ class Frigo
             $nbIngredientsCommuns = 0;
             $recetteAjouter = false;
             foreach ($recette->getIngredients() as $ingredient) {
-                if (in_array($ingredient->getNomIngredient(), $this->ingredients)) {
+                if (in_array($ingredient, $this->ingredients)) {
                     $nbIngredientsCommuns++;
                 }
                 if ($nbIngredientsCommuns === 2 && $recetteAjouter === false) {
