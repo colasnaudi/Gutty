@@ -15,6 +15,7 @@ $bdd = new BaseDeDonnees();
     <link rel="stylesheet" href="MonCompte.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <title>Mon compte</title>
+
 </head>
 <body>
 <?php include_once "../Front-end/header.html"; ?>
@@ -45,7 +46,24 @@ $bdd = new BaseDeDonnees();
         <button class="mesRecettes-btn" onclick="window.location.href='mesRecettes.php'">Mes recettes</button>
     </div>
     <div class="partieSupprimer">
-        <button class="partieSupprimer-btn" onclick="window.location.href='supprimerCompte.php'">Supprimer mon compte</button>
+        <button id="popup-button">Supprimer mon compte</button>
+    </div>
+    <div class="popup-container" id="popup-container">
+        <div class="popup-content">
+
+            <button id="close-button">&times;</button>
+            <h2>Etes-vous sur de vouloir supprimer votre compte?</h2>
+            <h3>Entrez votre mot de passe ci-dessous pour supprimer votre compte:</h3>
+            <form method="post" action="../Back-end/verifSuppression.php" class="connexionUtilisateur">
+            <input type="text" name="pseudo" id="pseudo" placeholder="Nom d'utilisateur ou adresse mail" required>
+            <input type="password" name="mdp" id="mdp" placeholder="Mot de passe" required>
+            <div class="boutons">
+                <button type="submit">Valider</button>
+
+                <button id="bouton-annuler">Annuler </button>
+            </div>
+        </div>
+        <script src="supprimerCompte.js"></script>
     </div>
 
 

@@ -133,6 +133,7 @@ class BaseDeDonnees
         else { return false; }
     }
 
+
     /*------------------GESTION DE L'INSCRIPTION------------------*/
     /**
      * @brief Vérifie si le nom saisie par l'utilisateur est disponible dans la base de données
@@ -244,10 +245,59 @@ class BaseDeDonnees
         $resultat->execute([$nom, $mail, $mdpHash]);
     }
 
-    private function retirerUtilisateur(string $nom): void {
+    public function suppressionUtilisateur(string $nom, string $mdp, string $nomSession): bool
+    {
+        if($nom == $nomSession || $this->getNom($nom)==$nomSession) {
+            if ($this->checkNom($nom)) {
+                if ($this->checkMdp($nom, $mdp)) {
+                    $this->changerIdUtilisateur($nom);
+                    $sql = "DELETE FROM Utilisateur WHERE nom = ?";
+                    $resultat = $this->connexion->prepare($sql);
+                    $resultat->execute([$nom]);
+                    return true;
+                }
+            } else if ($this->checkMail($nom)) {
+                if ($this->checkMdp($this->getNom($nom), $mdp)) {
+                    $nom = $this->getNom($nom);
+                    $this->changerIdUtilisateur($nom);
+                    $sql = "DELETE FROM Utilisateur WHERE nom = ?";
+                    $resultat = $this->connexion->prepare($sql);
+                    $resultat->execute([$nom]);
+                    return true;
+                }
+            }
+        }
+        else { return false; }
+        return false;
+    }
+
+    public function retirerUtilisateur(string $nom): void {
         $sql = "DELETE FROM Utilisateur WHERE nom = ?";
         $resultat = $this->connexion->prepare($sql);
         $resultat->execute([$nom]);
+    }
+
+    private function changerIdUtilisateur(string $nom){
+        $sql="SET FOREIGN_KEY_CHECKS = 0;";
+        $resultat = $this->connexion->prepare($sql);
+        $resultat->execute();
+
+        $sql="UPDATE Noter SET idUtilisateur=0 WHERE idUtilisateur=(SELECT id FROM Utilisateur WHERE nom=?);";
+        $resultat = $this->connexion->prepare($sql);
+        $resultat->execute([$nom]);
+
+        $sql="UPDATE Recette SET idUtilisateur=0 WHERE idUtilisateur=(SELECT id FROM Utilisateur WHERE nom=?);";
+        $resultat = $this->connexion->prepare($sql);
+        $resultat->execute([$nom]);
+
+        $sql="UPDATE `Commentaire` SET `idUtilisateur`=0 WHERE idUtilisateur=(SELECT id FROM Utilisateur WHERE nom=?);";
+        $resultat = $this->connexion->prepare($sql);
+        $resultat->execute([$nom]);
+
+        $sql="SET FOREIGN_KEY_CHECKS = 1;";
+        $resultat = $this->connexion->prepare($sql);
+        $resultat->execute();
+
     }
 
     private function existeUtilsateur(string $nom): bool {
@@ -264,6 +314,10 @@ class BaseDeDonnees
 
     public function bannirUtilsateur(string $nom): void {
         if($this->existeUtilsateur($nom)) { $this->retirerUtilisateur($nom); }
+    }
+
+    public function supprimerUtilisateur(string $nom, string $mdp): void {
+        if($this->checkConnexion($nom, $mdp)) { $this->retirerUtilisateur($nom); }
     }
 
     public function getMail(string $nom) {
@@ -412,5 +466,14 @@ class BaseDeDonnees
         $idUtilisateur = $this->getIdUtilisateur(/*$_SESSION['nom']*/'Angel');
         $this->insererUneRecette($nom, $etape, $image, $temps, $nbPersonnes, $idUtilisateur, $typeCuisson);
         $this->insererDansComposer($nom, $nomIngredient, $quantiteIngredient);
+    }
+
+    public function affichageMesRecettes(string $nom):array{
+        //fonction qui affiche les recettes liées a l'utilisateur connecté
+        $sql = "SELECT * from Recette where idUtilisateur=(SELECT id FROM Utilisateur WHERE nom=?)";
+        $resultat = $this->connexion->prepare($sql);
+        $resultat->execute([$nom]);
+        $valResultat = $resultat->fetchAll(PDO::FETCH_ASSOC);
+        return $valResultat;
     }
 }
