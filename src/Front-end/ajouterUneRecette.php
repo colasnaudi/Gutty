@@ -14,7 +14,7 @@ include_once "../Front-end/header.html";
 ?>
 <main>
     <div class="formulaire">
-            <form method="post" action="#" class="formRecette">
+            <form method="post" action="ajouterUneRecetteEnBdd.php" class="formRecette">
                 <div class="recette">
                     <div class="titre">
                         <label for="titre">Titre</label>
@@ -31,9 +31,9 @@ include_once "../Front-end/header.html";
                     <div class="tempsRecette">
                         <label for="tempsRecette">Temps de la recette</label>
                         <br>
-                        <input type="number" name="tempsRecette" id="heuresTempsRecette" value=0 min=0 max=24 required>
+                        <input type="number" name="heuresRecette" id="heuresTempsRecette" value=0 min=0 max=24 required>
                         <span>heures</span>
-                        <input type="number" name="tempsRecette" id="minutesTempsRecette" min=0 max=59 required>
+                        <input type="number" name="minutesRecette" id="minutesTempsRecette" min=0 max=59 required>
                         <span>minutes</span>
                         <br>
                     </div>
@@ -44,6 +44,7 @@ include_once "../Front-end/header.html";
                         <div id="btn2" onclick="changeBackground2()">Plaque</div>
                         <div id="btn3" onclick="changeBackground3()">Sans plaque</div>
                         <div id="btn4" onclick="changeBackground4()">Autre</div>
+                        <input type="hidden" name="typeCuisson" id="typeCuisson" value="None">
                     </div>
                     <div class="imageRecette">
                         <label for="image">Image</label>

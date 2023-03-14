@@ -301,14 +301,6 @@ class BaseDeDonnees
         return $listeIngredients;
     }
 
-    /*public function getColumns(string $table): array {
-        $sql = "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = ? AND TABLE_SCHEMA = 'poc_sae11'";
-        $resultat = $this->connexion->prepare($sql);
-        $resultat->execute([$table]);
-        $valResultat = $resultat->fetchAll(PDO::FETCH_OBJ);
-        return $valResultat;
-    }*/
-
     //fonction qui permet de récupérer les recettes de la base de données
     public function getRecettes(): array {
         $sql = "SELECT * FROM Recette";
@@ -317,22 +309,6 @@ class BaseDeDonnees
         $valResultat = $resultat->fetchAll(PDO::FETCH_ASSOC);
         return $valResultat;
     }
-
-    //fonction permettant de récupérer les ingrédients des recettes de la liste précédente
-    /*public function getIngredientsRecette(array $recettes): array {
-        $ingredients = array();
-        foreach ($recettes as $recette) {
-            $sql = "SELECT nomIngredient FROM Composer WHERE nomRecette = ?";
-            $resultat = $this->connexion->prepare($sql);
-            $resultat->execute([$recette['nom']]);
-            $valResultat = $resultat->fetchAll(PDO::FETCH_ASSOC);
-            $ingredients[$recette['nom']] = array_map(function($ingredient) {
-                return $ingredient['nomIngredient'];
-            }, $valResultat);
-        }
-        return $ingredients;
-    }*/
-
         
     private function getIdRecette(string $nom): int {
         $sql = "SELECT id FROM Recette WHERE nom = ?";
@@ -376,5 +352,18 @@ class BaseDeDonnees
         $idUtilisateur = $this->getIdUtilisateur(/*$_SESSION['nom']*/'Angel');
         $this->insererUneRecette($nom, $etape, $image, $temps, $nbPersonnes, $idUtilisateur);
         $this->insererDansComposer($nom, $nomIngredient, $quantiteIngredient);
+    }
+
+    //---------------------------------------------ETAPE------------------------------------
+    public function insererEtape(int $numEtape, int $idRecette, string $texteEtape): void {
+        $sql = "INSERT INTO Etape(numEtape, idRecette, texteEtape) VALUES(?, ?, ?)";
+        $resultat = $this->connexion->prepare($sql);
+        $resultat->execute([$numEtape, $idRecette, $texteEtape]);
+    }
+
+    public function insererDebutRecette(string $titre, int $nbPersonnes, string $temps, string $typeCuisson, string $image): void {
+        $sql = "INSERT INTO Recette(nom, nbPersonnes, temps, typeCuisson, image) VALUES(?, ?, ?, ?, ?)";
+        $resultat = $this->connexion->prepare($sql);
+        $resultat->execute([$titre, $nbPersonnes, $temps, $typeCuisson, $image]);
     }
 }
