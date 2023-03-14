@@ -47,6 +47,12 @@ button{
 
 }
 
+img{
+    width: 475px;
+    height: 250px;
+    object-fit: cover;
+}
+
 .affichageImage{
     padding-top: 30px;
     text-align: center  ;

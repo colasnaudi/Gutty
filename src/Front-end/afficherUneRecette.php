@@ -42,9 +42,8 @@ foreach ($livreRecette->getListeRecettes() as $recette) {
         echo "</div>";
 
         echo "<div class='affichageImage'>";
-        echo "<h2>Image recette en dessous</h2>";
-        echo "<img src= '' alt='Image de la recette'>";
-        echo "<h4>Temps de préparation | Temps de cuisson | Nombre de personnes</h4>";
+        echo "<img src= ". $recette->getImageRecette() ." alt='Image de la recette'>";
+        echo "<h4>Temps de préparation: ". $recette->getTemps() ." | Temps de cuisson: ".$recette->getTypeCuisson()." | Nombre de personnes: " .$recette->getNbPersonne()."</h4>";
         echo "<div class='TitreIngredient'>";
         echo "<p>Ingrédients</p></div>";
         echo "<p> ________________________________________________________________________________________________________</p>";
@@ -54,13 +53,10 @@ foreach ($livreRecette->getListeRecettes() as $recette) {
             foreach ($quantite as $index => $quantiteRecette) {
                     echo "<div class='vignette'>";
 
-                    echo "<p class='IngredientRecette'>" . $ingredient[$index]->getImageIngredient() . "</p>";
+                    echo "<p class='IngredientRecette'>" . $ingredient[$index]->getNomIngredient() . "</p>";
                     echo "<p>" . $quantiteRecette;
-                    echo "<p> " . $ingredient[$index]->getUnite() . "</p>";
+                    echo "<p> " . strtoupper($ingredient[$index]->getUnite()) . "</p>";
                 echo "</div>";
-
-
-
 
             }
     }

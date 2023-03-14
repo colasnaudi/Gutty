@@ -6,14 +6,14 @@
  * @version 1.0
  * @date 2022-12-12
  */
-
 class Frigo
 {
+
     //ATTRIBUTS
     /**
      * @brief Liste des ingrédients du frigo
      */
-    private array $ingredients = array();
+    private array $ingredients;
 
     /**
      * @brief Liste des quantités des ingrédients du frigo
@@ -178,7 +178,7 @@ class Frigo
             $nbIngredientsCommuns = 0;
             $recetteAjouter = false;
             foreach ($recette->getIngredients() as $ingredient) {
-                if (in_array($ingredient, $this->ingredients)) {
+                if (in_array($ingredient->getNomIngredient(), $this->ingredients)) {
                     $nbIngredientsCommuns++;
                 }
                 if ($nbIngredientsCommuns === 2 && $recetteAjouter === false) {

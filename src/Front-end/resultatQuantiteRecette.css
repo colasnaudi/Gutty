@@ -9,11 +9,18 @@
     justify-content: center;
     margin-top: 50px;
 }
+h2 {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-right: 100px;
+    margin-left: 10%;
+}
 
 .recipes-container .recipe{
     width: 350px;
     height: 200px;
-    margin: 10px;
+    margin-right: 10px;
     background-color: #D9D9D9;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
@@ -29,8 +36,11 @@
 }
 
 .recipes-container a{
+    width: 350px;
+    height: 200px;
     text-decoration: none;
     color: #000;
+    margin: 10px;
 }
 
 .recipes-container a:hover .info{
