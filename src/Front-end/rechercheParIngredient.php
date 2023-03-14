@@ -29,6 +29,7 @@ include_once 'header.html';
 
                 $livreIngredient = $_SESSION['livreIngredient'];
                 $livreRecette = $_SESSION['livreRecette'];
+                $livreEtape = $_SESSION['livreEtape'];
                 foreach($livreIngredient->getListeIngredients() as $ingredient) {
                         echo '<div class="ingredient" id="id'.$ingredient->getNomIngredient().'"onclick="changeColor(event)">';
                         echo '<label for="'.$ingredient->getNomIngredient().'">'.$ingredient->getNomIngredient().'</label>';;

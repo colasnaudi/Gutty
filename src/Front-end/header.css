@@ -125,6 +125,15 @@ header a{
     border-bottom: 1px solid black;
 }
 
+.partieBasse a{
+    text-decoration: none;
+    color: black;
+}
+
+.partieBasse a:hover{
+    text-decoration: underline;
+}
+
 .rechercheIngredientBandeau, .ajouterRecette, .recettesFavorites{
     width: 100%;
     height: 100%;

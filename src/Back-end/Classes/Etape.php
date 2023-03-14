@@ -80,6 +80,7 @@ class Etape
      * @param [in] int $idRecette L'id de la recette
      * @return void
      */
+
     public function setIdRecette(int $idRecette): void
     {
         $this->idRecette = $idRecette;
