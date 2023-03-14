@@ -1,7 +1,8 @@
 <?php
 
 include_once 'CreationIngredient.php';
-
+include_once '../Back-end/Classes/BaseDeDonnees.php';
+$bdd = new BaseDeDonnees();
 $ingredientFrigos = array();
 $quantiteFrigos = array();
 
@@ -10,13 +11,12 @@ $livreRecette = $_SESSION['livreRecette'];
 
 if(isset($_POST['quantite']) && !empty($_POST['quantite'])) {
     $ingredients = $_POST['ingredient'];
-    var_dump($ingredients);
     $quantite = $_POST['quantite'];
-    echo '<br>';
-    var_dump($quantite);
-    echo '<br>';
 
-    $frigo = new Frigo($ingredients, $quantite);
+    $listeIngredient = $bdd->getIngredientsParNom($ingredients);
+    $listeQuantite = array_map('floatval', $quantite);
+
+    $frigo = new Frigo($listeIngredient, $listeQuantite);
 
 }
 else
@@ -27,7 +27,6 @@ else
 //Test generer suggestion
 //Generation des recettes possibles
 $recettePossible = $frigo->genererPossibleRecette($livreRecette);
-
 
 //Calcul du prix frigo et ajout des recettes possibles
 foreach ($recettePossible as $recette) {
