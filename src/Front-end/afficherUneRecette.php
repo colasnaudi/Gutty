@@ -27,11 +27,14 @@ $quantiteFrigos = array();
 
 $livreIngredient = $_SESSION['livreIngredient'];
 $livreRecette = $_SESSION['livreRecette'];
+$livreEtape = $_SESSION['livreEtape'];
 
 //boucle qui affiche les ingredients associés à la recette cliquée
 foreach ($livreRecette->getListeRecettes() as $recette) {
     $quantite = $recette->getQuantite();
     $ingredient = $recette->getIngredients();
+
+
     if (isset($_GET['recette']) && $_GET['recette'] == $recette->getNomRecette()) {
         echo "<div class='nomRecette'><h2>Recette : " . $recette->getNomRecette() . "</h2></div>";
         echo "<div class='star-rating'>";
@@ -41,50 +44,59 @@ foreach ($livreRecette->getListeRecettes() as $recette) {
         echo "<span class='fa fa-star '></span>";
         echo "<span class='fa fa-star '></span></div>";
         echo "<div class='note'>";
-        echo "<a href='#TitreCommentaires'> avis</a>";
+        echo "<a href='#TitreCommentaires' alt='Lien vers les commentaires'> avis</a>";
         echo "</div>";
 
         echo "<div class='affichageImage'>";
-        echo "<img src= ". $recette->getImageRecette() ." alt='Image de la recette'>";
-        echo "<h4>Temps de préparation: ". $recette->getTemps() ." | Temps de cuisson: ".$recette->getTypeCuisson()." | Nombre de personnes: " .$recette->getNbPersonne()."</h4>";
+        echo "<img src= " . $recette->getImageRecette() . " alt='Image de la recette".$recette->getNomRecette()."'>";
+        echo "<h4>Temps de préparation: " . $recette->getTemps() . " | Temps de cuisson: " . $recette->getTypeCuisson() . " | Nombre de personnes: " . $recette->getNbPersonne() . "</h4>";
         echo "<div class='TitreIngredient'>";
         echo "<p>Ingrédients</p></div>";
         echo "<p> ________________________________________________________________________________________________________</p>";
         echo "<div class='container partieRecette'>";
 
+        foreach ($quantite as $index => $quantiteRecette) {
+            echo "<div class='vignette'>";
 
-            foreach ($quantite as $index => $quantiteRecette) {
-                    echo "<div class='vignette'>";
+            echo "<p class='IngredientRecette'>" . $ingredient[$index]->getNomIngredient() . "</p>";
+            echo "<p>" . $quantiteRecette;
+            echo "<p> " . strtoupper($ingredient[$index]->getUnite()) . "</p>";
 
-                    echo "<p class='IngredientRecette'>" . $ingredient[$index]->getNomIngredient() . "</p>";
-                    echo "<p>" . $quantiteRecette;
-                    echo "<p> " . strtoupper($ingredient[$index]->getUnite()) . "</p>";
-                echo "</div>";
-
-            }
+            echo "</div>";
+        }
     }
 }
-        echo "<div class='TitrePreparation'>";
-        echo "<p>Préparation</p></div>";
-        echo "<p> ________________________________________________________________________________________________________</p>";
 
-        echo "<div class='vignettePreparation'>";
-        echo"</div>";
+    echo "<div class='TitrePreparation'>";
+    echo "<p>Préparation</p></div>";
+    echo "<p> ________________________________________________________________________________________________________</p>";
 
-        echo "<div id='TitreCommentaires'>";
-        echo "<p>Commentaires</p></div>";
-        echo "<p> ________________________________________________________________________________________________________</p>";
+    echo "<div class='vignettePreparation'>";
+    foreach ($livreRecette->getListeRecettes() as $recette) {
+        $etape = $recette->getEtapeRecette();
+        if (isset($_GET['recette']) && $_GET['recette'] == $recette->getNomRecette()) {
+            echo "<div class='container partieRecette'>";
+            foreach ($etape as $index => $etapeRecette) {
+                echo "<p class='etapeRecette'>".$etapeRecette->getTexte()."</p>";
+            }
+            echo "</div>";
+            echo "</div>";
+        }
+    }
 
-        echo "<h3>Donnez votre avis</h3>";
-        echo "<div class='partieCommentaires'>";
-        echo"<form action='Commentaires' method='post' id='comm'>";
-        echo"<div class='btns'>";
-                        echo"<input type='text' placeholder= 'Ajouter un avis'/></div>";
-                    echo"<div>";
-                        echo"<button type='submit'>Envoyer</button>";
-                    echo"</div>";
-    echo"</div>";
+    echo "<div id='TitreCommentaires'>";
+    echo "<p>Commentaires</p></div>";
+    echo "<p> ________________________________________________________________________________________________________</p>";
 
+    echo "<h3>Donnez votre avis</h3>";
+    echo "<div class='partieCommentaires'>";
+    echo "<form action='Commentaires' method='post' id='comm'>";
+    echo "<div class='btns'>";
+    echo "<input type='text' placeholder= 'Ajouter un avis'/></div>";
+    echo "<div>";
+    echo "<button type='submit'>Envoyer</button>";
+    echo "</div>";
+    echo "</div>";
 
 
 session_destroy();
