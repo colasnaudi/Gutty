@@ -177,29 +177,20 @@ input[type="file"] {
 
 }
 
-.partieSupprimer-btn {
+
+/* Style pour la popup de suppression de compte */
+
+
+
+
+#popup-button{
+
     color: grey;
     background-color: none;
     font-size:none;
     border: none;
     text-decoration: underline;
-
-}
-
-/* Style pour la popup de suppression de compte */
-
-
-#popup-button{
-
-    font-size: 150%;
-    border: none;
-    border-radius: 10px;
-    padding-bottom: 10px;
-    padding-top: 10px;
-    margin-top: 3%;
-    margin-left: 17%;
-    width: 20%;
-    background-color: lightcoral;
+    text-align: center;
 }
 
 
@@ -232,4 +223,32 @@ input[type="file"] {
     width: 100%;
 
 }
+
+
+
+
+
+
+
+#close-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 20%;
+}
+
+.boutons{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
+    border-radius: 10%;
+}
+
+
+
+
 

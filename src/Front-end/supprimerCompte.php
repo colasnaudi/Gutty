@@ -22,13 +22,13 @@
 
                 <button id="close-button">&times;</button>
                 <h2>Etes-vous sur de vouloir supprimer votre compte?</h2>
-                <h3>Entrez votre email ci dessous:</h3>
+                <h3>Entrez votre mot de passe ci-dessous pour supprimer votre compte</h3>
                 <input type="text" id="email" placeholder="Adresse email"></input>
                 <div class="boutons">
                     <!--Bouton pour envoyer le mail avec test si le script écris est bien un mail + redirection sur nouvelle page-->
                     <div id="message"></div>
-                    <button type="button" onclick="validerEmail()">Valider</button>
-                    <script src="verifMail.js"></script>
+                    <button type="button">Valider</button>
+
 
                     <button id="bouton-annuler">Annuler</button>
                 </div>

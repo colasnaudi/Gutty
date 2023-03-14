@@ -3,75 +3,6 @@
     margin: 0;
 }
 
-header{
-    background-color: #ffe4a1;
-    height: 30vh;
-    display:block;
-    width: 100%;
-    position: fix;
-}
-
-.partieHaute{
-    width: 100%;
-    height: 70%;
-    display: flex;
-    justify-content: space-between;
-}
-
-.logoEtTitre{
-    margin: 10px;
-    display: inline-block;
-    width: 20%;
-    height: 100%;
-}
-
-.logoEtTitre h1{
-    font-size: 50px;
-    color: black;
-    margin: 0;
-    padding-top: 31px;
-    float: right;
-}
-
-.logoEtTitre img{
-    margin:5px;
-    width: 110px;
-    height: 110px;
-    border-radius: 50%;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
-}
-
-
-
-
-
-
-
-.monCompte {
-    margin:40px 48% 0 0;
-    background: #FFB400;
-    border-radius: 50%;
-    width: 70px;
-    height: 70px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
-}
-
-.monCompte i{
-    color: black;
-    margin: 5px 0 0 5px;
-    font-size: 50px;
-    padding: 5px;
-}
-
-.partieBasse{
-    width: 100%;
-    height: 30%;
-    display: grid;
-    grid-template-columns:100%;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-
-}
 
 .bandeauCompte{
 
@@ -94,75 +25,66 @@ header{
     height: 100%;
     font-size: 300%;
 }
-
-
-
-.boutonRecettes button{
-    font-size: 150%;
-    border: none;
-    border-radius: 10px;
-    padding-bottom: 10px;
-    padding-top: 10px;
-    margin-top: 3%;
-    margin-left: 17%;
-    width: 20%;
-    background-color: green;
-}
-.boutonRecettes button:hover{
-    background: green;
+*{
+    padding: 0;
+    margin: 0;
 }
 
-.boutonModif button{
-    font-size: 150%;
-    border: none;
-    border-radius: 10px;
-    padding-bottom: 10px;
-    padding-top: 10px;
-    margin-top: 3%;
-    margin-left: 17%;
-    width: 20%;
-    background-color: lightgreen;
-}
-.boutonModif button:hover{
-    background: green;
+.listeRecette{
+    justify-content: center;
+    margin-top: 5px;
 }
 
-.boutonSupprimer button{
-
-    font-size: 150%;
-    border: none;
-    border-radius: 10px;
-    padding-bottom: 10px;
-    padding-top: 10px;
-    margin-top: 3%;
-    margin-left: 17%;
-    width: 20%;
-    background-color: lightcoral;
-}
-.boutonSupprimer button:hover{
-    background: red;
+.vignette{
+    width: 330px;
+    height: 170px;
+    margin: 10px 10px 10px 10px;
+    border-radius: 20px;
+    background-color: #D9D9D9;
+    box-shadow: 0 5px 5px 0 #888888;
 }
 
-
-
-.boutonDeconnexion button{
-    font-weight: normal;
-    font-family: "Comic Sans MS";
-    font-size: 220%;
-    border: none;
-    border-radius: 15px;
-    padding-bottom: 10px;
-    padding-top: 10px;
-    margin-top: 8%;
-    margin-left: 40%;
-    width: 20%;
-    background-color: firebrick;
-    color: white;
+.vignette img{
+    width: 75px;
+    height: 75px;
+    border-radius: 20px;
+    margin: 0 5px 0 5px;
 }
 
-/*
-button:hover{
-    background: #FFB400;
+.vignette h3{
+    margin: 0 0 0 5px;
+    font-size: 20px;
 }
 
-*/
+@media screen and (min-width: 990px) and (max-width: 1200px) {
+
+    .listeRecette{
+        padding-left: 20%;
+        display: inline-block;
+        align-self: center;
+    }
+}
+
+@media screen and (min-width: 650px) and (max-width: 729px) {
+    .listeRecette{
+        padding:0 0 0 25%;
+        margin-right: 25%;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .recette{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        align-self: center;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .listeRecette{
+        padding:0 0 0 25%;
+        margin-right: 25%;
+        margin-top: 10px;
+    }
+}

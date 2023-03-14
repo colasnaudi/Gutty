@@ -8,31 +8,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4255c67a-fe5d-44be-ad62-fe665e21a56b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Front-end/bootstrap-3.3.7-dist/css/bootstrap-theme.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Front-end/bootstrap-3.3.7-dist/css/bootstrap-theme.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Front-end/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Front-end/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Front-end/bootstrap-3.3.7-dist/css/bootstrap.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Front-end/bootstrap-3.3.7-dist/css/bootstrap.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Front-end/bootstrap-3.3.7-dist/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Front-end/bootstrap-3.3.7-dist/css/bootstrap.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Front-end/bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Front-end/bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Front-end/bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Front-end/bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Front-end/bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Front-end/bootstrap-3.3.7-dist/js/bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Front-end/bootstrap-3.3.7-dist/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Front-end/bootstrap-3.3.7-dist/js/npm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="8362e704-75bd-484e-b32a-e0577ab3c104" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Front-end/afficherUneRecette.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Front-end/afficherUneRecette.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Front-end/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Front-end/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Back-end/Classes/BaseDeDonnees.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Back-end/Classes/BaseDeDonnees.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Front-end/Accueil.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Front-end/Accueil.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Front-end/pageAccueil.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Front-end/pageAccueil.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Back-end/Classes/Frigo.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Back-end/Classes/Frigo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Back-end/CreationIngredient.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Back-end/CreationIngredient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Back-end/choixQuantiteRecherche.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Back-end/choixQuantiteRecherche.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Back-end/resultatRechercheIngredientEtQuantite.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Back-end/resultatRechercheIngredientEtQuantite.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Back-end/resultatRechercheIngredientSansQuantite.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Back-end/resultatRechercheIngredientSansQuantite.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Front-end/afficherUneRecette.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Front-end/afficherUneRecette.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Front-end/pageAccueil.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Front-end/pageAccueil.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Front-end/rechercheParIngredient.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Front-end/rechercheParIngredient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Front-end/resultatQuantiteRecette.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Front-end/resultatQuantiteRecette.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Front-end/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Front-end/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
