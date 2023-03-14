@@ -110,12 +110,20 @@ class BaseDeDonnees
         //On vérifie si le nom existe dans la base de données
         if ($this->checkNom($nom)) {
             //On vérifie si le mot de passe correspond au mot de passe de l'utilisateur dans la base de données
-            if ($this->checkMdp($nom, $mdp)) { return true; }
+            if ($this->checkMdp($nom, $mdp)) {
+                session_start();
+                $_SESSION['nom'] = $nom;
+                return true;
+            }
             //Si le mot de passe ne correspond pas au mot de passe de l'utilisateur dans la base de données
             else { return false; }
         }
         else if ($this->checkMail($nom)) {
-            if ($this->checkMdp($this->getNom($nom), $mdp)) { return true; }
+            if ($this->checkMdp($this->getNom($nom), $mdp)) {
+                session_start();
+                $_SESSION['nom'] = $this->getNom($nom);
+                return true;
+            }
             else { return false; }
         }
         //Si le nom n'existe pas dans la base de données
@@ -261,7 +269,6 @@ class BaseDeDonnees
         $sql="SET FOREIGN_KEY_CHECKS = 1;";
         $resultat = $this->connexion->prepare($sql);
         $resultat->execute();
-
     }
 
     private function existeUtilsateur(string $nom): bool {
@@ -401,6 +408,14 @@ class BaseDeDonnees
         }
     }
 
+    public function insererDansEtape(string $nomRecette, array $lesEtapes) {
+        $sql = "INSERT INTO Etape(idRecette, texte) VALUES(?, ?)";
+        $resultat = $this->connexion->prepare($sql);
+        for ($i = 0; $i < count($lesEtapes); $i++) {
+            $resultat->execute([$this->getIdRecette($nomRecette), $lesEtapes[$i]]);
+        }
+    }
+
     public function ajouterRecette(string $nom, string $etape, string $image, string $temps, int $nbPersonnes, array $nomIngredient, array $quantiteIngredient): void {
         $idUtilisateur = $this->getIdUtilisateur(/*$_SESSION['nom']*/'Angel');
         $this->insererUneRecette($nom, $etape, $image, $temps, $nbPersonnes, $idUtilisateur);
@@ -496,9 +511,10 @@ class BaseDeDonnees
         $resultat->execute([$numEtape, $idRecette, $texteEtape]);
     }
 
-    public function insererDebutRecette(string $titre, int $nbPersonnes, string $temps, string $typeCuisson, string $image): void {
-        $sql = "INSERT INTO Recette(nom, nbPersonnes, temps, typeCuisson, image) VALUES(?, ?, ?, ?, ?)";
+    public function insererDebutRecette(string $titre, int $nbPersonnes, string $temps, string $typeCuisson, string $image, string $nomUtilisateur): void {
+        $idUtilisateur = $this->getIdUtilisateur($nomUtilisateur);
+        $sql = "INSERT INTO Recette(nom, nbPersonnes, temps, typeCuisson, image, idUtilisateur) VALUES(?, ?, ?, ?, ?, ?)";
         $resultat = $this->connexion->prepare($sql);
-        $resultat->execute([$titre, $nbPersonnes, $temps, $typeCuisson, $image]);
+        $resultat->execute([$titre, $nbPersonnes, $temps, $typeCuisson, $image, $idUtilisateur]);
     }
 }

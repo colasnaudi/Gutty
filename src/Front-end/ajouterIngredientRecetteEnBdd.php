@@ -1,29 +1,30 @@
 <?php
+include '../Back-end/Classes/BaseDeDonnees.php';
+
+$bdd = new BaseDeDonnees();
+
+session_start();
+$titreRecette = $_SESSION['titre'];
+
 $nbIngredients = $_POST['nbIngredients'];
-$nbEtapes = $_POST['nbEtapes'];
+$nbEtapes = $_POST['nbEtapes'] +1;
 
-echo "Nb Ingredients : ".$nbIngredients;
-echo "<br>";
-echo "Nb Etapes : ".$nbEtapes;
-echo "<br>";
+$listeNomIngredients = array();
+$listeQuantiteIngredients = array();
+$listeEtapes = array();
 
-
-
-for ($i=1; $i < $nbIngredients; $i++) {
-    $quantite = $_POST['quantite'.$i];
-    $unite = $_POST['unite'.$i];
-    $ingredient = $_POST['ingredient'.$i];
-    echo "Quantité : ".$quantite;
-    echo "<br>";
-    echo "Unité : ".$unite;
-    echo "<br>";
-    echo "Ingrédient : ".$ingredient;
-    echo "<br>";
+for ($i = 1; $i < $nbIngredients; $i++) {
+    $postIngredientValue = 'ingredient'.$i;
+    $postQuantiteValue = 'quantite'.$i;
+    array_push($listeNomIngredients, $_POST[$postIngredientValue]);
+    array_push($listeQuantiteIngredients, $_POST[$postQuantiteValue]);
 }
-echo "<br>";
 
-for ($i=1; $i < $nbEtapes; $i++) {
-    $etape = $_POST['etape'.$i];
-    echo "Etape : ".$etape;
-    echo "<br>";
+for ($i = 1; $i < $nbEtapes; $i++) {
+    array_push($listeEtapes, $_POST['etape'.$i]);
 }
+
+$bdd->insererDansComposer($titreRecette, $listeNomIngredients, $listeQuantiteIngredients);
+$bdd->insererDansEtape($titreRecette, $listeEtapes);
+
+header('Location: ../Front-end/pageAccueil.php');
