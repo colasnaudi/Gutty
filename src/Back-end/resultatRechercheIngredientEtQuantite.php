@@ -10,15 +10,13 @@ $livreRecette = $_SESSION['livreRecette'];
 
 if(isset($_POST['quantite']) && !empty($_POST['quantite'])) {
     $ingredients = $_POST['ingredient'];
+    var_dump($ingredients);
     $quantite = $_POST['quantite'];
+    echo '<br>';
+    var_dump($quantite);
+    echo '<br>';
 
-    foreach($ingredients as $ingredient){
-        $ingredientFrigos[] = $livreIngredient->retrouverIngredient($ingredient);
-    }
-    foreach($quantite as $quantites){
-        $quantiteFrigos[] = $quantites;
-    }
-    $frigo = new Frigo($ingredientFrigos, $quantiteFrigos);
+    $frigo = new Frigo($ingredients, $quantite);
 
 }
 else
