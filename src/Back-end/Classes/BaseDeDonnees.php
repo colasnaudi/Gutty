@@ -370,7 +370,7 @@ class BaseDeDonnees
         return $valResultat;
     }
         
-    private function getIdRecette(string $nom): int {
+    public function getIdRecette(string $nom): int {
         $sql = "SELECT id FROM Recette WHERE nom = ?";
         $resultat = $this->connexion->prepare($sql);
         $resultat->execute([$nom]);
@@ -386,7 +386,7 @@ class BaseDeDonnees
         return $valResultat['id'];
     }
 
-    private function getIdUtilisateur(string $nom): int {
+    public function getIdUtilisateur(string $nom): int {
         $sql = "SELECT id FROM Utilisateur WHERE nom = ?";
         $resultat = $this->connexion->prepare($sql);
         $resultat->execute([$nom]);
@@ -551,5 +551,36 @@ class BaseDeDonnees
         $sql = "INSERT INTO Recette(nom, nbPersonnes, temps, typeCuisson, image, idUtilisateur) VALUES(?, ?, ?, ?, ?, ?)";
         $resultat = $this->connexion->prepare($sql);
         $resultat->execute([$titre, $nbPersonnes, $temps, $typeCuisson, $image, $idUtilisateur]);
+    }
+
+    /*---------------------------------------------COMMENTAIRE------------------------------------*/
+    public function ajouterCommentaire(int $idComm,string $commentaire,int $idUser,int $idRecette): void {
+        $sql = 'INSERT INTO Commentaire (id,texte,idUtilisateur,idRecette,idParent) VALUES (?,?,?,?,?)';
+        $resultat = $this->connexion->prepare($sql);
+        $resultat->execute([$idComm,$commentaire,$idUser,$idRecette,null]);
+    }
+
+    public function getCommentaires(int $idRecette): array {
+        $sql = "SELECT * FROM Commentaire WHERE idRecette = ? ORDER BY id DESC";
+        $resultat = $this->connexion->prepare($sql);
+        $resultat->execute([$idRecette]);
+        $valResultat = $resultat->fetchAll(PDO::FETCH_ASSOC);
+        return $valResultat;
+    }
+
+    public function getNomUtilisateur(int $idUtilisateur): string {
+        $sql = "SELECT nom FROM Utilisateur WHERE id = ?";
+        $resultat = $this->connexion->prepare($sql);
+        $resultat->execute([$idUtilisateur]);
+        $valResultat = $resultat->fetch(PDO::FETCH_ASSOC);
+        return $valResultat['nom'];
+    }
+
+    public function getTexteCommentaire(int $idRecette): string {
+        $sql = "SELECT texte FROM Commentaire WHERE idRecette = ?";
+        $resultat = $this->connexion->prepare($sql);
+        $resultat->execute([$idRecette]);
+        $valResultat = $resultat->fetch(PDO::FETCH_ASSOC);
+        return $valResultat['texte'];
     }
 }
