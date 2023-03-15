@@ -28,6 +28,8 @@ $quantiteFrigos = array();
 $livreIngredient = $_SESSION['livreIngredient'];
 $livreRecette = $_SESSION['livreRecette'];
 $livreEtape = $_SESSION['livreEtape'];
+$nom=$_SESSION['nom'];
+
 
 //boucle qui affiche les ingredients associés à la recette cliquée
 foreach ($livreRecette->getListeRecettes() as $recette) {
@@ -88,17 +90,49 @@ foreach ($livreRecette->getListeRecettes() as $recette) {
     echo "<p>Commentaires</p></div>";
     echo "<p> ________________________________________________________________________________________________________</p>";
 
-    echo "<h3>Donnez votre avis</h3>";
-    echo "<div class='partieCommentaires'>";
-    echo "<form action='Commentaires' method='post' id='comm'>";
-    echo "<div class='btns'>";
-    echo "<input type='text' placeholder= 'Ajouter un avis'/></div>";
-    echo "<div>";
-    echo "<button type='submit'>Envoyer</button>";
-    echo "</div>";
-    echo "</div>";
+    $bdd = new BaseDeDonnees();
+    $id = $bdd->getIdUtilisateur($nom);
+    $idRecette = $bdd->getIdRecette($_GET['recette']);
+    $idComm =0;
+    //passer un commentaire en base de données et l'afficher
+    if (isset($_POST['Submit_comm'])){
+        if (isset($_POST['texte']) && !empty($_POST['texte'])) {
+            $nom = htmlspecialchars($_SESSION['nom']);
+            $commentaire = htmlspecialchars($_POST['texte']);
+            $idUser=$bdd->getIdUtilisateur($nom);
+            $bdd->ajouterCommentaire($idComm, $commentaire, $idUser, $idRecette);
+        }
+        else {
+            $c_msg = "Veuillez entrer un commentaire";
+        }
+      }
+   $commentaires = $bdd->getCommentaires($idRecette);
+    ?>
+    <h3>Donnez votre avis</h3>
+    <div class='partieCommentaires'>
+    <form method='post' id='comm'>
+    <textarea name="texte" type='text' placeholder= 'Ajouter un avis'></textarea>
+    <button><input type='submit' name='Submit_comm' value='Envoyer'></button>
+    </form>
 
-
-session_destroy();
-?>
+        <?php
+    if (isset($c_msg)) {
+        echo $c_msg;
+    }
+    ?>
+    </div>
+    <div class="commentaires">
+        <?php
+        //affichage des commentaires
+        foreach ($commentaires as $commentaire) {
+            $nomUtilisateur = $bdd->getNomUtilisateur($commentaire['idUtilisateur']);
+            echo "<div class='commentaire'>";
+            echo "<p class='nomUtilisateur'>" . $nomUtilisateur . "</p>";
+            echo "<div class='commentaireTexte'>";
+            echo "<p>" . $commentaire['texte'] . "</p>";
+            echo "</div>";
+            echo "</div>";
+        }
+        ?>
+    </div>
 </main>
