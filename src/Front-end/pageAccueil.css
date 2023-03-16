@@ -6,6 +6,11 @@
 .listeRecette{
     justify-content: center;
     margin-top: 5px;
+    margin-left: 100px;
+}
+
+.recette{
+margin-left: 80px;
 }
 
 .vignette{
@@ -18,10 +23,11 @@
 }
 
 .vignette img{
-    width: 75px;
-    height: 75px;
+    justify-content: center;
+    width: 205px;
+    height: 135px;
     border-radius: 20px;
-    margin: 0 5px 0 5px;
+    margin: 5px 15px 0 15px;
 }
 
 .vignette h3{

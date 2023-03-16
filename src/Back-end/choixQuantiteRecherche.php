@@ -21,8 +21,10 @@ include_once '../Front-end/header.html';
         include 'Classes/Ingredient.php';
         include 'Classes/LivreIngredient.php';
         include 'Classes/Frigo.php';
+        include 'Classes/BaseDeDonnees.php';
 
         session_start();
+        $bddGutty = new BaseDeDonnees();
         $livreIngredient = $_SESSION['livreIngredient'];
 
 
@@ -34,7 +36,7 @@ include_once '../Front-end/header.html';
                 foreach($ingredients as $ingredient) {
                     echo "<div class='col-lg-3 recherche_ing'>";
                     echo '<label for="quantite" id="ing">'.$ingredient. '</label> <br>';
-                    echo "<input type='number' class='quantiteIng' name='quantite[]' min='0' step='0.01' required value='0'>";
+                    echo "<input type='number' class='quantiteIng' name='quantite[]' min='0' step='0.01' required value='0'> ".$bddGutty->getUniteIngredientParNom($ingredient)."<br>";
                     echo "<input type='hidden' name='ingredient[]' value='$ingredient'>";
                     echo '<br>';
                     echo "</div>";

@@ -76,7 +76,8 @@ foreach ($livreRecette->getListeRecettes() as $recette) {
         echo "</div>";
 
         echo "<div class='affichageImage'>";
-        echo "<img src= " . $recette->getImageRecette() . " alt='Image de la recette".$recette->getNomRecette()."'>";
+        $lienImage = "Images/" . $recette->getImageRecette();
+        echo "<img src= " . $lienImage . " alt='Image de la recette".$recette->getNomRecette()."'>";
         echo "<h4>Temps de préparation: " . $recette->getTemps() . " | Type de cuisson: " . $recette->getTypeCuisson() . " | Nombre de personnes: " . $recette->getNbPersonne() . "</h4>";
         echo "<div class='TitreIngredient'>";
         echo "<p>Ingrédients</p></div>";

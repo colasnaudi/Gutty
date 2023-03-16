@@ -18,10 +18,10 @@
 }
 
 .vignette img{
-    width: 75px;
-    height: 75px;
+    width: 205px;
+    height: 125px;
     border-radius: 20px;
-    margin: 0 5px 0 5px;
+    margin: 10px 5px 0 10px;
 }
 
 .vignette h3{
