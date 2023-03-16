@@ -35,9 +35,9 @@ include_once 'header.html';
         ?>
         <a href="../Front-end/afficherUneRecette.php?recette=<?php echo $recette->getNomRecette();?>" alt="Lien vers la page de la recette <?php echo $recette->getNomRecette(); ?>" class="col-lg-3 col-sm-12 col-xs-12 vignette">
             <?php
-            //echo '<img src="'.$recette['image'].'" alt="Image de la recette" >';
             echo '<div class="col-lg-12">';
-            echo '<img src="'.$recette->getImageRecette().'" alt="Image de la recette'.$recette->getNomRecette().'" >';
+            $lienImage = "Images/" . $recette->getImageRecette();
+            echo '<img src="'.$lienImage.'" alt="Image de la recette" >';
             echo '<h3>'.$recette->getNomRecette().'</h3>';
             echo '</div>';
             echo '</a>';

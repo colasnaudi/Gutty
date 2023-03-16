@@ -49,13 +49,16 @@ $recetteTriee = $frigo->trierSuggestionSansQuantite($recettePossible);
     include_once "../Front-end/header.html";
 ?>
 <div class="container recipes-container">
-    <h2>Liste de recettes <?php echo "(".sizeof($recetteTriee)." recettes)"  ?></h2>
+    <h2>Recettes suggérées <?php echo "(".sizeof($recetteTriee)." recettes)"  ?></h2>
     <div class="row">
         <ul>
             <?php for($i=0; $i<sizeof($recetteTriee); $i++){ ?>
             <a href="../Front-end/afficherUneRecette.php?recette=<?php echo $recetteTriee[$i]->getNomRecette(); ?>" class="col-lg-4" alt="Lien vers la page de la recette <?php echo $recetteTriee[$i]->getNomRecette(); ?>">
                 <li class="recipe">
-                        <img src="../Front-end/raclette.png" id="menu" alt="Image de la recette <?php echo $recetteTriee[$i]->getNomRecette(); ?>">
+                    <?php
+                    $lienImage = "../Front-end/Images/" . $recetteTriee[$i]->getImageRecette();
+                    echo '<img src="'.$lienImage.'" alt="Image de la recette" id="menu" >';
+                    ?>
                         <br>
                         <div class="info">
                             <div class="name">
@@ -68,7 +71,7 @@ $recetteTriee = $frigo->trierSuggestionSansQuantite($recettePossible);
                         echo "<br>";
                         echo "Ingrédients utilisés : " . $recetteTriee[$i]->getNbIngredientCommun() . "/" . count($frigo->getIngredients())?>
                         </div>
-                    <img src="../Front-end/logo.png" id="user" alt="Image de profil du proprietaire de la recette">
+                    <img src="../Front-end/Images/logo.png" id="user" alt="Image de profil du proprietaire de la recette">
                 </li>
             </a>
             <?php } ?>

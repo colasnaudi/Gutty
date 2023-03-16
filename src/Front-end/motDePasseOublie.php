@@ -13,7 +13,7 @@
 
 <main>
     <div class="logoGutty">
-        <img src="logo.png"
+        <img src="Images/logo.png"
     </div>
     <div class=""formulaire>
         <form action="../Back-end/mailMdpOublier.php" class="connexionUtilisateur" method="post">

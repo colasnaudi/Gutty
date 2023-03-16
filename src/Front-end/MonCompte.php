@@ -27,13 +27,6 @@ $bdd = new BaseDeDonnees();
 
     <div class="account-info">
         <h1>Mon compte</h1>
-
-        <div class="profile-pic">
-            <img id="aperçu-photo" src="#" alt="Aperçu photo de profil">
-            <label for="photo-profil" class="change-pic-btn">Changer la photo de profil</label>
-            <input type="file" id="photo-profil" name="photo-profil" accept="image/*">
-            <script src="modifCompte.js"></script>
-        </div>
         <div class="user-info">
             <label for="username">Pseudo:</label>
             <input type="text" id="username" placeholder=<?php echo $nom ?> disabled>

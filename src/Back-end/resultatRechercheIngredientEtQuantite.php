@@ -55,13 +55,16 @@ $recetteTriee = $frigo->trierSuggestionAvecQuantite($recettePossible);
     ?>
 <main>
         <div class="container recipes-container">
-            <h2>Liste de recettes <?php echo "(".sizeof($recetteTriee)." recettes)" ?></h2>
+            <h2>Recettes suggérées <?php echo "(".sizeof($recetteTriee)." recettes)" ?></h2>
             <div class="row">
             <ul>
                 <?php for($i=0; $i<sizeof($recetteTriee); $i++){ ?>
                 <a href="../Front-end/afficherUneRecette.php?recette=<?php echo $recetteTriee[$i]->getNomRecette(); ?>" class="col-lg-4">
                     <li class="recipe">
-                        <img src="../Front-end/raclette.png" id="menu">
+                        <?php
+                            $lienImage = "../Front-end/Images/" . $recetteTriee[$i]->getImageRecette();
+                            echo '<img src="'.$lienImage.'" alt="Image de la recette" id="menu" >';
+                        ?>
                         <br>
                         <div class="info">
                             <div class="name">
@@ -76,7 +79,7 @@ $recetteTriee = $frigo->trierSuggestionAvecQuantite($recettePossible);
                             echo "<br>";
                             echo "  Pourcentage utilisé =  " . $recetteTriee[$i]->getPourcentageFrigo() . "%"?>
                         </div>
-                        <img src="../Front-end/logo.png" id="user">
+                        <img src="../Front-end/Images/logo.png" id="user">
                     </li>
                 </a>
                 <?php } ?>

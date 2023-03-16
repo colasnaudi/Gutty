@@ -14,7 +14,7 @@
     <div class="partieHaute">
         <div class="logoEtTitre">
             <a href="pageAccueil.php">
-                <img src="logo.png" alt="Logo temporaire">
+                <img src="Images/logo.png" alt="Logo temporaire">
                 <h1>Gutty</h1>
             </a>
         </div>

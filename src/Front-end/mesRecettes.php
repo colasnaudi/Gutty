@@ -29,15 +29,19 @@ $bdd = new BaseDeDonnees();
         $bddGutty = new BaseDeDonnees();
         $resultatRecettes = $bddGutty->affichageMesRecettes($nom);
         echo '<div class="recette">';
-        foreach($resultatRecettes as $recette) {
-            echo '<div class="col-lg-3 col-sm-12 col-xs-12 vignette">';
-            $recette = new Recette($recette['nom'],'etape','image','temps',0,0,0, "",[],[]);
+    foreach($resultatRecettes as $resultat) {
+        $recette = new Recette($resultat['nom'],[],$resultat['image'],$resultat['temps'],$resultat['etat'],$resultat['nbPersonnes'],$resultat['idUtilisateur'],$resultat['typeCuisson'],[],[]);
+        ?>
+        <a href="../Front-end/afficherUneRecette.php?recette=<?php echo $recette->getNomRecette();?>" alt="Lien vers la page de la recette <?php echo $recette->getNomRecette(); ?>" class="col-lg-3 col-sm-12 col-xs-12 vignette">
+            <?php
             echo '<div class="col-lg-12">';
+            $lienImage = "Images/" . $recette->getImageRecette();
+            echo '<img src="'.$lienImage.'" alt="Image de la recette'.$recette->getNomRecette().'" >';
             echo '<h3>'.$recette->getNomRecette().'</h3>';
             echo '</div>';
-            echo '</div>';
-        }
-        ?>
+            echo '</a>';
+            }
+            ?>
 
 </main>
 

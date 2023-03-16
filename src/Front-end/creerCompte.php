@@ -13,7 +13,7 @@
 <main>
 
     <div class="logoGutty">
-        <img src="../Front-end/logo.png"
+        <img src="Images/logo.png"
     </div>
     <div class=""formulaire>
         <form method="post" action="../Back-end/verifInscription.php" class="connexionUtilisateur">
