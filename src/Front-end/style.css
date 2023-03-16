@@ -4,23 +4,27 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-main button{
-    width: 100%;
-    height: 100%;
-    border: none;
-    background: none;
-    outline: none;
-    color: black;
-    font-size: 30px;
-    cursor: pointer;
-}
-
 main .nomRecette{
     font-size: 30px;
     text-decoration: none;
     text-align: center;
     margin-bottom: 10px;
     margin-top: 20px;
+}
+
+.ajouterFav {
+    font-size: 15px;
+    color: black;
+    text-align: center;
+    margin-top: -10px;
+}
+
+.ajouterFav button {
+    box-shadow: 0 5px 5px 0 #888888;
+    border-radius: 20px;
+    background-color: #D9D9D9;
+    padding-right: 10px;
+    padding-left: 10px;
 }
 
 main .star-rating {
@@ -106,7 +110,7 @@ main .btns input{
     border-width: 0px;
 }
 
-main form button {
+.ajouterComm button {
     margin-left: 80%;
     width: 200px;
     height: 48px;

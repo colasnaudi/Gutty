@@ -30,6 +30,28 @@ $livreRecette = $_SESSION['livreRecette'];
 $livreEtape = $_SESSION['livreEtape'];
 $nom=$_SESSION['nom'];
 
+$bdd = new BaseDeDonnees();
+$id = $bdd->getIdUtilisateur($nom);
+$idRecette = $bdd->getIdRecette($_GET['recette']);
+
+//Ajouter une recette aux favoris
+if (isset($_POST['ajouterFavorites'])) {
+    $bdd->ajouterAuFavorites($idRecette, $id);
+}
+
+//passer un commentaire en base de données et l'afficher
+if (isset($_POST['Submit_comm'])){
+    if (isset($_POST['texte']) && !empty($_POST['texte'])) {
+        $nom = htmlspecialchars($_SESSION['nom']);
+        $commentaire = htmlspecialchars($_POST['texte']);
+        $idUser=$bdd->getIdUtilisateur($nom);
+        $bdd->ajouterCommentaire($commentaire, $idUser, $idRecette);
+    }
+    else {
+        $c_msg = "Veuillez entrer un commentaire";
+    }
+}
+$commentaires = $bdd->getCommentaires($idRecette);
 
 //boucle qui affiche les ingredients associés à la recette cliquée
 foreach ($livreRecette->getListeRecettes() as $recette) {
@@ -39,6 +61,10 @@ foreach ($livreRecette->getListeRecettes() as $recette) {
 
     if (isset($_GET['recette']) && $_GET['recette'] == $recette->getNomRecette()) {
         echo "<div class='nomRecette'><h2>Recette : " . $recette->getNomRecette() . "</h2></div>";
+        $form = "<form class='ajouterFav' method='post'>";
+        $form .= "<button><input type='submit' name='ajouterFavorites' value='Ajouter à vos recettes favorites'></button>";
+        $form .= "</form>";
+        echo $form;
         echo "<div class='star-rating'>";
         echo "<span class='fa fa-star '></span>";
         echo "<span class='fa fa-star '></span>";
@@ -51,7 +77,7 @@ foreach ($livreRecette->getListeRecettes() as $recette) {
 
         echo "<div class='affichageImage'>";
         echo "<img src= " . $recette->getImageRecette() . " alt='Image de la recette".$recette->getNomRecette()."'>";
-        echo "<h4>Temps de préparation: " . $recette->getTemps() . " | Temps de cuisson: " . $recette->getTypeCuisson() . " | Nombre de personnes: " . $recette->getNbPersonne() . "</h4>";
+        echo "<h4>Temps de préparation: " . $recette->getTemps() . " | Type de cuisson: " . $recette->getTypeCuisson() . " | Nombre de personnes: " . $recette->getNbPersonne() . "</h4>";
         echo "<div class='TitreIngredient'>";
         echo "<p>Ingrédients</p></div>";
         echo "<p> ________________________________________________________________________________________________________</p>";
@@ -90,29 +116,12 @@ foreach ($livreRecette->getListeRecettes() as $recette) {
     echo "<p>Commentaires</p></div>";
     echo "<p> ________________________________________________________________________________________________________</p>";
 
-    $bdd = new BaseDeDonnees();
-    $id = $bdd->getIdUtilisateur($nom);
-    $idRecette = $bdd->getIdRecette($_GET['recette']);
-    $idComm =0;
-    //passer un commentaire en base de données et l'afficher
-    if (isset($_POST['Submit_comm'])){
-        if (isset($_POST['texte']) && !empty($_POST['texte'])) {
-            $nom = htmlspecialchars($_SESSION['nom']);
-            $commentaire = htmlspecialchars($_POST['texte']);
-            $idUser=$bdd->getIdUtilisateur($nom);
-            $bdd->ajouterCommentaire($idComm, $commentaire, $idUser, $idRecette);
-        }
-        else {
-            $c_msg = "Veuillez entrer un commentaire";
-        }
-      }
-   $commentaires = $bdd->getCommentaires($idRecette);
     ?>
     <h3>Donnez votre avis</h3>
     <div class='partieCommentaires'>
-    <form method='post' id='comm'>
-    <textarea name="texte" type='text' placeholder= 'Ajouter un avis'></textarea>
-    <button><input type='submit' name='Submit_comm' value='Envoyer'></button>
+    <form class='ajouterComm' method='post' id='comm'>
+        <textarea name="texte" type='text' placeholder= 'Ajouter un avis'></textarea>
+        <button><input type='submit' name='Submit_comm' value='Envoyer'></button>
     </form>
 
         <?php
