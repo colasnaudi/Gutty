@@ -378,11 +378,11 @@ class BaseDeDonnees
     public function rechercherParNom(string $nom): array
     {
         $listeResultat = array();
-        $sql = "SELECT nom FROM Recette WHERE nom LIKE CONCAT('%', ?, '%')";
+        $sql = "SELECT * FROM Recette WHERE nom LIKE CONCAT('%', ?, '%')";
         $resultat = $this->connexion->prepare($sql);
         $resultat->execute([$nom]);
         while ($valResultat = $resultat->fetch(PDO::FETCH_ASSOC)) {
-            $listeResultat[] = $valResultat['nom'];
+            $listeResultat[] = $valResultat;
         }
         if (count($listeResultat) == 0) {
             return array('Aucun résultat');

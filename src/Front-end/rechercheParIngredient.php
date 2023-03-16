@@ -28,6 +28,7 @@ include_once 'header.html';
                 include_once '../Back-end/Classes/Recette.php';
 
                 $livreIngredient = $_SESSION['livreIngredient'];
+                //var_dump($livreIngredient);
                 $livreRecette = $_SESSION['livreRecette'];
                 $livreEtape = $_SESSION['livreEtape'];
                 foreach($livreIngredient->getListeIngredients() as $ingredient) {
