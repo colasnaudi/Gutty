@@ -1,5 +1,7 @@
 <?php
 include_once '../Back-end/CreationIngredient.php';
+include_once '../Back-end/Classes/BaseDeDonnees.php';
+$bdd = new BaseDeDonnees();
 $livreIngredient = $_SESSION['livreIngredient'];
 $livreRecette = $_SESSION['livreRecette'];
 $livreEtape = $_SESSION['livreEtape'];
@@ -9,7 +11,8 @@ $ingredientFrigos = array();
 if(isset($_REQUEST['Ingredient']) && !empty($_REQUEST['Ingredient'])) {
     if(is_array($_REQUEST['Ingredient'])) {
         $ingredients = $_REQUEST['Ingredient'];
-        $frigo = new Frigo($ingredients, null);
+        $listeIngredient = $bdd->getIngredientsParNom($ingredients);
+        $frigo = new Frigo($listeIngredient, null);
     }
 }
 else
@@ -17,7 +20,6 @@ else
     echo "aucun ingrédient récupéré";
     exit();
 }
-
 
 //Test generer suggestion
 //Generation des recettes possibles
