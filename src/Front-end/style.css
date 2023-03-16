@@ -55,13 +55,13 @@ main .note{
 main img{
     width: 475px;
     height: 250px;
-    object-fit: cover;
+    border-radius: 20px;
 }
 
 main .affichageImage{
     padding-top: 30px;
-    text-align: center  ;
-    padding-bottom: 50px    ;
+    text-align: center;
+    padding-bottom: 50px;
 }
 
 main h4 {
