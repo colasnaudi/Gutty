@@ -14,7 +14,7 @@ include_once "../Front-end/header.html";
 ?>
 <main>
     <div class="formulaire">
-            <form method="post" action="ajouterUneRecetteEnBdd.php" class="formRecette">
+            <form method="post" action="ajouterUneRecetteEnBdd.php" class="formRecette" enctype="multipart/form-data">
                 <div class="recette">
                     <div class="titre">
                         <label for="titre">Titre</label>
@@ -50,7 +50,7 @@ include_once "../Front-end/header.html";
                         <label for="image">Image</label>
                         <br>
                         <img id="imageRecette" src="#" alt="Aperçu de l'image de la recette">
-                        <input type="file" id="inputImageRecette" name="inputImageRecette" accept="image/*" required>
+                        <input type="file" id="inputImageRecette" name="image" accept="image/*" required>
                         <br>
                     </div>
                     <div class="ajouterIngredient">
