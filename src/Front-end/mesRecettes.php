@@ -23,6 +23,7 @@ $bdd = new BaseDeDonnees();
     <div class="bandeauCompte">
         <button onclick="window.location.href='MonCompte.php'">Mes recettes</button>
     </div>
+    <div class="container listeRecette">
     <?php
         //afficher les recettes liées à l'utilisateur connecté
 

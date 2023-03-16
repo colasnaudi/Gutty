@@ -3,6 +3,10 @@
     margin: 0;
 }
 
+.recette{
+    margin-left: 80px;
+}
+
 .listeRecette{
     justify-content: center;
     margin-top: 5px;
@@ -36,6 +40,11 @@ main a{
     text-decoration: none;
     color: #000;
     margin: 10px;
+}
+
+main a:hover {
+    transform: scale(1.02);
+    transition: all 0.2s ease-in-out;
 }
 
 main a:hover h3{

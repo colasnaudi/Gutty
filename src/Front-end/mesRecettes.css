@@ -30,6 +30,10 @@
     margin: 0;
 }
 
+.recette{
+    margin-left: 80px;
+}
+
 .listeRecette{
     justify-content: center;
     margin-top: 5px;
@@ -38,22 +42,38 @@
 .vignette{
     width: 330px;
     height: 170px;
-    margin: 10px 10px 10px 10px;
+    margin: 35px 35px 35px 20px;
     border-radius: 20px;
     background-color: #D9D9D9;
     box-shadow: 0 5px 5px 0 #888888;
 }
 
 .vignette img{
-    width: 75px;
-    height: 75px;
+    justify-content: center;
+    width: 205px;
+    height: 135px;
     border-radius: 20px;
-    margin: 0 5px 0 5px;
+    margin: 5px 15px 0 8px;
 }
 
 .vignette h3{
     margin: 0 0 0 5px;
     font-size: 20px;
+}
+
+main a{
+    text-decoration: none;
+    color: black;
+}
+
+main a:hover {
+    transform: scale(1.02);
+    transition: all 0.2s ease-in-out;
+}
+
+main a:hover h3{
+    text-decoration: underline;
+    color: black;
 }
 
 @media screen and (min-width: 990px) and (max-width: 1200px) {
