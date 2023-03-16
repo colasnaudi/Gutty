@@ -54,10 +54,9 @@ h2 {
 }
 
 .recipe #menu{
-    height: 245px;
-    width: 125px;
+    height: 125px;
+    width: 245px;
     margin-top: -45px;
-    rotate: 270deg;
     border-radius: 5px;
 }
 
