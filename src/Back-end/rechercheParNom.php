@@ -24,6 +24,7 @@ $resultatRecherche = $bdd->rechercherParNom($recherche);
 ?>
 <div class="container listeRecette">
     <h2>Recettes rouvées <?php echo "(".sizeof($resultatRecherche)." recettes)" ?></h2>
+    <div class="recette">
     <?php
     foreach ($resultatRecherche as $resultat) {
         $recette = new Recette($resultat['nom'],[],$resultat['image'],$resultat['temps'],$resultat['etat'],$resultat['nbPersonnes'],$resultat['idUtilisateur'],$resultat['typeCuisson'],[],[]);
