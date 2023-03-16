@@ -525,6 +525,15 @@ class BaseDeDonnees
         return $valResultat;
     }
 
+    public function getUniteIngredientParNom($nom): string
+    {
+        $sql = "SELECT unite FROM Ingredient WHERE nom = ?";
+        $resultat = $this->connexion->prepare($sql);
+        $resultat->execute([$nom]);
+        $valResultat = $resultat->fetch(PDO::FETCH_ASSOC);
+        return $valResultat['unite'];
+    }
+
 
     public function getNomIngredientsParId(array $idIngredients): array
     {
