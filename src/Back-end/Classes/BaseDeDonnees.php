@@ -560,7 +560,9 @@ class BaseDeDonnees
     // SELECT Quantite FROM Composer WHERE idRecette = (SELECT id FROM Recette WHERE nom = ?);
     public function getQuantiteIngredientsParRecette(string $nomRecette): array
     {
-        $sql = "SELECT quantiteIngredient FROM Composer WHERE idRecette = (SELECT id FROM Recette WHERE nom = ?)";
+        $sql = "SELECT c.quantiteIngredient FROM Composer c
+    JOIN Recette r ON r.id = c.idRecette
+    WHERE r.nom = ?";
         $resultat = $this->connexion->prepare($sql);
         $resultat->execute([$nomRecette]);
         $valResultat = $resultat->fetchAll(PDO::FETCH_ASSOC);
@@ -570,24 +572,30 @@ class BaseDeDonnees
         return $quantiteIngredients;
     }
 
+
     public function getIngredientsParRecette(string $nomRecette): array
     {
-        $sql = "SELECT idIngredient FROM Composer WHERE idRecette = (SELECT id FROM Recette WHERE nom = ?)";
+        $sql = "SELECT i.* FROM Ingredient i
+    JOIN Composer c ON i.id = c.idIngredient
+    JOIN Recette r ON r.id = c.idRecette
+    WHERE r.nom = ?";
         $resultat = $this->connexion->prepare($sql);
         $resultat->execute([$nomRecette]);
 
         $valResultat = $resultat->fetchAll(PDO::FETCH_ASSOC);
 
-        $idIngredients = array_map(function ($idIngredient) {
-            return $idIngredient['idIngredient'];
+        $listeIngredients = array_map(function ($ingredient) {
+            return $this->creerIngredientDepuisTableau($ingredient);
         }, $valResultat);
 
-        $listeIngredients = array();
-        foreach ($idIngredients as $id) {
-            $listeIngredients[] = $this->creerIngredientDepuisId($id);
-        }
         return $listeIngredients;
     }
+
+    public function creerIngredientDepuisTableau(array $ingredient): Ingredient
+    {
+        return new Ingredient($ingredient['id'], $ingredient['nom'], $ingredient['image'], $ingredient['prix'], $ingredient['unite']);
+    }
+
 
     private function creerIngredientDepuisId(int $id): Ingredient
     {
